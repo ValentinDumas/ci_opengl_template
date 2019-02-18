@@ -147,32 +147,6 @@ matrix:
       - make check
 
   #
-  # Coverity Scan
-  #
-#  - os: linux
-#    env:
-#      - TEST="Coverity Scan"
-#
-#    before_install:
-#      - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
-#
-#    addons:
-#      apt:
-#        sources:
-#          - ubuntu-toolchain-r-test
-#        packages:
-#          - gcc-6
-#          - g++-6
-#      coverity_scan:
-#        project:
-#          name: "ValentinDumas/ci_opengl_template"
-#          description: "A simple example of how to setup a complete CI environment for C and C++"
-#        notification_email: sp4rk76@gmail.com
-#        build_command_prepend: "cmake -DCMAKE_CXX_COMPILER=g++-6 .."
-#        build_command: "make"
-#        branch_pattern: master
-
-  #
   # Codecov
   #
   - os: linux
@@ -214,14 +188,7 @@ matrix:
       - |
         coveralls --build-root build --gcov-options '\-lp' \
           -e deps/external \
-          -e deps/externals/googletest/googletest/include/gtest \
-          -e build/deps \
-          -e build/deps/external \
-          -e build/external \
-          -e build/include \
-          -e build/CMakeFiles/3.8.0 \
-          -e build/CMakeFiles/feature_tests.c \
-          -e build/CMakeFiles/feature_tests.cxx
+          -e deps/externals/googletest/googletest/include/gtest
 
   #
   # Google Address Sanitizer
