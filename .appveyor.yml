@@ -1,16 +1,6 @@
 os: Visual Studio 2017
 platform: x64
 
-#
-# Custom environment variables
-#
-environment:
-  global:
-    CYG_ROOT: C:\cygwin_ci_opengl_template
-    CYG_BASH: C:\cygwin_ci_opengl_template\bin\bash
-    CYG_MIRROR: http://mirrors.kernel.org/sourceware/cygwin/
-    CYG_PACKAGES: git,make,gcc-core,gcc-g++,cmake
-
 test: off
 
 #

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.6)
-project(ci_template C CXX)
+project(ci_opengl_template C CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
