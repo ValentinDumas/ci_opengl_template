@@ -5,27 +5,17 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # ------------------------------------------------------------------------------
-# Includes
+# Dependencies
 # ------------------------------------------------------------------------------
-include_directories(deps) # Incude all dependencies & external libraries
-include_directories(${PROJECT_SOURCE_DIR}/include) # current project includes
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR}) # Gtest includes
-
-# --------------
-# Call Others CMakeLists
-# --------------
+include_directories(deps) # include deps' folder. Note that you could include ${some_dep_include_dirs} from deps folder in order to be more precise at folder inclusion.
 add_subdirectory(deps)
-#add_subdirectory(include)
-add_subdirectory(src)
 
 # ------------------------------------------------------------------------------
-# Custom Libraries
+# Sources
 # ------------------------------------------------------------------------------
-# Note: "glob recurse" to get all .h .c .cpp files in target folders ?
-add_library(project_src_lib STATIC include/hello.h src/hello.cpp)
+add_subdirectory(src)
 
 # ------------------------------------------------------------------------------
 # Tests
 # ------------------------------------------------------------------------------
-include(CTest) # enable_tests()
 add_subdirectory(test)

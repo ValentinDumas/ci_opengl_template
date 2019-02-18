@@ -1,6 +1,7 @@
 # CI C++/OpenGL Template
 
 Continuous Integration template project in C++ with CMake.
+This project includes the most needed OpenGL libraries to start a project.
 
 [![GitHub version](https://badge.fury.io/gh/valentindumas%2Fci_opengl_template.svg)](https://badge.fury.io/gh/valentindumas%2Fci_opengl_template)
 [![Build Status](https://travis-ci.org/ValentinDumas/ci_opengl_template.svg?branch=master)](https://travis-ci.org/ValentinDumas/ci_opengl_template)
