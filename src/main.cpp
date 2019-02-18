@@ -5,7 +5,7 @@
 #include <GLFW/glfw3.h>
 
 /// Main program function
-int main(int argc, char *argv)
+int main(int argc, char **argv)
 {
     int width, height;
     GLFWwindow* window;
