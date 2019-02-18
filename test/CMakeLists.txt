@@ -3,14 +3,6 @@
 # ------------------------------------------------------------------------------
 set(PROJECT_TEST_FILES test_hello.cpp)
 
-# ------------------------------------------------------------------------------
-# OS Specific Options
-# ------------------------------------------------------------------------------
-if (APPLE)
-    add_definitions(-DGTEST_USE_OWN_TR1_TUPLE)
-    add_definitions(-D__GLIBCXX__)
-endif (APPLE)
-
 #option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
 #option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
 
@@ -24,7 +16,6 @@ else()
 
     # Standard linking to gtest stuff.
     #set(THREADS_PREFER_PTHREAD_FLAG ON)
-    find_package(Threads)
     target_link_libraries(tests PRIVATE project_src_lib gtest gtest_main ${CMAKE_THREAD_LIBS_INIT})
 
     # This is so you can do 'make test' to see all your tests run, instead of

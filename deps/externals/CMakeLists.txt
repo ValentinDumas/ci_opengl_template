@@ -3,6 +3,31 @@ include(ExternalProject)
 find_package(Git REQUIRED)
 
 add_subdirectory(googletest)
+add_subdirectory(glad)
+
+# ------------------------------------------------------------------------------
+# GLFW 3.2.1
+# ------------------------------------------------------------------------------
+# option(GLFW_INSTALL OFF)
+option(GLFW_BUILD_DOCS OFF)
+option(GLFW_BUILD_EXAMPLES OFF)
+option(GLFW_BUILD_TESTS OFF)
+option(ENABLE_BOOST_WORKAROUND OFF)
+add_subdirectory(glfw_3.2.1)
+
+# Assimp build options
+#option(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
+#option(ASSIMP_BUILD_SAMPLES OFF)
+#option(ASSIMP_BUILD_TESTS OFF)
+#add_subdirectory(deps/assimp)
+
+# Bullet build options
+#option(BUILD_BULLET2_DEMOS OFF)
+option(BUILD_CPU_DEMOS OFF)
+option(BUILD_EXTRAS OFF)
+option(BUILD_OPENGL3_DEMOS OFF)
+option(BUILD_UNIT_TESTS OFF)
+#add_subdirectory(deps/bullet)
 
 ## ------------------------------------------------------------------------------
 ## Astyle
