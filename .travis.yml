@@ -179,6 +179,8 @@ matrix:
         packages:
           - gcc-6
           - g++-6
+          - xorg-dev
+          - libglu1-mesa-dev
     script:
       - pip install --upgrade --user git+git://github.com/eddyxu/cpp-coveralls.git
       - cmake -DENABLE_COVERAGE=ON -DCMAKE_CXX_COMPILER="g++-6" ..
