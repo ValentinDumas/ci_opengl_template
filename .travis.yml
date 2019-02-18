@@ -188,7 +188,14 @@ matrix:
       - |
         coveralls --build-root build --gcov-options '\-lp' \
           -e deps/external \
-          -e deps/externals/googletest/googletest/include/gtest
+          -e deps/externals/googletest/googletest/include/gtest \
+          -e build/deps \
+          -e build/deps/external \
+          -e build/external \
+          -e build/include \
+          -e build/CMakeFiles/3.8.0 \
+          -e build/CMakeFiles/feature_tests.c \
+          -e build/CMakeFiles/feature_tests.cxx
 
   #
   # Google Address Sanitizer
