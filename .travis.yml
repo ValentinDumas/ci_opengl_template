@@ -8,6 +8,7 @@ dist: trusty
 # Build Dependencies
 #
 before_script:
+  - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
 
   #
   # Build Folder
@@ -141,8 +142,6 @@ matrix:
         packages:
           - gcc-6
           - g++-6
-    before_script:
-      - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
     script:
       - cmake -DENABLE_CPPCHECK=ON -DCMAKE_CXX_COMPILER="g++-6" ..
       - make
@@ -161,8 +160,6 @@ matrix:
         packages:
           - gcc-6
           - g++-6
-    before_script:
-      - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
     script:
       - cmake -DENABLE_COVERAGE=ON -DCMAKE_CXX_COMPILER="g++-6" ..
       - make
@@ -183,8 +180,6 @@ matrix:
         packages:
           - gcc-6
           - g++-6
-    before_script:
-      - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
     script:
       - pip install --upgrade --user git+git://github.com/eddyxu/cpp-coveralls.git
       - cmake -DENABLE_COVERAGE=ON -DCMAKE_CXX_COMPILER="g++-6" ..
@@ -216,8 +211,6 @@ matrix:
           - g++-6
     env:
       - TEST="Google Address Sanitizer"
-    before_script:
-      - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
     script:
       - cmake -DENABLE_ASAN=ON -DCMAKE_CXX_COMPILER="g++-6" ..
       - make
@@ -236,8 +229,6 @@ matrix:
         packages:
           - gcc-6
           - g++-6
-    before_script:
-      - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
     script:
       - cmake -DENABLE_USAN=ON -DCMAKE_CXX_COMPILER="g++-6" ..
       - make
@@ -256,8 +247,6 @@ matrix:
         packages:
           - gcc-6
           - g++-6
-    before_script:
-      - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
     script:
       - cmake -DENABLE_TSAN=ON -DCMAKE_CXX_COMPILER="g++-6" ..
       - make
@@ -277,8 +266,6 @@ matrix:
           - gcc-6
           - g++-6
           - valgrind
-    before_script:
-      - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
     script:
       - cmake -DCMAKE_CXX_COMPILER="g++-6" ..
       - make
@@ -297,8 +284,6 @@ matrix:
         packages:
           - gcc-5
           - g++-5
-    before_script:
-      - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
     script:
       - cmake -DCMAKE_CXX_COMPILER="g++-5" ..
       - make
@@ -317,8 +302,6 @@ matrix:
         packages:
           - gcc-6
           - g++-6
-    before_script:
-      - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
     script:
       - cmake -DCMAKE_CXX_COMPILER="g++-6" ..
       - make
@@ -339,8 +322,6 @@ matrix:
           - clang-3.8
           - gcc-6
           - g++-6
-    before_script:
-      - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
     script:
       - cmake -DCMAKE_C_COMPILER=clang-3.8 -DCMAKE_CXX_COMPILER=clang++-3.8 ..
       - make
@@ -361,8 +342,6 @@ matrix:
           - clang-3.9
           - gcc-6
           - g++-6
-    before_script:
-      - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
     script:
       - cmake -DCMAKE_C_COMPILER=clang-3.9 -DCMAKE_CXX_COMPILER=clang++-3.9 ..
       - make
@@ -383,8 +362,6 @@ matrix:
           - clang-4.0
           - gcc-6
           - g++-6
-    before_script:
-      - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
     script:
       - cmake -DCMAKE_C_COMPILER=clang-4.0 -DCMAKE_CXX_COMPILER=clang++-4.0 ..
       - make
