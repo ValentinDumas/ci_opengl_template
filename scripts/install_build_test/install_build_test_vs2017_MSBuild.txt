@@ -1,0 +1,9 @@
+it clone https://github.com/ainfosec/ci_helloworld.git
+
+mkdir ci_helloworld/build
+cd ci_helloworld/build
+
+cmake -G "Visual Studio 15 2017 Win64" ..
+
+msbuild ci_helloworld.sln
+ctest

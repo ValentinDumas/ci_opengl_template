@@ -1,0 +1,9 @@
+git clone https://github.com/ainfosec/ci_helloworld.git
+
+mkdir ci_helloworld/build
+cd ci_helloworld/build
+
+cmake ..
+
+make
+make test
