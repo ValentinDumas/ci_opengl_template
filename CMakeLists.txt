@@ -10,6 +10,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 include_directories(deps) # include deps' folder. Note that you could include ${some_dep_include_dirs} from deps folder in order to be more precise at folder inclusion.
 include_directories(deps/externals/glad/include)
 include_directories(deps/externals/glfw_3.2.1/include)
+include_directories(deps/externals/googletest/googletest/include)
 
 include_directories(src)
 
@@ -32,8 +33,8 @@ else()
     endif()
 endif()
 
-option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
-option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
+#option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
+#option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
 
 # ------------------------------------------------------------------------------
 # Coverage
@@ -68,25 +69,21 @@ endif()
 # ------------------------------------------------------------------------------
 include(CTest) # enable_tests()
 
-
-set(PROJECT_TEST_FILES test/test_hello.cpp)
-
 # ------------------------------------------------------------------------------
 # Unit Tests
 # ------------------------------------------------------------------------------
 if(WINDOWS)
     message("Running on windows.. do not launch tests")
-else()
-    add_executable(tests ${PROJECT_TEST_FILES})
-
-    # This is so you can do 'make test' to see all your tests run, instead of
-    # manually running the executable runUnitTests to see those specific tests.
+endif()
+if(NOT WINDOWS)
+    add_executable(tests test/test_hello.cpp)
     add_test(tests tests)
+    target_link_libraries(tests project_src_lib gtest gtest_main)
 
     # Standard linking to gtest stuff.
     #set(THREADS_PREFER_PTHREAD_FLAG ON)
-    find_package(Threads)
-    target_link_libraries(tests gtest gtest_main glfw ${GLFW_LIBRARIES} glad_lib dl project_src_lib ${CMAKE_THREAD_LIBS_INIT})
+    # This is so you can do 'make test' to see all your tests run, instead of
+    # manually running the executable runUnitTests to see those specific tests.
 endif()
 
 

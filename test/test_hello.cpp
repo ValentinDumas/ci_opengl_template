@@ -3,7 +3,7 @@
 //
 
 #include <gtest/gtest.h>
-#include "../src/hello.h"
+#include <hello.h>
 
 TEST(TestSuiteEquality, EQual)
 {
