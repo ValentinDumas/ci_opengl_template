@@ -101,37 +101,36 @@ matrix:
   #
   # Clang Tidy
   #
-  - os: linux
-    env:
-      - TEST="Clang Tidy"
-    addons:
-      apt:
-        sources:
-          - ubuntu-toolchain-r-test
-          - llvm-toolchain-trusty-4.0
-        packages:
-          - clang-4.0
-          - clang-tidy-4.0
-          - gcc-6
-          - g++-6
-          - xorg-dev
-          - libglu1-mesa-dev
-          - libbsd-dev
-          - libzzip-dev
-    script:
-      - cmake -DENABLE_CLANG_TIDY=ON -DCMAKE_CXX_COMPILER="g++-6" ..
-      - cd ..
-      - make
-      - make tidy > output.txt
-      - |
-        if [[ -n $(grep "warning: " output.txt) ]] || [[ -n $(grep "error: " output.txt) ]]; then
-            echo "You must pass the clang tidy checks before submitting a pull request"
-            echo ""
-            grep --color -E '^|warning: |error: ' output.txt
-            exit -1;
-        else
-            echo -e "\033[1;32m\xE2\x9C\x93 passed:\033[0m $1";
-        fi
+#  - os: linux
+#    env:
+#      - TEST="Clang Tidy"
+#    addons:
+#      apt:
+#        sources:
+#          - ubuntu-toolchain-r-test
+#          - llvm-toolchain-trusty-4.0
+#        packages:
+#          - clang-4.0
+#          - clang-tidy-4.0
+#          - gcc-6
+#          - g++-6
+#          - xorg-dev
+#          - libglu1-mesa-dev
+#          - libbsd-dev
+#          - libzzip-dev
+#    script:
+#      - cmake -DENABLE_CLANG_TIDY=ON -DCMAKE_CXX_COMPILER="g++-6" ..
+#      - make
+#      - make tidy > output.txt
+#      - |
+#        if [[ -n $(grep "warning: " output.txt) ]] || [[ -n $(grep "error: " output.txt) ]]; then
+#            echo "You must pass the clang tidy checks before submitting a pull request"
+#            echo ""
+#            grep --color -E '^|warning: |error: ' output.txt
+#            exit -1;
+#        else
+#            echo -e "\033[1;32m\xE2\x9C\x93 passed:\033[0m $1";
+#        fi
 
   #
   # CppCheck
@@ -152,7 +151,6 @@ matrix:
           - libzzip-dev
     script:
       - cmake -DENABLE_CPPCHECK=ON -DCMAKE_CXX_COMPILER="g++-6" ..
-      - cd ..
       - make
       - make check
 
@@ -175,9 +173,9 @@ matrix:
           - libzzip-dev
     script:
       - cmake -DENABLE_COVERAGE=ON -DCMAKE_CXX_COMPILER="g++-6" ..
-      - cd ..
       - make
       - make test
+      - cd ..
       - bash <(curl -s https://codecov.io/bash)
 
   #

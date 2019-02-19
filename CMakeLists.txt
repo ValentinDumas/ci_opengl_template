@@ -10,6 +10,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 include_directories(deps) # include deps' folder. Note that you could include ${some_dep_include_dirs} from deps folder in order to be more precise at folder inclusion.
 include_directories(deps/externals/glad/include)
 include_directories(deps/externals/glfw_3.2.1/include)
+
 add_subdirectory(deps)
 
 # ------------------------------------------------------------------------------
@@ -29,21 +30,6 @@ else()
     endif()
 endif()
 
-
-# ------------------------------------------------------------------------------
-# Sources
-# ------------------------------------------------------------------------------
-add_subdirectory(src)
-
-
-# ------------------------------------------------------------------------------
-# CTest -> testing
-# ------------------------------------------------------------------------------
-include(CTest) # enable_tests()
-
-
-set(PROJECT_TEST_FILES test/test_hello.cpp)
-
 #option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
 #option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
 
@@ -57,6 +43,31 @@ if(ENABLE_COVERAGE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftest-coverage")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
 endif()
+
+
+add_library(project_src_lib STATIC src/hello.h src/hello.cpp)
+# ------------------------------------------------------------------------------
+# Sources
+# ------------------------------------------------------------------------------
+#add_subdirectory(src)
+# ------------------------------------------------------------------------------
+# Main Executable
+# ------------------------------------------------------------------------------
+add_executable(ci_opengl_template src/main.cpp)
+if(NOT WIN32)
+    find_package(Threads)
+    target_link_libraries(ci_opengl_template  glfw ${GLFW_LIBRARIES} dl glad_lib project_src_lib ${CMAKE_THREAD_LIBS_INIT})
+else()
+    target_link_libraries(ci_opengl_template  glfw ${GLFW_LIBRARIES} ${GLAD_LIBRARIES} glad_lib project_src_lib)
+endif()
+
+# ------------------------------------------------------------------------------
+# CTest -> testing
+# ------------------------------------------------------------------------------
+include(CTest) # enable_tests()
+
+
+set(PROJECT_TEST_FILES test/test_hello.cpp)
 
 # ------------------------------------------------------------------------------
 # Unit Tests
