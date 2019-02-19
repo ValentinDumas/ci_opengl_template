@@ -17,7 +17,7 @@ else()
     # Standard linking to gtest stuff.
     #set(THREADS_PREFER_PTHREAD_FLAG ON)
     find_package(Threads)
-    target_link_libraries(tests PRIVATE project_src_lib gtest gtest_main ${CMAKE_THREAD_LIBS_INIT})
+    target_link_libraries(tests PRIVATE gtest gtest_main ${CMAKE_THREAD_LIBS_INIT} project_src_lib)
 
     # This is so you can do 'make test' to see all your tests run, instead of
     # manually running the executable runUnitTests to see those specific tests.

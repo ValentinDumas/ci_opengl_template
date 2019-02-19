@@ -8,7 +8,7 @@ add_subdirectory(glad)
 # ------------------------------------------------------------------------------
 # GLFW 3.2.1
 # ------------------------------------------------------------------------------
-# option(GLFW_INSTALL OFF)
+option(GLFW_INSTALL OFF)
 option(GLFW_BUILD_DOCS OFF)
 option(GLFW_BUILD_EXAMPLES OFF)
 option(GLFW_BUILD_TESTS OFF)
