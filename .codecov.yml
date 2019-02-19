@@ -1,4 +1,2 @@
-codecov:
-  ignore:
-    - "test/*"
-    - "deps/*"
+ignore:
+  - "deps/*"
