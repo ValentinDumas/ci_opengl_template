@@ -36,25 +36,44 @@ endif()
 add_subdirectory(src)
 
 
-
 # ------------------------------------------------------------------------------
 # CTest -> testing
 # ------------------------------------------------------------------------------
 include(CTest) # enable_tests()
 
 
-# Note: "glob" command -> get all .h .c .cpp files in target folders ?
-add_library(project_src_lib STATIC hello.h hello.cpp)
+set(PROJECT_TEST_FILES test/test_hello.cpp)
+
+#option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
+#option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
 
 # ------------------------------------------------------------------------------
-# Main Executable
+# Coverage
 # ------------------------------------------------------------------------------
-add_executable(ci_opengl_template main.cpp)
-if(NOT WIN32)
-    find_package(Threads)
-    target_link_libraries(ci_opengl_template  glfw ${GLFW_LIBRARIES} dl glad_lib project_src_lib ${CMAKE_THREAD_LIBS_INIT})
+if(ENABLE_COVERAGE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g ")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftest-coverage")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
+endif()
+
+# ------------------------------------------------------------------------------
+# Unit Tests
+# ------------------------------------------------------------------------------
+if(WINDOWS)
+    message("Running on windows.. do not launch tests")
 else()
-    target_link_libraries(ci_opengl_template  glfw ${GLFW_LIBRARIES} ${GLAD_LIBRARIES} glad_lib project_src_lib)
+    add_executable(tests ${PROJECT_TEST_FILES})
+
+    # Standard linking to gtest stuff.
+    #set(THREADS_PREFER_PTHREAD_FLAG ON)
+    find_package(Threads)
+    target_link_libraries(tests PRIVATE gtest gtest_main ${CMAKE_THREAD_LIBS_INIT} project_src_lib)
+
+    # This is so you can do 'make test' to see all your tests run, instead of
+    # manually running the executable runUnitTests to see those specific tests.
+    add_test(tests tests)
 endif()
 
 
