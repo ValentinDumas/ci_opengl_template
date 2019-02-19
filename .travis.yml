@@ -189,7 +189,7 @@ matrix:
       - make test
       - cd ..
       - |
-        coveralls --root . --gcov-options '\-lp' \
+        coveralls --build-root . --gcov-options '\-lp' \
           -e deps/external \
           -e deps/externals/googletest/googletest/include/gtest \
           -e build/deps \
