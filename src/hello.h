@@ -12,4 +12,6 @@
 
 void hello(std::string const& name);
 
+int add(int a, intb);
+
 #endif //CMAKE_STRUCTURE_HELLO_H

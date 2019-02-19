@@ -7,3 +7,8 @@
 void hello(std::string const& name) {
     std::cout << "Hello, " << name << "!\n";
 }
+
+int add(int a, int b)
+{
+    return (a + b);
+}

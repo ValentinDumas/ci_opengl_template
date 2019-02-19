@@ -69,26 +69,21 @@ endif()
 include(CTest) # enable_tests()
 
 
-set(PROJECT_TEST_FILES test/test_hello.cpp)
+set(PROJECT_TEST_FILES test/test_hello.cpp include/allo.h)
 
 # ------------------------------------------------------------------------------
 # Unit Tests
 # ------------------------------------------------------------------------------
-if(WINDOWS)
-    message("Running on windows.. do not launch tests")
-else()
-    add_executable(tests ${PROJECT_TEST_FILES})
+add_executable(tests ${PROJECT_TEST_FILES})
 
-    # Standard linking to gtest stuff.
-    #set(THREADS_PREFER_PTHREAD_FLAG ON)
-    find_package(Threads)
-    target_link_libraries(tests PRIVATE gtest gtest_main ${CMAKE_THREAD_LIBS_INIT} project_src_lib)
+# Standard linking to gtest stuff.
+#set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads)
+target_link_libraries(tests PRIVATE gtest gtest_main ${CMAKE_THREAD_LIBS_INIT} project_src_lib)
 
-    # This is so you can do 'make test' to see all your tests run, instead of
-    # manually running the executable runUnitTests to see those specific tests.
-    add_test(tests tests)
-endif()
-
+# This is so you can do 'make test' to see all your tests run, instead of
+# manually running the executable runUnitTests to see those specific tests.
+add_test(tests tests)
 
 # ------------------------------------------------------------------------------
 # Tests

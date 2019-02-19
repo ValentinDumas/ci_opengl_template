@@ -7,6 +7,9 @@
 /// Main program function
 int main(int argc, char **argv)
 {
+    int result = add(1, 2);
+    std::cout << "Result = " << result << std::endl;
+
     int width, height;
     GLFWwindow* window;
 
