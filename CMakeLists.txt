@@ -11,6 +11,8 @@ include_directories(deps) # include deps' folder. Note that you could include ${
 include_directories(deps/externals/glad/include)
 include_directories(deps/externals/glfw_3.2.1/include)
 
+include_directories(src)
+
 add_subdirectory(deps)
 
 # ------------------------------------------------------------------------------

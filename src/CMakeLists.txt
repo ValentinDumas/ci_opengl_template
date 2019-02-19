@@ -2,5 +2,3 @@
 # Custom Libraries
 # ------------------------------------------------------------------------------
 # Note: "glob" command -> get all .h .c .cpp files in target folders ?
-
-
