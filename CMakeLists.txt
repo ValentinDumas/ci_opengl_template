@@ -35,23 +35,30 @@ endif()
 # ------------------------------------------------------------------------------
 add_subdirectory(src)
 
-# ------------------------------------------------------------------------------
-# Coverage
-# ------------------------------------------------------------------------------
-if(ENABLE_COVERAGE)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g ")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftest-coverage")
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
-endif()
+
 
 # ------------------------------------------------------------------------------
 # CTest -> testing
 # ------------------------------------------------------------------------------
 include(CTest) # enable_tests()
 
+
+# Note: "glob" command -> get all .h .c .cpp files in target folders ?
+add_library(project_src_lib STATIC hello.h hello.cpp)
+
+# ------------------------------------------------------------------------------
+# Main Executable
+# ------------------------------------------------------------------------------
+add_executable(ci_opengl_template main.cpp)
+if(NOT WIN32)
+    find_package(Threads)
+    target_link_libraries(ci_opengl_template  glfw ${GLFW_LIBRARIES} dl glad_lib project_src_lib ${CMAKE_THREAD_LIBS_INIT})
+else()
+    target_link_libraries(ci_opengl_template  glfw ${GLFW_LIBRARIES} ${GLAD_LIBRARIES} glad_lib project_src_lib)
+endif()
+
+
 # ------------------------------------------------------------------------------
 # Tests
 # ------------------------------------------------------------------------------
-add_subdirectory(test)
+#add_subdirectory(test)
