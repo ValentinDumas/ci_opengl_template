@@ -120,6 +120,7 @@ matrix:
           - libzzip-dev
     script:
       - cmake -DENABLE_CLANG_TIDY=ON -DCMAKE_CXX_COMPILER="g++-6" ..
+      - cd ..
       - make
       - make tidy > output.txt
       - |
@@ -151,6 +152,7 @@ matrix:
           - libzzip-dev
     script:
       - cmake -DENABLE_CPPCHECK=ON -DCMAKE_CXX_COMPILER="g++-6" ..
+      - cd ..
       - make
       - make check
 
@@ -173,9 +175,9 @@ matrix:
           - libzzip-dev
     script:
       - cmake -DENABLE_COVERAGE=ON -DCMAKE_CXX_COMPILER="g++-6" ..
+      - cd ..
       - make
       - make test
-      - cd ..
       - bash <(curl -s https://codecov.io/bash)
 
   #
