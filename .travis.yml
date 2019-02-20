@@ -13,7 +13,7 @@ addons:
 
 
 script:
-  - set -euo pipefail
+  # - set -euo pipefail
 
   - mkdir -p build && cd build
 
