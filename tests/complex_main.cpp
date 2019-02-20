@@ -6,7 +6,7 @@
 
 #include "complex.hpp"
 
-int main() {
+int main_tests(int argc, char **argv) {
     Complex a(3,5);
     Complex b(3,0);
     Complex c(a);

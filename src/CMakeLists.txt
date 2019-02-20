@@ -13,10 +13,18 @@ target_link_libraries(project_src_lib PUBLIC coverage_config)
 # ------------------------------------------------------------------------------
 # Main Executable
 # ------------------------------------------------------------------------------
-#add_executable(ci_opengl_template main.cpp)
-#if(NOT WIN32)
-#    find_package(Threads)
-#    target_link_libraries(ci_opengl_template  glfw ${GLFW_LIBRARIES} dl glad_lib project_src_lib ${CMAKE_THREAD_LIBS_INIT})
-#else()
-#    target_link_libraries(ci_opengl_template  glfw ${GLFW_LIBRARIES} ${GLAD_LIBRARIES} glad_lib project_src_lib)
-#endif()
+add_executable(ci_opengl_template main.cpp)
+
+if(NOT CMAKE_CL_64 AND NOT WIN32) # not win64 or win32
+    find_package(Threads)
+    target_link_libraries(ci_opengl_template  glfw ${GLFW_LIBRARIES} dl glad_lib project_src_lib ${CMAKE_THREAD_LIBS_INIT})
+else()
+    target_link_libraries(ci_opengl_template  glfw ${GLFW_LIBRARIES} ${GLAD_LIBRARIES} glad_lib project_src_lib)
+endif()
+
+target_compile_definitions(ci_opengl_template PRIVATE main=main)
+
+# WIN32
+# CMAKE_CL_64
+# UNIX
+# MSVC

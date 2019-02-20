@@ -1,13 +1,15 @@
 #include "hello.h"
 
+#include <iostream>
+
 //#include <glad/glad.h>
 //#include <GLFW/glfw3.h>
 
 /// Main program function
 int main(int argc, char **argv)
 {
-    int result = add(1, 2);
-    std::cout << "Result = " << result << std::endl;
+//    int result = add(1, 2);
+//    std::cout << "Result = " << result << std::endl;
 
 //    int width, height;
 //    GLFWwindow* window;

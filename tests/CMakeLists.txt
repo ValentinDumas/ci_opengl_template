@@ -8,6 +8,7 @@
 add_executable(tests complex_main.cpp)
 #target_link_libraries(tests PRIVATE gtest gtest_main)
 target_link_libraries(tests PRIVATE project_src_lib)
+target_compile_definitions(tests PRIVATE main_tests=main)
 add_test(NAME main_tests COMMAND tests)
     # Standard linking to gtest stuff.
     #set(THREADS_PREFER_PTHREAD_FLAG ON)
