@@ -177,7 +177,7 @@ matrix:
       - make
       - make test
       - cd ..
-      - bash <(curl -s https://codecov.io/bash)"
+      - bash <(curl -s https://codecov.io/bash)
 
   #
   # Coveralls
