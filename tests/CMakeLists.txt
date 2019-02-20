@@ -5,8 +5,8 @@
 #    message("Running on windows.. do not launch tests")
 #endif()
 #if(NOT WINDOWS)
-add_executable(tests test_hello.cpp)
-target_link_libraries(tests PRIVATE gtest gtest_main)
+add_executable(tests complex_main.cpp)
+#target_link_libraries(tests PRIVATE gtest gtest_main)
 target_link_libraries(tests PRIVATE project_src_lib)
 add_test(NAME main_tests COMMAND tests)
     # Standard linking to gtest stuff.
