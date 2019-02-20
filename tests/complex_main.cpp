@@ -6,6 +6,13 @@
 
 #include "complex.hpp"
 
+#include "gtest/gtest.h"
+
+TEST(TestCaseSuite, TestRien)
+{
+    EXPECT_EQ(1, 1);
+}
+
 int main_tests(int argc, char **argv) {
     Complex a(3,5);
     Complex b(3,0);
