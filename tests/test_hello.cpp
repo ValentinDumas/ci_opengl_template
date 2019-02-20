@@ -2,8 +2,8 @@
 // Created by Spark on 15/02/2019.
 //
 
-#include <gtest/gtest.h>
-#include <hello.h>
+#include "gtest/gtest.h"
+#include "hello.h"
 
 TEST(TestSuiteEquality, EQual)
 {
