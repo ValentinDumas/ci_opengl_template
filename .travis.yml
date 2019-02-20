@@ -10,13 +10,19 @@ addons:
   apt:
     packages: lcov
 
-install:
-# (fake) install dependencies (usually involves wget, configure, make, ...)
-# install into cache folder (build binaries+headers only, no sources and do NOT build there)
-- mkdir -p $HOME/.cache
-- touch $HOME/.cache/mydependency.so
 
-script: ./build.sh
+
+script:
+  - set -euo pipefail
+
+  - mkdir -p build && cd build
+
+  # Configure
+  - cmake -DCODE_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug ..
+  # Build (for Make on Unix equivalent to `make -j $(nproc)`)
+  - cmake --build . --config Debug -- -j $(nproc)
+  # Test
+  - ctest -j $(nproc) --output-on-failure
 
 after_success:
 # Create lcov report
