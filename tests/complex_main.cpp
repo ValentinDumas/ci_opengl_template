@@ -14,6 +14,9 @@ TEST(TestCaseSuite, TestRien)
 }
 
 int main_tests(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    int run_status = RUN_ALL_TESTS();
+
     Complex a(3,5);
     Complex b(3,0);
     Complex c(a);
@@ -22,5 +25,5 @@ int main_tests(int argc, char **argv) {
     std::cout << b.getReal() << " " << b.getImag() << " " << b.abs() << std::endl;
     std::cout << c.getReal() << " " << c.getImag() << " " << c.abs() << std::endl;
 
-    return 0;
+    return run_status;
 }

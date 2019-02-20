@@ -14,5 +14,4 @@ build_script:
   - cd build_msbuild
   - cmake -G "Visual Studio 15 2017 Win64" ..
   - msbuild ci_opengl_template.sln
-  - ctest
   - cd ..
