@@ -4,11 +4,8 @@
 
 #include "hello.h"
 
-void hello(std::string const& name) {
-    std::cout << "Hello, " << name << "!\n";
-}
-
 int add(int a, int b)
 {
+    a = a+b;
     return (a + b);
 }
