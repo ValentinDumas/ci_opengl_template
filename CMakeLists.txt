@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.6)
-project(ci_opengl_template C CXX)
+project(ci_opengl_template LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON) # Note: watch this carefully when coding in C.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_CXX_EXTENSIONS OFF) # Note: watch this with google test (compatibility/portability).
 
 # ------------------------------------------------------------------------------
 # Dependencies
@@ -11,8 +13,6 @@ include_directories(deps) # include deps' folder. Note that you could include ${
 include_directories(deps/externals/glad/include)
 include_directories(deps/externals/glfw_3.2.1/include)
 include_directories(deps/externals/googletest/googletest/include)
-
-include_directories(src)
 
 add_subdirectory(deps)
 
@@ -39,55 +39,34 @@ endif()
 # ------------------------------------------------------------------------------
 # Coverage
 # ------------------------------------------------------------------------------
+add_library(coverage_config INTERFACE)
+option(ENABLE_COVERAGE "Enable coverage reporting" OFF)
 if(ENABLE_COVERAGE)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g ")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftest-coverage")
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
-endif()
+    # Add required flags (GCC & LLVM/Clang)
+    target_compile_options(coverage_config INTERFACE
+            -O0        # no optimization
+            -g         # generate debug info
+            --coverage # sets all required flags
+            )
+    if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.13)
+        target_link_options(coverage_config INTERFACE --coverage)
+    else()
+        target_link_libraries(coverage_config INTERFACE --coverage)
+    endif()
+endif(ENABLE_COVERAGE)
 
-
-add_library(project_src_lib STATIC src/hello.h src/hello.cpp)
 # ------------------------------------------------------------------------------
 # Sources
 # ------------------------------------------------------------------------------
-#add_subdirectory(src)
-# ------------------------------------------------------------------------------
-# Main Executable
-# ------------------------------------------------------------------------------
-add_executable(ci_opengl_template src/main.cpp)
-if(NOT WIN32)
-    find_package(Threads)
-    target_link_libraries(ci_opengl_template  glfw ${GLFW_LIBRARIES} dl glad_lib project_src_lib ${CMAKE_THREAD_LIBS_INIT})
-else()
-    target_link_libraries(ci_opengl_template  glfw ${GLFW_LIBRARIES} ${GLAD_LIBRARIES} glad_lib project_src_lib)
-endif()
+add_subdirectory(src)
 
 # ------------------------------------------------------------------------------
 # CTest -> testing
 # ------------------------------------------------------------------------------
-include(CTest) # enable_tests()
-
-# ------------------------------------------------------------------------------
-# Unit Tests
-# ------------------------------------------------------------------------------
-if(WINDOWS)
-    message("Running on windows.. do not launch tests")
+option (BUILD_TESTING "Build the testing tree." ON)
+# Only build tests if we are the top-level project
+# Allows this to be used by super projects with `add_subdirectory`
+if (BUILD_TESTING AND (PROJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR))
+    include(CTest)
+    add_subdirectory(tests)
 endif()
-if(NOT WINDOWS)
-    add_executable(tests test/test_hello.cpp)
-    add_test(tests tests)
-    target_link_libraries(tests project_src_lib gtest gtest_main)
-
-    # Standard linking to gtest stuff.
-    #set(THREADS_PREFER_PTHREAD_FLAG ON)
-    # This is so you can do 'make test' to see all your tests run, instead of
-    # manually running the executable runUnitTests to see those specific tests.
-endif()
-
-
-# ------------------------------------------------------------------------------
-# Tests
-# ------------------------------------------------------------------------------
-#add_subdirectory(test)
