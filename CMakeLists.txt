@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.6)
-project(ci_opengl_template LANGUAGES CXX)
+project(ci_opengl_template LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED ON) # Note: watch this carefully when coding in C.
+#set(CMAKE_CXX_STANDARD_REQUIRED ON) # Note: watch this carefully when coding in C.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_CXX_EXTENSIONS OFF) # Note: watch this with google test (compatibility/portability).
+#set(CMAKE_CXX_EXTENSIONS OFF) # Note: watch this with google test (compatibility/portability).
 
 # ------------------------------------------------------------------------------
 # Dependencies
