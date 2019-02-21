@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 add_executable(tests complex_main.cpp)
 
-target_link_libraries(tests PRIVATE gtest gtest_main glfw ${GLFW_LIBRARIES} project_src_lib)
+target_link_libraries(tests PRIVATE gtest gtest_main project_src_lib)
 target_compile_definitions(tests PRIVATE main_tests=main)
 
 # This is so you can do 'make test' to see all your tests run, instead of
