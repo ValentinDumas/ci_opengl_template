@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 add_executable(tests complex_main.cpp)
 
-target_link_libraries(tests PRIVATE gtest gtest_main  glad_sources ${GLAD_LIBRARIES} project_src_lib)
+target_link_libraries(tests PRIVATE gtest gtest_main glad_sources project_src_lib)
 target_compile_definitions(tests PRIVATE main_tests=main)
 
 # This is so you can do 'make test' to see all your tests run, instead of
