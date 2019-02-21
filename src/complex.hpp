@@ -43,21 +43,25 @@ public:
      */
     ~Complex();
 
-    /** @fn operator=(const Complex& rhs)
+    /** @fn Complex& operator=(const Complex& rhs)
      *  @param rhs
      *  @return the resultant operator after the assigment
      */
     Complex& operator=(const Complex& rhs);
-    
+
+    /** @fn double getReal() const
+    *   @brief Get the real part
+    *   @return The complex's imaginary part
+    */
     double getReal() const;
 
-    /** @fn getImaginary()
+    /** @fn double getImag() const
     *   @brief Get the imaginary part
     *   @return The complex's imaginary part
     */
     double getImag() const;
 
-    /** @fn abs()
+    /** @fn double abs() const
     *   @brief Get the absolute (sqrt(R² + I²))
     *   @return The complex's absolute
     */
