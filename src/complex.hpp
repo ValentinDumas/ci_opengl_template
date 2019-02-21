@@ -1,7 +1,3 @@
-//
-// Created by Spark on 20/02/2019.
-//
-
 #ifndef CI_OPENGL_TEMPLATE_COMPLEX_HPP
 #define CI_OPENGL_TEMPLATE_COMPLEX_HPP
 
@@ -10,42 +6,66 @@
 
 /**
  * @file complex.hpp
- * @author Rok Kos <kosrok97@gmail.com>
+ * @author Valentin Dumas <sp4rk76@gmail.com>
  * @brief Class that represent complex number.
  */
 
- /*! A class to represent a Complex number */
+ /*! @class Complex
+  *  @brief A class to represent a Complex number.
+  *  A more detailed class description
+  */
 class Complex {
 private:
-    double real; /*!< Real part of the complex */
-    double imaginary; /*!< Imaginary part of the complex */
+    /*! @var double real
+     *  @brief The real part of the complex number.
+     */
+    double real;
+
+    /*! @var double imaginary
+     *  @brief The imaginary part of the complex number.
+     */
+    double imaginary;
 
 public:
-    //! A constructor.
-    /*!
-      A more elaborate description of the constructor.
-    */
+    /*! @fn Complex(double=0, double=0)
+     *  @brief Constructor
+     */
     Complex(double=0, double=0);
 
-    //! A copy constructor
-    /*!
-      A more elaborate description of the copy constructor.
-    */
+    /*! @fn Complex(const Complex& rhs)
+     *  @brief Copy constructor
+     *  @param rhs the object to copy
+     */
     Complex(const Complex& rhs);
 
-    //! A destructor.
-    /*!
-      A more elaborate description of the destructor.
-    */
+    /*! @fn ~Complex()
+     *  @brief Destructor
+     */
     ~Complex();
 
+    /*! @fn Complex& operator=(const Complex& rhs)
+     *  @param rhs
+     *  @return the resultant operator after the assigment
+     */
     Complex& operator=(const Complex& rhs); //!< Assigment operator
 
-    double getReal() const; //!< Get the real part
+    /*! @fn getReal()
+    *   @brief Get the real part
+    *   @return The complex's real part
+    */
+    double getReal() const;
 
-    double getImag() const; //!< Get the imaginary part
+    /*! @fn getImaginary()
+    *   @brief Get the imaginary part
+    *   @return The complex's imaginary part
+    */
+    double getImag() const;
 
-    double abs() const; //!< Get the absolute (sqrt(R² + I²))
+    /*! @fn abs()
+    *   @brief Get the absolute (sqrt(R² + I²))
+    *   @return The complex's absolute
+    */
+    double abs() const;
 };
 
 #endif //CI_OPENGL_TEMPLATE_COMPLEX_HPP
