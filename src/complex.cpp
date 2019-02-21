@@ -4,16 +4,28 @@
 
 #include "complex.hpp"
 
+//! A constructor.
+/*!
+  A more elaborate description of the constructor.
+*/
 Complex::Complex(double _real, double _imaginary) {
     this->real = _real;
     this->imaginary = _imaginary;
 }
 
+//! A copy constructor.
+/*!
+  A more elaborate description of the copy constructor.
+*/
 Complex::Complex(const Complex& rhs) {
     this->real = rhs.real;
     this->imaginary = rhs.imaginary;
 }
 
+//! A destructor.
+/*!
+  A more elaborate description of the destructor.
+*/
 Complex::~Complex() {
 
 }
