@@ -19,7 +19,7 @@ add_subdirectory(glfw_3.2.1)
 #option(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
 #option(ASSIMP_BUILD_SAMPLES OFF)
 #option(ASSIMP_BUILD_TESTS OFF)
-#add_subdirectory(deps/assimp)
+#add_subdirectory(assimp)
 
 # Bullet build options
 #option(BUILD_BULLET2_DEMOS OFF)
@@ -27,7 +27,7 @@ option(BUILD_CPU_DEMOS OFF)
 option(BUILD_EXTRAS OFF)
 option(BUILD_OPENGL3_DEMOS OFF)
 option(BUILD_UNIT_TESTS OFF)
-#add_subdirectory(deps/bullet)
+#add_subdirectory(bullet)
 
 ## ------------------------------------------------------------------------------
 ## Astyle
