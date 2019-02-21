@@ -1,4 +1,4 @@
-add_library(project_src_lib complex.cpp complex.hpp)
+add_library(project_src_lib complex.cpp)
 target_include_directories(project_src_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 # Setting this to the library only avoids errors in 3rd party dependencies which are compile with e.g. -Werror
 if(NOT CMAKE_CL_64 AND NOT WIN32)

@@ -43,16 +43,12 @@ public:
      */
     ~Complex();
 
-    /** @fn Complex& operator=(const Complex& rhs)
+    /** @fn operator=(const Complex& rhs)
      *  @param rhs
      *  @return the resultant operator after the assigment
      */
     Complex& operator=(const Complex& rhs);
-
-    /** @fn getReal()
-    *   @brief Get the real part
-    *   @return The complex's real part
-    */
+    
     double getReal() const;
 
     /** @fn getImaginary()
