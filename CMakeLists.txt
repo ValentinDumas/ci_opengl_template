@@ -15,7 +15,7 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 # ------------------------------------------------------------------------------
 include_directories(deps) # include deps' folder. Note that you could include ${some_dep_include_dirs} from deps folder in order to be more precise at folder inclusion.
 include_directories(deps/externals/glad/include)
-include_directories(deps/externals/glfw_3.2.1/include)
+include_directories(deps/externals/glfw_3.2.1/include) # TODO: self include this to target ?
 include_directories(deps/externals/googletest/googletest/include)
 
 add_subdirectory(deps)
