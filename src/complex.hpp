@@ -14,24 +14,38 @@
  * @brief Class that represent complex number.
  */
 
+ /*! A class to represent a Complex number */
 class Complex {
 private:
-    double real;
-    double imaginary;
+    double real; /*!< Real part of the complex */
+    double imaginary; /*!< Imaginary part of the complex */
 
 public:
-    // Constructor
+    //! A constructor.
+    /*!
+      A more elaborate description of the constructor.
+    */
     Complex(double=0, double=0);
-    // Copy constructor
+
+    //! A copy constructor
+    /*!
+      A more elaborate description of the copy constructor.
+    */
     Complex(const Complex& rhs);
-    // Destructor
+
+    //! A destructor.
+    /*!
+      A more elaborate description of the destructor.
+    */
     ~Complex();
-    // Assigment operator
-    Complex& operator=(const Complex& rhs);
-    // Methods
-    double getReal() const;
-    double getImag() const;
-    double abs() const;
+
+    Complex& operator=(const Complex& rhs); //!< Assigment operator
+
+    double getReal() const; //!< Get the real part
+
+    double getImag() const; //!< Get the imaginary part
+
+    double abs() const; //!< Get the absolute (sqrt(R² + I²))
 };
 
 #endif //CI_OPENGL_TEMPLATE_COMPLEX_HPP

@@ -16,7 +16,7 @@ target_link_libraries(project_src_lib PUBLIC coverage_config)
 add_executable(ci_opengl_template main.cpp)
 
 # pthread not needed !
-target_link_libraries(ci_opengl_template  glfw ${GLFW_LIBRARIES} ${GLAD_LIBRARIES} glad_lib project_src_lib)
+target_link_libraries(ci_opengl_template glfw ${GLFW_LIBRARIES} ${GLAD_LIBRARIES} glad_lib project_src_lib)
 
 target_compile_definitions(ci_opengl_template PRIVATE main=main)
 
