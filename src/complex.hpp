@@ -27,41 +27,41 @@ private:
     double imaginary;
 
 public:
-    /** @fn Complex::Complex(double=0, double=0)
+    /** @fn Complex(double=0, double=0)
      *  @brief Constructor
      */
     Complex(double=0, double=0);
 
-    /** @fn Complex::Complex(const Complex& rhs)
+    /** @fn Complex(const Complex& rhs)
      *  @brief Copy constructor
      *  @param rhs the object to copy
      */
     Complex(const Complex& rhs);
 
-    /** @fn Complex::~Complex()
+    /** @fn ~Complex()
      *  @brief Destructor
      */
     ~Complex();
 
-    /** @fn Complex& Complex::operator=(const Complex& rhs)
+    /** @fn Complex& operator=(const Complex& rhs)
      *  @param rhs
      *  @return the resultant operator after the assigment
      */
     Complex& operator=(const Complex& rhs);
 
-    /** @fn Complex::getReal()
+    /** @fn getReal()
     *   @brief Get the real part
     *   @return The complex's real part
     */
     double getReal() const;
 
-    /** @fn Complex::getImaginary()
+    /** @fn getImaginary()
     *   @brief Get the imaginary part
     *   @return The complex's imaginary part
     */
     double getImag() const;
 
-    /** @fn Complex::abs()
+    /** @fn abs()
     *   @brief Get the absolute (sqrt(R² + I²))
     *   @return The complex's absolute
     */
