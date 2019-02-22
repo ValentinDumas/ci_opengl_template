@@ -174,12 +174,12 @@ matrix:
           - lcov
     script:
       - cmake -DENABLE_COVERAGE=ON -DSTANDALONE_TESTING=0 -DCMAKE_CXX_COMPILER="g++-6" ..
-      - make
-      - make test
+      - make # run project build
+      - make test # run all tests
       - cd ..
-      - bash <(curl -s https://codecov.io/bash)
-      - # bash <(curl -s https://codecov.io/bash) # -c -F unit
-      - #bash <(curl -s https://codecov.io/bash) # -c -F integration
+      #- bash <(curl -s https://codecov.io/bash)
+      - bash <(curl -s https://codecov.io/bash) # -F unit -c
+      - bash <(curl -s https://codecov.io/bash) # -F integration -c
 
   #
   # Coveralls

@@ -23,3 +23,21 @@ flags:
   integration:
     paths:
       - tests/integration
+
+coverage:
+  precision: 2
+  round: up
+  range: "70...100"
+  status:
+    project:
+      default: off
+      unit:
+        target: auto
+        threshold: 0.1%
+        flags: unit
+      integration:
+        target: auto
+        threshold: 0.1%
+        flags: integration
+    patch: yes
+    changes: no
