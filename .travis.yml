@@ -76,8 +76,8 @@ matrix:
           - libbsd-dev
           - libzzip-dev
     script:
-      - cmake -DENABLE_ASTYLE=ON -DCMAKE_CXX_COMPILER="g++-6" ..
-      - make
+      - cmake -DBUILD_SHARED_LIBS=1 -DENABLE_ASTYLE=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER="g++-6" ..
+      - make -j4
       - make format
       - |
         if [[ -n $(git diff) ]]; then
@@ -121,7 +121,7 @@ matrix:
           - libzzip-dev
     script:
       - cmake -DENABLE_CPPCHECK=ON -DCMAKE_CXX_COMPILER="g++-6" ..
-      - make
+      - make -j4
       - make check
 
   #
@@ -144,7 +144,7 @@ matrix:
           - lcov
     script:
       - cmake -DENABLE_COVERAGE=ON -DSTANDALONE_TESTING=0 -DCMAKE_CXX_COMPILER="g++-6" ..
-      - make # run project build
+      - make -j4 # run project build
       - make test # run all tests
       - cd ..
       - bash <(curl -s https://codecov.io/bash)
@@ -166,7 +166,7 @@ matrix:
 #      - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
 #      - pip install --upgrade --user git+git://github.com/eddyxu/cpp-coveralls.git
 #      - cmake -DENABLE_COVERAGE=ON -DCMAKE_CXX_COMPILER="g++-6" ..
-#      - make
+#      - make -j4
 #      - make test
 #      - cd ..
 #      - |
@@ -197,7 +197,7 @@ matrix:
     script:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DENABLE_ASAN=ON -DCMAKE_CXX_COMPILER="g++-6" ..
-      - make
+      - make -j4
       - make test
 
   #
@@ -216,7 +216,7 @@ matrix:
     script:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DENABLE_USAN=ON -DCMAKE_CXX_COMPILER="g++-6" ..
-      - make
+      - make -j4
       - make test
 
   #
@@ -235,7 +235,7 @@ matrix:
     script:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DENABLE_TSAN=ON -DCMAKE_CXX_COMPILER="g++-6" ..
-      - make
+      - make -j4
       - make test
 
   #
@@ -255,7 +255,7 @@ matrix:
     script:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DSTANDALONE_TESTING=0 -DCMAKE_CXX_COMPILER="g++-6" ..
-      - make
+      - make -j4
       - ctest -T memcheck
 
   #
@@ -274,7 +274,7 @@ matrix:
     script:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DCMAKE_CXX_COMPILER="g++-5" ..
-      - make
+      - make -j4
       - make test
 
   #
@@ -293,7 +293,7 @@ matrix:
     script:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DCMAKE_CXX_COMPILER="g++-6" ..
-      - make
+      - make -j4
       - make test
 
   #
@@ -314,7 +314,7 @@ matrix:
     script:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DCMAKE_C_COMPILER=clang-3.8 -DCMAKE_CXX_COMPILER=clang++-3.8 ..
-      - make
+      - make -j4
       - make test
 
   #
@@ -335,7 +335,7 @@ matrix:
     script:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DCMAKE_C_COMPILER=clang-3.9 -DCMAKE_CXX_COMPILER=clang++-3.9 ..
-      - make
+      - make -j4
       - make test
 
   #
@@ -356,7 +356,7 @@ matrix:
     script:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DCMAKE_C_COMPILER=clang-4.0 -DCMAKE_CXX_COMPILER=clang++-4.0 ..
-      - make
+      - make -j4
       - make test
 
   #
@@ -368,7 +368,7 @@ matrix:
     osx_image: xcode7.3
     script:
       - cmake ..
-      - make
+      - make -j4
       - make test
 
   #
@@ -380,7 +380,7 @@ matrix:
     osx_image: xcode8
     script:
       - cmake ..
-      - make
+      - make -j4
       - make test
 
   #
@@ -392,7 +392,7 @@ matrix:
     osx_image: xcode8.1
     script:
       - cmake ..
-      - make
+      - make -j4
       - make test
 
   #
@@ -404,7 +404,7 @@ matrix:
     osx_image: xcode8.2
     script:
       - cmake ..
-      - make
+      - make -j4
       - make test
 
   #
@@ -416,5 +416,5 @@ matrix:
     osx_image: xcode8.3
     script:
       - cmake ..
-      - make
+      - make -j4
       - make test
