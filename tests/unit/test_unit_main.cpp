@@ -18,7 +18,7 @@ TEST(TestSuiteEquality, NonEQual)
     EXPECT_EQ(2,2);
 }
 
-int main_tests(int argc, char **argv)
+int test_unit_main(int argc, char **argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
     ::testing::InitGoogleMock(&argc, argv);

@@ -15,7 +15,7 @@ TEST(TestCaseSuite, TestRien)
     EXPECT_EQ(1, 1);
 }
 
-int main_integration_tests(int argc, char **argv) {
+int test_integration_main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     ::testing::InitGoogleMock(&argc, argv);
 

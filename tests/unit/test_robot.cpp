@@ -8,4 +8,3 @@ TEST(TestSuiteBis, NonBis)
 {
     EXPECT_EQ(8,8);
 }
-
