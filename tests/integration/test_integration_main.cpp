@@ -6,8 +6,7 @@
 
 #include "complex.hpp"
 
-#include "gtest/gtest.h"
-#include "gmock/gmock.h"
+#include <gmock/gmock.h>
 using ::testing::AtLeast;
 
 TEST(TestCaseSuite, TestRien)

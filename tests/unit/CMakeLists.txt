@@ -4,7 +4,7 @@
 set(PROJECT_UNIT_TEST_FILES test_unit_main.cpp test_robot.cpp)
 
 add_executable(unit_tests ${PROJECT_UNIT_TEST_FILES})
-target_link_libraries(unit_tests PRIVATE ${EXTERNAL_MODULES} ${PROJECT_SOURCE_MODULES}) #Note: see if glfw has to be included...
+target_link_libraries(unit_tests PRIVATE gtest gtest_main ${PROJECT_SOURCE_MODULES}) #Note: see if glfw has to be included...
 target_compile_definitions(unit_tests PRIVATE test_unit_main=main)
 
 # This is so you can do 'make test' to see all your tests run, instead of
