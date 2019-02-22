@@ -11,9 +11,3 @@ endif()
 
 add_subdirectory(integration)
 add_subdirectory(unit)
-
-if(STANDALONE_TESTING) # Can execute all tests in STANDALONE mode
-    add_executable(all_tests all_tests.cpp)
-    target_link_libraries(all_tests PRIVATE ${EXTERNAL_MODULES} ${PROJECT_SOURCE_MODULES} ) #Note: see if glfw has to be included...
-    target_compile_definitions(all_tests PRIVATE all_tests_main=main)
-endif()
