@@ -75,11 +75,11 @@ if(ENABLE_ASTYLE)
             --add-brackets
             --break-after-logical
             --ignore-exclude-errors
-            --exclude=${CMAKE_SOURCE_DIR}/deps/external
+            --exclude=${CMAKE_SOURCE_DIR}/deps/external/*
             ${CMAKE_SOURCE_DIR}/src/*.h
             ${CMAKE_SOURCE_DIR}/src/*.hpp
             ${CMAKE_SOURCE_DIR}/src/*.cpp
-            ${CMAKE_SOURCE_DIR}/test/*.cpp
+            ${CMAKE_SOURCE_DIR}/tests/*
             )
 
     if(NOT WIN32 STREQUAL "1")
