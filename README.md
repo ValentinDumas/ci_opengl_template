@@ -8,6 +8,7 @@ This project includes the most needed OpenGL libraries to start a project.
 [![Build status](https://ci.appveyor.com/api/projects/status/g4vc2xg31g7vqu81?svg=true)](https://ci.appveyor.com/project/ValentinDumas/ci-opengl-template)
 [![Coverage Status](https://coveralls.io/repos/github/ValentinDumas/ci_opengl_template/badge.svg)](https://coveralls.io/github/ValentinDumas/ci_opengl_template)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/78ab13069ab94f8e82d6096a5db2d59f)](https://www.codacy.com/app/ValentinDumas/ci_opengl_template?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ValentinDumas/ci_opengl_template&amp;utm_campaign=Badge_Grade)
+[![Documentation](https://codedocs.xyz/ValentinDumas/ci_opengl_template.svg)](https://codedocs.xyz/ValentinDumas/ci_opengl_template/)
 
 ## Description
 
