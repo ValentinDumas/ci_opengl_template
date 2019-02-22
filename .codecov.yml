@@ -10,16 +10,16 @@ ignore:
 #      integration:
 #        flags: integration
 #
-#flags:
-#  # filters the folder(s) you wish to measure by that flag
-#  unit:
-#    # only include files in the "unit" folder
-#    paths:
-#      - unit/
-#  integration:
-#    paths:
-#      - integration/
-#
-#    tests:
-#      paths:
-#        - tests/
+
+
+
+
+flags:
+  # filters the folder(s) you wish to measure by that flag
+  unit:
+    # only include files in the "unit" folder
+    paths:
+      - tests/unit/
+  integration:
+    paths:
+      - tests/integration
