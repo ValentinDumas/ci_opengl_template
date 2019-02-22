@@ -2,11 +2,11 @@
 // Created by Spark on 15/02/2019.
 //
 
+#include <iostream>
+
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 using ::testing::AtLeast;
-
-//#include "hello.h"
 
 TEST(TestSuiteEquality, EQual)
 {

@@ -175,12 +175,9 @@ matrix:
     script:
       - cmake -DENABLE_COVERAGE=ON -DCMAKE_CXX_COMPILER="g++-6" ..
       - make
-      - make unit_tests
+      - make test
       - cd ..
       - bash <(curl -s https://codecov.io/bash) -c -F unit
-      - cd build
-      - make integration_tests
-      - cd ..
       - bash <(curl -s https://codecov.io/bash) -c -F integration
 
   #
