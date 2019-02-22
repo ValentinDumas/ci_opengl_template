@@ -73,13 +73,12 @@ if(ENABLE_ASTYLE)
             --indent=spaces=4
             --close-templates
             --add-brackets
-            --break-after-logical
             --ignore-exclude-errors
             --exclude=${CMAKE_SOURCE_DIR}/deps/external/*
+            --break-after-logical
             ${CMAKE_SOURCE_DIR}/src/*.h
             ${CMAKE_SOURCE_DIR}/src/*.hpp
             ${CMAKE_SOURCE_DIR}/src/*.cpp
-            ${CMAKE_SOURCE_DIR}/tests/*
             )
 
     if(NOT WIN32 STREQUAL "1")
