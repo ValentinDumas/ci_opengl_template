@@ -6,6 +6,7 @@
 
 #include "complex.hpp"
 
+#include <gtest/gtest.h>
 #include <gmock/gmock.h>
 using ::testing::AtLeast;
 
@@ -18,7 +19,7 @@ int test_integration_main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     ::testing::InitGoogleMock(&argc, argv);
 
-    int integration_tests_status = RUN_ALL_TESTS();
+    int integration_test_status = RUN_ALL_TESTS();
 
     Complex a(3,5);
     Complex b(3,0);
@@ -27,5 +28,5 @@ int test_integration_main(int argc, char **argv) {
     std::cout << b.getReal() << " " << b.getImag() << " " << b.abs() << std::endl;
     std::cout << c.getReal() << " " << c.getImag() << " " << c.abs() << std::endl;
 
-    return integration_tests_status;
+    return integration_test_status;
 }

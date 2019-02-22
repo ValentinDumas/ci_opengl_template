@@ -17,6 +17,10 @@ include_directories(deps) # include deps' folder. Note that you could include ${
 include_directories(deps/externals/glad/include)
 include_directories(${GLFW_SOURCE_DIR}/include) # TODO: self include this to target ?
 
+include_directories(deps/externals/googletest/googletest/include)
+include_directories(deps/externals/googletest/googlemock/include)
+#include_directories("${gtest_SOURCE_DIR}/include" "${gmock_SOURCE_DIR}/include")
+
 add_subdirectory(deps)
 
 # ------------------------------------------------------------------------------
