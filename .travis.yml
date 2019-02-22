@@ -177,8 +177,9 @@ matrix:
       - make
       - make test
       - cd ..
-      - bash <(curl -s https://codecov.io/bash) -c -F unit
-      - bash <(curl -s https://codecov.io/bash) -c -F integration
+      - bash <(curl -s https://codecov.io/bash)
+      - # bash <(curl -s https://codecov.io/bash) # -c -F unit
+      - #bash <(curl -s https://codecov.io/bash) # -c -F integration
 
   #
   # Coveralls
