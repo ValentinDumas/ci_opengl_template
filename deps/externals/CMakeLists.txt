@@ -16,9 +16,9 @@ option(ENABLE_BOOST_WORKAROUND OFF)
 add_subdirectory(glfw_3.2.1)
 
 # Assimp build options
-#option(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
-#option(ASSIMP_BUILD_SAMPLES OFF)
-#option(ASSIMP_BUILD_TESTS OFF)
+option(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
+option(ASSIMP_BUILD_SAMPLES OFF)
+option(ASSIMP_BUILD_TESTS OFF)
 #add_subdirectory(assimp)
 
 # Bullet build options

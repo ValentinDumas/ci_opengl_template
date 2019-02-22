@@ -6,7 +6,9 @@
 
 #include "complex.hpp"
 
+#include "gmock/gmock.h"
 #include "gtest/gtest.h"
+using ::testing::AtLeast;
 
 TEST(TestCaseSuite, TestRien)
 {
@@ -15,6 +17,7 @@ TEST(TestCaseSuite, TestRien)
 
 int main_tests(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
+    ::testing::InitGoogleMock(&argc, argv);
     int run_status = RUN_ALL_TESTS();
 
     Complex a(3,5);

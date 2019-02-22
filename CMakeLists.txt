@@ -16,7 +16,6 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 include_directories(deps) # include deps' folder. Note that you could include ${some_dep_include_dirs} from deps folder in order to be more precise at folder inclusion.
 include_directories(deps/externals/glad/include)
 include_directories(deps/externals/glfw_3.2.1/include) # TODO: self include this to target ?
-include_directories(deps/externals/googletest/googletest/include)
 
 add_subdirectory(deps)
 
@@ -29,13 +28,19 @@ if (APPLE)
 endif (APPLE)
 
 if(MSVC)
-    #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
 else()
-    #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -std=c++14")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -std=c++14")
     if(NOT WIN32)
         set(GLAD_LIBRARIES dl) # Link glad libs for Linux & Apple
     endif()
 endif()
+
+# Prevent overriding the parent project's compiler/linker
+# settings on Windows
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
+option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
 
 option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
 option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
