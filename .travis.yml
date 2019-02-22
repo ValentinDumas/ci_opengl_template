@@ -59,21 +59,6 @@ matrix:
         fi
 
   #
-  # Git Check
-  #
-  - os: linux
-    env:
-      - TEST="Git Check"
-    script:
-      - |
-        if [[ -n $(git diff --check HEAD^) ]]; then
-          echo "You must remove whitespace before submitting a pull request"
-          echo ""
-          git diff --check HEAD^
-          exit -1
-        fi
-
-  #
   # Astyle Format
   #
   - os: linux
@@ -99,6 +84,21 @@ matrix:
           echo "You must run make format before submitting a pull request"
           echo ""
           git diff
+          exit -1
+        fi
+
+  #
+  # Git Check
+  #
+  - os: linux
+    env:
+      - TEST="Git Check"
+    script:
+      - |
+        if [[ -n $(git diff --check HEAD^) ]]; then
+          echo "You must remove whitespace before submitting a pull request"
+          echo ""
+          git diff --check HEAD^
           exit -1
         fi
 
