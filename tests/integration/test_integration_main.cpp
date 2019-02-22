@@ -10,11 +10,6 @@
 #include <gmock/gmock.h>
 using ::testing::AtLeast;
 
-TEST(TestCaseSuite, TestRien)
-{
-    EXPECT_EQ(1, 1);
-}
-
 int test_integration_main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     ::testing::InitGoogleMock(&argc, argv);

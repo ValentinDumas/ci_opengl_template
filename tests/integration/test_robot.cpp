@@ -3,3 +3,8 @@
 //
 
 #include <gtest/gtest.h>
+
+TEST(TestCaseSuite, TestRien)
+{
+    EXPECT_EQ(1, 1);
+}
