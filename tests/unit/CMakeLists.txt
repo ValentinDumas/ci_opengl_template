@@ -14,5 +14,6 @@ if(STANDALONE_TESTING)
     message("Unit tests started in STANDALONE mode")
 else()
     message("Unit tests started in ONLINE mode")
-    add_test(tests unit_tests)
 endif()
+
+add_test(tests unit_tests)
