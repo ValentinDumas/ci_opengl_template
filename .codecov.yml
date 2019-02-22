@@ -22,7 +22,7 @@ flags:
       - tests/unit/
   integration:
     paths:
-      - tests/integration
+      - tests/integration/
 
 coverage:
   precision: 2

@@ -178,8 +178,8 @@ matrix:
       - make test # run all tests
       - cd ..
       #- bash <(curl -s https://codecov.io/bash)
-      - bash <(curl -s https://codecov.io/bash) # -F unit -c
-      - bash <(curl -s https://codecov.io/bash) # -F integration -c
+      - bash <(curl -s https://codecov.io/bash) -F unit -c
+      - bash <(curl -s https://codecov.io/bash) -F integration -c
 
   #
   # Coveralls
