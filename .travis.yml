@@ -72,7 +72,8 @@ matrix:
           - libbsd-dev
           - libzzip-dev
     script:
-      - doxygen ../.doxygen.txt
+      - cd ..
+      - doxygen .doxygen.txt
       - |
         if [[ -s doxygen_warnings.txt ]]; then
           echo "You must fix doxygen before submitting a pull request"
@@ -81,6 +82,7 @@ matrix:
           exit -1
         fi
       # Doxygen has no errors
+      - cd build
       - cmake -DCMAKE_CXX_COMPILER="g++-6" ..
       - make -j4
       - cd ..
