@@ -5,6 +5,9 @@ find_package(Git REQUIRED)
 add_subdirectory(googletest)
 add_subdirectory(glad)
 
+
+add_subdirectory(Box2D)
+
 # ------------------------------------------------------------------------------
 # GLFW 3.2.1
 # ------------------------------------------------------------------------------
@@ -16,10 +19,10 @@ option(ENABLE_BOOST_WORKAROUND OFF)
 add_subdirectory(glfw_3.2.1)
 
 # Assimp build options
-option(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
-option(ASSIMP_BUILD_SAMPLES OFF)
-option(ASSIMP_BUILD_TESTS OFF)
-#add_subdirectory(assimp)
+#option(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
+#option(ASSIMP_BUILD_SAMPLES OFF)
+#option(ASSIMP_BUILD_TESTS OFF)
+add_subdirectory(assimp)
 
 # Bullet build options
 #option(BUILD_BULLET2_DEMOS OFF)

@@ -18,7 +18,7 @@ int main(int argc, char **argv)
     if( !glfwInit() )
         exit( EXIT_FAILURE );
 
-    window = glfwCreateWindow( 400, 400, "Boing (classic Amiga demo)", NULL, NULL );
+    window = glfwCreateWindow( 400, 400, "GLFW demo window", NULL, NULL );
     if (!window)
     {
         glfwTerminate();
