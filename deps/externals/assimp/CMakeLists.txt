@@ -115,7 +115,7 @@ OPTION ( IGNORE_GIT_HASH
    OFF
 )
 
-add_compile_options(-O2)
+# add_compile_options(-O2)
 add_definitions(-DASSIMP_BUILD_NO_IFC_IMPORTER)
 
 IF (IOS)
