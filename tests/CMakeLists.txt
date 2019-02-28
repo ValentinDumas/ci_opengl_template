@@ -1,4 +1,4 @@
-set(EXTERNAL_MODULES gtest gtest_main gmock gmock_main)
+set(EXTERNAL_MODULES glm stb gtest gtest_main gmock gmock_main)
 set(PROJECT_SOURCE_MODULES project_src_lib)
 
 set(STANDALONE_TESTING ON CACHE BOOL "" FORCE) # Default testing mode as STANDALONE (offline)
