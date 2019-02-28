@@ -18,13 +18,25 @@ option(GLFW_BUILD_TESTS OFF)
 option(ENABLE_BOOST_WORKAROUND OFF)
 add_subdirectory(glfw_3.2.1)
 
-# Assimp build options
-#option(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
-#option(ASSIMP_BUILD_SAMPLES OFF)
-#option(ASSIMP_BUILD_TESTS OFF)
+# ------------------------------------------------------------------------------
+# STB library
+# ------------------------------------------------------------------------------
+add_subdirectory(stb)
+
+# ------------------------------------------------------------------------------
+# GLM library (0.9.9.3) 
+# ------------------------------------------------------------------------------
+option(GLM_TEST_ENABLE OFF)
+add_subdirectory(glm_0.9.9.3)
+
+# ------------------------------------------------------------------------------
+# Assimp
+# ------------------------------------------------------------------------------
 add_subdirectory(assimp)
 
-# Bullet build options
+# ------------------------------------------------------------------------------
+# Bullet
+# ------------------------------------------------------------------------------
 #option(BUILD_BULLET2_DEMOS OFF)
 option(BUILD_CPU_DEMOS OFF)
 option(BUILD_EXTRAS OFF)
