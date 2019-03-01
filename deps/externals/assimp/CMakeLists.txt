@@ -38,6 +38,21 @@ SET(CMAKE_LEGACY_CYGWIN_WIN32 0) # Remove when CMake >= 2.8.4 is required
 CMAKE_MINIMUM_REQUIRED( VERSION 2.8 )
 PROJECT( Assimp )
 
+# ------------------------------------------------------------------------------
+# Assimp workaround for MINGW... IFC importer
+# ------------------------------------------------------------------------------
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+	message("64 bits")
+    set(ARCH_64 TRUE)
+else()
+	message("32 bits")
+    set(ARCH_64 FALSE)
+endif()
+if(MINGW AND ARCH_64)
+    message("MINGW && 64 bits")
+	add_definitions(-DASSIMP_BUILD_NO_IFC_IMPORTER)
+endif()
+
 # All supported options ###############################################
 
 OPTION( BUILD_SHARED_LIBS
@@ -114,9 +129,6 @@ OPTION ( IGNORE_GIT_HASH
    "Don't call git to get the hash."
    OFF
 )
-
-# add_compile_options(-O2)
-add_definitions(-DASSIMP_BUILD_NO_IFC_IMPORTER)
 
 IF (IOS)
   IF (NOT CMAKE_BUILD_TYPE)

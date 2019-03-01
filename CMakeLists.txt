@@ -25,15 +25,6 @@ include_directories(deps/externals/googletest/googlemock/include)
 
 add_subdirectory(deps)
 
-if(CMAKE_SIZEOF_VOID_P EQUAL 8)
-    set(ARCH_64 TRUE)
-else()
-    set(ARCH_64 FALSE)
-endif()
-if(MINGW AND ARCH_64)
-    add_definitions(-DASSIMP_BUILD_NO_IFC_IMPORTER)
-endif()
-
 # ------------------------------------------------------------------------------
 # OS Specific Options
 # ------------------------------------------------------------------------------
