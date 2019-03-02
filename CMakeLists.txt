@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
 project(ci_opengl_template C CXX)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 #set(CMAKE_CXX_STANDARD_REQUIRED ON) # Note: watch this carefully when coding in C.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #set(CMAKE_CXX_EXTENSIONS OFF) # Note: watch this with google test (compatibility/portability).
@@ -30,6 +30,7 @@ endif()
 # ------------------------------------------------------------------------------
 include_directories(deps) # include deps' folder. Note that you could include ${some_dep_include_dirs} from deps folder in order to be more precise at folder inclusion.
 include_directories(deps/externals/glad/include)
+include_directories(deps/externals/assimp/include)
 include_directories(${GLFW_SOURCE_DIR}/include) # TODO: self include this to target ?
 include_directories(deps/externals/googletest/googletest/include)
 include_directories(deps/externals/googletest/googlemock/include)
