@@ -224,7 +224,6 @@ endif()
 include_directories("${PROJECT_SOURCE_DIR}")
 
 add_subdirectory(glm)
-add_subdirectory(test)
 
 set(GLM_INSTALL_CONFIGDIR "${CMAKE_INSTALL_LIBDIR}/cmake/glm")
 install(DIRECTORY glm DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})

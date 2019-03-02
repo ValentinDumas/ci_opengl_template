@@ -23,7 +23,7 @@ ELSE( Qt5Widgets_FOUND AND OPENGL_FOUND)
 		SET ( ASSIMP_QT_VIEWER_DEPENDENCIES "${ASSIMP_QT_VIEWER_DEPENDENCIES} OpengGL")
 	ENDIF (NOT OPENGL_FOUND)
 
-	MESSAGE (WARNING "Build of assimp_qt_viewer is disabled. Unsatisfied dendencies: ${ASSIMP_QT_VIEWER_DEPENDENCIES}")
+	# MESSAGE (WARNING "Build of assimp_qt_viewer is disabled. Unsatisfied dendencies: ${ASSIMP_QT_VIEWER_DEPENDENCIES}")
 ENDIF( Qt5Widgets_FOUND AND OPENGL_FOUND)
 
 IF(VIEWER_BUILD)
