@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 # Dependency Libraries: from "deps" and / or "externals"
 # ------------------------------------------------------------------------------
-set(EXTERNAL_MODULES glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb assimp::assimp Box2D project_src_lib gtest gtest_main gmock gmock_main)
+set(EXTERNAL_MODULES glm stb gtest gtest_main gmock gmock_main)
 
 # ------------------------------------------------------------------------------
 # Project Libraries: from "src" (sources)
