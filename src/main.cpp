@@ -7,9 +7,10 @@
 
 // Include all GLM core / GLSL features
 //#include <glm/glm.hpp> // vec2, vec3, mat4, radians
-#include <glm/mat4x4.hpp>
+#include <glm/glm.hpp>
 // Include all GLM extensions
-#include <glm/ext.hpp> // perspective, translate, rotate
+//#include <glm/ext/matrix_projection.hpp>
+#include <glm/gtc/matrix_transform.hpp> // perspective, translate, rotate
 
 glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, glm::vec3 const& Up)
 {
@@ -22,7 +23,7 @@ glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, gl
 }
 
 #define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
+#include <stb/stb_image.h>
 
 #include <assimp/Importer.hpp>      // C++ importer interface
 #include <assimp/scene.h>           // Output data structure
@@ -31,19 +32,21 @@ glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, gl
 /// Main program function
 int main(int argc, char **argv)
 {
-	// Create an instance of the Importer class
+    glm::mat4 test_glm(1.f);
+    test_glm = transform(glm::vec2(1.f, 1.f), glm::vec3(1.f, 1.f, 1.f), glm::vec3(1.f, 1.f, 1.f));
+
+    // Create an instance of the Importer class
 	Assimp::Importer importer;
 	// And have it read the given file with some example postprocessing
-	// Usually - if speed is not the most important aspect for you - you'll 
+	// Usually - if speed is not the most important aspect for you - you'll
 	// propably to request more postprocessing than we do in this example.
-	const aiScene* scene = importer.ReadFile("e",
+	const aiScene* scene = importer.ReadFile("ee",
 		aiProcess_CalcTangentSpace |
 		aiProcess_Triangulate |
 		aiProcess_JoinIdenticalVertices |
 		aiProcess_SortByPType);
 
-	glm::mat4 test_glm(1.f);
-	test_glm = transform(glm::vec2(1.f, 1.f), glm::vec3(1.f, 1.f, 1.f), glm::vec3(1.f, 1.f, 1.f));
+	std::cout << "scene address: " << &scene << std::endl;
 
 	//    int result = add(1, 2);
 	//    std::cout << "Result = " << result << std::endl;
@@ -88,6 +91,17 @@ int main(int argc, char **argv)
 
     std::cout << "Setup status: SUCCESS" << std::endl;
     // std::cin.get();
+
+    while(1)
+    {
+        int a  = 2;
+
+        //a += 3;
+
+        a = 4;
+
+        std::cout << "a = " << a << std::endl;
+    }
 
     return 0;
 }

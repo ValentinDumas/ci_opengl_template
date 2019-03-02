@@ -32,6 +32,9 @@ add_subdirectory(glm_0.9.9.3)
 # ------------------------------------------------------------------------------
 # Assimp
 # ------------------------------------------------------------------------------
+option(ENABLE_BOOST_WORKAROUND ON)
+option(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
+option(BUILD_SHARED_LIBS OFF)
 add_subdirectory(assimp)
 
 # ------------------------------------------------------------------------------

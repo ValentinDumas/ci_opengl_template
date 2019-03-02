@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
 project(ci_opengl_template C CXX)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 11)
 #set(CMAKE_CXX_STANDARD_REQUIRED ON) # Note: watch this carefully when coding in C.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #set(CMAKE_CXX_EXTENSIONS OFF) # Note: watch this with google test (compatibility/portability).
@@ -9,6 +9,21 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Prevent overriding the parent project's compiler/linker
 # settings on Windows
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+add_definitions(-DASSIMP_BUILD_NO_IFC_IMPORTER)
+
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    message("64 bits")
+    set(ARCH_64 TRUE)
+else()
+    message("32 bits")
+    set(ARCH_64 FALSE)
+endif()
+if(MINGW AND ARCH_64)
+    message("MINGW && 64 bits")
+    add_definitions(-DENABLE_BOOST_WORKAROUND)
+    add_definitions(-DASSIMP_BUILD_NO_IFC_IMPORTER)
+endif()
 
 # ------------------------------------------------------------------------------
 # Dependencies
@@ -21,8 +36,6 @@ include_directories(src)
 include_directories(deps/externals/googletest/googletest/include)
 include_directories(deps/externals/googletest/googlemock/include)
 
-#include_directories("${gtest_SOURCE_DIR}/include" "${gmock_SOURCE_DIR}/include")
-
 add_subdirectory(deps)
 
 # ------------------------------------------------------------------------------
@@ -32,6 +45,14 @@ if (APPLE)
     add_definitions(-DGTEST_USE_OWN_TR1_TUPLE)
     add_definitions(-D__GLIBCXX__)
 endif (APPLE)
+
+#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wa,-mbig-obj")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wa,-mbig-obj")
+#option(BUILD_SHARED_LIBS ON)
+#add_definitions(-DBUILD_SHARED_LIBS)
+
+
+
 
 if(MSVC)
     #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
@@ -45,11 +66,9 @@ endif()
 # Prevent overriding the parent project's compiler/linker
 # settings on Windows
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
 option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
+option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
 
-option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
-option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
 
 # ------------------------------------------------------------------------------
 # Coverage

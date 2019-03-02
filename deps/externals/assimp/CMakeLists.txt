@@ -50,6 +50,7 @@ else()
 endif()
 if(MINGW AND ARCH_64)
     message("MINGW && 64 bits")
+    add_definitions(-DENABLE_BOOST_WORKAROUND)
 	add_definitions(-DASSIMP_BUILD_NO_IFC_IMPORTER)
 endif()
 
@@ -57,7 +58,7 @@ endif()
 
 OPTION( BUILD_SHARED_LIBS
   "Build package with shared libraries."
-  ON
+  OFF
 )
 
 OPTION( BUILD_FRAMEWORK
@@ -86,7 +87,7 @@ OPTION( ASSIMP_BUILD_ZLIB
 )
 OPTION( ASSIMP_BUILD_ASSIMP_TOOLS
   "If the supplementary tools for Assimp are built in addition to the library."
-  ON
+  OFF
 )
 OPTION ( ASSIMP_BUILD_SAMPLES
   "If the official samples are built as well (needs Glut)."
@@ -249,8 +250,8 @@ ELSEIF ( "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang" )
   SET(CMAKE_CXX_FLAGS "-g -fvisibility=hidden -fPIC -fno-strict-aliasing -Wall -Wno-long-long -std=c++11 ${CMAKE_CXX_FLAGS}" )
   SET(CMAKE_C_FLAGS "-fPIC -fno-strict-aliasing ${CMAKE_C_FLAGS}")
 ELSEIF( CMAKE_COMPILER_IS_MINGW )
-  SET( CMAKE_CXX_FLAGS "-fvisibility=hidden -fno-strict-aliasing -Wall -Wno-long-long -std=c++11 -Wa,-mbig-obj ${CMAKE_CXX_FLAGS}" )
-  SET(CMAKE_C_FLAGS "-fPIC -fno-strict-aliasing ${CMAKE_C_FLAGS} ")
+  SET( CMAKE_CXX_FLAGS "-fvisibility=hidden -fno-strict-aliasing -Wall -Wno-long-long -std=c++11 -Wa,-mbig-obj -O3 ${CMAKE_CXX_FLAGS}" )
+  SET(CMAKE_C_FLAGS "-fPIC -fno-strict-aliasing -O3 ${CMAKE_C_FLAGS} ")
   ADD_DEFINITIONS( -U__STRICT_ANSI__ )
 ENDIF()
 
