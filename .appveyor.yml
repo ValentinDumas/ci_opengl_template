@@ -12,7 +12,7 @@ build_script:
   #
   - mkdir build_msbuild
   - cd build_msbuild
-  - cmake -DENABLE_COVERAGE=1 -DSTANDALONE_TESTING=0 -G "Visual Studio 15 2017 Win64" ..
+  - cmake -DENABLE_COVERAGE=1 -DONLINE_TESTING=1 -G "Visual Studio 15 2017 Win64" ..
   - msbuild ci_opengl_template.sln
   - ctest -C Debug
   - cd ..

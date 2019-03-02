@@ -1,23 +1,38 @@
+# ------------------------------------------------------------------------------
+# Dependency Libraries: from "deps" and / or "externals"
+# ------------------------------------------------------------------------------
 set(EXTERNAL_MODULES glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb assimp::assimp Box2D project_src_lib gtest gtest_main gmock gmock_main)
+
+# ------------------------------------------------------------------------------
+# Project Libraries: from "src" (sources)
+# ------------------------------------------------------------------------------
 set(PROJECT_SOURCE_MODULES project_src_lib)
 
-# Default testing mode as STANDALONE (offline)
-set(STANDALONE_TESTING ON)
-if(STANDALONE_TESTING)
-    message("Tests are configured in STANDALONE mode")
-else()
+# ------------------------------------------------------------------------------
+# Testing Mode: messages
+# ------------------------------------------------------------------------------
+# Note: Default testing mode as STANDALONE (offline)
+if(ONLINE_TESTING)
     message("Tests are configured in ONLINE mode")
+else()
+    message("Tests are configured in STANDALONE mode")
 endif()
 
-function(CreateTest TYPE NAME)
-	set(SAMPLE_NAME ${TYPE}_${NAME})
-	add_executable(${SAMPLE_NAME} ${NAME}.cpp)
-	target_link_libraries(${SAMPLE_NAME} PRIVATE ${EXTERNAL_MODULES} ${PROJECT_SOURCE_MODULES}) #Note: see if glfw has to be included...
+# ------------------------------------------------------------------------------
+# Visual Studio / CTest coverage one by one
+# ------------------------------------------------------------------------------
+#function(CreateTest TYPE NAME)
+#	set(SAMPLE_NAME ${TYPE}_${NAME})
+#	add_executable(${SAMPLE_NAME} ${NAME}.cpp)
+#	target_link_libraries(${SAMPLE_NAME} PRIVATE ${EXTERNAL_MODULES} ${PROJECT_SOURCE_MODULES}) #Note: see if glfw has to be included...
+#
+#	add_test(
+#		NAME ${SAMPLE_NAME}
+#		COMMAND $<TARGET_FILE:${SAMPLE_NAME}> )
+#endfunction()
 
-	add_test(
-		NAME ${SAMPLE_NAME}
-		COMMAND $<TARGET_FILE:${SAMPLE_NAME}> )
-endfunction()
-
+# ------------------------------------------------------------------------------
+# Main Tests
+# ------------------------------------------------------------------------------
 add_subdirectory(integration)
 add_subdirectory(unit)

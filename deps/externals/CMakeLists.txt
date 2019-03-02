@@ -1,11 +1,22 @@
+# ------------------------------------------------------------------------------
+# ExternalProject & Git
+# ------------------------------------------------------------------------------
 include(ExternalProject)
-
 find_package(Git REQUIRED)
 
+# ------------------------------------------------------------------------------
+# GoogleTest / GoogleMock
+# ------------------------------------------------------------------------------
 add_subdirectory(googletest)
+
+# ------------------------------------------------------------------------------
+# GLad
+# ------------------------------------------------------------------------------
 add_subdirectory(glad)
 
-
+# ------------------------------------------------------------------------------
+# Box2D
+# ------------------------------------------------------------------------------
 add_subdirectory(Box2D)
 
 # ------------------------------------------------------------------------------
@@ -24,27 +35,41 @@ add_subdirectory(glfw_3.2.1)
 add_subdirectory(stb)
 
 # ------------------------------------------------------------------------------
-# GLM library (0.9.9.3) 
+# GLM library (0.9.9.3)
 # ------------------------------------------------------------------------------
 option(GLM_TEST_ENABLE OFF)
 add_subdirectory(glm_0.9.9.3)
 
 # ------------------------------------------------------------------------------
-# Assimp
+# Assimp (includes configuration with MinGW 64 bits)
 # ------------------------------------------------------------------------------
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    message("64 bits")
+    set(ARCH_64 TRUE)
+else()
+    message("32 bits")
+    set(ARCH_64 FALSE)
+endif()
+if(MINGW AND ARCH_64)
+    message("MINGW && 64 bits")
+    add_definitions(-DENABLE_BOOST_WORKAROUND)
+    add_definitions(-DASSIMP_BUILD_NO_IFC_IMPORTER)
+endif()
+
 option(ENABLE_BOOST_WORKAROUND ON)
 option(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
 option(BUILD_SHARED_LIBS OFF)
+
 add_subdirectory(assimp)
 
 # ------------------------------------------------------------------------------
 # Bullet
 # ------------------------------------------------------------------------------
 #option(BUILD_BULLET2_DEMOS OFF)
-option(BUILD_CPU_DEMOS OFF)
-option(BUILD_EXTRAS OFF)
-option(BUILD_OPENGL3_DEMOS OFF)
-option(BUILD_UNIT_TESTS OFF)
+#option(BUILD_CPU_DEMOS OFF)
+#option(BUILD_EXTRAS OFF)
+#option(BUILD_OPENGL3_DEMOS OFF)
+#option(BUILD_UNIT_TESTS OFF)
 #add_subdirectory(bullet)
 
 ## ------------------------------------------------------------------------------
@@ -90,23 +115,23 @@ option(BUILD_UNIT_TESTS OFF)
 #    )
 #
 #endif()
-#
-## ------------------------------------------------------------------------------
-## Google Sanitizers
-## ------------------------------------------------------------------------------
-#if(ENABLE_ASAN)
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O1")
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-ld=gold")
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-omit-frame-pointer")
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=leak")
-#endif()
-#
-#if(ENABLE_USAN)
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-ld=gold")
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=undefined")
-#endif()
+
+# ------------------------------------------------------------------------------
+# Google Sanitizers
+# ------------------------------------------------------------------------------
+if(ENABLE_ASAN)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O1")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-ld=gold")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-omit-frame-pointer")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=leak")
+endif()
+
+if(ENABLE_USAN)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-ld=gold")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=undefined")
+endif()
 
 if(ENABLE_TSAN)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-ld=gold")

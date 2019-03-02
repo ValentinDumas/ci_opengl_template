@@ -1,29 +1,31 @@
+# ------------------------------------------------------------------------------
+# CMake Version
+# ------------------------------------------------------------------------------
 cmake_minimum_required(VERSION 3.6)
+
+# ------------------------------------------------------------------------------
+# Project: name and languages
+# ------------------------------------------------------------------------------
 project(ci_opengl_template C CXX)
 
+# ------------------------------------------------------------------------------
+# CMake Options
+# ------------------------------------------------------------------------------
 set(CMAKE_CXX_STANDARD 14)
-#set(CMAKE_CXX_STANDARD_REQUIRED ON) # Note: watch this carefully when coding in C.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-#set(CMAKE_CXX_EXTENSIONS OFF) # Note: watch this with google test (compatibility/portability).
 
+# ------------------------------------------------------------------------------
+# GoogleTest configuration
+# ------------------------------------------------------------------------------
 # Prevent overriding the parent project's compiler/linker
 # settings on Windows
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-
-#add_definitions(-DASSIMP_BUILD_NO_IFC_IMPORTER)
-
-if(CMAKE_SIZEOF_VOID_P EQUAL 8)
-    message("64 bits")
-    set(ARCH_64 TRUE)
-else()
-    message("32 bits")
-    set(ARCH_64 FALSE)
-endif()
-if(MINGW AND ARCH_64)
-    message("MINGW && 64 bits")
-    add_definitions(-DENABLE_BOOST_WORKAROUND)
-    add_definitions(-DASSIMP_BUILD_NO_IFC_IMPORTER)
-endif()
+option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
+option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
+if (APPLE)
+    add_definitions(-DGTEST_USE_OWN_TR1_TUPLE)
+    add_definitions(-D__GLIBCXX__)
+endif (APPLE)
 
 # ------------------------------------------------------------------------------
 # Dependencies (that do not have
@@ -39,36 +41,24 @@ include_directories(src)
 add_subdirectory(deps)
 
 # ------------------------------------------------------------------------------
-# OS Specific Options
+# Warnings
 # ------------------------------------------------------------------------------
-if (APPLE)
-    add_definitions(-DGTEST_USE_OWN_TR1_TUPLE)
-    add_definitions(-D__GLIBCXX__)
-endif (APPLE)
-
-#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wa,-mbig-obj")
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wa,-mbig-obj")
-#option(BUILD_SHARED_LIBS ON)
-#add_definitions(-DBUILD_SHARED_LIBS)
-
-
-
+add_library(warnings_config INTERFACE)
 
 if(MSVC)
-    #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
+    target_compile_options(warnings_config INTERFACE /W4)
 else()
-    #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -std=c++14")
+    target_compile_options(warnings_config INTERFACE -Wall -std=c++14)
+endif()
+
+if(MSVC)
+    message("CMake Platform: MSVC")
+else()
     if(NOT WIN32)
+        message("CMake Platform: Clang or GCC (Not Windows32) => setting additional glab library link")
         set(GLAD_LIBRARIES dl) # Link glad libs for Linux & Apple
     endif()
 endif()
-
-# Prevent overriding the parent project's compiler/linker
-# settings on Windows
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
-option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
-
 
 # ------------------------------------------------------------------------------
 # Coverage
