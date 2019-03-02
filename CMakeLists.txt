@@ -26,15 +26,14 @@ if(MINGW AND ARCH_64)
 endif()
 
 # ------------------------------------------------------------------------------
-# Dependencies
+# Dependencies (that do not have
 # ------------------------------------------------------------------------------
 include_directories(deps) # include deps' folder. Note that you could include ${some_dep_include_dirs} from deps folder in order to be more precise at folder inclusion.
 include_directories(deps/externals/glad/include)
 include_directories(${GLFW_SOURCE_DIR}/include) # TODO: self include this to target ?
-
-include_directories(src)
 include_directories(deps/externals/googletest/googletest/include)
 include_directories(deps/externals/googletest/googlemock/include)
+include_directories(src)
 
 add_subdirectory(deps)
 

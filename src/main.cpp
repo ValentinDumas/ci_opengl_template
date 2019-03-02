@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 	// And have it read the given file with some example postprocessing
 	// Usually - if speed is not the most important aspect for you - you'll
 	// propably to request more postprocessing than we do in this example.
-	const aiScene* scene = importer.ReadFile("ee",
+	const aiScene* scene = importer.ReadFile("eeE",
 		aiProcess_CalcTangentSpace |
 		aiProcess_Triangulate |
 		aiProcess_JoinIdenticalVertices |
@@ -91,17 +91,6 @@ int main(int argc, char **argv)
 
     std::cout << "Setup status: SUCCESS" << std::endl;
     // std::cin.get();
-
-    while(1)
-    {
-        int a  = 2;
-
-        //a += 3;
-
-        a = 4;
-
-        std::cout << "a = " << a << std::endl;
-    }
 
     return 0;
 }
