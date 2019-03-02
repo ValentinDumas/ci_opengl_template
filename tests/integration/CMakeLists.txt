@@ -8,3 +8,10 @@ target_link_libraries(integration_tests PRIVATE ${EXTERNAL_MODULES} ${PROJECT_SO
 target_compile_definitions(integration_tests PRIVATE test_integration_main=main)
 
 add_test(integration_tests integration_tests)
+
+# Add tests individually if MSVC
+if(MSVC)
+    message("Import tests for MSVC environment")
+    # Note: possibility to perform a 'add_subdirectory' here and then 'CreateTest()' in that directory
+    #CreateTest(test_complex) # not working with ctest on appveyor ?
+endif()

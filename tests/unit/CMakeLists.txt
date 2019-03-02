@@ -9,8 +9,9 @@ target_compile_definitions(unit_tests PRIVATE test_unit_main=main)
 
 add_test(unit_tests unit_tests)
 
-# Add tests if MSVC !
+# Add tests individually if MSVC
 if(MSVC)
+    message("Import tests for MSVC environment")
     # Note: possibility to perform a 'add_subdirectory' here and then 'CreateTest()' in that directory
-    CreateTest(test_complex) # not working with ctest on appveyor ?
+    #CreateTest(test_complex) # not working with ctest on appveyor ?
 endif()

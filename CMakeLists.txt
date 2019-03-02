@@ -10,7 +10,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # settings on Windows
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
-add_definitions(-DASSIMP_BUILD_NO_IFC_IMPORTER)
+#add_definitions(-DASSIMP_BUILD_NO_IFC_IMPORTER)
 
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
     message("64 bits")

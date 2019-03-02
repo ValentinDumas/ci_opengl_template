@@ -1,4 +1,4 @@
-set(EXTERNAL_MODULES glm stb gtest gtest_main gmock gmock_main)
+set(EXTERNAL_MODULES glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb assimp::assimp Box2D project_src_lib gtest gtest_main gmock gmock_main)
 set(PROJECT_SOURCE_MODULES project_src_lib)
 
 # Default testing mode as STANDALONE (offline)
@@ -9,8 +9,8 @@ else()
     message("Tests are configured in ONLINE mode")
 endif()
 
-function(CreateTest NAME)
-	set(SAMPLE_NAME test_${NAME})
+function(CreateTest TYPE NAME)
+	set(SAMPLE_NAME ${TYPE}_${NAME})
 	add_executable(${SAMPLE_NAME} ${NAME}.cpp)
 	target_link_libraries(${SAMPLE_NAME} PRIVATE ${EXTERNAL_MODULES} ${PROJECT_SOURCE_MODULES}) #Note: see if glfw has to be included...
 
