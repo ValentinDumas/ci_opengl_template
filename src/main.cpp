@@ -6,7 +6,8 @@
 #include <GLFW/glfw3.h>
 
 // Include all GLM core / GLSL features
-#include <glm/glm.hpp> // vec2, vec3, mat4, radians
+//#include <glm/glm.hpp> // vec2, vec3, mat4, radians
+#include <glm/mat4x4.hpp>
 // Include all GLM extensions
 #include <glm/ext.hpp> // perspective, translate, rotate
 
@@ -23,10 +24,24 @@ glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, gl
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
+#include <assimp/Importer.hpp>      // C++ importer interface
+#include <assimp/scene.h>           // Output data structure
+#include <assimp/postprocess.h>     // Post processing flags
 
 /// Main program function
 int main(int argc, char **argv)
 {
+	// Create an instance of the Importer class
+	Assimp::Importer importer;
+	// And have it read the given file with some example postprocessing
+	// Usually - if speed is not the most important aspect for you - you'll 
+	// propably to request more postprocessing than we do in this example.
+	const aiScene* scene = importer.ReadFile("e",
+		aiProcess_CalcTangentSpace |
+		aiProcess_Triangulate |
+		aiProcess_JoinIdenticalVertices |
+		aiProcess_SortByPType);
+
 	glm::mat4 test_glm(1.f);
 	test_glm = transform(glm::vec2(1.f, 1.f), glm::vec3(1.f, 1.f, 1.f), glm::vec3(1.f, 1.f, 1.f));
 

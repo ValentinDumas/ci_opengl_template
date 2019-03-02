@@ -5,8 +5,12 @@
 #include <complex.hpp>
 #include <gtest/gtest.h>
 
+#include "glm/glm.hpp"
+
 TEST(UnitTestComplex, AssignmentOperatorAssignsTheReferencedObjectAndParameters)
 {
+	glm::mat4 allo(1.0f);
+
     Complex a(3,5);
     Complex b(1,2);
 

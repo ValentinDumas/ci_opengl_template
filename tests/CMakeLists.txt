@@ -9,8 +9,10 @@ else()
 endif()
 
 function(CreateTest NAME)
-	set(SAMPLE_NAME test-${NAME})
+	set(SAMPLE_NAME test_${NAME})
 	add_executable(${SAMPLE_NAME} ${NAME}.cpp)
+	target_link_libraries(${SAMPLE_NAME} PRIVATE ${EXTERNAL_MODULES} ${PROJECT_SOURCE_MODULES}) #Note: see if glfw has to be included...
+
 
 	add_test(
 		NAME ${SAMPLE_NAME}
