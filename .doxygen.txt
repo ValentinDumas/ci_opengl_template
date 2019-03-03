@@ -8,13 +8,13 @@
 # title of most generated pages and in a few other places.
 # The default value is: My Project.
 
-PROJECT_NAME           = "CI Hello World"
+PROJECT_NAME           = "CI OpenGL Template"
 
 # Using the PROJECT_BRIEF tag one can provide an optional one line description
 # for a project that appears at the top of each page and should give viewer a
 # quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = "A simple example of how to setup a complete CI environment for C and C++"
+PROJECT_BRIEF          = "An example of how to setup a complete CI environment for C, C++, OpenGL with CMake"
 
 # The INPUT tag is used to specify the files and/or directories that contain
 # documented source files. You may enter file names like myfile.cpp or
@@ -22,7 +22,7 @@ PROJECT_BRIEF          = "A simple example of how to setup a complete CI environ
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = src
+INPUT                  = include src deps
 
 #---------------------------------------------------------------------------
 # Shared
