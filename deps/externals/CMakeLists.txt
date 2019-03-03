@@ -63,7 +63,7 @@ add_subdirectory(stb)
 # GLM library (0.9.9.3)
 # ------------------------------------------------------------------------------
 option(GLM_TEST_ENABLE OFF)
-option(GLM_QUIET ON) # no glm warnings
+#option(GLM_QUIET ON) # no glm warnings
 add_subdirectory(glm_0.9.9.3)
 
 # ------------------------------------------------------------------------------
