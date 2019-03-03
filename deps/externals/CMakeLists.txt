@@ -5,9 +5,34 @@ include(ExternalProject)
 find_package(Git REQUIRED)
 
 # ------------------------------------------------------------------------------
+# GoogleTest configuration
+# ------------------------------------------------------------------------------
+# Prevent overriding the parent project's compiler/linker
+# settings on Windows
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
+option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
+if (APPLE)
+    add_definitions(-DGTEST_USE_OWN_TR1_TUPLE)
+    add_definitions(-D__GLIBCXX__)
+endif (APPLE)
+
+# ------------------------------------------------------------------------------
 # GoogleTest / GoogleMock
 # ------------------------------------------------------------------------------
 add_subdirectory(googletest)
+
+# ------------------------------------------------------------------------------
+# GLad Additional Libraries
+# ------------------------------------------------------------------------------
+if(MSVC)
+    message("CMake Platform: MSVC")
+else()
+    if(NOT WIN32)
+        message("CMake Platform: Clang or GCC (Not Windows32) => setting additional glab library link")
+        set(GLAD_LIBRARIES dl) # Link glad libs for Linux & Apple
+    endif()
+endif()
 
 # ------------------------------------------------------------------------------
 # GLad
@@ -38,6 +63,7 @@ add_subdirectory(stb)
 # GLM library (0.9.9.3)
 # ------------------------------------------------------------------------------
 option(GLM_TEST_ENABLE OFF)
+option(GLM_QUIET ON) # no glm warnings
 add_subdirectory(glm_0.9.9.3)
 
 # ------------------------------------------------------------------------------
@@ -56,8 +82,15 @@ if(MINGW AND ARCH_64)
     add_definitions(-DASSIMP_BUILD_NO_IFC_IMPORTER)
 endif()
 
+# Assimp options
 option(ENABLE_BOOST_WORKAROUND ON)
+option(BUILD_SHARED_LIBS OFF)
+option(BUILD_FRAMEWORK OFF)
+option(ASSIMP_DOUBLE_PRECISION OFF)
 option(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
+option(ASSIMP_BUILD_SAMPLES OFF)
+option(ASSIMP_BUILD_TESTS OFF)
+option(BUILD DOCS OFF)
 option(BUILD_SHARED_LIBS OFF)
 
 add_subdirectory(assimp)
@@ -72,9 +105,9 @@ add_subdirectory(assimp)
 #option(BUILD_UNIT_TESTS OFF)
 #add_subdirectory(bullet)
 
-## ------------------------------------------------------------------------------
-## CppCheck
-## ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+# CppCheck
+# ------------------------------------------------------------------------------
 #if(ENABLE_CPPCHECK)
 #
 #    list(APPEND CPPCHECK_CMAKE_ARGS

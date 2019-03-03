@@ -1,5 +1,11 @@
+# ------------------------------------------------------------------------------
+# Box2D Project
+# ------------------------------------------------------------------------------
 project(Box2D)
 
+# ------------------------------------------------------------------------------
+# Box2D Sources
+# ------------------------------------------------------------------------------
 set(Box2D_sources ${PROJECT_SOURCE_DIR}/Box2D/Collision/b2BroadPhase.cpp
         ${PROJECT_SOURCE_DIR}/Box2D/Collision/b2CollideCircle.cpp
         ${PROJECT_SOURCE_DIR}/Box2D/Collision/b2CollideEdge.cpp
@@ -47,6 +53,9 @@ set(Box2D_sources ${PROJECT_SOURCE_DIR}/Box2D/Collision/b2BroadPhase.cpp
         ${PROJECT_SOURCE_DIR}/Box2D/Dynamics/b2WorldCallbacks.cpp
         ${PROJECT_SOURCE_DIR}/Box2D/Rope/b2Rope.cpp)
 
+# ------------------------------------------------------------------------------
+# Box2D Library
+# ------------------------------------------------------------------------------
 add_library(${PROJECT_NAME} STATIC ${Box2D_sources})
-message(${CMAKE_CURRENT_SOURCE_DIR})
+
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
