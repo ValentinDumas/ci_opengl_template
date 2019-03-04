@@ -89,7 +89,7 @@ int main(int argc, char **argv)
     }
     printf("OpenGL %d.%d\n", GLVersion.major, GLVersion.minor);
 
-    std::cout << "Setup status: SUCCESS" << std::endl;
+    std::cout << "Setup status: SUCCESS !" << std::endl;
     // std::cin.get();
 
     return 0;
