@@ -317,7 +317,7 @@ To compile and install this project template, use the following instructions:
     make
     make test
 
-## External Dependencies
+## 6. External Dependencies
 This project provides some externals dependencies already included:
 -   **GLad compatibility 3.3**, OpenGL + extensions loader.
 -   **GLFW**, provides a context to render the OpenGL stuff on screen.
@@ -332,7 +332,7 @@ This project provides some externals dependencies already included:
 -   **irrKlang**, coming soon...
 -   **bullet**, coming soon...
 
-## How to adapt this project to your needs
+## 7. How to adapt this project to your needs
 You only need to:
 -   Clone or fork this project
 -   Choose an IDE for opening the project
