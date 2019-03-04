@@ -55,6 +55,7 @@ include_directories(${GLFW_SOURCE_DIR}/include) # TODO: self include this to tar
 include_directories(deps/externals/googletest/googletest/include)
 include_directories(deps/externals/googletest/googlemock/include)
 include_directories(src)
+include_directories(assets)
 
 # ------------------------------------------------------------------------------
 # Dependencies (+ externals)

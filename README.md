@@ -157,7 +157,7 @@ Install the following packages:
 ## 4. Configure the analysis tools
 The following provides a description of all of the analysis tools that have been integrated into the CI services used by this project including an explanation of how it works.
 
-### Doxygen.
+### Doxygen documentation tool
 The CI is setup to check for missing documentation using doxygen.
 Unlike most of the analysis tools used in this project, there is no make target for doxygen, and instead it is run using doxygen manually with the following script:
 
@@ -187,7 +187,7 @@ git diff --check provides a simple way to detect when whitespace errors has been
       
 This check simply runs git diff --check, which returns with an error if the check fails. If this occurs, the diff is displayed for the user to see.
 
-### Codecov.
+### Codecov test coverage
 Codecov is a powerful, yet simple to setup coverage tool.
 
     # ------------------------------------------------------------------------------

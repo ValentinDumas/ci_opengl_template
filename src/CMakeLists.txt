@@ -11,12 +11,14 @@ target_link_libraries(project_src_lib PUBLIC coverage_config warnings_config) # 
 # ------------------------------------------------------------------------------
 add_executable(ci_opengl_template main.cpp)
 
-# pthread not needed !
 target_link_libraries(ci_opengl_template glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb assimp::assimp Box2D project_src_lib)
 
 target_compile_definitions(ci_opengl_template PRIVATE main=main)
 
-# WIN32
-# CMAKE_CL_64
-# UNIX
-# MSVC
+# ------------------------------------------------------------------------------
+# Assets
+# ------------------------------------------------------------------------------
+file(GLOB ASSETS assets/*)
+foreach(asset ${ASSETS})
+    file(COPY ${asset} DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/assets)
+endforeach(asset)

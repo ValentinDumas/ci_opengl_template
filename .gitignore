@@ -1,7 +1,12 @@
+# Visual Studio
 .vs/
-build/
+Testing/
+TestResults/
+
+# JetBrains CLion
 .idea/
 cmake-build-debug/
 cmake-build-release/
-Testing/
-TestResults/
+
+# Build folder
+build/
