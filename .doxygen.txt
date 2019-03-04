@@ -14,7 +14,7 @@ PROJECT_NAME           = "CI OpenGL Template"
 # for a project that appears at the top of each page and should give viewer a
 # quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = "An example of how to setup a complete CI environment for C, C++, OpenGL with CMake"
+PROJECT_BRIEF          = "An example of how to setup a complete CI environment for C, C++, OpenGL with CMake."
 
 # The INPUT tag is used to specify the files and/or directories that contain
 # documented source files. You may enter file names like myfile.cpp or
