@@ -13,8 +13,12 @@ project(ci_opengl_template C CXX)
 # ------------------------------------------------------------------------------
 set(CMAKE_CXX_STANDARD 14)
 set(BUILD_SHARED_LIBS OFF)
-set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static")
 #set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for clang tidy
+
+#set(BUILD_EXECUTABLE ON)
+if(BUILD_EXECUTABLE)
+    set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static")
+endif()
 
 # ------------------------------------------------------------------------------
 # Coverage
