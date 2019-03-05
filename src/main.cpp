@@ -63,10 +63,10 @@ int main(int argc, char **argv) {
     int comp;
     std::string filename_abs = "";
 #ifndef NDEBUG// in debug
-    filename_abs = strcat(buff, "\\..\\assets\\images\\jenkins-logo.png");
+    filename_abs = strcat(strcat(buff, "\\.."), "\\assets\\images\\jenkins-logo.png");
 #endif
 #ifdef NDEBUG // in release
-    filename_abs = strcat(buff, "\\..\\assets\\images\\jenkins-logo.png");
+    filename_abs = strcat(strcat(buff, "\\.."), "\\assets\\images\\jenkins-logo.png");
 #endif
 
     unsigned char *image = stbi_load(filename_abs.c_str(), &w, &h, &comp, STBI_rgb);
