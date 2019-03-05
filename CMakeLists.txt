@@ -40,6 +40,7 @@ add_library(warnings_config INTERFACE)
 
 if(MSVC)
     target_compile_options(warnings_config INTERFACE /W4)
+    add_compile_definitions(MSVC_PLATFORM)
 else()
     target_compile_options(warnings_config INTERFACE -Wall -std=c++14)
     #target_compile_options(warnings_config INTERFACE -Wall -Wextra -Wpedantic -std=c++14)
