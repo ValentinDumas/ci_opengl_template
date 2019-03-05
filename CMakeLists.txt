@@ -48,14 +48,14 @@ endif()
 # ------------------------------------------------------------------------------
 # Includes
 # ------------------------------------------------------------------------------
-include_directories(deps) # include deps' folder. Note that you could include ${some_dep_include_dirs} from deps folder in order to be more precise at folder inclusion.
+#include_directories(deps) # include deps' folder. Note that you could include ${some_dep_include_dirs} from deps folder in order to be more precise at folder inclusion.
 include_directories(deps/externals/glad/include)
 include_directories(deps/externals/assimp/include)
 include_directories(${GLFW_SOURCE_DIR}/include) # TODO: self include this to target ?
 include_directories(deps/externals/googletest/googletest/include)
 include_directories(deps/externals/googletest/googlemock/include)
 include_directories(src)
-include_directories(assets)
+#include_directories(assets)
 
 # ------------------------------------------------------------------------------
 # Dependencies (+ externals)
@@ -66,6 +66,20 @@ add_subdirectory(deps)
 # Sources
 # ------------------------------------------------------------------------------
 add_subdirectory(src)
+
+# ------------------------------------------------------------------------------
+# Main Executable
+# ------------------------------------------------------------------------------
+add_executable(ci_opengl_template main.cpp)
+
+target_link_libraries(ci_opengl_template glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb assimp::assimp Box2D project_src_lib)
+
+target_compile_definitions(ci_opengl_template PRIVATE main=main)
+
+# ------------------------------------------------------------------------------
+# Assets
+# ------------------------------------------------------------------------------
+add_subdirectory(assets)
 
 # ------------------------------------------------------------------------------
 # CTest -> testing

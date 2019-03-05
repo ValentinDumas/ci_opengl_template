@@ -1,5 +1,3 @@
-#include "hello.h"
-
 #include <iostream>
 
 #include <stdio.h>  /* defines FILENAME_MAX */
@@ -45,30 +43,27 @@ int main(int argc, char **argv) {
     test_glm = transform(glm::vec2(1.f, 1.f), glm::vec3(1.f, 1.f, 1.f), glm::vec3(1.f, 1.f, 1.f));
 
     // Create an instance of the Importer class
-    Assimp::Importer importer;
-    // And have it read the given file with some example postprocessing
-    // Usually - if speed is not the most important aspect for you - you'll
-    // propably to request more postprocessing than we do in this example.
-    const aiScene *scene = importer.ReadFile("eeE",
-                                             aiProcess_CalcTangentSpace |
-                                             aiProcess_Triangulate |
-                                             aiProcess_JoinIdenticalVertices |
-                                             aiProcess_SortByPType);
+//    Assimp::Importer importer;
+//    // And have it read the given file with some example postprocessing
+//    // Usually - if speed is not the most important aspect for you - you'll
+//    // propably to request more postprocessing than we do in this example.
+//    const aiScene *scene = importer.ReadFile("eeE",
+//                                             aiProcess_CalcTangentSpace |
+//                                             aiProcess_Triangulate |
+//                                             aiProcess_JoinIdenticalVertices |
+//                                             aiProcess_SortByPType);
     char buff[FILENAME_MAX];
     GetCurrentDir( buff, FILENAME_MAX );
     printf("Current working dir: %s\n", buff);
 
-    std::cout << "scene address: " << &scene << std::endl;
-
-    //    int result = add(1, 2);
-    //    std::cout << "Result = " << result << std::endl;
+    //std::cout << "scene address: " << &scene << std::endl;
 
     int w;
     int h;
     int comp;
     std::string filename_abs = "";
 #ifndef NDEBUG// in debug
-    filename_abs = "C:\\Users\\Spark\\Desktop\\apps\\cppprojects\\ci_opengl_template\\assets\\images\\jenkins-logo.png";
+    filename_abs = "assets\\images\\jenkins-logo.png";
 #endif
 #ifdef NDEBUG // in release
     filename_abs = "assets\\images\\jenkins-logo.png";
