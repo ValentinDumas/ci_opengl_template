@@ -40,7 +40,6 @@ add_library(warnings_config INTERFACE)
 
 if(MSVC)
     target_compile_options(warnings_config INTERFACE /W4)
-    add_compile_definitions(MSVC_PLATFORM)
 else()
     target_compile_options(warnings_config INTERFACE -Wall -std=c++14)
     #target_compile_options(warnings_config INTERFACE -Wall -Wextra -Wpedantic -std=c++14)
@@ -67,15 +66,6 @@ add_subdirectory(deps)
 # Sources
 # ------------------------------------------------------------------------------
 add_subdirectory(src)
-
-# ------------------------------------------------------------------------------
-# Main Executable
-# ------------------------------------------------------------------------------
-add_executable(ci_opengl_template main.cpp)
-
-target_link_libraries(ci_opengl_template glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb assimp::assimp Box2D project_src_lib)
-
-target_compile_definitions(ci_opengl_template PRIVATE main=main)
 
 # ------------------------------------------------------------------------------
 # Assets
