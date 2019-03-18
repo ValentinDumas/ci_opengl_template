@@ -33,9 +33,9 @@ glm::mat4 transform(glm::vec2 const &Orientation, glm::vec3 const &Translate, gl
 
 #include <stb/stb_image.h>
 
-#include <assimp/Importer.hpp>      // C++ importer interface
-#include <assimp/scene.h>           // Output data structure
-#include <assimp/postprocess.h>     // Post processing flags
+//#include <assimp/Importer.hpp>      // C++ importer interface
+//#include <assimp/scene.h>           // Output data structure
+//#include <assimp/postprocess.h>     // Post processing flags
 
 /// Main program function
 int main(int argc, char **argv) {
@@ -52,6 +52,7 @@ int main(int argc, char **argv) {
 //                                             aiProcess_Triangulate |
 //                                             aiProcess_JoinIdenticalVertices |
 //                                             aiProcess_SortByPType);
+        
     char buff[FILENAME_MAX];
     GetCurrentDir( buff, FILENAME_MAX );
     printf("Current working dir: %s\n", buff);

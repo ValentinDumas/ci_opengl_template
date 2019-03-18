@@ -20,12 +20,16 @@ if(BUILD_EXECUTABLE)
     set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static")
 endif()
 
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/deps)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/deps)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+
 # ------------------------------------------------------------------------------
 # Coverage
 # ------------------------------------------------------------------------------
 add_library(coverage_config INTERFACE)
 option(ENABLE_COVERAGE "Enable coverage reporting" OFF)
-if(ENABLE_COVERAGE)
+        if(ENABLE_COVERAGE)
     # Add required flags (GCC & LLVM/Clang)
     target_compile_options(coverage_config INTERFACE
             -O0        # no optimization
@@ -54,12 +58,15 @@ endif()
 # ------------------------------------------------------------------------------
 # Includes
 # ------------------------------------------------------------------------------
+set(EXTERNALS_PATH ${CMAKE_SOURCE_DIR}/deps/externals)
+
 #include_directories(deps) # include deps' folder. Note that you could include ${some_dep_include_dirs} from deps folder in order to be more precise at folder inclusion.
-include_directories(deps/externals/glad/include)
-include_directories(deps/externals/assimp/include)
+include_directories(${EXTERNALS_PATH}/glad/include)
+#include_directories(deps/externals/assimp/include)
 include_directories(${GLFW_SOURCE_DIR}/include) # TODO: self include this to target ?
-include_directories(deps/externals/googletest/googletest/include)
-include_directories(deps/externals/googletest/googlemock/include)
+include_directories(${EXTERNALS_PATH}/googletest/googletest/include)
+include_directories(${EXTERNALS_PATH}/googletest/googlemock/include)
+#include_directories(deps/externals/imgui-1.68/include)
 include_directories(src)
 #include_directories(assets)
 
