@@ -92,7 +92,7 @@ option(ASSIMP_BUILD_SAMPLES OFF)
 option(ASSIMP_BUILD_TESTS OFF)
 option(BUILD DOCS OFF)
 
-add_subdirectory(assimp)
+#add_subdirectory(assimp)
 
 # ------------------------------------------------------------------------------
 # Bullet

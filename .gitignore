@@ -12,3 +12,4 @@ cmake-build-release/
 build/
 deps/*.a
 deps/externals/*.a
+bin/
