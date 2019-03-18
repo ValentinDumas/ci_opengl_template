@@ -115,8 +115,11 @@ matrix:
     script:
       - cmake -DENABLE_COVERAGE=ON -DONLINE_TESTING=1 -DCMAKE_CXX_COMPILER="g++-6" ..
       - make -j4 # run project build
-      - make test # run all tests
+
       - cd ..
+
+      - make test # run all tests
+
       - bash <(curl -s https://codecov.io/bash)
 
   #
@@ -136,6 +139,9 @@ matrix:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DENABLE_ASAN=ON -DCMAKE_CXX_COMPILER="g++-6" ..
       - make -j4
+
+      - cd ..
+
       - make test
 
   #
@@ -155,6 +161,9 @@ matrix:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DENABLE_USAN=ON -DCMAKE_CXX_COMPILER="g++-6" ..
       - make -j4
+
+      - cd ..
+
       - make test
 
   #
@@ -174,6 +183,9 @@ matrix:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DENABLE_TSAN=ON -DCMAKE_CXX_COMPILER="g++-6" ..
       - make -j4
+
+      - cd ..
+
       - make test
 
   #
@@ -213,6 +225,9 @@ matrix:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DCMAKE_CXX_COMPILER="g++-5" ..
       - make -j4
+
+      - cd ..
+
       - make test
 
   #
@@ -232,6 +247,9 @@ matrix:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DCMAKE_CXX_COMPILER="g++-6" ..
       - make -j4
+
+      - cd ../bin
+
       - make test
 
   #
@@ -253,6 +271,9 @@ matrix:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DCMAKE_C_COMPILER=clang-3.8 -DCMAKE_CXX_COMPILER=clang++-3.8 ..
       - make -j4
+
+      - cd ../bin
+
       - make test
 
   #
@@ -274,6 +295,9 @@ matrix:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DCMAKE_C_COMPILER=clang-3.9 -DCMAKE_CXX_COMPILER=clang++-3.9 ..
       - make -j4
+
+      - cd ../bin
+
       - make test
 
   #
@@ -295,6 +319,9 @@ matrix:
       - sudo apt-get install xorg-dev libglu1-mesa-dev libbsd-dev libzzip-dev
       - cmake -DCMAKE_C_COMPILER=clang-4.0 -DCMAKE_CXX_COMPILER=clang++-4.0 ..
       - make -j4
+
+      - cd ../bin
+
       - make test
 
   #
@@ -307,6 +334,9 @@ matrix:
     script:
       - cmake ..
       - make -j4
+
+      - cd ../bin
+
       - make test
 
   #
@@ -319,6 +349,9 @@ matrix:
     script:
       - cmake ..
       - make -j4
+
+      - cd ../bin
+
       - make test
 
   #
@@ -331,6 +364,9 @@ matrix:
     script:
       - cmake ..
       - make -j4
+
+      - cd ../bin
+
       - make test
 
   #
@@ -343,6 +379,9 @@ matrix:
     script:
       - cmake ..
       - make -j4
+
+      - cd ../bin
+
       - make test
 
   #
@@ -355,4 +394,7 @@ matrix:
     script:
       - cmake ..
       - make -j4
+
+      - cd ..
+
       - make test
