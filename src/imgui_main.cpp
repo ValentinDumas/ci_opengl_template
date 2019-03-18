@@ -10,11 +10,6 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
-#include "cppfs/fs.h"
-#include "cppfs/FileHandle.h"
-#include "cppfs/FilePath.h"
-#include "cppfs/Tree.h"
-
 
 
 
@@ -33,7 +28,10 @@
 #endif
 
 
-
+#include <cppfs/fs.h>
+#include <cppfs/FilePath.h>
+#include <cppfs/FileHandle.h>
+#include <cppfs/Tree.h>
 
 
 void open_file(const std::string& filename)
