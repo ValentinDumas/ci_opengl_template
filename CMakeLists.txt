@@ -23,16 +23,19 @@ endif()
 # ------------------------------------------------------------------------------
 # Testing Mode: messages
 # ------------------------------------------------------------------------------
+set(ONLINE_TESTS ${ONLINE_TESTING})
+
 # Note: Default testing mode as STANDALONE (offline)
 if(ONLINE_TESTING)
     message("Tests are configured in ONLINE mode")
 else()
     message("Tests are configured in STANDALONE mode")
+    #set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/deps)
+    #set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/deps)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 endif()
 
-#set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/deps)
-#set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/deps)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+
 
 
 
