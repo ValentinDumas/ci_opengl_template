@@ -15,7 +15,8 @@ set(CMAKE_CXX_STANDARD 14)
 set(BUILD_SHARED_LIBS OFF)
 #set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for clang tidy
 
-set(BUILD_EXECUTABLE ON)
+# Note: Must be OFF when testing (CI)
+set(BUILD_EXECUTABLE OFF)
 
 # ------------------------------------------------------------------------------
 # Testing Mode: messages
