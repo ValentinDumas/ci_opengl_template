@@ -16,7 +16,7 @@ set(BUILD_SHARED_LIBS OFF)
 #set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for clang tidy
 
 # Note: Must be OFF when testing (CI)
-set(BUILD_EXECUTABLE OFF)
+set(BUILD_EXECUTABLE ON)
 
 # ------------------------------------------------------------------------------
 # Testing Mode: messages
