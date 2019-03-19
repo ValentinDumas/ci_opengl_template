@@ -15,10 +15,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(BUILD_SHARED_LIBS OFF)
 #set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for clang tidy
 
-#set(BUILD_EXECUTABLE ON)
-if(BUILD_EXECUTABLE)
-    set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static")
-endif()
+set(BUILD_EXECUTABLE ON)
 
 # ------------------------------------------------------------------------------
 # Testing Mode: messages
@@ -30,6 +27,10 @@ if(ONLINE_TESTS)
     message("Tests are configured in ONLINE mode")
 else()
     message("Tests are configured in STANDALONE mode")
+    if(BUILD_EXECUTABLE)
+        set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static")
+        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
+    endif()
 endif()
 
 # ------------------------------------------------------------------------------
