@@ -1,7 +1,12 @@
 # ------------------------------------------------------------------------------
 # Assets (images): copy assets to CMake binary output directory
 # ------------------------------------------------------------------------------
-file(GLOB_RECURSE ASSETS_IMAGES ${CMAKE_SOURCE_DIR}/assets/images/*)
+
+function(CopyAssets source_path destination_path)
+    file(GLOB_RECURSE ASSETS_ITEMS ${source_path})
+endfunction()
+
+file(GLOB_RECURSE ASSETS_IMAGES ${CMAKE_SOURCE_DIR}/assets/images)
 foreach(asset_image ${ASSETS_IMAGES})
     #message(${asset_image})
     file(COPY ${asset_image} DESTINATION ${CMAKE_SOURCE_DIR}/bin/assets/images) # note: bin dir is set to project root
