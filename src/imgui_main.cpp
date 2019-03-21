@@ -298,6 +298,10 @@ int main(int argc, char** argv)
 
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
+        // IMPORTANT:
+        // In binary / release (executable)    --> keep the binary path to find assets
+        // In development mode (no executable) --> keep the project path to find assets
+
         char binary_path[FILENAME_MAX];
         GetCurrentDir( binary_path, FILENAME_MAX );
         printf("Current working (binary) dir: %s\n", binary_path);

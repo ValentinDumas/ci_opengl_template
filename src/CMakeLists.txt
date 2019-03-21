@@ -19,10 +19,6 @@ target_link_libraries(ci_opengl_template imgui glfw ${GLFW_LIBRARIES} glad ${GLA
 #set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/deps)
 #set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
-if(EXISTS "${CMAKE_CURRENT_BINARY_DIR}/ci_opengl_template.exe")
-    file(COPY "${CMAKE_CURRENT_BINARY_DIR}/ci_opengl_template.exe" DESTINATION "${CMAKE_SOURCE_DIR}}/bin")
-endif()
-
 if (MSVC)
     target_compile_definitions(ci_opengl_template PRIVATE main=main MSVC_PLATFORM)
 else ()

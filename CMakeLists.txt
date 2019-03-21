@@ -16,23 +16,22 @@ set(BUILD_SHARED_LIBS OFF)
 #set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for clang tidy
 
 # Note: Must be OFF when testing (CI)
-set(BUILD_EXECUTABLE ON)
+set(BUILD_EXECUTABLE OFF)
 
 # ------------------------------------------------------------------------------
 # Testing Mode: messages
+# Note: Default testing mode as STANDALONE (offline)
 # ------------------------------------------------------------------------------
 set(ONLINE_MODE ${ONLINE_TESTING})
-
-# Note: Default testing mode as STANDALONE (offline)
 if(ONLINE_MODE)
     message("Tests are configured in ONLINE mode")
 else()
     message("Tests are configured in STANDALONE mode")
     if(BUILD_EXECUTABLE)
-        set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static")
+        set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static") # include gcc libs
         set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
     else()
-        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
+        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
     endif()
 endif()
 
