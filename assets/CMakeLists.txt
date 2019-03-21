@@ -12,7 +12,7 @@ function(CopyAssets source_path destination_path)
         string(REGEX MATCH "CMakeLists.txt" cmakelist ${asset_source})
         if(NOT (cmakelist MATCHES "CMakeLists.txt"))
             #message(${source_path})
-            string(REPLACE ${source_path} ${destination_path} asset_destination ${asset_source})
+            string(REPLACE "${source_path}" "${destination_path}" asset_destination ${asset_source})
             #message(${asset_destination})
             configure_file(${asset_source} ${asset_destination})
             #message("")
@@ -25,9 +25,9 @@ if((NOT ONLINE_MODE) AND BUILD_EXECUTABLE) # standalone AND build executable
 endif()
 
 if((NOT ONLINE_MODE) AND (NOT BUILD_EXECUTABLE)) # standalone AND no executable
-    CopyAssets(${CMAKE_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/bin/assets)
+    CopyAssets("${CMAKE_SOURCE_DIR}/assets" "${CMAKE_BINARY_DIR}/bin/assets")
 endif()
 
 if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
-    CopyAssets(${CMAKE_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/assets)
+    CopyAssets("${CMAKE_SOURCE_DIR}/assets" "${CMAKE_BINARY_DIR}/assets")
 endif()
