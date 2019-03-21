@@ -14,7 +14,11 @@ function(CopyAssets source_path destination_path)
             #message(${source_path})
             string(REPLACE "${source_path}" "${destination_path}" asset_destination ${asset_source})
             #message(${asset_destination})
-            configure_file(${asset_source} ${asset_destination})
+
+            string(REPLACE "\\" "/" asset_source_formatted ${asset_source})
+            string(REPLACE "\\" "/" asset_destination_formatted ${asset_destination})
+
+            configure_file("${asset_source_formatted}" "${asset_destination_formatted}")
             #message("")
         endif()
     endforeach ()
