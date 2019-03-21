@@ -21,10 +21,10 @@ set(BUILD_EXECUTABLE ON)
 # ------------------------------------------------------------------------------
 # Testing Mode: messages
 # ------------------------------------------------------------------------------
-set(ONLINE_TESTS ${ONLINE_TESTING})
+set(ONLINE_MODE ${ONLINE_TESTING})
 
 # Note: Default testing mode as STANDALONE (offline)
-if(ONLINE_TESTS)
+if(ONLINE_MODE)
     message("Tests are configured in ONLINE mode")
 else()
     message("Tests are configured in STANDALONE mode")

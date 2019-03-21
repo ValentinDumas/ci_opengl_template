@@ -28,3 +28,7 @@ if (MSVC)
 else ()
     target_compile_definitions(ci_opengl_template PRIVATE main=main)
 endif ()
+
+# Note: If you want to declare source files in this scope (this cmakelists.txt) AND you want it to be visible by the parent (main cmakelists.txt),
+# you must use the PARENT_SCOPE keyword as a parameter:
+# set (SOURCEFILES main.cpp foo.cpp PARENT_SCOPE)
