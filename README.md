@@ -70,7 +70,7 @@ It can detect different kind of potential issues:
 -   Error Prone
 -   Code Style
 -   Compatibility
--   Unused Code (<=> Dead Code)
+-   Unused Code (= Dead Code)
 -   Performance
 
 ### Documentation
