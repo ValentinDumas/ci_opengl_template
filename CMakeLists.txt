@@ -87,7 +87,7 @@ include_directories(src)
 include_directories(deps/externals/openal/include)
 include_directories(deps/externals/openal/OpenAL32/Include)
 
-#include_directories(deps/externals/libsndfile/src)
+include_directories(deps/externals/libsndfile/src)
 
 
 

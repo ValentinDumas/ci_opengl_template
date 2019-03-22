@@ -32,7 +32,7 @@
 #include <AL/al.h>
 #include <AL/alc.h>
 #include <iomanip>
-#include "../cmake-build-debug/deps/externals/libsndfile/src/sndfile.h"
+#include <sndfile.h>
 
 bool InitOpenAL()
 {
