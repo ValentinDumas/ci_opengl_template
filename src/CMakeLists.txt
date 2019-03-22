@@ -10,14 +10,9 @@ target_link_libraries(project_src_lib PUBLIC coverage_config warnings_config) # 
 # Main Executable
 # ------------------------------------------------------------------------------
 add_executable(ci_opengl_template imgui_main.cpp)
-#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
 
-target_link_libraries(ci_opengl_template imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D project_src_lib cppfs)
+target_link_libraries(ci_opengl_template sndfile OpenAL imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D project_src_lib cppfs)
 #target_link_libraries(ci_opengl_template glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb assimp::assimp Box2D project_src_lib)
-
-#set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/deps)
-#set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/deps)
-#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 if (MSVC)
     target_compile_definitions(ci_opengl_template PRIVATE main=main MSVC_PLATFORM)

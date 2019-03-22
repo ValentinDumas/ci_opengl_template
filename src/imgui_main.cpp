@@ -29,6 +29,154 @@
 
 #include <Box2D/Box2D.h>
 
+#include <AL/al.h>
+#include <AL/alc.h>
+#include <iomanip>
+#include "../cmake-build-debug/deps/externals/libsndfile/src/sndfile.h"
+
+bool InitOpenAL()
+{
+    // Ouverture du device
+    ALCdevice* Device = alcOpenDevice(NULL);
+    if (!Device)
+        return false;
+
+    // Création du contexte
+    ALCcontext* Context = alcCreateContext(Device, NULL);
+    if (!Context)
+        return false;
+
+    // Activation du contexte
+    if (!alcMakeContextCurrent(Context))
+        return false;
+
+    return true;
+}
+
+void GetDevices(std::vector<std::string>& Devices)
+{
+    // Vidage de la liste
+    Devices.clear();
+
+    // Récupération des devices disponibles
+    const ALCchar* DeviceList = alcGetString(NULL, ALC_DEVICE_SPECIFIER);
+
+    if (DeviceList)
+    {
+        // Extraction des devices contenus dans la chaîne renvoyée
+        while (strlen(DeviceList) > 0)
+        {
+            Devices.push_back(DeviceList);
+            DeviceList += strlen(DeviceList) + 1;
+        }
+    }
+}
+
+void ShutdownOpenAL()
+{
+    // Récupération du contexte et du device
+    ALCcontext* Context = alcGetCurrentContext();
+    ALCdevice*  Device  = alcGetContextsDevice(Context);
+
+    // Désactivation du contexte
+    alcMakeContextCurrent(NULL);
+
+    // Destruction du contexte
+    alcDestroyContext(Context);
+
+    // Fermeture du device
+    alcCloseDevice(Device);
+}
+
+ALuint LoadSound(const std::string& Filename)
+{
+    // Ouverture du fichier audio avec libsndfile
+    SF_INFO FileInfos;
+    SNDFILE* File = sf_open(Filename.c_str(), SFM_READ, &FileInfos);
+    if (!File)
+        return 0;
+
+    // Lecture du nombre d'échantillons et du taux d'échantillonnage (nombre d'échantillons à lire par seconde)
+    ALsizei NbSamples  = static_cast<ALsizei>(FileInfos.channels * FileInfos.frames);
+    ALsizei SampleRate = static_cast<ALsizei>(FileInfos.samplerate);
+
+    // Lecture des échantillons audio au format entier 16 bits signé (le plus commun)
+    std::vector<ALshort> Samples(NbSamples);
+    if (sf_read_short(File, &Samples[0], NbSamples) < NbSamples)
+        return 0;
+
+    // Fermeture du fichier
+    sf_close(File);
+
+    // Détermination du format en fonction du nombre de canaux
+    ALenum Format;
+    switch (FileInfos.channels)
+    {
+        case 1 :  Format = AL_FORMAT_MONO16;   break;
+        case 2 :  Format = AL_FORMAT_STEREO16; break;
+        default : return 0;
+    }
+
+    // Création du tampon OpenAL
+    ALuint Buffer;
+    alGenBuffers(1, &Buffer);
+
+    // Remplissage avec les échantillons lus
+    alBufferData(Buffer, Format, &Samples[0], NbSamples * sizeof(ALushort), SampleRate);
+
+    // Vérification des erreurs
+    if (alGetError() != AL_NO_ERROR)
+        return 0;
+
+    return Buffer;
+}
+
+void PlaySound(ALuint buffer)
+{
+//    // Définition de la position de l'écouteur (ici l'origine)
+//    alListener3f(AL_POSITION, 0.f, 0.f, 0.f));
+//    // Définition de la vitesse de l'écouteur (ici nulle)
+//    alListener3f(AL_VELOCITY, 0.f, 0.f, 0.f));
+//    // Définition de l'orientation de l'écouteur (ici il regarde vers l'axe des Z)
+//    ALfloat Orientation[] = {0.f, 0.f, 1.f, 0.f, 1.f, 0.f};
+//    alListenerfv(AL_ORIENTATION, Orientation);
+
+    // Création d'une source
+    ALuint Source;
+    alGenSources(1, &Source);
+
+    // On attache le tampon contenant les échantillons audio à la source
+    alSourcei(Source, AL_BUFFER, buffer);
+
+    // Lecture du son
+    alSourcePlay(Source);
+
+    ALint Status;
+    do
+    {
+        // Récupération et affichage de la position courante de lecture en secondes
+        ALfloat Seconds = 0.f;
+        alGetSourcef(Source, AL_SEC_OFFSET, &Seconds);
+        std::cout << "\rLecture en cours... " << std::fixed << std::setprecision(2) << Seconds << " sec";
+
+        // Récupération de l'état du son
+        alGetSourcei(Source, AL_SOURCE_STATE, &Status);
+    }
+    while (Status == AL_PLAYING);
+}
+
+void FreeSound(ALuint source, ALuint buffer)
+{
+    // Destruction du tampon
+    alDeleteBuffers(1, &buffer);
+
+    // Destruction de la source
+    alSourcei(source, AL_BUFFER, 0);
+    alDeleteSources(1, &source);
+
+
+}
+
 void test_Box2D(int argc, char** argv)
 {
     B2_NOT_USED(argc);
@@ -154,6 +302,8 @@ static void glfw_error_callback(int error, const char* description)
 
 int main(int argc, char** argv)
 {
+    LoadSound("aabb");
+
     test_Box2D(argc, argv);
 
     // Setup window
