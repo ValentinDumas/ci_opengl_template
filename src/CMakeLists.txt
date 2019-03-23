@@ -11,7 +11,7 @@ target_link_libraries(project_src_lib PUBLIC coverage_config warnings_config) # 
 # ------------------------------------------------------------------------------
 add_executable(ci_opengl_template imgui_main.cpp)
 
-target_link_libraries(ci_opengl_template sndfile OpenAL imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D project_src_lib cppfs)
+target_link_libraries(ci_opengl_template imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D project_src_lib cppfs)
 #target_link_libraries(ci_opengl_template glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb assimp::assimp Box2D project_src_lib)
 
 if (MSVC)

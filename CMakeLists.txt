@@ -81,17 +81,6 @@ include_directories(${EXTERNALS_PATH}/googletest/googlemock/include)
 include_directories(src)
 #include_directories(assets)
 
-
-
-
-include_directories(deps/externals/openal/include)
-include_directories(deps/externals/openal/OpenAL32/Include)
-
-include_directories(deps/externals/libsndfile/src)
-
-
-
-
 # ------------------------------------------------------------------------------
 # Dependencies (+ externals)
 # ------------------------------------------------------------------------------
