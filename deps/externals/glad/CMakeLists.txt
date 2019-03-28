@@ -6,6 +6,6 @@ project(glad) #Note: The glad version currently in use is the glad compatibility
 # ------------------------------------------------------------------------------
 # GLad Library
 # ------------------------------------------------------------------------------
-add_library(${PROJECT_NAME} src/glad.c)
+add_library(${PROJECT_NAME} SHARED src/glad.c)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)

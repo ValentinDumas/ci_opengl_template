@@ -12,7 +12,8 @@ project(ci_opengl_template C CXX)
 # CMake Options
 # ------------------------------------------------------------------------------
 set(CMAKE_CXX_STANDARD 14)
-set(BUILD_SHARED_LIBS OFF)
+set(BUILD_SHARED_LIBS ON)
+
 #set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for clang tidy
 
 # Note: Must be OFF when testing (CI)
@@ -28,8 +29,10 @@ if(ONLINE_MODE)
 else()
     message("Tests are configured in STANDALONE mode")
     if(BUILD_EXECUTABLE)
-        set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static") # include gcc libs
         set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
+        if(NOT BUILD_SHARED_LIBS) # executable generated along with static libraries
+            set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static") # include gcc libs
+        endif()
     else()
         set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
     endif()
@@ -62,7 +65,8 @@ add_library(warnings_config INTERFACE)
 if(MSVC)
     target_compile_options(warnings_config INTERFACE /W4)
 else()
-    target_compile_options(warnings_config INTERFACE -Wall -std=c++14)
+    target_compile_options(warnings_config INTERFACE -Wall)
+    #target_compile_options(warnings_config INTERFACE -Wall -std=c++14)
     #target_compile_options(warnings_config INTERFACE -Wall -Wextra -Wpedantic -std=c++14)
 endif()
 
@@ -78,9 +82,8 @@ include_directories(${GLFW_SOURCE_DIR}/include) # TODO: self include this to tar
 include_directories(${EXTERNALS_PATH}/googletest/googletest/include)
 include_directories(${EXTERNALS_PATH}/googletest/googlemock/include)
 #include_directories(deps/externals/imgui-1.68/include)
-include_directories(src)
-#include_directories(assets)
 
+include_directories(src)
 
 # ------------------------------------------------------------------------------
 # Dependencies (+ externals)
