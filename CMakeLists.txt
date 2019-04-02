@@ -19,10 +19,27 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 # Note: Must be OFF when testing (CI)
 set(BUILD_EXECUTABLE ON)
 
+function(MoveLibToTarget lib_name target_name)
+    add_custom_command(TARGET ${target_name} POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "$<TARGET_FILE:${lib_name}>"
+            "$<TARGET_FILE_DIR:${target_name}>"
+            VERBATIM)
+endfunction()
+
+function(MoveMultipleLibsForTarget libraries target_name)
+    foreach(library ${libraries})
+        MoveLibToTarget(${library} ${target_name})
+    endforeach()
+endfunction()
+
 # ------------------------------------------------------------------------------
 # Testing Mode: messages
 # Note: Default testing mode as STANDALONE (offline)
 # ------------------------------------------------------------------------------
+
+#Note: If ONLINE OR STANDALONE_WITH_NOEXECUTABLE Then
+
 set(ONLINE_MODE ${ONLINE_TESTING})
 if(ONLINE_MODE)
     message("Tests are configured in ONLINE mode")
@@ -30,9 +47,14 @@ else()
     message("Tests are configured in STANDALONE mode")
     if(BUILD_EXECUTABLE)
         set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static") # include gcc libs
-        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
-    else()
-        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+        # TODO: only apply to concerned target, as main target (ci_opengl_template) for instance
+        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin") # sure ?
+        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin") # TODO: change to lib
+        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/static") # TODO: change to lib/static
+        install(TARGETS ci_opengl_template
+                RUNTIME DESTINATION bin
+                LIBRARY DESTINATION lib
+                ARCHIVE DESTINATION lib/static)
     endif()
 endif()
 

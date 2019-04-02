@@ -1,7 +1,8 @@
 # ------------------------------------------------------------------------------
 # Dependency Libraries: from "deps" and / or "externals"
 # ------------------------------------------------------------------------------
-set(EXTERNAL_MODULES glm stb gtest gtest_main gmock gmock_main)
+#stb
+set(EXTERNAL_MODULES glm gtest gtest_main gmock gmock_main)
 
 # ------------------------------------------------------------------------------
 # Project Libraries: from "src" (sources)
