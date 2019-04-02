@@ -51,10 +51,10 @@ else()
         set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin") # sure ?
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin") # TODO: change to lib
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/static") # TODO: change to lib/static
-        install(TARGETS ci_opengl_template
-                RUNTIME DESTINATION bin
-                LIBRARY DESTINATION lib
-                ARCHIVE DESTINATION lib/static)
+#        install(TARGETS ci_opengl_template
+#                RUNTIME DESTINATION bin
+#                LIBRARY DESTINATION lib
+#                ARCHIVE DESTINATION lib/static)
     endif()
 endif()
 
