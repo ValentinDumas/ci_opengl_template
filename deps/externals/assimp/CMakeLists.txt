@@ -41,79 +41,81 @@ PROJECT( Assimp )
 # All supported options ###############################################
 
 OPTION( BUILD_SHARED_LIBS
-  "Build package with shared libraries."
-  OFF
-)
+        "Build package with shared libraries."
+        OFF
+        )
 
 OPTION( BUILD_FRAMEWORK
-  "Build package as Mac OS X Framework bundle."
-  OFF
-)
+        "Build package as Mac OS X Framework bundle."
+        OFF
+        )
 OPTION( ASSIMP_DOUBLE_PRECISION
-  "Set to ON to enable double precision processing"
-  OFF
-)
+        "Set to ON to enable double precision processing"
+        OFF
+        )
 OPTION( ASSIMP_OPT_BUILD_PACKAGES
-  "Set to ON to generate CPack configuration files and packaging targets"
-  OFF
-)
+        "Set to ON to generate CPack configuration files and packaging targets"
+        OFF
+        )
 OPTION( ASSIMP_ANDROID_JNIIOSYSTEM
-  "Android JNI IOSystem support is active"
-  OFF
-)
+        "Android JNI IOSystem support is active"
+        OFF
+        )
 OPTION( ASSIMP_NO_EXPORT
-  "Disable Assimp's export functionality."
-  OFF
-)
+        "Disable Assimp's export functionality."
+        OFF
+        )
 OPTION( ASSIMP_BUILD_ZLIB
-  "Build your own zlib"
-  OFF
-)
+        "Build your own zlib"
+        OFF
+        )
 OPTION( ASSIMP_BUILD_ASSIMP_TOOLS
-  "If the supplementary tools for Assimp are built in addition to the library."
-  OFF
-)
+        "If the supplementary tools for Assimp are built in addition to the library."
+        OFF
+        )
 OPTION ( ASSIMP_BUILD_SAMPLES
-  "If the official samples are built as well (needs Glut)."
-  OFF
-)
+        "If the official samples are built as well (needs Glut)."
+        OFF
+        )
 OPTION ( ASSIMP_BUILD_TESTS
-  "If the test suite for Assimp is built in addition to the library."
-  OFF
-)
+        "If the test suite for Assimp is built in addition to the library."
+        OFF
+        )
 OPTION ( ASSIMP_COVERALLS
-  "Enable this to measure test coverage."
-  OFF
-)
+        "Enable this to measure test coverage."
+        OFF
+        )
 OPTION ( ASSIMP_WERROR
-  "Treat warnings as errors."
-  OFF
-)
+        "Treat warnings as errors."
+        OFF
+        )
 OPTION ( ASSIMP_ASAN
-  "Enable AddressSanitizer."
-  OFF
-)
+        "Enable AddressSanitizer."
+        OFF
+        )
 OPTION ( ASSIMP_UBSAN
-  "Enable Undefined Behavior sanitizer."
-  OFF
-)
+        "Enable Undefined Behavior sanitizer."
+        OFF
+        )
 OPTION ( SYSTEM_IRRXML
-  "Use system installed Irrlicht/IrrXML library."
-  OFF
-)
+        "Use system installed Irrlicht/IrrXML library."
+        OFF
+        )
 OPTION ( BUILD_DOCS
-  "Build documentation using Doxygen."
-  OFF
-)
+        "Build documentation using Doxygen."
+        OFF
+        )
 OPTION( INJECT_DEBUG_POSTFIX
-  "Inject debug postfix in .a/.so lib names"
-  OFF
-)
+        "Inject debug postfix in .a/.so lib names"
+        OFF
+        )
 
 OPTION ( IGNORE_GIT_HASH
-   "Don't call git to get the hash."
-   OFF
-)
+        "Don't call git to get the hash."
+        OFF
+        )
+
+
 
 IF (IOS)
   IF (NOT CMAKE_BUILD_TYPE)
@@ -130,9 +132,9 @@ endif()
 
 IF(MSVC)
   OPTION( ASSIMP_INSTALL_PDB
-    "Install MSVC debug files."
-    ON
-  )
+          "Install MSVC debug files."
+          ON
+          )
 ENDIF(MSVC)
 
 IF (BUILD_FRAMEWORK)
@@ -163,20 +165,20 @@ set_property( GLOBAL PROPERTY CXX_STANDARD 11 )
 IF(NOT IGNORE_GIT_HASH)
   # Get the current working branch
   EXECUTE_PROCESS(
-    COMMAND git rev-parse --abbrev-ref HEAD
-    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    OUTPUT_VARIABLE GIT_BRANCH
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-    ERROR_QUIET
+          COMMAND git rev-parse --abbrev-ref HEAD
+          WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+          OUTPUT_VARIABLE GIT_BRANCH
+          OUTPUT_STRIP_TRAILING_WHITESPACE
+          ERROR_QUIET
   )
 
   # Get the latest abbreviated commit hash of the working branch
   EXECUTE_PROCESS(
-    COMMAND git rev-parse --short=8 HEAD
-    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    OUTPUT_VARIABLE GIT_COMMIT_HASH
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-    ERROR_QUIET
+          COMMAND git rev-parse --short=8 HEAD
+          WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+          OUTPUT_VARIABLE GIT_COMMIT_HASH
+          OUTPUT_STRIP_TRAILING_WHITESPACE
+          ERROR_QUIET
   )
 ENDIF()
 
@@ -185,24 +187,24 @@ IF(NOT GIT_COMMIT_HASH)
 ENDIF(NOT GIT_COMMIT_HASH)
 
 IF(ASSIMP_DOUBLE_PRECISION)
-    ADD_DEFINITIONS(-DASSIMP_DOUBLE_PRECISION)
+  ADD_DEFINITIONS(-DASSIMP_DOUBLE_PRECISION)
 ENDIF(ASSIMP_DOUBLE_PRECISION)
 
 CONFIGURE_FILE(
-  ${CMAKE_CURRENT_LIST_DIR}/revision.h.in
-  ${CMAKE_CURRENT_BINARY_DIR}/revision.h
+        ${CMAKE_CURRENT_LIST_DIR}/revision.h.in
+        ${CMAKE_CURRENT_BINARY_DIR}/revision.h
 )
 
 CONFIGURE_FILE(
-  ${CMAKE_CURRENT_LIST_DIR}/include/assimp/config.h.in
-  ${CMAKE_CURRENT_BINARY_DIR}/include/assimp/config.h
+        ${CMAKE_CURRENT_LIST_DIR}/include/assimp/config.h.in
+        ${CMAKE_CURRENT_BINARY_DIR}/include/assimp/config.h
 )
 
 INCLUDE_DIRECTORIES(
-  ./
-  include
-  ${CMAKE_CURRENT_BINARY_DIR}
-  ${CMAKE_CURRENT_BINARY_DIR}/include
+        ./
+        include
+        ${CMAKE_CURRENT_BINARY_DIR}
+        ${CMAKE_CURRENT_BINARY_DIR}/include
 )
 
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules" )
@@ -241,13 +243,13 @@ ENDIF()
 
 IF ( IOS )
 
-IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
-  SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fembed-bitcode -Og")
-  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fembed-bitcode -Og")
-ELSE()
-  SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fembed-bitcode -O3")
-  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fembed-bitcode -O3")
-ENDIF()
+  IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fembed-bitcode -Og")
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fembed-bitcode -Og")
+  ELSE()
+    SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fembed-bitcode -O3")
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fembed-bitcode -O3")
+  ENDIF()
 
 ENDIF( IOS )
 
@@ -295,11 +297,11 @@ ENDIF ( CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR )
 
 # Cache these to allow the user to override them manually.
 SET( ASSIMP_LIB_INSTALL_DIR "lib" CACHE STRING
-  "Path the built library files are installed to." )
+        "Path the built library files are installed to." )
 SET( ASSIMP_INCLUDE_INSTALL_DIR "include" CACHE STRING
-  "Path the header files are installed to." )
+        "Path the header files are installed to." )
 SET( ASSIMP_BIN_INSTALL_DIR "bin" CACHE STRING
-  "Path the tool executables are installed to." )
+        "Path the tool executables are installed to." )
 
 IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
   SET(CMAKE_DEBUG_POSTFIX "d" CACHE STRING "Debug Postfix for lib, samples and tools")
@@ -321,13 +323,13 @@ CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/assimpTargets-debug.cmake.in"   "${C
 CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/assimpTargets-release.cmake.in" "${CMAKE_CURRENT_BINARY_DIR}/assimpTargets-release.cmake" @ONLY IMMEDIATE)
 CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/assimp-config-version.cmake.in" "${CMAKE_CURRENT_BINARY_DIR}/assimp-config-version.cmake" @ONLY IMMEDIATE)
 #we should generated these scripts after CMake VERSION 3.0.2 using export(EXPORT ...) and write_basic_package_version_file(...)
-INSTALL(FILES 
-  "${CMAKE_CURRENT_BINARY_DIR}/assimp-config.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/assimp-config-version.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/assimpTargets.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/assimpTargets-debug.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/assimpTargets-release.cmake"
-  DESTINATION "${ASSIMP_LIB_INSTALL_DIR}/cmake/assimp-${ASSIMP_VERSION_MAJOR}.${ASSIMP_VERSION_MINOR}" COMPONENT ${LIBASSIMP-DEV_COMPONENT})
+INSTALL(FILES
+        "${CMAKE_CURRENT_BINARY_DIR}/assimp-config.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/assimp-config-version.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/assimpTargets.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/assimpTargets-debug.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/assimpTargets-release.cmake"
+        DESTINATION "${ASSIMP_LIB_INSTALL_DIR}/cmake/assimp-${ASSIMP_VERSION_MAJOR}.${ASSIMP_VERSION_MINOR}" COMPONENT ${LIBASSIMP-DEV_COMPONENT})
 
 FIND_PACKAGE( DirectX )
 
@@ -367,14 +369,14 @@ INCLUDE_DIRECTORIES(${ZLIB_INCLUDE_DIR})
 # Search for unzip
 IF ( NOT IOS )
   IF( NOT ASSIMP_BUILD_MINIZIP )
-	  use_pkgconfig(UNZIP minizip)
+    use_pkgconfig(UNZIP minizip)
   ENDIF( NOT ASSIMP_BUILD_MINIZIP )
 ELSE ( NOT IOS )
-	IF(NOT BUILD_SHARED_LIBS)
+  IF(NOT BUILD_SHARED_LIBS)
     IF( NOT ASSIMP_BUILD_MINIZIP )
-		  use_pkgconfig(UNZIP minizip)
+      use_pkgconfig(UNZIP minizip)
     ENDIF( NOT ASSIMP_BUILD_MINIZIP )
-	ENDIF (NOT BUILD_SHARED_LIBS)
+  ENDIF (NOT BUILD_SHARED_LIBS)
 ENDIF ( NOT IOS )
 
 IF ( ASSIMP_NO_EXPORT )
@@ -383,8 +385,8 @@ IF ( ASSIMP_NO_EXPORT )
 ENDIF( ASSIMP_NO_EXPORT )
 
 SET ( ASSIMP_BUILD_ARCHITECTURE "" CACHE STRING
-  "describe the current architecture."
-)
+        "describe the current architecture."
+        )
 IF    ( ASSIMP_BUILD_ARCHITECTURE STREQUAL "")
 ELSE  ( ASSIMP_BUILD_ARCHITECTURE STREQUAL "")
   ADD_DEFINITIONS ( -D'ASSIMP_BUILD_ARCHITECTURE="${ASSIMP_BUILD_ARCHITECTURE}"' )
@@ -392,8 +394,8 @@ ENDIF ( ASSIMP_BUILD_ARCHITECTURE STREQUAL "")
 
 # ${CMAKE_GENERATOR}
 SET ( ASSIMP_BUILD_COMPILER "" CACHE STRING
-  "describe the current compiler."
-)
+        "describe the current compiler."
+        )
 IF    ( ASSIMP_BUILD_COMPILER STREQUAL "")
 ELSE  ( ASSIMP_BUILD_COMPILER STREQUAL "")
   ADD_DEFINITIONS ( -D'ASSIMP_BUILD_COMPILER="${ASSIMP_BUILD_COMPILER}"' )
@@ -402,8 +404,8 @@ ENDIF ( ASSIMP_BUILD_COMPILER STREQUAL "")
 MARK_AS_ADVANCED ( ASSIMP_BUILD_ARCHITECTURE ASSIMP_BUILD_COMPILER )
 
 SET ( ASSIMP_BUILD_NONFREE_C4D_IMPORTER OFF CACHE BOOL
-  "Build the C4D importer, which relies on the non-free Melange SDK."
-)
+        "Build the C4D importer, which relies on the non-free Melange SDK."
+        )
 
 IF (ASSIMP_BUILD_NONFREE_C4D_IMPORTER)
   IF ( MSVC )
@@ -422,27 +424,27 @@ IF (ASSIMP_BUILD_NONFREE_C4D_IMPORTER)
       SET(C4D_LIB_POSTFIX "_2010")
     ELSE()
       MESSAGE( FATAL_ERROR
-        "C4D is currently only supported with MSVC 10, 11, 12, 14"
-      )
+              "C4D is currently only supported with MSVC 10, 11, 12, 14"
+              )
     ENDIF()
 
     SET(C4D_LIB_BASE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/contrib/Melange/libraries/win")
 
     SET(C4D_DEBUG_LIBRARIES
-      "${C4D_LIB_BASE_PATH}/melangelib${C4D_LIB_POSTFIX}/melangelib_debug.lib"
-      "${C4D_LIB_BASE_PATH}/jpeglib${C4D_LIB_POSTFIX}/jpeglib_debug.lib"
-    )
+            "${C4D_LIB_BASE_PATH}/melangelib${C4D_LIB_POSTFIX}/melangelib_debug.lib"
+            "${C4D_LIB_BASE_PATH}/jpeglib${C4D_LIB_POSTFIX}/jpeglib_debug.lib"
+            )
     SET(C4D_RELEASE_LIBRARIES
-      "${C4D_LIB_BASE_PATH}/melangelib${C4D_LIB_POSTFIX}/melangelib_release.lib"
-      "${C4D_LIB_BASE_PATH}/jpeglib${C4D_LIB_POSTFIX}/jpeglib_release.lib"
-    )
+            "${C4D_LIB_BASE_PATH}/melangelib${C4D_LIB_POSTFIX}/melangelib_release.lib"
+            "${C4D_LIB_BASE_PATH}/jpeglib${C4D_LIB_POSTFIX}/jpeglib_release.lib"
+            )
 
     # winsock and winmm are necessary dependencies of melange (this is undocumented, but true.)
     SET(C4D_EXTRA_LIBRARIES WSock32.lib Winmm.lib)
   ELSE ()
     MESSAGE( FATAL_ERROR
-      "C4D is currently only available on Windows with melange SDK installed in contrib/Melange"
-    )
+            "C4D is currently only available on Windows with melange SDK installed in contrib/Melange"
+            )
   ENDIF ( MSVC )
 ELSE (ASSIMP_BUILD_NONFREE_C4D_IMPORTER)
   ADD_DEFINITIONS( -DASSIMP_BUILD_NO_C4D_IMPORTER )
@@ -460,9 +462,9 @@ IF ( ASSIMP_BUILD_ASSIMP_TOOLS )
   ENDIF ( WIN32 AND DirectX_D3DX9_LIBRARY )
 
   ADD_SUBDIRECTORY( tools/assimp_cmd/ )
-IF (NOT IOS)
-  ADD_SUBDIRECTORY( tools/assimp_qt_viewer/ )
-ENDIF (NOT IOS)
+  IF (NOT IOS)
+    ADD_SUBDIRECTORY( tools/assimp_qt_viewer/ )
+  ENDIF (NOT IOS)
 ENDIF ( ASSIMP_BUILD_ASSIMP_TOOLS )
 
 IF ( ASSIMP_BUILD_SAMPLES)
@@ -517,8 +519,8 @@ IF(CMAKE_CPACK_COMMAND AND UNIX AND ASSIMP_OPT_BUILD_PACKAGES)
   SET(CPACK_DEBIAN_PACKAGE_SOURCE_COPY svn export --force)
   SET(CPACK_DEBIAN_CHANGELOG)
   execute_process(COMMAND lsb_release -is
-    OUTPUT_VARIABLE _lsb_distribution OUTPUT_STRIP_TRAILING_WHITESPACE
-    RESULT_VARIABLE _lsb_release_failed)
+          OUTPUT_VARIABLE _lsb_distribution OUTPUT_STRIP_TRAILING_WHITESPACE
+          RESULT_VARIABLE _lsb_release_failed)
   SET(CPACK_DEBIAN_DISTRIBUTION_NAME ${_lsb_distribution} CACHE STRING "Name of the distrubiton")
   STRING(TOLOWER ${CPACK_DEBIAN_DISTRIBUTION_NAME} CPACK_DEBIAN_DISTRIBUTION_NAME)
   IF( ${CPACK_DEBIAN_DISTRIBUTION_NAME} STREQUAL "ubuntu" )

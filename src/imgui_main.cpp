@@ -154,6 +154,25 @@ static void glfw_error_callback(int error, const char* description)
 
 int main(int argc, char** argv)
 {
+    // IMPORTANT:
+    // In binary / release (executable)    --> keep the binary path to find assets
+    // In development mode (no executable) --> keep the project path to find assets
+
+    char binary_path[FILENAME_MAX];
+    GetCurrentDir( binary_path, FILENAME_MAX );
+    printf("Current working (binary) dir: %s\n", binary_path);
+
+    // Get project root path
+    cppfs::FilePath project_root_path = strcat(binary_path, "\\..");
+    project_root_path = project_root_path.resolved();
+    printf("Current working (project) dir: %s\n", project_root_path.fullPath().c_str());
+
+    cppfs::FileHandle project_root_handle = cppfs::fs::open(project_root_path.fullPath());
+    for(auto r : project_root_handle.listFiles())
+    {
+        std::cout << "under parent dir  ==>  " << r.c_str() << std::endl;
+    }
+
     test_Box2D(argc, argv);
 
     // Setup window
@@ -297,25 +316,6 @@ int main(int argc, char** argv)
         glClear(GL_COLOR_BUFFER_BIT);
 
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-        // IMPORTANT:
-        // In binary / release (executable)    --> keep the binary path to find assets
-        // In development mode (no executable) --> keep the project path to find assets
-
-        char binary_path[FILENAME_MAX];
-        GetCurrentDir( binary_path, FILENAME_MAX );
-        printf("Current working (binary) dir: %s\n", binary_path);
-
-        // Get project root path
-        cppfs::FilePath project_root_path = strcat(binary_path, "\\..");
-        project_root_path = project_root_path.resolved();
-        printf("Current working (project) dir: %s\n", project_root_path.fullPath().c_str());
-
-        cppfs::FileHandle project_root_handle = cppfs::fs::open(project_root_path.fullPath());
-        for(auto r : project_root_handle.listFiles())
-        {
-            std::cout << "under parent dir  ==>  " << r.c_str() << std::endl;
-        }
 
         glfwMakeContextCurrent(window);
         glfwSwapBuffers(window);

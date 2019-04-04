@@ -9,10 +9,6 @@ find_package(Git REQUIRED)
 # ------------------------------------------------------------------------------
 # Prevent overriding the parent project's compiler/linker
 # settings on Windows
-if (APPLE)
-    add_definitions(-DGTEST_USE_OWN_TR1_TUPLE)
-    add_definitions(-D__GLIBCXX__)
-endif (APPLE)
 
 # ------------------------------------------------------------------------------
 # GoogleTest / GoogleMock
@@ -20,6 +16,10 @@ endif (APPLE)
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
 option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
+if (APPLE)
+    add_definitions(-DGTEST_USE_OWN_TR1_TUPLE)
+    add_definitions(-D__GLIBCXX__)
+endif (APPLE)
 add_subdirectory(googletest)
 
 # ------------------------------------------------------------------------------
@@ -92,7 +92,7 @@ option(ASSIMP_BUILD_SAMPLES OFF)
 option(ASSIMP_BUILD_TESTS OFF)
 option(BUILD DOCS OFF)
 
-#add_subdirectory(assimp)
+add_subdirectory(assimp)
 
 # ------------------------------------------------------------------------------
 # Bullet

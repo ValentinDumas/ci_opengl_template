@@ -10,7 +10,7 @@ target_link_libraries(project_src_lib PUBLIC coverage_config warnings_config) # 
 # Main Executable
 # ------------------------------------------------------------------------------
 # project(ci_opengl_template)
-set(ci_opengl_template_libraries imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D project_src_lib cppfs)
+set(ci_opengl_template_libraries imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D project_src_lib cppfs assimp::assimp)
 
 add_executable(ci_opengl_template imgui_main.cpp)
 
@@ -21,6 +21,7 @@ if (MSVC)
     target_compile_definitions(ci_opengl_template PRIVATE main=main MSVC_PLATFORM)
 else ()
     target_compile_definitions(ci_opengl_template PRIVATE main=main)
+    target_compile_options(ci_opengl_template PRIVATE -fno-strict-aliasing -Wall -Wno-long-long -Wa,-mbig-obj -O0)
 endif ()
 
 if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
