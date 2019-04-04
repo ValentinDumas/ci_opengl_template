@@ -1,5 +1,7 @@
 project(unit_tests)
 
+
+
 # ------------------------------------------------------------------------------
 # Unit Tests Files
 # ------------------------------------------------------------------------------
@@ -12,11 +14,15 @@ add_executable(${PROJECT_NAME} test_unit_main.cpp test_robot.cpp test_complex.cp
 target_link_libraries(${PROJECT_NAME} PRIVATE ${EXTERNAL_MODULES} ${PROJECT_SOURCE_MODULES}) #Note: see if glfw has to be included...
 target_compile_definitions(${PROJECT_NAME} PRIVATE test_unit_main=main)
 
-MoveLibToTarget(glm_static ${PROJECT_NAME})
-install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+#if(ONLINE_MODE)
+#    MoveLibToTarget(glm_static ${PROJECT_NAME})
+#    CopyAssets()
+##endif()
 
-
-#install(TARGETS ${PROJECT_NAME} ${CMAKE_BINARY_DIR}/bin) # for 'make install' command on macOS/Unix
+if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
+    MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${PROJECT_NAME})
+    MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${PROJECT_NAME})
+endif()
 
 # ------------------------------------------------------------------------------
 # Unit Tests: console & coverage

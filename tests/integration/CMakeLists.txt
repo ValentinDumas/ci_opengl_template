@@ -14,8 +14,10 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE test_integration_main=main)
 
 MoveLibToTarget(glm_static ${PROJECT_NAME})
 
-#
-#install(TARGETS ${PROJECT_NAME} ${CMAKE_BINARY_DIR}/bin) # for 'make install' command on macOS/Unix
+if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
+    MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${PROJECT_NAME})
+    MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${PROJECT_NAME})
+endif()
 
 # ------------------------------------------------------------------------------
 # Integration Tests: console & coverage

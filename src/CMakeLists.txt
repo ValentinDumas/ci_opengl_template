@@ -6,8 +6,6 @@ target_include_directories(project_src_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}) #
 
 target_link_libraries(project_src_lib PUBLIC coverage_config warnings_config) # Include code-coverage & warnings settings
 
-
-
 # ------------------------------------------------------------------------------
 # Main Executable
 # ------------------------------------------------------------------------------
@@ -25,7 +23,10 @@ else ()
     target_compile_definitions(ci_opengl_template PRIVATE main=main)
 endif ()
 
-
+if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
+    MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ci_opengl_template)
+    MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ci_opengl_template)
+endif()
 
 # Note: If you want to declare source files in this scope (this cmakelists.txt) AND you want it to be visible by the parent (main cmakelists.txt),
 # you must use the PARENT_SCOPE keyword as a parameter:

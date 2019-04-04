@@ -12,7 +12,7 @@ project(ci_opengl_template C CXX)
 # CMake Options
 # ------------------------------------------------------------------------------
 set(CMAKE_CXX_STANDARD 14)
-set(BUILD_SHARED_LIBS OFF)
+set(BUILD_SHARED_LIBS ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 #set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for clang tidy
 
@@ -28,9 +28,13 @@ function(MoveLibToTarget lib_name target_name)
 endfunction()
 
 function(MoveMultipleLibsForTarget libraries target_name)
-    foreach(library ${libraries})
-        MoveLibToTarget(${library} ${target_name})
-    endforeach()
+    if(libraries STREQUAL "") # no input libraries (static or shared)
+        message("->[Warning] In 'MoveMultipleLibsForTarget' function: no input libraries.")
+    else()
+        foreach(library ${libraries})
+            MoveLibToTarget(${library} ${target_name})
+        endforeach()
+    endif()
 endfunction()
 
 # ------------------------------------------------------------------------------
@@ -39,22 +43,23 @@ endfunction()
 # ------------------------------------------------------------------------------
 
 #Note: If ONLINE OR STANDALONE_WITH_NOEXECUTABLE Then
+#set(ONLINE_TESTING ON)
 
 set(ONLINE_MODE ${ONLINE_TESTING})
 if(ONLINE_MODE)
     message("Tests are configured in ONLINE mode")
 else()
     message("Tests are configured in STANDALONE mode")
+    set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static") # include gcc libs
     if(BUILD_EXECUTABLE)
-        set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static") # include gcc libs
         # TODO: only apply to concerned target, as main target (ci_opengl_template) for instance
-        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin") # sure ?
-        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin") # TODO: change to lib
-        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/static") # TODO: change to lib/static
-#        install(TARGETS ci_opengl_template
-#                RUNTIME DESTINATION bin
-#                LIBRARY DESTINATION lib
-#                ARCHIVE DESTINATION lib/static)
+        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # sure ?
+        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib
+        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin\\static") # TODO: change to lib/static
+    else()
+        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # sure ?
+        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # TODO: change to lib
+        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin\\static") # TODO: change to lib/static
     endif()
 endif()
 
@@ -104,21 +109,20 @@ include_directories(${EXTERNALS_PATH}/googletest/googlemock/include)
 include_directories(src)
 #include_directories(assets)
 
-
 # ------------------------------------------------------------------------------
 # Dependencies (+ externals)
 # ------------------------------------------------------------------------------
 add_subdirectory(deps)
 
 # ------------------------------------------------------------------------------
-# Sources
-# ------------------------------------------------------------------------------
-add_subdirectory(src)
-
-# ------------------------------------------------------------------------------
 # Assets
 # ------------------------------------------------------------------------------
 add_subdirectory(assets)
+
+# ------------------------------------------------------------------------------
+# Sources
+# ------------------------------------------------------------------------------
+add_subdirectory(src)
 
 # ------------------------------------------------------------------------------
 # CTest -> testing
