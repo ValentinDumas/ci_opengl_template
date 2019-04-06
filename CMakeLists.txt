@@ -12,7 +12,7 @@ project(ci_opengl_template C CXX)
 # CMake Options
 # ------------------------------------------------------------------------------
 set(CMAKE_CXX_STANDARD 14)
-set(BUILD_SHARED_LIBS OFF)
+set(BUILD_SHARED_LIBS ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 #set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for clang tidy
 
@@ -108,6 +108,7 @@ include_directories(${EXTERNALS_PATH}/googletest/googlemock/include)
 #include_directories(deps/externals/imgui-1.68/include)
 include_directories(src)
 #include_directories(assets)
+include_directories(deps/externals/assimp/include)
 
 # ------------------------------------------------------------------------------
 # Dependencies (+ externals)

@@ -7,7 +7,7 @@
 # Assets (images): copy assets to CMake binary output directory
 # ------------------------------------------------------------------------------
 function(CopyAssets source_path destination_path)
-    file(GLOB_RECURSE ASSETS ${source_path}\\*) # assets folder (root's fullpath)
+    file(GLOB_RECURSE ASSETS ${source_path}/*) # assets folder (root's fullpath)
     foreach (asset_source ${ASSETS})
         string(REGEX MATCH "CMakeLists.txt" cmakelist ${asset_source})
         if(NOT (cmakelist MATCHES "CMakeLists.txt"))
