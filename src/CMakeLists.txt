@@ -24,8 +24,17 @@ else ()
 endif ()
 
 if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
-    MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ci_opengl_template)
-    MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ci_opengl_template)
+    if(MSVC)
+        message("MSVC building...")
+        CopyAssets("${CMAKE_SOURCE_DIR}\\assets" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
+#        MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
+        MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ci_opengl_template)
+        CopyAssets("${CMAKE_CURRENT_BINARY_DIR}" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
+    else()
+        MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ci_opengl_template)
+        MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ci_opengl_template)
+    endif()
+
 endif()
 
 # Note: If you want to declare source files in this scope (this cmakelists.txt) AND you want it to be visible by the parent (main cmakelists.txt),
