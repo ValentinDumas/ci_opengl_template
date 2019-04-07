@@ -21,7 +21,6 @@ if (MSVC)
     target_compile_definitions(ci_opengl_template PRIVATE main=main MSVC_PLATFORM)
 else ()
     target_compile_definitions(ci_opengl_template PRIVATE main=main)
-    target_compile_options(ci_opengl_template PRIVATE -fno-strict-aliasing -Wall -Wno-long-long -Wa,-mbig-obj -O3)
 endif ()
 
 if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
