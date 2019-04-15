@@ -1,7 +1,5 @@
 project(unit_tests)
 
-
-
 # ------------------------------------------------------------------------------
 # Unit Tests Files
 # ------------------------------------------------------------------------------
@@ -23,9 +21,9 @@ if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
     if(MSVC)
         message("MSVC building...")
         CopyAssets("${CMAKE_SOURCE_DIR}\\assets" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
+        #CopyAssets("${CMAKE_CURRENT_BINARY_DIR}" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
         #        MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
         MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${PROJECT_NAME})
-        CopyAssets("${CMAKE_CURRENT_BINARY_DIR}" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
     else()
         MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${PROJECT_NAME})
         MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${PROJECT_NAME})

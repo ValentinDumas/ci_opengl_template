@@ -325,18 +325,14 @@ To compile and install this project template, use the following instructions:
     make test
 
 ## 6. External Dependencies
-This project provides some externals dependencies already included:
--   **GLad compatibility 3.3**, OpenGL + extensions loader.
+This project includes some useful libraries:
 -   **GLFW**, provides a context to render the OpenGL stuff on screen.
+-   **glad compatibility 3.3**, OpenGL + extensions loader.
 -   **glm**, performs matrix and vectors calculations. It is GLSL compatible.
--   **stb**, only stb_image is used to load 2D images.
+-   **SFML**, Simple and Fast Multimedia Library, complete library for 2D/3D game development
 -   **googletest**, test / mock library.
--   **assimp**, 3D model loading library.
 -   **Box2D**, 2D physics library.
-
-
--   **CUDA**, coming soon...
--   **irrKlang**, coming soon...
+-   **assimp**, 3D model loading library.
 -   **bullet**, coming soon...
 
 ## 7. How to adapt this project to your needs
