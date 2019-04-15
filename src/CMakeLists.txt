@@ -10,7 +10,8 @@ target_link_libraries(project_src_lib PUBLIC coverage_config warnings_config) # 
 # Main Executable
 # ------------------------------------------------------------------------------
 # project(ci_opengl_template)
-set(ci_opengl_template_libraries imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D project_src_lib cppfs assimp::assimp)
+set(ci_opengl_template_libraries imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D project_src_lib cppfs)
+#set(ci_opengl_template_libraries imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D project_src_lib cppfs assimp::assimp)
 
 add_executable(ci_opengl_template imgui_main.cpp)
 

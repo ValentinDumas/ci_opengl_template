@@ -152,26 +152,26 @@ static void glfw_error_callback(int error, const char* description)
     fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
 
-#include <assimp/Importer.hpp>      // C++ importer interface
-#include <assimp/scene.h>           // Output data structure
-#include <assimp/postprocess.h>     // Post processing flags
+//#include <assimp/Importer.hpp>      // C++ importer interface
+//#include <assimp/scene.h>           // Output data structure
+//#include <assimp/postprocess.h>     // Post processing flags
 
 int main(int argc, char** argv)
 {
-    // Create an instance of the Importer class
-    Assimp::Importer importer;
-    // And have it read the given file with some example postprocessing
-    // Usually - if speed is not the most important aspect for you - you'll
-    // propably to request more postprocessing than we do in this example.
-    const aiScene *scene = importer.ReadFile("ee",
-                                             aiProcess_CalcTangentSpace |
-                                             aiProcess_Triangulate |
-                                             aiProcess_JoinIdenticalVertices |
-                                             aiProcess_SortByPType);
-
-    // IMPORTANT:
-    // In binary / release (executable)    --> keep the binary path to find assets
-    // In development mode (no executable) --> keep the project path to find assets
+//    // Create an instance of the Importer class
+//    Assimp::Importer importer;
+//    // And have it read the given file with some example postprocessing
+//    // Usually - if speed is not the most important aspect for you - you'll
+//    // propably to request more postprocessing than we do in this example.
+//    const aiScene *scene = importer.ReadFile("ee",
+//                                             aiProcess_CalcTangentSpace |
+//                                             aiProcess_Triangulate |
+//                                             aiProcess_JoinIdenticalVertices |
+//                                             aiProcess_SortByPType);
+//
+//    // IMPORTANT:
+//    // In binary / release (executable)    --> keep the binary path to find assets
+//    // In development mode (no executable) --> keep the project path to find assets
 
     char binary_path[FILENAME_MAX];
     GetCurrentDir( binary_path, FILENAME_MAX );

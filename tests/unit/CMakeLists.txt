@@ -20,10 +20,17 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE test_unit_main=main)
 ##endif()
 
 if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
-    MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${PROJECT_NAME})
-    MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${PROJECT_NAME})
+    if(MSVC)
+        message("MSVC building...")
+        CopyAssets("${CMAKE_SOURCE_DIR}\\assets" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
+        #        MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
+        MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${PROJECT_NAME})
+        CopyAssets("${CMAKE_CURRENT_BINARY_DIR}" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
+    else()
+        MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${PROJECT_NAME})
+        MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${PROJECT_NAME})
+    endif()
 endif()
-
 # ------------------------------------------------------------------------------
 # Unit Tests: console & coverage
 # ------------------------------------------------------------------------------
