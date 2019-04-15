@@ -16,7 +16,6 @@ set(ci_opengl_template_libraries imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRAR
 add_executable(ci_opengl_template imgui_main.cpp)
 
 target_link_libraries(ci_opengl_template ${ci_opengl_template_libraries})
-#target_link_libraries(ci_opengl_template glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb assimp::assimp Box2D project_src_lib)
 
 if (MSVC)
     target_compile_definitions(ci_opengl_template PRIVATE main=main MSVC_PLATFORM)
