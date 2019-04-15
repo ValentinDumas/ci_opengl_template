@@ -19,3 +19,10 @@ TEST(UnitTestComplex, AssignmentOperatorAssignsTheReferencedObjectAndParameters)
     EXPECT_EQ(a.getReal(), b.getReal());
     EXPECT_EQ(a.getImag(), b.getImag());
 }
+
+TEST(UnitTestComplex, ComplexReturnsAbsoluteValues)
+{
+    Complex a(3,5);
+
+    EXPECT_EQ(a.abs(), sqrt(34));
+}
