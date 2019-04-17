@@ -12,12 +12,12 @@ project(ci_opengl_template C CXX)
 # CMake Options
 # ------------------------------------------------------------------------------
 set(CMAKE_CXX_STANDARD 14)
-set(BUILD_SHARED_LIBS OFF)
+set(BUILD_SHARED_LIBS ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 #set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for clang tidy
 
 # Note: Must be OFF when testing (CI)
-set(BUILD_EXECUTABLE ON)
+set(BUILD_EXECUTABLE_IN_PROJECT_TREE ON)
 
 function(MoveLibToTarget lib_name target_name)
     add_custom_command(TARGET ${target_name} POST_BUILD
@@ -25,6 +25,7 @@ function(MoveLibToTarget lib_name target_name)
             "$<TARGET_FILE:${lib_name}>"
             "$<TARGET_FILE_DIR:${target_name}>"
             VERBATIM)
+    message("Moving library [${lib_name}] at target [${target_name}]")
 endfunction()
 
 function(MoveMultipleLibsForTarget libraries target_name)
@@ -37,9 +38,11 @@ function(MoveMultipleLibsForTarget libraries target_name)
     endif()
 endfunction()
 
+macro(create_property property_name value)
+    set_property(GLOBAL PROPERTY ${property_name} ${value})
+endmacro()
 
-
-set_property(GLOBAL PROPERTY P_PROJECT_SOURCE_MODULES "")
+create_property(P_PROJECT_SOURCE_MODULES "")
 
 function(get_property_by_name output_name property_to_extract)
     get_property(property_values GLOBAL PROPERTY ${property_to_extract})
@@ -59,6 +62,20 @@ endfunction()
 
 
 
+create_property(CUSTOM_SHARED_LIBRARIES "")
+
+#TODO: function to easily set all kinds of GLOBAL properties
+function(add_data_to_property property_name module_name)
+    get_property_by_name(property_output ${property_name})
+    if(property_output STREQUAL "") # empty
+        set_property(GLOBAL PROPERTY ${property_name} "${module_name}")
+    else() # at least one module registered
+        set_property(GLOBAL PROPERTY ${property_name} "${property_output} ${module_name}")
+    endif()
+    message("Added target ${module_name} as a module")
+endfunction()
+
+
 # ------------------------------------------------------------------------------
 # Testing Mode: messages
 # Note: Default testing mode as STANDALONE (offline)
@@ -73,11 +90,17 @@ if(ONLINE_MODE)
 else()
     message("Tests are configured in STANDALONE mode")
     set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static") # include gcc libs
-    if(BUILD_EXECUTABLE)
+    if(BUILD_EXECUTABLE_IN_PROJECT_TREE)
         # TODO: only apply to concerned target, as main target (ci_opengl_template) for instance
         set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # sure ?
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin\\static") # TODO: change to lib/static
+
+        message("Manually copy GOOGLE TEST/MOCK shared libraries (.dll) to project binary directory to build executable directly into the project folder instead of Cmake default binary folder")
+        configure_file(${CMAKE_BINARY_DIR}/bin/libgtestd.dll ${CMAKE_SOURCE_DIR}/bin/libgtestd.dll COPYONLY)
+        configure_file(${CMAKE_BINARY_DIR}/bin/libgtest_maind.dll ${CMAKE_SOURCE_DIR}/bin/libgtest_maind.dll COPYONLY)
+        configure_file(${CMAKE_BINARY_DIR}/bin/libgmockd.dll ${CMAKE_SOURCE_DIR}/bin/libgmockd.dll COPYONLY)
+        configure_file(${CMAKE_BINARY_DIR}/bin/libgmock_maind.dll ${CMAKE_SOURCE_DIR}/bin/libgmock_maind.dll COPYONLY)
     else()
         set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # sure ?
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # TODO: change to lib

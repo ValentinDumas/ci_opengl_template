@@ -31,10 +31,10 @@ function(MoveAssetsToTarget assets_source_path target_name)
     MoveFolderToTarget(${assets_source_path} ${target_name} assets)
 endfunction()
 
-if((NOT ONLINE_MODE) AND BUILD_EXECUTABLE) # standalone AND build executable
+if((NOT ONLINE_MODE) AND BUILD_EXECUTABLE_IN_PROJECT_TREE) # standalone AND build executable
     CopyAssets("${CMAKE_SOURCE_DIR}\\assets" "${CMAKE_SOURCE_DIR}\\bin\\assets")
 endif()
 
-if((NOT ONLINE_MODE) AND (NOT BUILD_EXECUTABLE)) # standalone AND no executable
+if((NOT ONLINE_MODE) AND (NOT BUILD_EXECUTABLE_IN_PROJECT_TREE)) # standalone AND no executable
     CopyAssets("${CMAKE_SOURCE_DIR}\\assets" "${CMAKE_BINARY_DIR}\\bin\\assets")
 endif()

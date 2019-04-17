@@ -2,6 +2,8 @@
 # Dependency Libraries: from "deps" and / or "externals"
 # ------------------------------------------------------------------------------
 #stb
+message(${DYNAMIC_LIBRARIES})
+
 set(EXTERNAL_MODULES glm gtest gtest_main gmock gmock_main)
 
 # ------------------------------------------------------------------------------

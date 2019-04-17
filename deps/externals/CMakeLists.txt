@@ -13,9 +13,17 @@ find_package(Git REQUIRED)
 # ------------------------------------------------------------------------------
 # GoogleTest / GoogleMock
 # ------------------------------------------------------------------------------
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+set(gtest_BINARY_DIR "${CMAKE_SOURCE_DIR}/bin" CACHE STRING "" FORCE)
+set(gmock_BINARY_DIR "${CMAKE_SOURCE_DIR}/bin" CACHE STRING "" FORCE)
+set(INSTALL_GMOCK ON)
+set(INSTALL_GTEST OFF)
+
+set(gtest_force_shared_crt OFF CACHE BOOL "" FORCE)
 option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
 option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
+
+
+
 if (APPLE)
     add_definitions(-DGTEST_USE_OWN_TR1_TUPLE)
     add_definitions(-D__GLIBCXX__)
