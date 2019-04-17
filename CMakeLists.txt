@@ -37,6 +37,28 @@ function(MoveMultipleLibsForTarget libraries target_name)
     endif()
 endfunction()
 
+
+
+set_property(GLOBAL PROPERTY P_PROJECT_SOURCE_MODULES "")
+
+function(get_property_by_name output_name property_to_extract)
+    get_property(property_values GLOBAL PROPERTY ${property_to_extract})
+    set(${output_name} ${property_values} CACHE STRING "An extracted property's name" FORCE)
+endfunction()
+
+#TODO: function to easily set all kinds of GLOBAL properties
+function(add_target_to_project module_name)
+    get_property_by_name(property_output P_PROJECT_SOURCE_MODULES)
+    if(property_output STREQUAL "") # empty
+        set_property(GLOBAL PROPERTY P_PROJECT_SOURCE_MODULES "${module_name}")
+    else() # at least one module registered
+        set_property(GLOBAL PROPERTY P_PROJECT_SOURCE_MODULES "${property_output} ${module_name}")
+    endif()
+    message("Added target ${module_name} as a module")
+endfunction()
+
+
+
 # ------------------------------------------------------------------------------
 # Testing Mode: messages
 # Note: Default testing mode as STANDALONE (offline)
@@ -124,6 +146,12 @@ add_subdirectory(assets)
 # Sources
 # ------------------------------------------------------------------------------
 add_subdirectory(src)
+
+
+
+get_property_by_name(PROJECT_SOURCE_MODULES P_PROJECT_SOURCE_MODULES)
+
+message("${PROJECT_SOURCE_MODULES}")
 
 # ------------------------------------------------------------------------------
 # CTest -> testing

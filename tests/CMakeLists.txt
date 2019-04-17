@@ -7,7 +7,6 @@ set(EXTERNAL_MODULES glm gtest gtest_main gmock gmock_main)
 # ------------------------------------------------------------------------------
 # Project Libraries: from "src" (sources)
 # ------------------------------------------------------------------------------
-set(PROJECT_SOURCE_MODULES project_src_lib)
 
 # ------------------------------------------------------------------------------
 # CTest coverage one by one --> Detailed test execution, usefull for VS or online testing
@@ -15,7 +14,7 @@ set(PROJECT_SOURCE_MODULES project_src_lib)
 function(CreateTest TYPE NAME)
 	set(TEST_NAME ${TYPE}_${NAME})
 	add_executable(${TEST_NAME} ${NAME}.cpp)
-	target_link_libraries(${TEST_NAME} PRIVATE ${EXTERNAL_MODULES} ${PROJECT_SOURCE_MODULES} coverage_config) #Note: see if glfw has to be included...
+	target_link_libraries(${TEST_NAME} PRIVATE ${EXTERNAL_MODULES} "${PROJECT_SOURCE_MODULES}" coverage_config) #Note: see if glfw has to be included...
 
     add_test(
 		NAME ${TEST_NAME}

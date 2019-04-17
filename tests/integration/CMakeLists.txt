@@ -9,10 +9,11 @@ set(PROJECT_INTEGRATION_TEST_FILES test_robot.cpp) # without main executable
 # Integration Tests Executable
 # ------------------------------------------------------------------------------
 add_executable(${PROJECT_NAME} test_integration_main.cpp ${PROJECT_INTEGRATION_TEST_FILES})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${EXTERNAL_MODULES} ${PROJECT_SOURCE_MODULES} coverage_config) #Note: see if glfw has to be included...
+target_link_libraries(${PROJECT_NAME} PRIVATE ${EXTERNAL_MODULES} "${PROJECT_SOURCE_MODULES}" coverage_config) #Note: see if glfw has to be included...
 target_compile_definitions(${PROJECT_NAME} PRIVATE test_integration_main=main)
 
-MoveLibToTarget(glm_static ${PROJECT_NAME})
+#TODO (1): make static / dynamic libs linkage (automatic)
+#TODO (2): simplify code for online test and executable target
 
 if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
     if(MSVC)
