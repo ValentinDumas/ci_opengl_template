@@ -65,8 +65,6 @@ function(add_target_to_project module_name)
     message("Added target ${module_name} as a module")
 endfunction()
 
-
-
 create_property(CUSTOM_SHARED_LIBRARIES "")
 
 #TODO: function to easily set all kinds of GLOBAL properties
@@ -79,7 +77,6 @@ function(add_data_to_property property_name module_name)
     endif()
     message("Added target ${module_name} as a module")
 endfunction()
-
 
 # ------------------------------------------------------------------------------
 # Testing Mode: messages

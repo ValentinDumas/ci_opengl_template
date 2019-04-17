@@ -26,8 +26,8 @@ if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
     if(MSVC)
         message("MSVC building...")
         # TODO: determine which "CopyAssets" call is the right one.
+        MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ci_opengl_template)
         CopyAssets("${CMAKE_SOURCE_DIR}\\assets" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
-        #CopyAssets("${CMAKE_CURRENT_BINARY_DIR}" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
         MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ci_opengl_template)
     else()
         MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ci_opengl_template)
