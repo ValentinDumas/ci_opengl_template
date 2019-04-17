@@ -12,7 +12,12 @@ project(ci_opengl_template C CXX)
 # CMake Options
 # ------------------------------------------------------------------------------
 set(CMAKE_CXX_STANDARD 14)
-set(BUILD_SHARED_LIBS ON)
+
+set(BUILD_SHARED_LIBS OFF)
+if(MSVC)
+    set(BUILD_SHARED_LIBS OFF)
+endif()
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 #set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for clang tidy
 
