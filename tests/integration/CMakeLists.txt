@@ -12,14 +12,18 @@ add_executable(${PROJECT_NAME} test_integration_main.cpp ${PROJECT_INTEGRATION_T
 target_link_libraries(${PROJECT_NAME} PRIVATE ${EXTERNAL_MODULES} "${PROJECT_SOURCE_MODULES}" coverage_config) #Note: see if glfw has to be included...
 target_compile_definitions(${PROJECT_NAME} PRIVATE test_integration_main=main)
 
-#TODO (1): make static / dynamic libs linkage (automatic)
+#TODO (1): make static / dynamic libs linking (automatic)
 #TODO (2): simplify code for online test and executable target
+
+if(MSVC)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE MSVC_PLATFORM)
+endif()
 
 if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
     if(MSVC)
         message("MSVC building...")
+        MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${PROJECT_NAME})
         CopyAssets("${CMAKE_SOURCE_DIR}\\assets" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
-        #CopyAssets("${CMAKE_CURRENT_BINARY_DIR}" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
         MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${PROJECT_NAME})
     else()
         MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${PROJECT_NAME})

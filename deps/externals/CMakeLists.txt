@@ -19,9 +19,6 @@ set(INSTALL_GTEST ON)
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
 option(gtest_disable_pthreads "Disable uses of pthreads in gtest." ON)
-
-
-
 if (APPLE)
     add_definitions(-DGTEST_USE_OWN_TR1_TUPLE)
     add_definitions(-D__GLIBCXX__)
@@ -113,6 +110,7 @@ endif()
 # ------------------------------------------------------------------------------
 # CPPFS (Cross-Platform & Portable FileSystem library)
 # ------------------------------------------------------------------------------
+
 add_subdirectory(cppfs)
 
 # ------------------------------------------------------------------------------
