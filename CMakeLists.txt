@@ -17,7 +17,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 #set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for clang tidy
 
 # Note: Must be OFF when testing (CI)
-set(BUILD_EXECUTABLE_IN_PROJECT_TREE ON)
+set(BUILD_EXECUTABLE_IN_PROJECT_TREE OFF)
 
 function(MoveLibToTarget lib_name target_name)
     add_custom_command(TARGET ${target_name} POST_BUILD
@@ -96,11 +96,11 @@ else()
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin\\static") # TODO: change to lib/static
 
-        message("Manually copy GOOGLE TEST/MOCK shared libraries (.dll) to project binary directory to build executable directly into the project folder instead of Cmake default binary folder")
-        configure_file(${CMAKE_BINARY_DIR}/bin/libgtestd.dll ${CMAKE_SOURCE_DIR}/bin/libgtestd.dll COPYONLY)
-        configure_file(${CMAKE_BINARY_DIR}/bin/libgtest_maind.dll ${CMAKE_SOURCE_DIR}/bin/libgtest_maind.dll COPYONLY)
-        configure_file(${CMAKE_BINARY_DIR}/bin/libgmockd.dll ${CMAKE_SOURCE_DIR}/bin/libgmockd.dll COPYONLY)
-        configure_file(${CMAKE_BINARY_DIR}/bin/libgmock_maind.dll ${CMAKE_SOURCE_DIR}/bin/libgmock_maind.dll COPYONLY)
+#        message("Manually copy GOOGLE TEST/MOCK shared libraries (.dll) to project binary directory to build executable directly into the project folder instead of Cmake default binary folder")
+#        configure_file(${CMAKE_BINARY_DIR}/bin/libgtestd.dll ${CMAKE_SOURCE_DIR}/bin/libgtestd.dll COPYONLY)
+#        configure_file(${CMAKE_BINARY_DIR}/bin/libgtest_maind.dll ${CMAKE_SOURCE_DIR}/bin/libgtest_maind.dll COPYONLY)
+#        configure_file(${CMAKE_BINARY_DIR}/bin/libgmockd.dll ${CMAKE_SOURCE_DIR}/bin/libgmockd.dll COPYONLY)
+#        configure_file(${CMAKE_BINARY_DIR}/bin/libgmock_maind.dll ${CMAKE_SOURCE_DIR}/bin/libgmock_maind.dll COPYONLY)
     else()
         set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # sure ?
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # TODO: change to lib
