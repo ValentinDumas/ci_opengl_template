@@ -1,4 +1,4 @@
-set(DYNAMIC_LIBRARIES gtest gtest_main gmock gmock_main cppfs glfw glad project_src_lib PARENT_SCOPE)
+set(DYNAMIC_LIBRARIES gtest gtest_main gmock gmock_main glfw glad cppfs project_src_lib PARENT_SCOPE)
 set(STATIC_LIBRARIES "" PARENT_SCOPE)
 #
 #create_property(ENABLE_BUILD_SHARED_LIBS OFF)

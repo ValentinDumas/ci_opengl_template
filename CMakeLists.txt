@@ -13,7 +13,7 @@ project(ci_opengl_template C CXX)
 # ------------------------------------------------------------------------------
 set(CMAKE_CXX_STANDARD 14)
 
-set(BUILD_SHARED_LIBS ON)
+set(BUILD_SHARED_LIBS OFF)
 if(MSVC)
     set(BUILD_SHARED_LIBS OFF) # force STATIC builds on MSVC
 endif()
