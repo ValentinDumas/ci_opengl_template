@@ -11,9 +11,10 @@ project(ci_opengl_template C CXX)
 # ------------------------------------------------------------------------------
 # CMake Options
 # ------------------------------------------------------------------------------
+#set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD 14)
 
-#set(BUILD_SHARED_LIBS OFF)
+set(BUILD_SHARED_LIBS OFF)
 if(MSVC)
     set(BUILD_SHARED_LIBS OFF) # force STATIC builds on MSVC
 endif()
@@ -142,20 +143,9 @@ else()
 endif()
 
 # ------------------------------------------------------------------------------
-# Includes
+# Assets
 # ------------------------------------------------------------------------------
-set(EXTERNALS_PATH ${CMAKE_SOURCE_DIR}/deps/externals)
-
-#include_directories(deps) # include deps' folder. Note that you could include ${some_dep_include_dirs} from deps folder in order to be more precise at folder inclusion.
-include_directories(${EXTERNALS_PATH}/glad/include)
-#include_directories(deps/externals/assimp/include)
-include_directories(${GLFW_SOURCE_DIR}/include) # TODO: self include this to target ?
-include_directories(${EXTERNALS_PATH}/googletest/googletest/include)
-include_directories(${EXTERNALS_PATH}/googletest/googlemock/include)
-#include_directories(deps/externals/imgui-1.68/include)
-include_directories(src)
-include_directories(assets)
-include_directories(deps/externals/assimp/include)
+add_subdirectory(assets)
 
 # ------------------------------------------------------------------------------
 # Dependencies (+ externals)
@@ -163,9 +153,19 @@ include_directories(deps/externals/assimp/include)
 add_subdirectory(deps)
 
 # ------------------------------------------------------------------------------
-# Assets
+# Includes
 # ------------------------------------------------------------------------------
-add_subdirectory(assets)
+set(EXTERNALS_PATH ${CMAKE_SOURCE_DIR}/deps/externals)
+set(DEPS_PATH ${CMAKE_SOURCE_DIR}/deps)
+
+include_directories(${EXTERNALS_PATH}/glad/include)
+#include_directories(deps/externals/assimp/include)
+include_directories(${GLFW_SOURCE_DIR}/include) # TODO: self include this to target ?
+#include_directories(deps/externals/imgui-1.68/include)
+include_directories(src)
+include_directories(${EXTERNAL_PATH}/assimp/include)
+message("GMOCK => ${gmock_SOURCE_DIR}/include")
+message("GTEST => ${gtest_SOURCE_DIR}/include")
 
 # ------------------------------------------------------------------------------
 # Sources

@@ -1,3 +1,6 @@
+include_directories(${gtest_SOURCE_DIR}/include)
+include_directories(${gmock_SOURCE_DIR}/include)
+
 # ------------------------------------------------------------------------------
 # Dependency Libraries: from "deps" and / or "externals"
 # ------------------------------------------------------------------------------

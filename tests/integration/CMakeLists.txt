@@ -9,7 +9,8 @@ set(PROJECT_INTEGRATION_TEST_FILES test_robot.cpp) # without main executable
 # Integration Tests Executable
 # ------------------------------------------------------------------------------
 add_executable(${PROJECT_NAME} test_integration_main.cpp ${PROJECT_INTEGRATION_TEST_FILES})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${EXTERNAL_MODULES} "${PROJECT_SOURCE_MODULES}" coverage_config) #Note: see if glfw has to be included...
+# TODO; include ${ALL_LIBRARIES} ?
+target_link_libraries(${PROJECT_NAME} PRIVATE ${EXTERNAL_MODULES} "${PROJECT_SOURCE_MODULES}" glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} imgui glm stb Box2D cppfs coverage_config) #Note: see if glfw has to be included...
 target_compile_definitions(${PROJECT_NAME} PRIVATE test_integration_main=main)
 
 #TODO (1): make static / dynamic libs linking (automatic)
