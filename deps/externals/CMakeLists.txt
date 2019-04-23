@@ -10,10 +10,6 @@ find_package(Git REQUIRED)
 # Prevent overriding the parent project's compiler/linker
 # settings on Windows
 
-if(NOT MSVC)
-    set(BUILD_SHARED_LIBS ON)
-endif()
-
 # ------------------------------------------------------------------------------
 # GoogleTest / GoogleMock
 # ------------------------------------------------------------------------------

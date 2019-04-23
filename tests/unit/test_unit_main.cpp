@@ -6,10 +6,15 @@
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
+
+#include <GLFW/glfw3.h>
+
 using ::testing::AtLeast;
 
 int test_unit_main(int argc, char **argv)
 {
+    auto a = glfwInit();
+
     ::testing::InitGoogleTest(&argc, argv);
     ::testing::InitGoogleMock(&argc, argv);
 
