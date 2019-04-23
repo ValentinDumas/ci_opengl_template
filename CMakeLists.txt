@@ -154,7 +154,7 @@ include_directories(${EXTERNALS_PATH}/googletest/googletest/include)
 include_directories(${EXTERNALS_PATH}/googletest/googlemock/include)
 #include_directories(deps/externals/imgui-1.68/include)
 include_directories(src)
-#include_directories(assets)
+include_directories(assets)
 include_directories(deps/externals/assimp/include)
 
 # ------------------------------------------------------------------------------
