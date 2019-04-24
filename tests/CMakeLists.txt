@@ -10,11 +10,7 @@ message(${DYNAMIC_LIBRARIES})
 set(TESTING_DEPENDENCIES gtest gtest_main gmock gmock_main)
 
 # ------------------------------------------------------------------------------
-# Project Libraries: from "src" (sources)
-# ------------------------------------------------------------------------------
-
-# ------------------------------------------------------------------------------
-# CTest coverage one by one --> Detailed test execution, usefull for VS or online testing
+# Create CTest tests one by one --> detailed test execution (usefull for bot VS and Online testing)
 # ------------------------------------------------------------------------------
 function(CreateTest TYPE NAME PATH_TO_TEST ADDITIONAL_TESTING_DEPENDENCIES)
 	set(TEST_NAME ${TYPE}_${NAME})
