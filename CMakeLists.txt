@@ -99,6 +99,8 @@ else()
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin\\static") # TODO: change to lib/static
 
+        # TODO: create CopyFile function (source_path, destination_path) !
+        # TODO: create CopyFileToTarget function ?
 #        message("Manually copy GOOGLE TEST/MOCK shared libraries (.dll) to project binary directory to build executable directly into the project folder instead of Cmake default binary folder")
 #        configure_file(${CMAKE_BINARY_DIR}/bin/libgtestd.dll ${CMAKE_SOURCE_DIR}/bin/libgtestd.dll COPYONLY)
 #        configure_file(${CMAKE_BINARY_DIR}/bin/libgtest_maind.dll ${CMAKE_SOURCE_DIR}/bin/libgtest_maind.dll COPYONLY)

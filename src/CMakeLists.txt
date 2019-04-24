@@ -1,3 +1,5 @@
+# TODO: put PROJECT_SOURCE_MODULES here.. as a property -> enables registration for project's modules' names
+
 set(PROJECT_SRC_LIB_SOURCE_FILES complex.cpp)
 add_library(project_src_lib ${PROJECT_SRC_LIB_SOURCE_FILES})
 target_include_directories(project_src_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}) # Note: see if it includes .hpp && .cpp OR only .cpp files
@@ -27,7 +29,6 @@ if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
         message("MSVC building...")
         # TODO: determine which "CopyAssets" call is the right one.
         MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ci_opengl_template)
-        CopyAssets("${CMAKE_SOURCE_DIR}\\assets" "${CMAKE_CURRENT_BINARY_DIR}\\Debug")
         MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ci_opengl_template)
     else()
         MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ci_opengl_template)
