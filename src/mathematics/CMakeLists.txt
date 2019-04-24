@@ -12,7 +12,6 @@ function(ADD_CUSTOM_LIBRARY target_type target_name sources includes_scope inclu
     target_include_directories(${target_name} ${includes_scope} ${includes_string}) # Note: see if it includes .hpp && .cpp OR only .cpp files
 
     list(APPEND libraries_string coverage_config warnings_config)
-    message("CUUUUUUUUUUUUUUUUUUUU ${libraries_string}")
     target_link_libraries(${target_name} PRIVATE ${libraries_string}) # Include code-coverage & warnings settings
 
     # Define this target as a project source's module

@@ -33,18 +33,6 @@ AddLibraryToProject(gmock)
 AddLibraryToProject(gmock_main)
 
 # ------------------------------------------------------------------------------
-# GLad Additional Libraries
-# ------------------------------------------------------------------------------
-if(MSVC)
-    message("CMake Platform: MSVC")
-else()
-    if(NOT WIN32)
-        message("CMake Platform: Clang or GCC (Not Windows32) => setting additional glab library link")
-        set(GLAD_LIBRARIES dl) # Link glad libs for Linux & Apple
-    endif()
-endif()
-
-# ------------------------------------------------------------------------------
 # Assimp (includes configuration with MinGW 64 bits)
 # ------------------------------------------------------------------------------
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
@@ -84,7 +72,6 @@ endif()
 #add_subdirectory(bullet)
 #AddLibraryToProject(bullet)
 
-
 # ------------------------------------------------------------------------------
 # CPPFS (Cross-Platform & Portable FileSystem library)
 # ------------------------------------------------------------------------------
@@ -103,6 +90,23 @@ set(BUILD_SHARED_LIBS OFF)
 # ------------------------------------------------------------------------------
 add_subdirectory(glad)
 AddLibraryToProject(glad)
+GetLibraryType(glad)
+if (library_type STREQUAL SHARED_LIBRARY) # glad as a shared library
+    # If so, define the macro GLAD_API_EXPORT on the command line.
+    target_compile_definitions(glad PRIVATE GLAD_GLAPI_EXPORT)
+endif()
+
+# ------------------------------------------------------------------------------
+# GLad Additional Libraries
+# ------------------------------------------------------------------------------
+if(MSVC)
+    message("CMake Platform: MSVC")
+else()
+    if(NOT WIN32)
+        message("CMake Platform: Clang or GCC (Not Windows32) => setting additional glab library link")
+        set(GLAD_LIBRARIES dl) # Link glad libs for Linux & Apple
+    endif()
+endif()
 #AddLibraryToProject(${GLAD_LIBRARIES})
 
 # ------------------------------------------------------------------------------

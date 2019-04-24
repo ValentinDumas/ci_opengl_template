@@ -79,7 +79,7 @@ function(add_data_to_property property_name module_name)
     else() # at least one module registered
         set_property(GLOBAL PROPERTY ${property_name} "${property_output} ${module_name}")
     endif()
-    message("Added target ${module_name} as a module")
+    message("(add_data_to_property) Added target ${module_name} as a module")
 endfunction()
 
 function(MoveNeededResourcesToTarget target_name)
@@ -198,3 +198,13 @@ if (BUILD_TESTING AND (PROJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR))
     include(CTest)
     add_subdirectory(tests)
 endif()
+
+# ------------------------------------------------------------------------------
+# DEBUGGING INFORMATION
+# ------------------------------------------------------------------------------
+get_property_by_name(SHARED_LIBRARIES P_SHARED_LIBRARIES)
+get_property_by_name(STATIC_LIBRARIES P_STATIC_LIBRARIES)
+get_property_by_name(INTERFACE_LIBRARIES P_INTERFACE_LIBRARIES)
+message("SHARED LIBRARIES for the whole solution: ${SHARED_LIBRARIES}")
+message("STATIC LIBRARIES for the whole solution: ${STATIC_LIBRARIES}")
+message("INTERFACE LIBRARIES for the whole solution: ${INTERFACE_LIBRARIES}")

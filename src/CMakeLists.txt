@@ -1,7 +1,11 @@
+project(ci_opengl_template)
+
+create_property(P_PROJECT_SOURCE_MODULES "")
+
 # ------------------------------------------------------------------------------
 # FUNCTIONS
 # ------------------------------------------------------------------------------
-#Note: Adds a target's name to the main project.
+#Note: Adds a target's (by its name) to the main project.
 #Note: If you want to set an other property than the P_PROJECT_SOURCE_MODULES, refers to the "add_data_to_property" function.
 function(add_target_to_main_project module_name)
     get_property_by_name(property_output P_PROJECT_SOURCE_MODULES)
@@ -10,18 +14,16 @@ function(add_target_to_main_project module_name)
     else() # at least one module registered
         set_property(GLOBAL PROPERTY P_PROJECT_SOURCE_MODULES "${property_output} ${module_name}")
     endif()
-    message("Added target ${module_name} as a module")
+    #message("(add_target_to_main_project) Added target ${module_name} as a module")
 endfunction()
-
-create_property(P_PROJECT_SOURCE_MODULES "")
 
 # ------------------------------------------------------------------------------
 # MAIN EXECUTABLE
 # ------------------------------------------------------------------------------
-set(ci_opengl_template_libraries imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D mathematics cppfs)
+set(CI_OPENGL_TEMPLATE_LIBRARIES imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D mathematics cppfs)
 
 add_executable(ci_opengl_template imgui_main.cpp)
-target_link_libraries(ci_opengl_template ${ci_opengl_template_libraries})
+target_link_libraries(ci_opengl_template ${CI_OPENGL_TEMPLATE_LIBRARIES})
 
 if (MSVC)
     target_compile_definitions(ci_opengl_template PRIVATE main=main MSVC_PLATFORM)
@@ -39,8 +41,3 @@ add_subdirectory(mathematics)
 # ------------------------------------------------------------------------------
 get_property_by_name(PROJECT_SOURCE_MODULES P_PROJECT_SOURCE_MODULES)
 message("${PROJECT_SOURCE_MODULES}")
-
-get_property_by_name(SH P_SHARED_LIBRARIES)
-get_property_by_name(ST P_STATIC_LIBRARIES)
-message("SSSSSSSSSSHHHHHHHHHHHH ${SH}")
-message("SSSSSSSSSSTTTTTTTTTTTT ${ST}")
