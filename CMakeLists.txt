@@ -25,6 +25,12 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 # Note: Must be OFF when testing (CI)
 set(BUILD_EXECUTABLE_IN_PROJECT_TREE OFF)
 
+macro(project_as_directory_name)
+    get_filename_component(ProjectId ${CMAKE_CURRENT_SOURCE_DIR} NAME)
+    string(REPLACE " " "_" ProjectId ${ProjectId})
+    project(${ProjectId})
+endmacro()
+
 function(MoveLibToTarget lib_name target_name)
     add_custom_command(TARGET ${target_name} POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_if_different
@@ -48,22 +54,9 @@ macro(create_property property_name value)
     set_property(GLOBAL PROPERTY ${property_name} ${value})
 endmacro()
 
-create_property(P_PROJECT_SOURCE_MODULES "")
-
 function(get_property_by_name output_name property_to_extract)
     get_property(property_values GLOBAL PROPERTY ${property_to_extract})
     set(${output_name} ${property_values} CACHE STRING "An extracted property's name" FORCE)
-endfunction()
-
-#TODO: function to easily set all kinds of GLOBAL properties
-function(add_target_to_project module_name)
-    get_property_by_name(property_output P_PROJECT_SOURCE_MODULES)
-    if(property_output STREQUAL "") # empty
-        set_property(GLOBAL PROPERTY P_PROJECT_SOURCE_MODULES "${module_name}")
-    else() # at least one module registered
-        set_property(GLOBAL PROPERTY P_PROJECT_SOURCE_MODULES "${property_output} ${module_name}")
-    endif()
-    message("Added target ${module_name} as a module")
 endfunction()
 
 create_property(CUSTOM_SHARED_LIBRARIES "")
@@ -77,6 +70,19 @@ function(add_data_to_property property_name module_name)
         set_property(GLOBAL PROPERTY ${property_name} "${property_output} ${module_name}")
     endif()
     message("Added target ${module_name} as a module")
+endfunction()
+
+function(MoveNeededResourcesToTarget target_name)
+    if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
+        if(MSVC)
+            message("MSVC building...")
+            MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${target_name})
+            MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${target_name})
+        else()
+            MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${target_name})
+            MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${target_name})
+        endif()
+    endif()
 endfunction()
 
 # ------------------------------------------------------------------------------
@@ -173,12 +179,6 @@ message("GTEST => ${gtest_SOURCE_DIR}/include")
 # Sources
 # ------------------------------------------------------------------------------
 add_subdirectory(src)
-
-
-
-get_property_by_name(PROJECT_SOURCE_MODULES P_PROJECT_SOURCE_MODULES)
-
-message("${PROJECT_SOURCE_MODULES}")
 
 # ------------------------------------------------------------------------------
 # CTest -> testing

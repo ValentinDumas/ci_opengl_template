@@ -1,3 +1,6 @@
+# Save BUILD_SHARED_LIBS value to prevent altering it in this file
+set(BUILD_SHARED_LIBS_STATUS ${BUILD_SHARED_LIBS})
+
 # ------------------------------------------------------------------------------
 # ExternalProject & Git
 # ------------------------------------------------------------------------------
@@ -5,10 +8,10 @@ include(ExternalProject)
 find_package(Git REQUIRED)
 
 # ------------------------------------------------------------------------------
-# GoogleTest configuration
+#
+# PUT STATIC LIBRARIES HERE
+#
 # ------------------------------------------------------------------------------
-# Prevent overriding the parent project's compiler/linker
-# settings on Windows
 
 # ------------------------------------------------------------------------------
 # GoogleTest / GoogleMock
@@ -75,23 +78,17 @@ endif()
 #option(BUILD_UNIT_TESTS OFF)
 #add_subdirectory(bullet)
 
-
 # ------------------------------------------------------------------------------
 # CPPFS (Cross-Platform & Portable FileSystem library)
 # ------------------------------------------------------------------------------
 add_subdirectory(cppfs)
 
-
-
-
-
-
+# ------------------------------------------------------------------------------
+#
+# PUT STATIC LIBRARIES HERE
+#
+# ------------------------------------------------------------------------------
 set(BUILD_SHARED_LIBS OFF)
-
-
-
-
-
 
 # ------------------------------------------------------------------------------
 # GLad
@@ -131,50 +128,6 @@ add_subdirectory(Box2D)
 add_subdirectory(imgui-1.68)
 
 # ------------------------------------------------------------------------------
-# CppCheck
-# ------------------------------------------------------------------------------
-#if(ENABLE_CPPCHECK)
-#
-#    list(APPEND CPPCHECK_CMAKE_ARGS
-#            "-DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}"
-#            )
-#
-#    ExternalProject_Add(
-#            cppcheck
-#            GIT_REPOSITORY      https://github.com/danmar/cppcheck.git
-#            GIT_TAG             1.79
-#            GIT_SHALLOW         1
-#            CMAKE_ARGS          ${CPPCHECK_CMAKE_ARGS}
-#            PREFIX              ${CMAKE_BINARY_DIR}/external/cppcheck/prefix
-#            TMP_DIR             ${CMAKE_BINARY_DIR}/external/cppcheck/tmp
-#            STAMP_DIR           ${CMAKE_BINARY_DIR}/external/cppcheck/stamp
-#            DOWNLOAD_DIR        ${CMAKE_BINARY_DIR}/external/cppcheck/download
-#            SOURCE_DIR          ${CMAKE_BINARY_DIR}/external/cppcheck/src
-#            BINARY_DIR          ${CMAKE_BINARY_DIR}/external/cppcheck/build
-#    )
-#
-#    list(APPEND CPPCHECK_ARGS
-#            --enable=warning,style,performance,portability,unusedFunction
-#            --std=c++11
-#            --verbose
-#            --error-exitcode=1
-#            --language=c++
-#            -DMAIN=main
-#            -I ${CMAKE_SOURCE_DIR}/include
-#            ${CMAKE_SOURCE_DIR}/include/*.h
-#            ${CMAKE_SOURCE_DIR}/src/*.cpp
-#            ${CMAKE_SOURCE_DIR}/tests/*.cpp
-#            )
-#
-#    add_custom_target(
-#            check
-#            COMMAND ${CMAKE_BINARY_DIR}/bin/cppcheck ${CPPCHECK_ARGS}
-#            COMMENT "running cppcheck"
-#    )
-#
-#endif()
-
-# ------------------------------------------------------------------------------
 # Google Sanitizers
 # ------------------------------------------------------------------------------
 if(ENABLE_ASAN)
@@ -203,3 +156,6 @@ set(MEMORYCHECK_COMMAND_OPTIONS "${MEMORYCHECK_COMMAND_OPTIONS} --leak-check=ful
 set(MEMORYCHECK_COMMAND_OPTIONS "${MEMORYCHECK_COMMAND_OPTIONS} --track-fds=yes")
 set(MEMORYCHECK_COMMAND_OPTIONS "${MEMORYCHECK_COMMAND_OPTIONS} --trace-children=yes")
 set(MEMORYCHECK_COMMAND_OPTIONS "${MEMORYCHECK_COMMAND_OPTIONS} --error-exitcode=1")
+
+# Reset the BUILD_SHARED_LIBS value to what it was before
+set(BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS_STATUS})

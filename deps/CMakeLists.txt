@@ -22,6 +22,6 @@ if(NOT MSVC)
 endif()
 
 # Note: Here, you can set the shared libraries' names to determine the DLLs to copy to targets
-set(DYNAMIC_LIBRARIES gtest gtest_main gmock gmock_main glfw glad cppfs project_src_lib PARENT_SCOPE)
+set(DYNAMIC_LIBRARIES gtest gtest_main gmock gmock_main glfw glad cppfs mathematics PARENT_SCOPE)
 
 add_subdirectory(externals)

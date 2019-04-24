@@ -1,42 +1,41 @@
-# TODO: put PROJECT_SOURCE_MODULES here.. as a property -> enables registration for project's modules' names
+# ------------------------------------------------------------------------------
+# FUNCTIONS
+# ------------------------------------------------------------------------------
+#Note: Adds a target's name to the main project.
+#Note: If you want to set an other property than the P_PROJECT_SOURCE_MODULES, refers to the "add_data_to_property" function.
+function(add_target_to_main_project module_name)
+    get_property_by_name(property_output P_PROJECT_SOURCE_MODULES)
+    if(property_output STREQUAL "") # empty
+        set_property(GLOBAL PROPERTY P_PROJECT_SOURCE_MODULES "${module_name}")
+    else() # at least one module registered
+        set_property(GLOBAL PROPERTY P_PROJECT_SOURCE_MODULES "${property_output} ${module_name}")
+    endif()
+    message("Added target ${module_name} as a module")
+endfunction()
 
-set(PROJECT_SRC_LIB_SOURCE_FILES complex.cpp)
-add_library(project_src_lib ${PROJECT_SRC_LIB_SOURCE_FILES})
-target_include_directories(project_src_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}) # Note: see if it includes .hpp && .cpp OR only .cpp files
-target_link_libraries(project_src_lib PRIVATE coverage_config warnings_config) # Include code-coverage & warnings settings
-
-add_target_to_project(project_src_lib)
+create_property(P_PROJECT_SOURCE_MODULES "")
 
 # ------------------------------------------------------------------------------
-# Main Executable
+# MAIN EXECUTABLE
 # ------------------------------------------------------------------------------
-# project(ci_opengl_template)
-set(ci_opengl_template_libraries imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D project_src_lib cppfs)
-#set(ci_opengl_template_libraries imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D project_src_lib cppfs assimp::assimp)
+set(ci_opengl_template_libraries imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D mathematics cppfs)
 
 add_executable(ci_opengl_template imgui_main.cpp)
-
 target_link_libraries(ci_opengl_template ${ci_opengl_template_libraries})
 
 if (MSVC)
     target_compile_definitions(ci_opengl_template PRIVATE main=main MSVC_PLATFORM)
-else ()
-    target_compile_definitions(ci_opengl_template PRIVATE main=main)
-endif ()
-
-if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
-    if(MSVC)
-        message("MSVC building...")
-        # TODO: determine which "CopyAssets" call is the right one.
-        MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ci_opengl_template)
-        MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ci_opengl_template)
-    else()
-        MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ci_opengl_template)
-        MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ci_opengl_template)
-    endif()
-
 endif()
 
-# Note: If you want to declare source files in this scope (this cmakelists.txt) AND you want it to be visible by the parent (main cmakelists.txt),
-# you must use the PARENT_SCOPE keyword as a parameter:
-# set (SOURCEFILES main.cpp foo.cpp PARENT_SCOPE)
+MoveNeededResourcesToTarget(ci_opengl_template)
+
+# ------------------------------------------------------------------------------
+# PROJECT MODULES
+# ------------------------------------------------------------------------------
+add_subdirectory(mathematics)
+
+# ------------------------------------------------------------------------------
+# GET REGISTERED PROJECT MODULES
+# ------------------------------------------------------------------------------
+get_property_by_name(PROJECT_SOURCE_MODULES P_PROJECT_SOURCE_MODULES)
+message("${PROJECT_SOURCE_MODULES}")

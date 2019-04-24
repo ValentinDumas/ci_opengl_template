@@ -3,7 +3,7 @@ project(unit_tests)
 # ------------------------------------------------------------------------------
 # Unit Tests Files
 # ------------------------------------------------------------------------------
-set(PROJECT_UNIT_TEST_FILES test_robot.cpp complex/test_complex.cpp)
+set(PROJECT_UNIT_TEST_FILES test_robot.cpp mathematics/test_complex.cpp)
 
 set(UNIT_TESTING_DEPENDENCIES glm)
 
@@ -18,16 +18,7 @@ if(MSVC)
     target_compile_definitions(${PROJECT_NAME} PRIVATE MSVC_PLATFORM)
 endif()
 
-if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
-    if(MSVC)
-        message("MSVC building...")
-        MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${PROJECT_NAME})
-        MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${PROJECT_NAME})
-    else()
-        MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${PROJECT_NAME})
-        MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${PROJECT_NAME})
-    endif()
-endif()
+MoveNeededResourcesToTarget(${PROJECT_NAME})
 
 # ------------------------------------------------------------------------------
 # Unit Tests: console & coverage
@@ -38,4 +29,4 @@ endfunction()
 
 #add_test(${PROJECT_NAME} ${PROJECT_NAME})
 CreateUnitTest(test_robot ${CMAKE_CURRENT_SOURCE_DIR})
-CreateUnitTest(test_complex ${CMAKE_CURRENT_SOURCE_DIR}/complex)
+CreateUnitTest(test_complex ${CMAKE_CURRENT_SOURCE_DIR}/mathematics)

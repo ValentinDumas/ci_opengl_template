@@ -1,12 +1,15 @@
+# TODO (note): keep an eye on PROJECT_SOURCE_MODULES: as the tests automatically link against all project modules, it may trigger a "Coverage report error" on CodeCov if a module is linked to glfw or glad.
+
+# ------------------------------------------------------------------------------
+# Includes (googletest and googlemock)
+# ------------------------------------------------------------------------------
+# TODO: Can bind the directories to the gtest/gmock targets respectively
 include_directories(${gtest_SOURCE_DIR}/include)
 include_directories(${gmock_SOURCE_DIR}/include)
 
 # ------------------------------------------------------------------------------
 # Dependency Libraries: from "deps" and / or "externals"
 # ------------------------------------------------------------------------------
-#stb
-message(${DYNAMIC_LIBRARIES})
-
 set(TESTING_DEPENDENCIES gtest gtest_main gmock gmock_main)
 
 # ------------------------------------------------------------------------------
