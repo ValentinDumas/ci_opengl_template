@@ -39,3 +39,8 @@ add_subdirectory(mathematics)
 # ------------------------------------------------------------------------------
 get_property_by_name(PROJECT_SOURCE_MODULES P_PROJECT_SOURCE_MODULES)
 message("${PROJECT_SOURCE_MODULES}")
+
+get_property_by_name(SH P_SHARED_LIBRARIES)
+get_property_by_name(ST P_STATIC_LIBRARIES)
+message("SSSSSSSSSSHHHHHHHHHHHH ${SH}")
+message("SSSSSSSSSSTTTTTTTTTTTT ${ST}")

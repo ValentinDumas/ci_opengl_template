@@ -27,6 +27,10 @@ if (APPLE)
     add_definitions(-D__GLIBCXX__)
 endif (APPLE)
 add_subdirectory(googletest)
+AddLibraryToProject(gtest)
+AddLibraryToProject(gtest_main)
+AddLibraryToProject(gmock)
+AddLibraryToProject(gmock_main)
 
 # ------------------------------------------------------------------------------
 # GLad Additional Libraries
@@ -67,6 +71,7 @@ endif()
 #option(BUILD DOCS OFF)
 #
 #add_subdirectory(assimp)
+#AddLibraryToProject(assimp)
 
 # ------------------------------------------------------------------------------
 # Bullet
@@ -77,11 +82,14 @@ endif()
 #option(BUILD_OPENGL3_DEMOS OFF)
 #option(BUILD_UNIT_TESTS OFF)
 #add_subdirectory(bullet)
+#AddLibraryToProject(bullet)
+
 
 # ------------------------------------------------------------------------------
 # CPPFS (Cross-Platform & Portable FileSystem library)
 # ------------------------------------------------------------------------------
 add_subdirectory(cppfs)
+AddLibraryToProject(cppfs)
 
 # ------------------------------------------------------------------------------
 #
@@ -94,6 +102,8 @@ set(BUILD_SHARED_LIBS OFF)
 # GLad
 # ------------------------------------------------------------------------------
 add_subdirectory(glad)
+AddLibraryToProject(glad)
+#AddLibraryToProject(${GLAD_LIBRARIES})
 
 # ------------------------------------------------------------------------------
 # GLFW 3.2.1
@@ -104,11 +114,14 @@ option(GLFW_BUILD_EXAMPLES OFF)
 option(GLFW_BUILD_TESTS OFF)
 option(ENABLE_BOOST_WORKAROUND OFF)
 add_subdirectory(glfw_3.2.1)
+AddLibraryToProject(glfw)
+#AddLibraryToProject(${GLFW_LIBRARIES})
 
 # ------------------------------------------------------------------------------
 # STB library
 # ------------------------------------------------------------------------------
 add_subdirectory(stb)
+AddLibraryToProject(stb)
 
 # ------------------------------------------------------------------------------
 # GLM library (0.9.9.3)
@@ -116,16 +129,19 @@ add_subdirectory(stb)
 option(GLM_TEST_ENABLE OFF)
 option(GLM_QUIET ON) # no glm warnings
 add_subdirectory(glm_0.9.9.3)
+AddLibraryToProject(glm)
 
 # ------------------------------------------------------------------------------
 # Box2D
 # ------------------------------------------------------------------------------
 add_subdirectory(Box2D)
+AddLibraryToProject(Box2D)
 
 # ------------------------------------------------------------------------------
 # ImGui
 # ------------------------------------------------------------------------------
 add_subdirectory(imgui-1.68)
+AddLibraryToProject(imgui)
 
 # ------------------------------------------------------------------------------
 # Google Sanitizers

@@ -14,7 +14,7 @@ project(ci_opengl_template C CXX)
 #set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD 14)
 
-set(BUILD_SHARED_LIBS OFF)
+set(BUILD_SHARED_LIBS ON)
 if(MSVC)
     set(BUILD_SHARED_LIBS OFF) # force STATIC builds on MSVC
 endif()
@@ -29,6 +29,16 @@ macro(project_as_directory_name)
     get_filename_component(ProjectId ${CMAKE_CURRENT_SOURCE_DIR} NAME)
     string(REPLACE " " "_" ProjectId ${ProjectId})
     project(${ProjectId})
+endmacro()
+
+macro(GetLibraryType library_name)
+    set(library_type "" PARENT_SCOPE)
+    get_target_property(library_type ${library_name} TYPE)
+    if(library_type STREQUAL SHARED_LIBRARY)
+        set(library_type SHARED PARENT_SCOPE)
+    else()
+        set(library_type STATIC PARENT_SCOPE)
+    endif()
 endmacro()
 
 function(MoveLibToTarget lib_name target_name)
@@ -172,8 +182,6 @@ include_directories(${GLFW_SOURCE_DIR}/include) # TODO: self include this to tar
 #include_directories(deps/externals/imgui-1.68/include)
 include_directories(src)
 include_directories(${EXTERNAL_PATH}/assimp/include)
-message("GMOCK => ${gmock_SOURCE_DIR}/include")
-message("GTEST => ${gtest_SOURCE_DIR}/include")
 
 # ------------------------------------------------------------------------------
 # Sources

@@ -1,41 +1,25 @@
 project_as_directory_name()
 
 set(${PROJECT_NAME}_SOURCE_FILES complex.cpp)
+set(${PROJECT_NAME}_LIBRARIES "")
 
-# TODO: write function ADD_CUSTOM_LIBRARY
-# if lib i dyn
+# Limits: can only define one scope for the "target_include_directories", as this CMake function requires the scope as a parameter
+function(ADD_CUSTOM_LIBRARY target_type target_name sources includes_scope includes_string libraries_string)
+    set(${target_name}_SOURCE_FILES complex.cpp)
 
-add_library(${PROJECT_NAME} ${${PROJECT_NAME}_SOURCE_FILES})
+    add_library(${target_name} ${target_type} ${${target_name}_SOURCE_FILES})
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}) # Note: see if it includes .hpp && .cpp OR only .cpp files
+    target_include_directories(${target_name} ${includes_scope} ${includes_string}) # Note: see if it includes .hpp && .cpp OR only .cpp files
 
-target_link_libraries(${PROJECT_NAME} PRIVATE coverage_config warnings_config) # Include code-coverage & warnings settings
+    list(APPEND libraries_string coverage_config warnings_config)
+    message("CUUUUUUUUUUUUUUUUUUUU ${libraries_string}")
+    target_link_libraries(${target_name} PRIVATE ${libraries_string}) # Include code-coverage & warnings settings
 
-add_target_to_main_project(${PROJECT_NAME})
+    # Define this target as a project source's module
+    add_target_to_main_project(${target_name})
 
-#add_data_to_property(P_SHARED_LIBRARIES ${PROJECT_NAME})
+    # Register the target name as a STATIC or a SHARED library, depending on the ${target_type} set
+    AddLibraryToProject(${target_name})
+endfunction()
 
-
-
-# TODO: look what happens when getting the property 'type' from an executable target..
-# TODO: (if it's a library), get_target_properties to know if it is static or dynamic ?
-# TODO: (if dynamic), add_data_to_property on P_SHARED_LIBRARIES property (previously created) -> ADD TARGET AS
-# TODO:
-
-#function(GetLibraryType )
-#    set(library_type)
-#
-#endfunction()
-
-#function(CREATE_CUSTOM_TARGET target_type target_name sources includes libraries)
-#    set(${target_name}_SOURCE_FILES complex.cpp)
-#
-#        if(target_type)
-#    add_library(${target_name} ${target_type} ${target_name}_SOURCE_FILES)
-#
-#    target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}) # Note: see if it includes .hpp && .cpp OR only .cpp files
-#
-#    target_link_libraries(${PROJECT_NAME} PRIVATE coverage_config warnings_config) # Include code-coverage & warnings settings
-#
-#    add_target_to_main_project(${PROJECT_NAME})
-#endfunction()
+ADD_CUSTOM_LIBRARY(STATIC ${PROJECT_NAME} ${${PROJECT_NAME}_SOURCE_FILES} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}" "${${PROJECT_NAME}_LIBRARIES}")

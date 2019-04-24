@@ -21,7 +21,30 @@ if(NOT MSVC)
     set(BUILD_SHARED_LIBS ON)
 endif()
 
+# TODO: register libraries when addind subdirectories !
+# TODO: when registering a lib, GetLibraryType and add respectively to SHARED/STATIC_LIBRARIES variables, depending on the result
+# TODO: Maybe, create a function ADD_SUBDIRECTORY_DEPENDENT
+
+create_property(P_SHARED_LIBRARIES "")
+create_property(P_STATIC_LIBRARIES "")
+
+function(AddLibraryToProject library_name)
+    GetLibraryType(${library_name})
+    message("(AddLibraryToTarget) Library ${library_name} is a ${library_type}")
+    if(library_type STREQUAL SHARED_LIBRARY)
+        add_data_to_property(P_SHARED_LIBRARIES ${library_name})
+    elseif(library_type STREQUAL STATIC_LIBRARY)
+        add_data_to_property(P_STATIC_LIBRARIES ${library_name})
+    else()
+        message("Warning: ${library_name} is neither SHARED nor STATIC")
+    endif()
+endfunction()
+
 # Note: Here, you can set the shared libraries' names to determine the DLLs to copy to targets
 set(DYNAMIC_LIBRARIES gtest gtest_main gmock gmock_main glfw glad cppfs mathematics PARENT_SCOPE)
 
 add_subdirectory(externals)
+
+
+
+
