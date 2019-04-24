@@ -28,20 +28,14 @@ if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
         MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${PROJECT_NAME})
     endif()
 endif()
+
 # ------------------------------------------------------------------------------
 # Unit Tests: console & coverage
 # ------------------------------------------------------------------------------
+function(CreateUnitTest test_name relative_test_dir)
+    CreateTest(unit ${test_name} ${relative_test_dir} ${UNIT_TESTING_DEPENDENCIES})
+endfunction()
+
 #add_test(${PROJECT_NAME} ${PROJECT_NAME})
-
-CreateTest(unit test_robot ${UNIT_TESTING_DEPENDENCIES})
-CreateTest(unit test_complex ${UNIT_TESTING_DEPENDENCIES})
-
-# ------------------------------------------------------------------------------
-# Unit Tests: Visual Studio
-# ------------------------------------------------------------------------------
-# Note: Add tests individually if MSVC
-#if(MSVC)
-#    message("Import tests for MSVC environment")
-#    # Note: possibility to perform a 'add_subdirectory' here and then 'CreateTest()' in that directory
-#    CreateTest(test_testname) # not working with ctest on appveyor ?
-#endif()
+CreateUnitTest(test_robot ${CMAKE_CURRENT_SOURCE_DIR})
+CreateUnitTest(test_complex ${CMAKE_CURRENT_SOURCE_DIR})

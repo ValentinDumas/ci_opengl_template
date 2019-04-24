@@ -36,9 +36,13 @@ endif()
 # ------------------------------------------------------------------------------
 # Integration Tests: console & coverage
 # ------------------------------------------------------------------------------
+function(CreateIntegrationTest test_name relative_test_dir)
+    CreateTest(integration ${test_name} ${relative_test_dir} ${INTEGRATION_TESTING_DEPENDENCIES})
+endfunction()
+
 #add_test(${PROJECT_NAME} ${PROJECT_NAME})
 
-CreateTest(integration test_robot ${INTEGRATION_TESTING_DEPENDENCIES})
+CreateIntegrationTest(test_robot ${CMAKE_CURRENT_SOURCE_DIR})
 
 # ------------------------------------------------------------------------------
 # Integration Tests: Visual Studio
