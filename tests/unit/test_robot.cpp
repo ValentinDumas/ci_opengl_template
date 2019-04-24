@@ -19,10 +19,3 @@ TEST(TestSuiteEquality, NonEQual)
 {
     EXPECT_EQ(2,2);
 }
-
-TEST(TestSuiteGLFW, GLFWInitializationIsASuccess)
-{
-//    int glfw_init_status = glfwInit();
-//    int expected_glfw_init_status = GLFW_TRUE;
-//    EXPECT_EQ(glfw_init_status, 1);
-}
