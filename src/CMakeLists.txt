@@ -31,13 +31,14 @@ function(add_custom_library target_type target_name sources includes_scope inclu
 endfunction()
 
 function(add_custom_executable target_name sources includes_scope includes_string libraries_string GENERATE_COVERAGE GENERATE_WARNINGS)
-
+    # ...
 endfunction()
 
 # ------------------------------------------------------------------------------
 # MAIN EXECUTABLE
 # ------------------------------------------------------------------------------
-set(CI_OPENGL_TEMPLATE_LIBRARIES imgui glfw glad glm stb Box2D mathematics cppfs)
+# TODO: create a variable CI_OPENGL_TEMPLATE_PROJECT_SOURCE_MODULES
+set(CI_OPENGL_TEMPLATE_LIBRARIES imgui glfw glad glm stb Box2D cppfs mathematics)
 
 add_executable(ci_opengl_template imgui_main.cpp)
 
