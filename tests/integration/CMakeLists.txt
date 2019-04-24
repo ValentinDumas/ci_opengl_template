@@ -11,7 +11,6 @@ set(INTEGRATION_TESTING_DEPENDENCIES glm) # Note: error proof. CMake throws an e
 # Integration Tests Executable
 # ------------------------------------------------------------------------------
 add_executable(${PROJECT_NAME} test_integration_main.cpp ${PROJECT_INTEGRATION_TEST_FILES})
-# TODO; include ${ALL_LIBRARIES} ?
 target_link_libraries(${PROJECT_NAME} PRIVATE ${TESTING_DEPENDENCIES} ${INTEGRATION_TESTING_DEPENDENCIES} "${PROJECT_SOURCE_MODULES}") #Note: see if glfw has to be included...
 target_compile_definitions(${PROJECT_NAME} PRIVATE test_integration_main=main)
 
@@ -41,15 +40,4 @@ function(CreateIntegrationTest test_name relative_test_dir)
 endfunction()
 
 #add_test(${PROJECT_NAME} ${PROJECT_NAME})
-
 CreateIntegrationTest(test_robot ${CMAKE_CURRENT_SOURCE_DIR})
-
-# ------------------------------------------------------------------------------
-# Integration Tests: Visual Studio
-# ------------------------------------------------------------------------------
-# Add tests individually if MSVC
-#if(MSVC)
-#    message("Import tests for MSVC environment")
-#    # Note: possibility to perform a 'add_subdirectory' here and then 'CreateTest()' in that directory
-#    CreateTest(test_testname) # not working with ctest on appveyor ?
-#endif()
