@@ -5,11 +5,13 @@ project(unit_tests)
 # ------------------------------------------------------------------------------
 set(PROJECT_UNIT_TEST_FILES test_robot.cpp)
 
+set(UNIT_TESTING_DEPENDENCIES glm)
+
 # ------------------------------------------------------------------------------
 # Unit Tests Executable
 # ------------------------------------------------------------------------------
 add_executable(${PROJECT_NAME} test_unit_main.cpp test_robot.cpp test_complex.cpp)
-target_link_libraries(${PROJECT_NAME} PRIVATE "${EXTERNAL_MODULES}" "${PROJECT_SOURCE_MODULES}" glfw ${GLFW_LIBRARIES} coverage_config) #Note: see if glfw has to be included...
+target_link_libraries(${PROJECT_NAME} PRIVATE ${TESTING_DEPENDENCIES} ${UNIT_TESTING_DEPENDENCIES} "${PROJECT_SOURCE_MODULES}" coverage_config) #Note: see if glfw has to be included...
 target_compile_definitions(${PROJECT_NAME} PRIVATE test_unit_main=main)
 
 if(MSVC)
@@ -31,8 +33,8 @@ endif()
 # ------------------------------------------------------------------------------
 #add_test(${PROJECT_NAME} ${PROJECT_NAME})
 
-CreateTest(unit test_robot)
-CreateTest(unit test_complex)
+CreateTest(unit test_robot ${UNIT_TESTING_DEPENDENCIES})
+CreateTest(unit test_complex ${UNIT_TESTING_DEPENDENCIES})
 
 # ------------------------------------------------------------------------------
 # Unit Tests: Visual Studio
