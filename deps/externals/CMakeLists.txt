@@ -99,14 +99,14 @@ endif()
 # ------------------------------------------------------------------------------
 # GLad Additional Libraries
 # ------------------------------------------------------------------------------
-if(MSVC)
-    message("CMake Platform: MSVC")
-else()
-    if(NOT WIN32)
-        message("CMake Platform: Clang or GCC (Not Windows32) => setting additional glab library link")
-        set(GLAD_LIBRARIES dl) # Link glad libs for Linux & Apple
-    endif()
-endif()
+#if(MSVC)
+#    message("CMake Platform: MSVC")
+#else()
+#    if(NOT WIN32)
+#        message("CMake Platform: Clang or GCC (Not Windows32) => setting additional glab library link")
+#        set(GLAD_LIBRARIES dl) # Link glad libs for Linux & Apple
+#    endif()
+#endif()
 #AddLibraryToProject(${GLAD_LIBRARIES})
 
 # ------------------------------------------------------------------------------

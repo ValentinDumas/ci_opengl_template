@@ -130,37 +130,6 @@ else()
 endif()
 
 # ------------------------------------------------------------------------------
-# Coverage
-# ------------------------------------------------------------------------------
-add_library(coverage_config INTERFACE)
-option(ENABLE_COVERAGE "Enable coverage reporting" OFF)
-        if(ENABLE_COVERAGE)
-    # Add required flags (GCC & LLVM/Clang)
-    target_compile_options(coverage_config INTERFACE
-            -O0        # no optimization
-            -g         # generate debug info
-            --coverage # sets all required flags
-            )
-    if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.13)
-        target_link_options(coverage_config INTERFACE --coverage)
-    else()
-        target_link_libraries(coverage_config INTERFACE --coverage)
-    endif()
-endif(ENABLE_COVERAGE)
-
-# ------------------------------------------------------------------------------
-# Warnings
-# ------------------------------------------------------------------------------
-add_library(warnings_config INTERFACE)
-
-if(MSVC)
-    target_compile_options(warnings_config INTERFACE /W4)
-else()
-    target_compile_options(warnings_config INTERFACE -Wall -std=c++14)
-    #target_compile_options(warnings_config INTERFACE -Wall -Wextra -Wpedantic -std=c++14)
-endif()
-
-# ------------------------------------------------------------------------------
 # Assets
 # ------------------------------------------------------------------------------
 add_subdirectory(assets)

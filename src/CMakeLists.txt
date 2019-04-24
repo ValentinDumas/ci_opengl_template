@@ -1,32 +1,50 @@
 project(ci_opengl_template)
 
+# ------------------------------------------------------------------------------
+# PROJECT MODULES MANAGEMENT (FUNCTIONS)
+# ------------------------------------------------------------------------------
 create_property(P_PROJECT_SOURCE_MODULES "")
 
-# ------------------------------------------------------------------------------
-# FUNCTIONS
-# ------------------------------------------------------------------------------
-#Note: Adds a target's (by its name) to the main project.
-#Note: If you want to set an other property than the P_PROJECT_SOURCE_MODULES, refers to the "add_data_to_property" function.
-function(add_target_to_main_project module_name)
-    get_property_by_name(property_output P_PROJECT_SOURCE_MODULES)
-    if(property_output STREQUAL "") # empty
-        set_property(GLOBAL PROPERTY P_PROJECT_SOURCE_MODULES "${module_name}")
-    else() # at least one module registered
-        set_property(GLOBAL PROPERTY P_PROJECT_SOURCE_MODULES "${property_output} ${module_name}")
+function(add_custom_library target_type target_name sources includes_scope includes_string libraries_string GENERATE_COVERAGE GENERATE_WARNINGS)
+    # Limits: can only define one scope for the "target_include_directories", as this CMake function requires the scope as a parameter
+    # Create a library with a name, a type (shared, static or interface))
+    add_library(${target_name} ${target_type} ${sources})
+
+    # Bind one or more directory to the target
+    target_include_directories(${target_name} ${includes_scope} ${includes_string}) # Note: see if it includes .hpp && .cpp OR only .cpp files
+
+    if(GENERATE_COVERAGE) # coverage enabled
+        list(APPEND libraries_string coverage_config)
     endif()
-    #message("(add_target_to_main_project) Added target ${module_name} as a module")
+    if(GENERATE_WARNINGS) # warnings enabled
+        list(APPEND libraries_string warnings_config)
+    endif()
+
+    # "PRIVATE" libraries, exclusively linked to the target
+    target_link_libraries(${target_name} PRIVATE ${libraries_string}) # Include code-coverage & warnings settings
+
+    # Define this target as a project source's module
+    add_data_to_property(P_PROJECT_SOURCE_MODULES ${target_name})
+
+    # Register the target name as a STATIC or a SHARED library, depending on the ${target_type} set
+    AddLibraryToProject(${target_name})
+endfunction()
+
+function(add_custom_executable target_name sources includes_scope includes_string libraries_string GENERATE_COVERAGE GENERATE_WARNINGS)
+
 endfunction()
 
 # ------------------------------------------------------------------------------
 # MAIN EXECUTABLE
 # ------------------------------------------------------------------------------
-set(CI_OPENGL_TEMPLATE_LIBRARIES imgui glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm stb Box2D mathematics cppfs)
+set(CI_OPENGL_TEMPLATE_LIBRARIES imgui glfw glad glm stb Box2D mathematics cppfs)
 
 add_executable(ci_opengl_template imgui_main.cpp)
+
 target_link_libraries(ci_opengl_template ${CI_OPENGL_TEMPLATE_LIBRARIES})
 
 if (MSVC)
-    target_compile_definitions(ci_opengl_template PRIVATE main=main MSVC_PLATFORM)
+    target_compile_definitions(ci_opengl_template PRIVATE MSVC_PLATFORM)
 endif()
 
 MoveNeededResourcesToTarget(ci_opengl_template)
@@ -35,9 +53,3 @@ MoveNeededResourcesToTarget(ci_opengl_template)
 # PROJECT MODULES
 # ------------------------------------------------------------------------------
 add_subdirectory(mathematics)
-
-# ------------------------------------------------------------------------------
-# GET REGISTERED PROJECT MODULES
-# ------------------------------------------------------------------------------
-get_property_by_name(PROJECT_SOURCE_MODULES P_PROJECT_SOURCE_MODULES)
-message("${PROJECT_SOURCE_MODULES}")

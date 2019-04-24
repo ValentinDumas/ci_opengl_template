@@ -1,22 +1,37 @@
-#create_property(ENABLE_BUILD_SHARED_LIBS OFF)
-#
-#macro(enable_build_shared_libs)
-#    create_property(ENABLE_BUILD_SHARED_LIBS ON)
-#    set(BUILD_SHARED_LIBS ON CACHE BOOL "" FORCE)
-#endmacro()
-#
-#macro(disable_build_shared_libs)
-#    create_property(ENABLE_BUILD_SHARED_LIBS OFF)
-#    set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
-#endmacro()
-#
-#get_property_by_name(s ENABLE_BUILD_SHARED_LIBS)
-#message("ENABLE BUILD SHARED LIBS --> ${s}")
+# ------------------------------------------------------------------------------
+# COVERAGE
+# ------------------------------------------------------------------------------
+add_library(coverage_config INTERFACE)
+option(ENABLE_COVERAGE "Enable coverage reporting" OFF)
+if(ENABLE_COVERAGE)
+    # Add required flags (GCC & LLVM/Clang)
+    target_compile_options(coverage_config INTERFACE
+            -O0        # no optimization
+            -g         # generate debug info
+            --coverage # sets all required flags
+            )
+    if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.13)
+        target_link_options(coverage_config INTERFACE --coverage)
+    else()
+        target_link_libraries(coverage_config INTERFACE --coverage)
+    endif()
+endif(ENABLE_COVERAGE)
 
-#
-#get_property_by_name(s2 ENABLE_BUILD_SHARED_LIBS)
-#message("ENABLE BUILD SHARED LIBS --> ${s2}")
+# ------------------------------------------------------------------------------
+# WARNINGS
+# ------------------------------------------------------------------------------
+add_library(warnings_config INTERFACE)
 
+if(MSVC)
+    target_compile_options(warnings_config INTERFACE /W4)
+else()
+    target_compile_options(warnings_config INTERFACE -Wall -std=c++14)
+    #target_compile_options(warnings_config INTERFACE -Wall -Wextra -Wpedantic -std=c++14)
+endif()
+
+# ------------------------------------------------------------------------------
+# LIBRARIES AND OPTIONS
+# ------------------------------------------------------------------------------
 if(NOT MSVC)
     set(BUILD_SHARED_LIBS ON)
 endif()
