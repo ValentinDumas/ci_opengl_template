@@ -34,7 +34,6 @@ if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
         MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ci_opengl_template)
         MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ci_opengl_template)
     endif()
-
 endif()
 
 # Note: If you want to declare source files in this scope (this cmakelists.txt) AND you want it to be visible by the parent (main cmakelists.txt),

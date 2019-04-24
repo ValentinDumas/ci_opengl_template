@@ -90,6 +90,7 @@ endfunction()
 set(ONLINE_MODE ${ONLINE_TESTING})
 if(ONLINE_MODE)
     message("Tests are configured in ONLINE mode")
+    # TODO: if this block of code is associated to a specific target -> remove the "-static" option from CMAKE_EXE_LINKER_FLAGS variable
 else()
     message("Tests are configured in STANDALONE mode")
     set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static") # include gcc libs

@@ -17,11 +17,16 @@
 #get_property_by_name(s2 ENABLE_BUILD_SHARED_LIBS)
 #message("ENABLE BUILD SHARED LIBS --> ${s2}")
 
+set(TESTING_DEPENDENCIES gtest gtest_main gmock gmock_main PARENT_SCOPE)
+set(EXTERNAL_DEPENDENCIES glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} glm cppfs PARENT_SCOPE)
+#set(PROJECT_DEPENDENCIES ...)
+
 if(NOT MSVC)
     set(BUILD_SHARED_LIBS ON)
 endif()
 
 # Note: Here, you can set the shared libraries' names to determine the DLLs to copy to targets
-set(DYNAMIC_LIBRARIES gtest gtest_main gmock gmock_main glfw glad cppfs project_src_lib PARENT_SCOPE)
+set(DYNAMIC_LIBRARIES gtest gtest_main gmock gmock_main cppfs project_src_lib PARENT_SCOPE)
+set(STATIC_LIBRARIES glm_static)
 
 add_subdirectory(externals)

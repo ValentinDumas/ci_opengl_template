@@ -5,12 +5,16 @@ project(integration_tests)
 # ------------------------------------------------------------------------------
 set(PROJECT_INTEGRATION_TEST_FILES test_robot.cpp) # without main executable
 
+# TODO: TEST_MODULES
+# TODO: EXTERNAL_DEPENDENCIES   # from '${CMAKE_SOURCE_DIR]/deps/externals' folder
+# TODO: PROJECT_DEPENDENCIES    # from '${CMAKE_SOURCE_DIR]/deps' folder
+
 # ------------------------------------------------------------------------------
 # Integration Tests Executable
 # ------------------------------------------------------------------------------
 add_executable(${PROJECT_NAME} test_integration_main.cpp ${PROJECT_INTEGRATION_TEST_FILES})
 # TODO; include ${ALL_LIBRARIES} ?
-target_link_libraries(${PROJECT_NAME} PRIVATE ${EXTERNAL_MODULES} "${PROJECT_SOURCE_MODULES}" glfw ${GLFW_LIBRARIES} glad ${GLAD_LIBRARIES} imgui glm stb Box2D cppfs coverage_config) #Note: see if glfw has to be included...
+target_link_libraries(${PROJECT_NAME} PRIVATE "${TESTING_DEPENDENCIES}" "${EXTERNAL_DEPENDENCIES}" "${PROJECT_SOURCE_MODULES}" coverage_config) #Note: see if glfw has to be included...
 target_compile_definitions(${PROJECT_NAME} PRIVATE test_integration_main=main)
 
 #TODO (1): make static / dynamic libs linking (automatic)
@@ -33,17 +37,14 @@ endif()
 
 # ------------------------------------------------------------------------------
 # Integration Tests: console & coverage
+# Note: uncommenting this is useless, it is only useful in CLion to see all tests without needing any other "CreateTest"
 # ------------------------------------------------------------------------------
 #add_test(${PROJECT_NAME} ${PROJECT_NAME})
-
-CreateTest(integration test_robot)
 
 # ------------------------------------------------------------------------------
 # Integration Tests: Visual Studio
 # ------------------------------------------------------------------------------
-# Add tests individually if MSVC
+# Note: Add tests individually if MSVC
 #if(MSVC)
-#    message("Import tests for MSVC environment")
-#    # Note: possibility to perform a 'add_subdirectory' here and then 'CreateTest()' in that directory
-#    CreateTest(test_testname) # not working with ctest on appveyor ?
+CreateTest(integration test_robot)
 #endif()
