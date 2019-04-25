@@ -140,6 +140,8 @@ add_subdirectory(assets)
 #TODO: change to external && remove externals
 add_subdirectory(deps)
 
+include_directories(src)
+
 # ------------------------------------------------------------------------------
 # Includes
 # ------------------------------------------------------------------------------
