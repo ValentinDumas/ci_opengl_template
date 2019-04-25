@@ -10,7 +10,7 @@
 #include <imgui/imgui_impl_glfw.h>
 #include <imgui/imgui_impl_opengl3.h>
 
-#include <mathematics/complex.hpp>
+#include "mathematics/complex.hpp"
 
 #include <cppfs/fs.h>
 #include <cppfs/FilePath.h>

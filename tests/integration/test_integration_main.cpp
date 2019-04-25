@@ -4,11 +4,11 @@
 
 #include <iostream>
 
-#include <mathematics/complex.hpp>
-
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 using ::testing::AtLeast;
+
+#include "mathematics/complex.hpp"
 
 int test_integration_main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
