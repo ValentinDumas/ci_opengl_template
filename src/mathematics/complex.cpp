@@ -1,5 +1,7 @@
 #include <mathematics/complex.hpp>
 
+#include <cmath>
+
 Complex::Complex(double _real, double _imaginary) {
     this->real = _real;
     this->imaginary = _imaginary;
