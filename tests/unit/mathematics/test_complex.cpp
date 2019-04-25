@@ -5,7 +5,7 @@
 #include <gtest/gtest.h>
 
 #include <glm/glm.hpp>
-#include <mathematics/complex.hpp>
+#include "mathematics/complex.hpp"
 
 TEST(UnitTestComplex, AssignmentOperatorAssignsTheReferencedObjectAndParameters)
 {
