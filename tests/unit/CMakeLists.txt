@@ -3,16 +3,24 @@ project(unit_tests)
 # ------------------------------------------------------------------------------
 # UNIT TESTS: FILES
 # ------------------------------------------------------------------------------
-file(GLOB_RECURSE UNIT_TEST_SOURCE_FILES *.cpp)
-message("OOOOOOOOOOOOOOOOOOOOOOOOOOO -> ${UNIT_TEST_SOURCE_FILES}")
-set(UNIT_TEST_SOURCE_FILES test_robot.cpp test_complex.cpp)
+file(GLOB_RECURSE UNIT_TEST_SOURCE_FILES_FOUND *.cpp)
+
+set(UNIT_TEST_SOURCE_FILES "")
+foreach (file_path ${UNIT_TEST_SOURCE_FILES_FOUND})
+    string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/" "" file_relative_path ${file_path})
+    list(APPEND UNIT_TEST_SOURCE_FILES ${file_relative_path})
+endforeach ()
+
+message("AAAA ${UNIT_TEST_SOURCE_FILES}")
+
+#set(UNIT_TEST_SOURCE_FILES test_robot.cpp test_complex.cpp)
 
 set(UNIT_TESTING_DEPENDENCIES glm)
 
 # ------------------------------------------------------------------------------
 # UNIT TESTS: EXECUTABLE
 # ------------------------------------------------------------------------------
-add_executable(${PROJECT_NAME} test_unit_main.cpp ${PROJECT_UNIT_TEST_FILES})
+add_executable(${PROJECT_NAME} ${UNIT_TEST_SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${TESTING_DEPENDENCIES} ${UNIT_TESTING_DEPENDENCIES} ${PROJECT_SOURCE_MODULES} coverage_config) #Note: see if glfw has to be included...
 target_compile_definitions(${PROJECT_NAME} PRIVATE test_unit_main=main)
 
