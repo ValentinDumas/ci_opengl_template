@@ -3,7 +3,9 @@ project(unit_tests)
 # ------------------------------------------------------------------------------
 # UNIT TESTS: FILES
 # ------------------------------------------------------------------------------
-set(PROJECT_UNIT_TEST_FILES test_robot.cpp mathematics/test_complex.cpp)
+file(GLOB_RECURSE UNIT_TEST_SOURCE_FILES *.cpp)
+message("OOOOOOOOOOOOOOOOOOOOOOOOOOO -> ${UNIT_TEST_SOURCE_FILES}")
+set(UNIT_TEST_SOURCE_FILES test_robot.cpp test_complex.cpp)
 
 set(UNIT_TESTING_DEPENDENCIES glm)
 
@@ -24,7 +26,7 @@ MoveNeededResourcesToTarget(${PROJECT_NAME})
 # UNIT TESTS: FUNCTIONS
 # ------------------------------------------------------------------------------
 macro(CreateUnitTest test_name relative_test_dir)
-    CreateTest(unit ${test_name} ${relative_test_dir} "${UNIT_TESTING_DEPENDENCIES}")
+    CreateTest(unit ${test_name} "${relative_test_dir}" "${UNIT_TESTING_DEPENDENCIES}")
 endmacro()
 
 # ------------------------------------------------------------------------------

@@ -13,6 +13,11 @@ include_directories(${gmock_SOURCE_DIR}/include)
 set(TESTING_DEPENDENCIES gtest gtest_main gmock gmock_main)
 
 # ------------------------------------------------------------------------------
+# Project Modules (all modules in a list)
+# ------------------------------------------------------------------------------
+get_property_by_name(PROJECT_SOURCE_MODULES P_PROJECT_SOURCE_MODULES)
+
+# ------------------------------------------------------------------------------
 # Create CTest tests one by one --> detailed test execution (usefull for bot VS and Online testing)
 # ------------------------------------------------------------------------------
 macro(CreateTest TYPE NAME PATH_TO_TEST ADDITIONAL_TESTING_DEPENDENCIES)

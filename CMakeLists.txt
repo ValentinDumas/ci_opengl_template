@@ -129,6 +129,18 @@ else()
     endif()
 endif()
 
+# GET A LIST OF ALL SUBIDRECTORIES FROM A CURRENT PATH
+MACRO(SUBDIRLIST result curdir)
+    FILE(GLOB children RELATIVE ${curdir} ${curdir}/*)
+    SET(dirlist "")
+    FOREACH(child ${children})
+        IF(IS_DIRECTORY ${curdir}/${child})
+            LIST(APPEND dirlist ${child})
+        ENDIF()
+    ENDFOREACH()
+    SET(${result} ${dirlist})
+ENDMACRO()
+
 # ------------------------------------------------------------------------------
 # Assets
 # ------------------------------------------------------------------------------
@@ -139,8 +151,6 @@ add_subdirectory(assets)
 # ------------------------------------------------------------------------------
 #TODO: change to external && remove externals
 add_subdirectory(deps)
-
-include_directories(src)
 
 # ------------------------------------------------------------------------------
 # Includes
