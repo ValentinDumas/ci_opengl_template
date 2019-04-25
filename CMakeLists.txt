@@ -135,22 +135,24 @@ endif()
 add_subdirectory(assets)
 
 # ------------------------------------------------------------------------------
-# Dependencies (+ externals)
+# EXTERNAL DEPENDENCIES
 # ------------------------------------------------------------------------------
+#TODO: change to external && remove externals
 add_subdirectory(deps)
 
 # ------------------------------------------------------------------------------
 # Includes
 # ------------------------------------------------------------------------------
 set(EXTERNALS_PATH ${CMAKE_SOURCE_DIR}/deps/externals)
-set(DEPS_PATH ${CMAKE_SOURCE_DIR}/deps)
 
-include_directories(${EXTERNALS_PATH}/glad/include)
+target_include_directories(glad PUBLIC ${EXTERNALS_PATH}/glad/include)
+target_include_directories(glfw PUBLIC ${GLFW_SOURCE_DIR}/include)
+#target_include_directories(assimp PUBLIC ${EXTERNALS_PATH}/assimp/include)
+
+#include_directories(${EXTERNALS_PATH}/glad/include)
 #include_directories(deps/externals/assimp/include)
-include_directories(${GLFW_SOURCE_DIR}/include) # TODO: self include this to target ?
+#include_directories(${GLFW_SOURCE_DIR}/include) # TODO: self include this to target ?
 #include_directories(deps/externals/imgui-1.68/include)
-include_directories(src)
-include_directories(${EXTERNAL_PATH}/assimp/include)
 
 # ------------------------------------------------------------------------------
 # Sources

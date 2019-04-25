@@ -1,4 +1,4 @@
-#include "complex.hpp"
+#include <mathematics/complex.hpp>
 
 Complex::Complex(double _real, double _imaginary) {
     this->real = _real;

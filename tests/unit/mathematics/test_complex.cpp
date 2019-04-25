@@ -2,10 +2,10 @@
 // Created by Spark on 25/02/2019.
 //
 
-#include <complex.hpp>
 #include <gtest/gtest.h>
 
-#include "glm/glm.hpp"
+#include <glm/glm.hpp>
+#include <mathematics/complex.hpp>
 
 TEST(UnitTestComplex, AssignmentOperatorAssignsTheReferencedObjectAndParameters)
 {

@@ -11,7 +11,7 @@ set(INTEGRATION_TESTING_DEPENDENCIES glm) # Note: error proof. CMake throws an e
 # Integration Tests Executable
 # ------------------------------------------------------------------------------
 add_executable(${PROJECT_NAME} test_integration_main.cpp ${PROJECT_INTEGRATION_TEST_FILES})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${TESTING_DEPENDENCIES} ${INTEGRATION_TESTING_DEPENDENCIES} "${PROJECT_SOURCE_MODULES}") #Note: see if glfw has to be included...
+target_link_libraries(${PROJECT_NAME} PRIVATE ${TESTING_DEPENDENCIES} ${INTEGRATION_TESTING_DEPENDENCIES} ${PROJECT_SOURCE_MODULES}) #Note: see if glfw has to be included...
 target_compile_definitions(${PROJECT_NAME} PRIVATE test_integration_main=main)
 
 if(MSVC)
@@ -23,9 +23,9 @@ MoveNeededResourcesToTarget(${PROJECT_NAME})
 # ------------------------------------------------------------------------------
 # Integration Tests: console & coverage
 # ------------------------------------------------------------------------------
-function(CreateIntegrationTest test_name relative_test_dir)
-    CreateTest(integration ${test_name} ${relative_test_dir} ${INTEGRATION_TESTING_DEPENDENCIES})
-endfunction()
+macro(CreateIntegrationTest test_name relative_test_dir)
+    CreateTest(integration ${test_name} ${relative_test_dir} "${INTEGRATION_TESTING_DEPENDENCIES}")
+endmacro()
 
 #add_test(${PROJECT_NAME} ${PROJECT_NAME})
 CreateIntegrationTest(test_robot ${CMAKE_CURRENT_SOURCE_DIR})

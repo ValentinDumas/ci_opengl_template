@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-#include "complex.hpp"
+#include <mathematics/complex.hpp>
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
