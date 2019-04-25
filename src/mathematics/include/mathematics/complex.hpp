@@ -1,9 +1,6 @@
 #ifndef CI_OPENGL_TEMPLATE_COMPLEX_HPP
 #define CI_OPENGL_TEMPLATE_COMPLEX_HPP
 
-#include <iostream>
-#include <cmath>
-
 /**
  * @file complex.hpp
  * @author Valentin Dumas <sp4rk76@gmail.com>
