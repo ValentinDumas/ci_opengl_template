@@ -115,6 +115,14 @@ matrix:
           - libudev-dev
           - libfreetype6-dev
           - libxrandr-dev
+          #- libgl-dev
+          - libflac-dev
+          - libogg-dev
+          - libvorbis-dev
+          - libvorbisenc2
+          - libvorbisfile3
+          - libopenal-dev
+          - libc6-dev # "pthread" library
           #- libsfml-dev
 
     script:
@@ -135,6 +143,17 @@ matrix:
         packages:
           - gcc-6
           - g++-6
+          - libudev-dev
+          - libfreetype6-dev
+          - libxrandr-dev
+          #- libgl-dev
+          - libflac-dev
+          - libogg-dev
+          - libvorbis-dev
+          - libvorbisenc2
+          - libvorbisfile3
+          - libopenal-dev
+          - libc6-dev # "pthread" library
     env:
       - TEST="Google Address Sanitizer"
     script:
