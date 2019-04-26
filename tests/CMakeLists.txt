@@ -15,10 +15,10 @@ get_property_by_name(PROJECT_SOURCE_MODULES P_PROJECT_SOURCE_MODULES)
 # ------------------------------------------------------------------------------
 # Create CTest tests one by one --> detailed test execution (usefull for bot VS and Online testing)
 # ------------------------------------------------------------------------------
-macro(CreateTest TYPE NAME PATH_TO_TEST ADDITIONAL_TESTING_DEPENDENCIES)
+macro(CreateTest TYPE NAME PATH_TO_TEST ADDITIONAL_TESTS_DEPENDENCIES)
 	set(TEST_NAME ${TYPE}_${NAME})
 	add_executable(${TEST_NAME} ${PATH_TO_TEST}/${NAME}.cpp)
-	target_link_libraries(${TEST_NAME} PRIVATE ${TESTING_DEPENDENCIES} ${ADDITIONAL_TESTING_DEPENDENCIES} ${PROJECT_SOURCE_MODULES} coverage_config) #Note: no detailed warnings (from gtest macro)
+	target_link_libraries(${TEST_NAME} PRIVATE ${TESTS_LIBRARIES} ${ADDITIONAL_TESTS_DEPENDENCIES} ${PROJECT_SOURCE_MODULES} coverage_config) #Note: no detailed warnings (from gtest macro)
     add_test(NAME ${TEST_NAME} COMMAND $<TARGET_FILE:${TEST_NAME}>)
 endmacro()
 
