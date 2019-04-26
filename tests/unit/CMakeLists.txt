@@ -18,7 +18,7 @@ add_custom_executable(${PROJECT_NAME} "${${PROJECT_NAME}_SOURCE_FILES}" PUBLIC "
 # UNIT TESTS: FUNCTIONS
 # ------------------------------------------------------------------------------
 macro(CreateUnitTest test_name relative_test_dir)
-    CreateTest(unit ${test_name} "${relative_test_dir}" "${UNIT_TESTS_LIBRARIES}")
+    CreateTest(unit ${test_name} "${relative_test_dir}" "${${PROJECT_NAME}_LIBRARIES}")
 endmacro()
 
 # ------------------------------------------------------------------------------

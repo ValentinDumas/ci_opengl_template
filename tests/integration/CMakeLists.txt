@@ -18,7 +18,7 @@ add_custom_executable(${PROJECT_NAME} "${${PROJECT_NAME}_SOURCE_FILES}" PUBLIC "
 # INTEGRATION TESTS: FUNCTIONS
 # ------------------------------------------------------------------------------
 macro(CreateIntegrationTest test_name relative_test_dir)
-    CreateTest(integration ${test_name} ${relative_test_dir} "${INTEGRATION_TESTING_LIBRARIES}")
+    CreateTest(integration ${test_name} ${relative_test_dir} "${${PROJECT_NAME}_LIBRARIES}")
 endmacro()
 
 # ------------------------------------------------------------------------------
