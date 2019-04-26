@@ -112,9 +112,11 @@ matrix:
           - libbsd-dev
           - libzzip-dev
           - lcov
-          - libsfml-dev
-          #- libfreetype6-dev
-          #- libudev-dev
+          - libudev-dev
+          - libfreetype6-dev
+          - libxrandr-dev
+          #- libsfml-dev
+
     script:
       - cmake -DENABLE_COVERAGE=ON -DONLINE_TESTING=ON -DCMAKE_CXX_COMPILER="g++-6" ..
       - make -j4 # run project build
