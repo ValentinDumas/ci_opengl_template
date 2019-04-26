@@ -49,17 +49,18 @@ if(MINGW AND ARCH_64)
 endif()
 
 ## Assimp options
-#option(ENABLE_BOOST_WORKAROUND ON)
-#option(BUILD_SHARED_LIBS OFF)
-#option(BUILD_FRAMEWORK OFF)
-#option(ASSIMP_DOUBLE_PRECISION OFF)
-#option(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
-#option(ASSIMP_BUILD_SAMPLES OFF)
-#option(ASSIMP_BUILD_TESTS OFF)
-#option(BUILD DOCS OFF)
-#
-#add_subdirectory(assimp)
-#AddLibraryToProject(assimp)
+option(ENABLE_BOOST_WORKAROUND ON)
+option(BUILD_SHARED_LIBS OFF)
+option(BUILD_FRAMEWORK OFF)
+option(ASSIMP_DOUBLE_PRECISION OFF)
+option(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
+option(ASSIMP_BUILD_SAMPLES OFF)
+option(ASSIMP_BUILD_TESTS OFF)
+option(BUILD DOCS OFF)
+
+add_subdirectory(assimp)
+AddLibraryToProject(assimp)
+target_include_directories(assimp PUBLIC ${EXTERNALS_PATH}/assimp/include)
 
 # ------------------------------------------------------------------------------
 # Bullet
@@ -90,6 +91,7 @@ set(BUILD_SHARED_LIBS OFF)
 # ------------------------------------------------------------------------------
 add_subdirectory(glad)
 AddLibraryToProject(glad)
+target_include_directories(glad PUBLIC ${EXTERNALS_PATH}/glad/include)
 GetLibraryType(glad)
 if (library_type STREQUAL SHARED_LIBRARY) # glad as a shared library
     # If so, define the macro GLAD_API_EXPORT on the command line.
@@ -119,6 +121,7 @@ option(GLFW_BUILD_TESTS OFF)
 option(ENABLE_BOOST_WORKAROUND OFF)
 add_subdirectory(glfw_3.2.1)
 AddLibraryToProject(glfw)
+target_include_directories(glfw PUBLIC ${GLFW_SOURCE_DIR}/include)
 #AddLibraryToProject(${GLFW_LIBRARIES})
 
 # ------------------------------------------------------------------------------

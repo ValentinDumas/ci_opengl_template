@@ -1,15 +1,15 @@
 # ------------------------------------------------------------------------------
-# CMake Version
+# CMAKE VERSION
 # ------------------------------------------------------------------------------
 cmake_minimum_required(VERSION 3.6)
 
 # ------------------------------------------------------------------------------
-# Project: name and languages
+# PROJECT INFORMATION
 # ------------------------------------------------------------------------------
 project(ci_opengl_template C CXX)
 
 # ------------------------------------------------------------------------------
-# CMake Options
+# CMAKE OPTIONS
 # ------------------------------------------------------------------------------
 #set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD 14)
@@ -20,7 +20,7 @@ if(MSVC)
 endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
-#set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for clang tidy
+#set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # enable it before using "clang tidy"
 
 # Note: Must be OFF when testing (CI)
 set(BUILD_EXECUTABLE_IN_PROJECT_TREE OFF)
@@ -82,27 +82,27 @@ function(add_data_to_property property_name module_name)
     message("(add_data_to_property) Added target ${module_name} as a module")
 endfunction()
 
-function(MoveNeededResourcesToTarget target_name)
+function(MoveNeededResourcesToTarget target_name ) # TODO: add "required_libraries" parameter to avoid copying all dlls for each target even when they don't need it.
+    get_property_by_name(SHARED_LIBRARIES P_SHARED_LIBRARIES)
+
     if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
         if(MSVC)
             message("MSVC building...")
             MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${target_name})
-            MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${target_name})
+            MoveMultipleLibsForTarget("${SHARED_LIBRARIES}" ${target_name})
         else()
             MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${target_name})
-            MoveMultipleLibsForTarget("${DYNAMIC_LIBRARIES}" ${target_name})
+            MoveMultipleLibsForTarget("${SHARED_LIBRARIES}" ${target_name})
         endif()
     endif()
 endfunction()
 
 # ------------------------------------------------------------------------------
-# Testing Mode: messages
+# TESTING MODE OPTIONS
 # Note: Default testing mode as STANDALONE (offline)
 # ------------------------------------------------------------------------------
-
 #Note: If ONLINE OR STANDALONE_WITH_NOEXECUTABLE Then
 #set(ONLINE_TESTING ON)
-
 set(ONLINE_MODE ${ONLINE_TESTING})
 if(ONLINE_MODE)
     message("Tests are configured in ONLINE mode")
@@ -142,7 +142,7 @@ MACRO(SUBDIRLIST result curdir)
 ENDMACRO()
 
 # ------------------------------------------------------------------------------
-# Assets
+# ASSETS
 # ------------------------------------------------------------------------------
 add_subdirectory(assets)
 
@@ -153,26 +153,12 @@ add_subdirectory(assets)
 add_subdirectory(deps)
 
 # ------------------------------------------------------------------------------
-# Includes
-# ------------------------------------------------------------------------------
-set(EXTERNALS_PATH ${CMAKE_SOURCE_DIR}/deps/externals)
-
-target_include_directories(glad PUBLIC ${EXTERNALS_PATH}/glad/include)
-target_include_directories(glfw PUBLIC ${GLFW_SOURCE_DIR}/include)
-#target_include_directories(assimp PUBLIC ${EXTERNALS_PATH}/assimp/include)
-
-#include_directories(${EXTERNALS_PATH}/glad/include)
-#include_directories(deps/externals/assimp/include)
-#include_directories(${GLFW_SOURCE_DIR}/include) # TODO: self include this to target ?
-#include_directories(deps/externals/imgui-1.68/include)
-
-# ------------------------------------------------------------------------------
-# Sources
+# SOURCES
 # ------------------------------------------------------------------------------
 add_subdirectory(src)
 
 # ------------------------------------------------------------------------------
-# CTest -> testing
+# CTEST -> TESTING
 # ------------------------------------------------------------------------------
 option (BUILD_TESTING "Build the testing tree." ON)
 # Only build tests if we are the top-level project
