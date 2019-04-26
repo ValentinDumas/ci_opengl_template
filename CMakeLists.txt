@@ -25,6 +25,62 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 # Note: Must be OFF when testing (CI)
 set(BUILD_EXECUTABLE_IN_PROJECT_TREE OFF)
 
+# ------------------------------------------------------------------------------
+# PROJECT MODULES MANAGEMENT (FUNCTIONS)
+# ------------------------------------------------------------------------------
+
+
+function(add_custom_library target_type target_name sources includes_scope includes_string libraries_string GENERATE_COVERAGE GENERATE_WARNINGS)
+    # Limits: can only define one scope for the "target_include_directories", as this CMake function requires the scope as a parameter
+    # Create a library with a name, a type (shared, static or interface))
+    add_library(${target_name} ${target_type} ${sources})
+
+    # Bind one or more directory to the target
+    target_include_directories(${target_name} ${includes_scope} ${includes_string}) # Note: see if it includes .hpp && .cpp OR only .cpp files
+
+    if(${${GENERATE_COVERAGE}}) # coverage enabled
+        list(APPEND libraries_string coverage_config)
+    endif()
+    if(${${GENERATE_WARNINGS}}) # warnings enabled
+        list(APPEND libraries_string warnings_config)
+    endif()
+
+    # "PRIVATE" libraries, exclusively linked to the target
+    target_link_libraries(${target_name} PRIVATE ${libraries_string}) # Include code-coverage & warnings settings
+
+    # Define this target as a project source's module
+    add_data_to_property(P_PROJECT_SOURCE_MODULES ${target_name})
+
+    # Register the target name as a STATIC or a SHARED library, depending on the ${target_type} set
+    AddLibraryToProject(${target_name})
+endfunction()
+
+function(add_custom_executable target_name sources includes_scope includes_string libraries_string GENERATE_COVERAGE GENERATE_WARNINGS)
+    add_executable(${target_name} ${sources})
+
+    #TODO: set this condition to make the function GENERIC for all types of executables
+    if(NOT(includes_scope STREQUAL "")) # include public headers
+        target_include_directories(${target_name} ${includes_scope} ${includes})
+    endif()
+
+    if(${${GENERATE_COVERAGE}}) # coverage enabled
+        list(APPEND libraries_string coverage_config)
+    endif()
+    if(${${GENERATE_WARNINGS}}) # warnings enabled
+        list(APPEND libraries_string warnings_config)
+    endif()
+
+    message("Libraries to link to target ${target_name}: ${libraries_string}")
+
+    target_link_libraries(${target_name} PRIVATE ${libraries_string})
+
+    if (MSVC)
+        target_compile_definitions(${target_name} PRIVATE MSVC_PLATFORM)
+    endif()
+
+    MoveNeededResourcesToTarget(${target_name})
+endfunction()
+
 macro(project_as_directory_name)
     get_filename_component(ProjectId ${CMAKE_CURRENT_SOURCE_DIR} NAME)
     string(REPLACE " " "_" ProjectId ${ProjectId})
@@ -69,7 +125,7 @@ function(get_property_by_name output_name property_to_extract)
     set(${output_name} ${property_values} CACHE STRING "An extracted property's name" FORCE)
 endfunction()
 
-create_property(CUSTOM_SHARED_LIBRARIES "")
+create_property(P_PROJECT_SOURCE_MODULES "")
 
 #TODO: function to easily set all kinds of GLOBAL properties
 function(add_data_to_property property_name module_name)
@@ -147,10 +203,10 @@ ENDMACRO()
 add_subdirectory(assets)
 
 # ------------------------------------------------------------------------------
-# EXTERNAL DEPENDENCIES
+# EXTERNALS (DEPENDENCIES)
 # ------------------------------------------------------------------------------
 #TODO: change to external && remove externals
-add_subdirectory(deps)
+add_subdirectory(externals)
 
 # ------------------------------------------------------------------------------
 # SOURCES
