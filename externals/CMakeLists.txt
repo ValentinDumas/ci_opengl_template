@@ -201,10 +201,17 @@ add_subdirectory(Box2D)
 AddLibraryToProject(Box2D)
 
 # ------------------------------------------------------------------------------
-# ImGui
+# ImGui 1.68
 # ------------------------------------------------------------------------------
-add_subdirectory(imgui-1.68)
+add_subdirectory(imgui_1.68)
 AddLibraryToProject(imgui)
+
+# ------------------------------------------------------------------------------
+# SFML 2.5.1
+# ------------------------------------------------------------------------------
+add_subdirectory(sfml_2.5.1)
+AddLibraryToProject(SFML)
+target_include_directories(SFML PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/sfml_2.5.1/include)
 
 # ------------------------------------------------------------------------------
 # Google Sanitizers
