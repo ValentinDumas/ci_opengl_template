@@ -10,6 +10,5 @@ cmake-build-release/
 
 # Build folder
 build/
-#deps/*.a
-#deps/externals/*.a
+#externals/*.a
 bin/

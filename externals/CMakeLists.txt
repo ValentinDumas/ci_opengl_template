@@ -1,3 +1,22 @@
+# TODO: register libraries when addind subdirectories !
+# TODO: when registering a lib, GetLibraryType and add respectively to SHARED/STATIC_LIBRARIES variables, depending on the result
+# TODO: Maybe, create a function ADD_SUBDIRECTORY_DEPENDENT
+create_property(P_SHARED_LIBRARIES "")
+create_property(P_STATIC_LIBRARIES "")
+create_property(P_INTERFACE_LIBRARIES "")
+
+function(AddLibraryToProject library_name)
+    GetLibraryType(${library_name})
+    #message("(AddLibraryToTarget) Library ${library_name} is a ${library_type}")
+    if(library_type STREQUAL SHARED_LIBRARY)
+        add_data_to_property(P_SHARED_LIBRARIES ${library_name})
+    elseif(library_type STREQUAL STATIC_LIBRARY)
+        add_data_to_property(P_STATIC_LIBRARIES ${library_name})
+    else()
+        add_data_to_property(P_INTERFACE_LIBRARIES ${library_name})
+    endif()
+endfunction()
+
 # ------------------------------------------------------------------------------
 # COVERAGE
 # ------------------------------------------------------------------------------
@@ -35,26 +54,6 @@ endif()
 if(NOT MSVC)
     set(BUILD_SHARED_LIBS ON)
 endif()
-
-# TODO: register libraries when addind subdirectories !
-# TODO: when registering a lib, GetLibraryType and add respectively to SHARED/STATIC_LIBRARIES variables, depending on the result
-# TODO: Maybe, create a function ADD_SUBDIRECTORY_DEPENDENT
-
-create_property(P_SHARED_LIBRARIES "")
-create_property(P_STATIC_LIBRARIES "")
-create_property(P_INTERFACE_LIBRARIES "")
-
-function(AddLibraryToProject library_name)
-    GetLibraryType(${library_name})
-    #message("(AddLibraryToTarget) Library ${library_name} is a ${library_type}")
-    if(library_type STREQUAL SHARED_LIBRARY)
-        add_data_to_property(P_SHARED_LIBRARIES ${library_name})
-    elseif(library_type STREQUAL STATIC_LIBRARY)
-        add_data_to_property(P_STATIC_LIBRARIES ${library_name})
-    else()
-        add_data_to_property(P_INTERFACE_LIBRARIES ${library_name})
-    endif()
-endfunction()
 
 # Save BUILD_SHARED_LIBS value to prevent altering it in this file
 set(BUILD_SHARED_LIBS_STATUS ${BUILD_SHARED_LIBS})
@@ -116,9 +115,9 @@ option(ASSIMP_BUILD_SAMPLES OFF)
 option(ASSIMP_BUILD_TESTS OFF)
 option(BUILD DOCS OFF)
 
-add_subdirectory(assimp)
-AddLibraryToProject(assimp)
-target_include_directories(assimp PUBLIC ${EXTERNALS_PATH}/assimp/include)
+#add_subdirectory(assimp)
+#AddLibraryToProject(assimp)
+#target_include_directories(assimp PUBLIC ${EXTERNALS_PATH}/assimp/include)
 
 # ------------------------------------------------------------------------------
 # Bullet
@@ -149,7 +148,6 @@ set(BUILD_SHARED_LIBS OFF)
 # ------------------------------------------------------------------------------
 add_subdirectory(glad)
 AddLibraryToProject(glad)
-target_include_directories(glad PUBLIC ${EXTERNALS_PATH}/glad/include)
 GetLibraryType(glad)
 if (library_type STREQUAL SHARED_LIBRARY) # glad as a shared library
     # If so, define the macro GLAD_API_EXPORT on the command line.

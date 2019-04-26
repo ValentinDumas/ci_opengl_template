@@ -22,7 +22,7 @@ PROJECT_BRIEF          = "An example of how to setup a complete CI environment f
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = src deps
+INPUT                  = src
 
 #---------------------------------------------------------------------------
 # Shared

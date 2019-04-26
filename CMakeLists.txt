@@ -98,12 +98,14 @@ macro(GetLibraryType library_name)
 endmacro()
 
 function(MoveLibToTarget lib_name target_name)
-    add_custom_command(TARGET ${target_name} POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "$<TARGET_FILE:${lib_name}>"
-            "$<TARGET_FILE_DIR:${target_name}>"
-            VERBATIM)
-    message("Moving library [${lib_name}] at target [${target_name}]")
+    if((NOT (target_name STREQUAL "gtest_main")) )
+        add_custom_command(TARGET ${target_name} POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                "$<TARGET_FILE:${lib_name}>"
+                "$<TARGET_FILE_DIR:${target_name}>"
+                VERBATIM)
+        message("Moving library [${lib_name}] at target [${target_name}]")
+    endif()
 endfunction()
 
 function(MoveMultipleLibsForTarget libraries target_name)
@@ -133,22 +135,22 @@ function(add_data_to_property property_name module_name)
     if(property_output STREQUAL "") # empty
         set_property(GLOBAL PROPERTY ${property_name} "${module_name}")
     else() # at least one module registered
-        set_property(GLOBAL PROPERTY ${property_name} "${property_output} ${module_name}")
+        set_property(GLOBAL PROPERTY ${property_name} ${property_output} ${module_name})
     endif()
     message("(add_data_to_property) Added target ${module_name} as a module")
 endfunction()
 
-function(MoveNeededResourcesToTarget target_name ) # TODO: add "required_libraries" parameter to avoid copying all dlls for each target even when they don't need it.
+function(MoveNeededResourcesToTarget target_name) # TODO: add "required_libraries" parameter to avoid copying all dlls for each target even when they don't need it.
     get_property_by_name(SHARED_LIBRARIES P_SHARED_LIBRARIES)
 
     if(ONLINE_MODE) # online --> move assets to CMake's default binary folder
         if(MSVC)
             message("MSVC building...")
             MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${target_name})
-            MoveMultipleLibsForTarget(${SHARED_LIBRARIES} ${target_name})
+            MoveMultipleLibsForTarget("${SHARED_LIBRARIES}" ${target_name})
         else()
             MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${target_name})
-            MoveMultipleLibsForTarget(${SHARED_LIBRARIES} ${target_name})
+            MoveMultipleLibsForTarget("${SHARED_LIBRARIES}" ${target_name})
         endif()
     endif()
 endfunction()
@@ -158,7 +160,7 @@ endfunction()
 # Note: Default testing mode as STANDALONE (offline)
 # ------------------------------------------------------------------------------
 #Note: If ONLINE OR STANDALONE_WITH_NOEXECUTABLE Then
-set(ONLINE_TESTING ON)
+#set(ONLINE_TESTING ON)
 set(ONLINE_MODE ${ONLINE_TESTING})
 if(ONLINE_MODE)
     message("Tests are configured in ONLINE mode")

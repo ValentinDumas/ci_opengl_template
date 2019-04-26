@@ -60,7 +60,7 @@ This file excludes the external dependencies from the project as they are not di
 Here is the configuration to ignore external dependencies:
 
     ignore:
-      - "deps/externals/"
+      - "externals/"
 
 #### Codacy
 Codacy automates code review and analysis.

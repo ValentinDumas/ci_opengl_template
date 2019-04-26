@@ -1,7 +1,7 @@
 # TODO (note): keep an eye on PROJECT_SOURCE_MODULES: as the tests automatically link against all project modules, it may trigger a "Coverage report error" on CodeCov if a module is linked to glfw or glad.
 
 # ------------------------------------------------------------------------------
-# Dependency Libraries: from "deps" and / or "externals"
+# Dependency Libraries: from "externals"
 # ------------------------------------------------------------------------------
 set(TESTS_LIBRARIES gtest gtest_main gmock gmock_main)
 
