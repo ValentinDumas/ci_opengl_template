@@ -206,12 +206,17 @@ AddLibraryToProject(Box2D)
 add_subdirectory(imgui_1.68)
 AddLibraryToProject(imgui)
 
+#TODO: create a custom target for SFML with includes some modules of it and the "include" directory
 # ------------------------------------------------------------------------------
 # SFML 2.5.1
 # ------------------------------------------------------------------------------
 add_subdirectory(sfml_2.5.1)
-AddLibraryToProject(SFML)
-target_include_directories(SFML PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/sfml_2.5.1/include)
+AddLibraryToProject(sfml-system)
+AddLibraryToProject(sfml-window)
+AddLibraryToProject(sfml-network)
+AddLibraryToProject(sfml-graphics)
+AddLibraryToProject(sfml-audio)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/sfml_2.5.1/include)
 
 # ------------------------------------------------------------------------------
 # Google Sanitizers
