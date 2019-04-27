@@ -12,6 +12,10 @@
 
 #include "mathematics/complex.hpp"
 
+// TODO: move this and declare definitions when building static/shared SFML
+//#define SFML_STATIC
+#include <SFML/Graphics.hpp>
+
 #include "cppfs/fs.h"
 #include "cppfs/FilePath.h"
 #include "cppfs/FileHandle.h"
@@ -30,6 +34,29 @@
 #endif
 
 #include "Box2D/Box2D.h"
+
+int SFML_test()
+{
+    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    sf::CircleShape shape(100.f);
+    shape.setFillColor(sf::Color::Green);
+
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear();
+        window.draw(shape);
+        window.display();
+    }
+
+    return 0;
+}
 
 void test_Box2D(int argc, char** argv)
 {
@@ -160,6 +187,7 @@ static void glfw_error_callback(int error, const char* description)
 
 int main(int argc, char** argv)
 {
+    SFML_test();
 //    // Create an instance of the Importer class
 //    Assimp::Importer importer;
 //    // And have it read the given file with some example postprocessing

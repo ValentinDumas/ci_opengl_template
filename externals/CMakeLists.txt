@@ -212,6 +212,10 @@ AddLibraryToProject(imgui)
 # ------------------------------------------------------------------------------
 add_subdirectory(sfml_2.5.1)
 AddLibraryToProject(sfml-system)
+#GetLibraryType(sfml-system_libtype sfml-system)
+
+##    define
+##add_compile_definitions(...)
 AddLibraryToProject(sfml-window)
 AddLibraryToProject(sfml-network)
 AddLibraryToProject(sfml-graphics)
