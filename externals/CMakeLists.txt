@@ -210,17 +210,13 @@ AddLibraryToProject(imgui)
 # ------------------------------------------------------------------------------
 # SFML 2.5.1
 # ------------------------------------------------------------------------------
+# Note: With SMFL 2.5, there is no need to add the "SFML_STATIC" definition
 add_subdirectory(sfml_2.5.1)
 AddLibraryToProject(sfml-system)
-#GetLibraryType(sfml-system_libtype sfml-system)
-
-##    define
-##add_compile_definitions(...)
 AddLibraryToProject(sfml-window)
 AddLibraryToProject(sfml-network)
 AddLibraryToProject(sfml-graphics)
 AddLibraryToProject(sfml-audio)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/sfml_2.5.1/include)
 
 # ------------------------------------------------------------------------------
 # Google Sanitizers
