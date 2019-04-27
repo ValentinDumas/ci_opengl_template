@@ -1,7 +1,6 @@
 //
-// Created by Spark on 15/03/2019.
+// Created by Spark on 27/04/2019.
 //
-
 // dear imgui: standalone example application for GLFW + OpenGL 3, using programmable pipeline
 // If you are new to dear imgui, see examples/README.txt and documentation at the top of imgui.cpp.
 // (GLFW is a cross-platform general purpose library for handling windows, inputs, OpenGL/Vulkan graphics context creation, etc.)
@@ -10,123 +9,6 @@
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
 
-#include "mathematics/complex.hpp"
-
-#include "cppfs/fs.h"
-#include "cppfs/FilePath.h"
-#include "cppfs/FileHandle.h"
-#include "cppfs/Tree.h"
-
-#include <iostream>
-
-#include <stdio.h>  /* defines FILENAME_MAX */
-//#define WINDOWS  /* uncomment this line to use it for windows.*/
-#ifdef MSVC_PLATFORM
-#include <direct.h>
-#define GetCurrentDir _getcwd
-#else
-#include <unistd.h>
-#define GetCurrentDir getcwd
-#endif
-
-#include "Box2D/Box2D.h"
-
-void test_Box2D(int argc, char** argv)
-{
-    B2_NOT_USED(argc);
-    B2_NOT_USED(argv);
-
-    // Define the gravity vector.
-    b2Vec2 gravity(0.0f, -10.0f);
-
-    // Construct a world object, which will hold and simulate the rigid bodies.
-    b2World world(gravity);
-
-    // Define the ground body.
-    b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(0.0f, -10.0f);
-
-    // Call the body factory which allocates memory for the ground body
-    // from a pool and creates the ground box shape (also from a pool).
-    // The body is also added to the world.
-    b2Body* groundBody = world.CreateBody(&groundBodyDef);
-
-    // Define the ground box shape.
-    b2PolygonShape groundBox;
-
-    // The extents are the half-widths of the box.
-    groundBox.SetAsBox(50.0f, 10.0f);
-
-    // Add the ground fixture to the ground body.
-    groundBody->CreateFixture(&groundBox, 0.0f);
-
-    // Define the dynamic body. We set its position and call the body factory.
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(0.0f, 4.0f);
-    b2Body* body = world.CreateBody(&bodyDef);
-
-    // Define another box shape for our dynamic body.
-    b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(1.0f, 1.0f);
-
-    // Define the dynamic body fixture.
-    b2FixtureDef fixtureDef;
-    fixtureDef.shape = &dynamicBox;
-
-    // Set the box density to be non-zero, so it will be dynamic.
-    fixtureDef.density = 1.0f;
-
-    // Override the default friction.
-    fixtureDef.friction = 0.3f;
-
-    // Add the shape to the body.
-    body->CreateFixture(&fixtureDef);
-
-    // Prepare for simulation. Typically we use a time step of 1/60 of a
-    // second (60Hz) and 10 iterations. This provides a high quality simulation
-    // in most game scenarios.
-    float32 timeStep = 1.0f / 60.0f;
-    int32 velocityIterations = 6;
-    int32 positionIterations = 2;
-
-    // This is our little game loop.
-    for (int32 i = 0; i < 60; ++i)
-    {
-        // Instruct the world to perform a single step of simulation.
-        // It is generally best to keep the time step and iterations fixed.
-        world.Step(timeStep, velocityIterations, positionIterations);
-
-        // Now print the position and angle of the body.
-        b2Vec2 position = body->GetPosition();
-        float32 angle = body->GetAngle();
-
-        printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
-    }
-}
-
-void open_file(const std::string& filename)
-{
-    cppfs::FileHandle fh = cppfs::fs::open(filename);
-
-    if (fh.isFile())
-    {
-        /* File ... */
-        std::cout << "File > " << fh.fileName() << std::endl;
-    }
-    else if (fh.isDirectory())
-    {
-        /* Directory ... */
-        std::cout << "File > " << fh.fileName() << std::endl;
-    }
-    else if (!fh.exists())
-    {
-        /* Not there ... */
-        std::cout << "File > " << fh.fileName() << std::endl;
-    }
-}
-
-// About OpenGL function loaders: modern OpenGL doesn't have a standard header file and requires individual function pointers to be loaded manually.
 // Helper libraries are often used for this purpose! Here we are supporting a few common ones: gl3w, glew, glad.
 // You may use another loader/header of your choice (glext, glLoadGen, etc.), or chose to manually implement your own.
 #if defined(IMGUI_IMPL_OPENGL_LOADER_GL3W)
@@ -141,6 +23,7 @@ void open_file(const std::string& filename)
 
 // Include glfw3.h after our OpenGL definitions
 #include <GLFW/glfw3.h>
+#include <cstdio>
 
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to maximize ease of testing and compatibility with old VS compilers.
 // To link with VS2010-era libraries, VS2015+ requires linking with legacy_stdio_definitions.lib, which we do using this pragma.
@@ -154,45 +37,8 @@ static void glfw_error_callback(int error, const char* description)
     fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
 
-//#include <assimp/Importer.hpp>      // C++ importer interface
-//#include <assimp/scene.h>           // Output data structure
-//#include <assimp/postprocess.h>     // Post processing flags
-
 int main(int argc, char** argv)
 {
-    SFML_test();
-//    // Create an instance of the Importer class
-//    Assimp::Importer importer;
-//    // And have it read the given file with some example postprocessing
-//    // Usually - if speed is not the most important aspect for you - you'll
-//    // propably to request more postprocessing than we do in this example.
-//    const aiScene *scene = importer.ReadFile("ee",
-//                                             aiProcess_CalcTangentSpace |
-//                                             aiProcess_Triangulate |
-//                                             aiProcess_JoinIdenticalVertices |
-//                                             aiProcess_SortByPType);
-//
-//    // IMPORTANT:
-//    // In binary / release (executable)    --> keep the binary path to find assets
-//    // In development mode (no executable) --> keep the project path to find assets
-
-    char binary_path[FILENAME_MAX];
-    GetCurrentDir( binary_path, FILENAME_MAX );
-    printf("Current working (binary) dir: %s\n", binary_path);
-
-    // Get project root path
-    cppfs::FilePath project_root_path = strcat(binary_path, "\\..");
-    project_root_path = project_root_path.resolved();
-    printf("Current working (project) dir: %s\n", project_root_path.fullPath().c_str());
-
-    cppfs::FileHandle project_root_handle = cppfs::fs::open(project_root_path.fullPath());
-    for(auto r : project_root_handle.listFiles())
-    {
-        std::cout << "under parent dir  ==>  " << r.c_str() << std::endl;
-    }
-
-    test_Box2D(argc, argv);
-
     // Setup window
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit())

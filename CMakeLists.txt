@@ -235,3 +235,12 @@ get_property_by_name(INTERFACE_LIBRARIES P_INTERFACE_LIBRARIES)
 message("SHARED LIBRARIES for the whole solution: ${SHARED_LIBRARIES}")
 message("STATIC LIBRARIES for the whole solution: ${STATIC_LIBRARIES}")
 message("INTERFACE LIBRARIES for the whole solution: ${INTERFACE_LIBRARIES}")
+
+# ------------------------------------------------------------------------------
+# EXAMPLES
+# ------------------------------------------------------------------------------
+set(BUILD_EXAMPLES ON)
+if(BUILD_EXAMPLES)
+    add_subdirectory(examples)
+endif()
+

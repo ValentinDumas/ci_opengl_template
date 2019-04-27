@@ -1,11 +1,11 @@
-project(opengl3_box2D_example.cpp)
+project(opengl3_glfw_example)
 
 # ------------------------------------------------------------------------------
 # MAIN EXECUTABLE
 # ------------------------------------------------------------------------------
-set(${PROJECT_NAME}_SOURCE_FILES opengl3_box2D_example.cpp)
+set(${PROJECT_NAME}_SOURCE_FILES opengl3_glfw_example.cpp)
 set(${PROJECT_NAME}_INCLUDE_DIRS "") # by including this, we have access to all other submodules folders even from "examples" and "tests" folders
-set(${PROJECT_NAME}_LIBRARIES glfw glad Box2D)
+set(${PROJECT_NAME}_LIBRARIES glfw glad)
 set(${PROJECT_NAME}_COVERAGE OFF)
 set(${PROJECT_NAME}_WARNINGS OFF)
 
