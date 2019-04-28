@@ -1,9 +1,14 @@
+# ------------------------------------------------------------------------------
+# File: CMakeLists.txt
+# Created by Spark on 28/04/2019.
+# ------------------------------------------------------------------------------
+
 # TODO (note): keep an eye on PROJECT_SOURCE_MODULES: as the tests automatically link against all project modules, it may trigger a "Coverage report error" on CodeCov if a module is linked to glfw or glad.
 include_directories(${gtest_SOURCE_DIR}/include)
 include_directories(${gmock_SOURCE_DIR}/include)
 
 # ------------------------------------------------------------------------------
-# Dependency Libraries: from "externals"
+# Test Libraries
 # ------------------------------------------------------------------------------
 set(TESTS_LIBRARIES gtest gtest_main gmock gmock_main)
 
@@ -18,7 +23,7 @@ get_property_by_name(PROJECT_SOURCE_MODULES P_PROJECT_SOURCE_MODULES)
 macro(CreateTest TYPE NAME PATH_TO_TEST ADDITIONAL_TESTS_DEPENDENCIES)
 	set(TEST_NAME ${TYPE}_${NAME})
 	add_executable(${TEST_NAME} ${PATH_TO_TEST}/${NAME}.cpp)
-	target_link_libraries(${TEST_NAME} PRIVATE ${TESTS_LIBRARIES} ${ADDITIONAL_TESTS_DEPENDENCIES} ${PROJECT_SOURCE_MODULES} coverage_config) #Note: no detailed warnings (from gtest macro)
+	target_link_libraries(${TEST_NAME} PRIVATE ${TESTS_LIBRARIES} ${ADDITIONAL_TESTS_DEPENDENCIES} coverage_config) #Note: no detailed warnings (from gtest macro)
     add_test(NAME ${TEST_NAME} COMMAND $<TARGET_FILE:${TEST_NAME}>)
 endmacro()
 

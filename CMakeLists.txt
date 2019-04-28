@@ -1,28 +1,28 @@
 # ------------------------------------------------------------------------------
-# CMAKE VERSION
+# CMake version
 # ------------------------------------------------------------------------------
 cmake_minimum_required(VERSION 3.6)
 
 # ------------------------------------------------------------------------------
-# LOAD TOOLS / FUNCTIONS
+# Load tools and functions
 # ------------------------------------------------------------------------------
 add_subdirectory(tools)
 
 # ------------------------------------------------------------------------------
-# PROJECT INFORMATION
+# Project information
 # ------------------------------------------------------------------------------
 project(ci_opengl_template C CXX)
 
 # ------------------------------------------------------------------------------
-# CMAKE BUILD TYPEs: DEBUG or RELEASE
+# CMake build configuration: Debug or Release
 # ------------------------------------------------------------------------------
-#set(CMAKE_BUILD_TYPE Debug)
-#message(CMAKE Build Type => ${CMAKE_BUILD_TYPE})
+# set(CMAKE_BUILD_TYPE Debug)
+# message(CMAKE Build Type => ${CMAKE_BUILD_TYPE})
 
 # ------------------------------------------------------------------------------
-# CMAKE OPTIONS
+# Other CMake options
 # ------------------------------------------------------------------------------
-#set(CMAKE_CXX_STANDARD 11)
+# set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD 14)
 
 # Turn off shared libs to manage static/shared libraries
@@ -32,16 +32,13 @@ if(MSVC)
 endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
-#set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # enable it before using "clang tidy"
+# set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # enable it before using "clang tidy"
 
 # Note: Can be OFF when testing (CI). Turn ON only to build an executable directly in project instead of CMake binary folder
 set(BUILD_EXECUTABLE_IN_PROJECT_TREE OFF)
 
-create_property(P_PROJECT_SOURCE_MODULES "")
-
 # ------------------------------------------------------------------------------
-# TESTING MODE OPTIONS
-# Note: Default testing mode as STANDALONE (offline)
+# Testing options
 # ------------------------------------------------------------------------------
 #Note: If ONLINE OR STANDALONE_WITH_NOEXECUTABLE Then
 #set(ONLINE_TESTING ON)
@@ -64,23 +61,23 @@ else()
 endif()
 
 # ------------------------------------------------------------------------------
-# ASSETS
+# Assets
 # ------------------------------------------------------------------------------
 add_subdirectory(assets)
 
 # ------------------------------------------------------------------------------
-# EXTERNALS (DEPENDENCIES)
+# External dependencies
 # ------------------------------------------------------------------------------
 #TODO: change to external && remove externals
 add_subdirectory(externals)
 
 # ------------------------------------------------------------------------------
-# SOURCES
+# Sources and modules
 # ------------------------------------------------------------------------------
 add_subdirectory(src)
 
 # ------------------------------------------------------------------------------
-# CTEST -> TESTING
+# Tests
 # ------------------------------------------------------------------------------
 option (BUILD_TESTING "Build the testing tree." ON)
 # Only build tests if we are the top-level project
@@ -91,7 +88,7 @@ if (BUILD_TESTING AND (PROJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR))
 endif()
 
 # ------------------------------------------------------------------------------
-# EXAMPLES
+# Examples
 # ------------------------------------------------------------------------------
 set(BUILD_EXAMPLES ON)
 if(BUILD_EXAMPLES)
@@ -99,7 +96,7 @@ if(BUILD_EXAMPLES)
 endif()
 
 # ------------------------------------------------------------------------------
-# DEBUGGING INFO: LIBRARY LISTS
+# Debug information
 # ------------------------------------------------------------------------------
 get_property_by_name(SHARED_LIBRARIES P_SHARED_LIBRARIES)
 get_property_by_name(STATIC_LIBRARIES P_STATIC_LIBRARIES)

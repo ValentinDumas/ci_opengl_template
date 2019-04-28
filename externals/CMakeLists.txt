@@ -1,9 +1,17 @@
+# ------------------------------------------------------------------------------
+# File: CMakeLists.txt
+# Created by Spark on 28/04/2019.
+# ------------------------------------------------------------------------------
+
 create_property(P_SHARED_LIBRARIES "")
 create_property(P_STATIC_LIBRARIES "")
 create_property(P_INTERFACE_LIBRARIES "")
 
+set(BUILD_ASSIMP_LIBRARY OFF) # Note: set to ON to build the Assimp 3D Model Loader library
+# set(BUILD_BULLET_LIBRARY OFF) # Note: set to ON to build the Bullet physics library
+
 # ------------------------------------------------------------------------------
-# COVERAGE
+# Coverage target (interface library)
 # ------------------------------------------------------------------------------
 add_library(coverage_config INTERFACE)
 option(ENABLE_COVERAGE "Enable coverage reporting" OFF)
@@ -22,26 +30,16 @@ if(ENABLE_COVERAGE)
 endif(ENABLE_COVERAGE)
 
 # ------------------------------------------------------------------------------
-# WARNINGS
+# Warnings target (interface library)
 # ------------------------------------------------------------------------------
 add_library(warnings_config INTERFACE)
 
 if(MSVC)
     target_compile_options(warnings_config INTERFACE /W4)
 else()
-    target_compile_options(warnings_config INTERFACE -Wall -std=c++14)
-    #target_compile_options(warnings_config INTERFACE -Wall -Wextra -Wpedantic -std=c++14)
+    #target_compile_options(warnings_config INTERFACE -Wall -std=c++14)
+    target_compile_options(warnings_config INTERFACE -Wall -Wextra -Wpedantic -std=c++14)
 endif()
-
-# ------------------------------------------------------------------------------
-# LIBRARIES AND OPTIONS
-# ------------------------------------------------------------------------------
-if(NOT MSVC)
-    set(BUILD_SHARED_LIBS ON)
-endif()
-
-# Save BUILD_SHARED_LIBS value to prevent altering it in this file
-set(BUILD_SHARED_LIBS_STATUS ${BUILD_SHARED_LIBS})
 
 # ------------------------------------------------------------------------------
 # ExternalProject & Git
@@ -51,9 +49,13 @@ find_package(Git REQUIRED)
 
 # ------------------------------------------------------------------------------
 #
-# PUT STATIC LIBRARIES HERE
+# PUT DYNAMIC LIBRARIES HERE
 #
 # ------------------------------------------------------------------------------
+if(NOT MSVC)
+    set(BUILD_SHARED_LIBS ON)
+endif()
+set(BUILD_SHARED_LIBS_STATUS ${BUILD_SHARED_LIBS}) # Save BUILD_SHARED_LIBS value to prevent altering it in this file
 
 # ------------------------------------------------------------------------------
 # GoogleTest / GoogleMock
@@ -77,7 +79,6 @@ AddLibraryToProject(gmock_main)
 # ------------------------------------------------------------------------------
 # Assimp (includes configuration with MinGW 64 bits)
 # ------------------------------------------------------------------------------
-set(BUILD_ASSIMP_LIBRARY OFF) # Note: set to ON to build the Assimp 3D Model Loader library
 if(NOT BUILD_ASSIMP_LIBRARY)
     message("Assimp library build: OFF")
 else()
@@ -179,12 +180,6 @@ target_include_directories(glfw PUBLIC ${GLFW_SOURCE_DIR}/include)
 #AddLibraryToProject(${GLFW_LIBRARIES})
 
 # ------------------------------------------------------------------------------
-# STB library
-# ------------------------------------------------------------------------------
-add_subdirectory(stb)
-AddLibraryToProject(stb)
-
-# ------------------------------------------------------------------------------
 # GLM library (0.9.9.3)
 # ------------------------------------------------------------------------------
 option(GLM_TEST_ENABLE OFF)
@@ -217,9 +212,15 @@ AddLibraryToProject(sfml-graphics)
 AddLibraryToProject(sfml-audio)
 
 # ------------------------------------------------------------------------------
+# STB library
+# ------------------------------------------------------------------------------
+add_subdirectory(stb)
+AddLibraryToProject(stb)
+
+# ------------------------------------------------------------------------------
 # Google Sanitizers
 # ------------------------------------------------------------------------------
-if(ENABLE_ASAN)
+if(ENABLE_ASAN) # Address sanitizer
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O1")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-ld=gold")
@@ -228,12 +229,12 @@ if(ENABLE_ASAN)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=leak")
 endif()
 
-if(ENABLE_USAN)
+if(ENABLE_USAN) # Undefined sanitizer
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-ld=gold")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=undefined")
 endif()
 
-if(ENABLE_TSAN)
+if(ENABLE_TSAN) # Thread sanitizer
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-ld=gold")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=thread")
 endif()
@@ -246,5 +247,4 @@ set(MEMORYCHECK_COMMAND_OPTIONS "${MEMORYCHECK_COMMAND_OPTIONS} --track-fds=yes"
 set(MEMORYCHECK_COMMAND_OPTIONS "${MEMORYCHECK_COMMAND_OPTIONS} --trace-children=yes")
 set(MEMORYCHECK_COMMAND_OPTIONS "${MEMORYCHECK_COMMAND_OPTIONS} --error-exitcode=1")
 
-# Reset the BUILD_SHARED_LIBS value to what it was before
-set(BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS_STATUS})
+set(BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS_STATUS}) # Reset the BUILD_SHARED_LIBS value to what it was before

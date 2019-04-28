@@ -1,3 +1,29 @@
+# ------------------------------------------------------------------------------
+# Copy assets from a source to a destination
+# ------------------------------------------------------------------------------
+function(CopyAssets source_path destination_path)
+    file(GLOB_RECURSE ASSETS ${source_path}/*) # assets folder (root's fullpath)
+    foreach (asset_source ${ASSETS})
+        string(REGEX MATCH "CMakeLists.txt" cmakelist ${asset_source})
+        if(NOT (cmakelist MATCHES "CMakeLists.txt"))
+            string(REPLACE "${source_path}" "${destination_path}" asset_destination ${asset_source})
+            string(REPLACE "/" "\\" asset_source_formatted ${asset_source})
+            string(REPLACE "/" "\\" asset_destination_formatted ${asset_destination})
+            configure_file(${asset_source_formatted} ${asset_destination_formatted})
+        endif()
+    endforeach ()
+endfunction()
+
+# ------------------------------------------------------------------------------
+# Copy assets from a source to a target (executable or library)
+# ------------------------------------------------------------------------------
+function(MoveAssetsToTarget assets_source_path target_name)
+    MoveFolderToTarget(${target_name} ${assets_source_path} assets)
+endfunction()
+
+# ------------------------------------------------------------------------------
+# Copy assets && Copy static/shared built library related files to target's location
+# ------------------------------------------------------------------------------
 function(MoveNeededResourcesToTarget target_name) # TODO: add "required_libraries" parameter to avoid copying all dlls for each target even when they don't need it.
     get_property_by_name(SHARED_LIBRARIES P_SHARED_LIBRARIES)
 
@@ -8,7 +34,6 @@ function(MoveNeededResourcesToTarget target_name) # TODO: add "required_librarie
         else()
             MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${target_name})
         endif()
-
         MoveMultipleLibsForTarget("${SHARED_LIBRARIES}" ${target_name})
     elseif(BUILD_EXECUTABLE_IN_PROJECT_TREE AND (target_name MATCHES "test")) # STANDALONE && EXE BUILDING in project tree
         message("Manually copy GOOGLE TEST/MOCK shared libraries (.dll) to project binary directory to build executable directly into the project folder instead of Cmake default binary folder")
@@ -20,7 +45,8 @@ function(MoveNeededResourcesToTarget target_name) # TODO: add "required_librarie
 endfunction()
 
 # ------------------------------------------------------------------------------
-# PROJECT MODULES MANAGEMENT (FUNCTIONS)
+# Creates a library (static, shared or interface) with a custom name, includes, sources, libraries, coverage and warnings
+# Adds the created library to the project and link the required dependencies
 # ------------------------------------------------------------------------------
 function(add_custom_library target_type target_name sources includes_scope includes_string libraries_string GENERATE_COVERAGE GENERATE_WARNINGS)
     # Limits: can only define one scope for the "target_include_directories", as this CMake function requires the scope as a parameter
@@ -47,6 +73,11 @@ function(add_custom_library target_type target_name sources includes_scope inclu
     AddLibraryToProject(${target_name})
 endfunction()
 
+# ------------------------------------------------------------------------------
+# Creates an executable with a custom name, includes, sources, libraries, coverage and warnings
+# Links the required dependencies
+# Output files related to the linked libraries are copied/moved to the created target's location
+# ------------------------------------------------------------------------------
 function(add_custom_executable target_name sources includes_scope includes_string libraries_string GENERATE_COVERAGE GENERATE_WARNINGS)
     add_executable(${target_name} ${sources})
 
@@ -73,12 +104,20 @@ function(add_custom_executable target_name sources includes_scope includes_strin
     MoveNeededResourcesToTarget(${target_name})
 endfunction()
 
+# ------------------------------------------------------------------------------
+# Call the CMake "project(...)" instruction with a parameter
+# The parameter is deduced, based on the parent directory from where the macro is called
+# ------------------------------------------------------------------------------
 macro(project_as_directory_name)
     get_filename_component(ProjectId ${CMAKE_CURRENT_SOURCE_DIR} NAME)
     string(REPLACE " " "_" ProjectId ${ProjectId})
     project(${ProjectId})
 endmacro()
 
+# ------------------------------------------------------------------------------
+# Get a library's type (static, shared or interface)
+# Report the result in a "library_type" variable
+# ------------------------------------------------------------------------------
 macro(GetLibraryType library_name)
     set(library_type "" PARENT_SCOPE)
     get_target_property(library_type ${library_name} TYPE)
@@ -89,6 +128,9 @@ macro(GetLibraryType library_name)
     endif()
 endmacro()
 
+# ------------------------------------------------------------------------------
+# Move a built library (static or shared) to a target's location
+# ------------------------------------------------------------------------------
 function(MoveLibToTarget lib_name target_name)
     if((NOT (target_name STREQUAL "gtest_main")) )
         add_custom_command(TARGET ${target_name} POST_BUILD
@@ -100,6 +142,9 @@ function(MoveLibToTarget lib_name target_name)
     endif()
 endfunction()
 
+# ------------------------------------------------------------------------------
+# Move multiple built library (static or shared) to a target's location
+# ------------------------------------------------------------------------------
 function(MoveMultipleLibsForTarget libraries target_name)
     if(libraries STREQUAL "") # no input libraries (static or shared)
         message("->[Warning] In 'MoveMultipleLibsForTarget' function: no input libraries.")
@@ -110,16 +155,24 @@ function(MoveMultipleLibsForTarget libraries target_name)
     endif()
 endfunction()
 
+# ------------------------------------------------------------------------------
+# Create a simplified property (by only giving the property_name and its value as input parameters
+# ------------------------------------------------------------------------------
 macro(create_property property_name value)
     set_property(GLOBAL PROPERTY ${property_name} ${value})
 endmacro()
 
+# ------------------------------------------------------------------------------
+# Extract data from a property
+# ------------------------------------------------------------------------------
 function(get_property_by_name output_name property_to_extract)
     get_property(property_values GLOBAL PROPERTY ${property_to_extract})
     set(${output_name} ${property_values} CACHE STRING "An extracted property's name" FORCE)
 endfunction()
 
-#TODO: function to easily set all kinds of GLOBAL properties
+# ------------------------------------------------------------------------------
+# Append data at the end of the property (list)
+# ------------------------------------------------------------------------------
 function(add_data_to_property property_name module_name)
     get_property_by_name(property_output ${property_name})
     if(property_output STREQUAL "") # empty
@@ -130,6 +183,9 @@ function(add_data_to_property property_name module_name)
     #message("(add_data_to_property) Added target ${module_name} as a module")
 endfunction()
 
+# ------------------------------------------------------------------------------
+# Copy a directory from a source location to a target destination
+# ------------------------------------------------------------------------------
 function(MoveFolderToTarget target_name source_path path_relative_to_target)
     add_custom_command(TARGET ${target_name}
             PRE_BUILD
@@ -137,6 +193,9 @@ function(MoveFolderToTarget target_name source_path path_relative_to_target)
             $<TARGET_FILE_DIR:${target_name}>\\${path_relative_to_target})
 endfunction()
 
+# ------------------------------------------------------------------------------
+# Add a library name to a project
+# ------------------------------------------------------------------------------
 function(AddLibraryToProject library_name)
     GetLibraryType(${library_name})
     #message("(AddLibraryToTarget) Library ${library_name} is a ${library_type}")
@@ -149,6 +208,9 @@ function(AddLibraryToProject library_name)
     endif()
 endfunction()
 
+# ------------------------------------------------------------------------------
+# Get a list of all items found matching a given pattern, recursively
+# ------------------------------------------------------------------------------
 function(GetRecursiveItemsFromPath items_returned root_path pattern)
     # Look for items matching a given pattern
     file(GLOB_RECURSE items_found ${pattern})
@@ -163,7 +225,9 @@ function(GetRecursiveItemsFromPath items_returned root_path pattern)
     set(${items_returned} ${items} PARENT_SCOPE)
 endfunction()
 
-# Get a list of all subdirectories, starting from a given path
+# ------------------------------------------------------------------------------
+# Get a list of all subdirectories starting from a given path, recursively
+# ------------------------------------------------------------------------------
 MACRO(SUBDIRLIST result curdir)
     FILE(GLOB children RELATIVE ${curdir} ${curdir}/*)
     SET(dirlist "")
