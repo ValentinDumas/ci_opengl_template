@@ -30,7 +30,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 #set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # enable it before using "clang tidy"
 
 # Note: Can be OFF when testing (CI). Turn ON only to build an executable directly in project instead of CMake binary folder
-set(BUILD_EXECUTABLE_IN_PROJECT_TREE OFF)
+set(BUILD_EXECUTABLE_IN_PROJECT_TREE ON)
 
 # ------------------------------------------------------------------------------
 # PROJECT MODULES MANAGEMENT (FUNCTIONS)
@@ -232,7 +232,15 @@ if (BUILD_TESTING AND (PROJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR))
 endif()
 
 # ------------------------------------------------------------------------------
-# DEBUGGING INFORMATION
+# EXAMPLES
+# ------------------------------------------------------------------------------
+set(BUILD_EXAMPLES ON)
+if(BUILD_EXAMPLES)
+    add_subdirectory(examples)
+endif()
+
+# ------------------------------------------------------------------------------
+# DEBUGGING INFO: LIBRARY LISTS
 # ------------------------------------------------------------------------------
 get_property_by_name(SHARED_LIBRARIES P_SHARED_LIBRARIES)
 get_property_by_name(STATIC_LIBRARIES P_STATIC_LIBRARIES)
@@ -240,12 +248,4 @@ get_property_by_name(INTERFACE_LIBRARIES P_INTERFACE_LIBRARIES)
 message("SHARED LIBRARIES for the whole solution: ${SHARED_LIBRARIES}")
 message("STATIC LIBRARIES for the whole solution: ${STATIC_LIBRARIES}")
 message("INTERFACE LIBRARIES for the whole solution: ${INTERFACE_LIBRARIES}")
-
-# ------------------------------------------------------------------------------
-# EXAMPLES
-# ------------------------------------------------------------------------------
-set(BUILD_EXAMPLES ON)
-if(BUILD_EXAMPLES)
-    add_subdirectory(examples)
-endif()
 
