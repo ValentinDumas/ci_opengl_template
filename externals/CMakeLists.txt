@@ -143,6 +143,12 @@ add_subdirectory(cppfs)
 AddLibraryToProject(cppfs)
 
 # ------------------------------------------------------------------------------
+# LuaJIT 2.0.1
+# ------------------------------------------------------------------------------
+add_subdirectory(luajit_2.0.3)
+AddLibraryToProject(liblua)
+
+# ------------------------------------------------------------------------------
 #
 # PUT STATIC LIBRARIES HERE
 #
@@ -223,12 +229,6 @@ AddLibraryToProject(sfml-window)
 AddLibraryToProject(sfml-network)
 AddLibraryToProject(sfml-graphics)
 AddLibraryToProject(sfml-audio)
-
-# ------------------------------------------------------------------------------
-# LuaJIT 2.0.1
-# ------------------------------------------------------------------------------
-add_subdirectory(luajit_2.0.3)
-AddLibraryToProject(liblua)
 
 # ------------------------------------------------------------------------------
 # Google Sanitizers
