@@ -9,11 +9,18 @@ cmake_minimum_required(VERSION 3.6)
 project(ci_opengl_template C CXX)
 
 # ------------------------------------------------------------------------------
+# CMAKE BUILD TYPEs: DEBUG or RELEASE
+# ------------------------------------------------------------------------------
+#set(CMAKE_BUILD_TYPE Debug)
+#message(CMAKE Build Type => ${CMAKE_BUILD_TYPE})
+
+# ------------------------------------------------------------------------------
 # CMAKE OPTIONS
 # ------------------------------------------------------------------------------
 #set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD 14)
 
+# Turn off shared libs to manage static/shared libraries
 set(BUILD_SHARED_LIBS OFF)
 if(MSVC)
     set(BUILD_SHARED_LIBS OFF) # force STATIC builds on MSVC
@@ -22,14 +29,12 @@ endif()
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 #set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # enable it before using "clang tidy"
 
-# Note: Must be OFF when testing (CI)
+# Note: Can be OFF when testing (CI). Turn ON only to build an executable directly in project instead of CMake binary folder
 set(BUILD_EXECUTABLE_IN_PROJECT_TREE OFF)
 
 # ------------------------------------------------------------------------------
 # PROJECT MODULES MANAGEMENT (FUNCTIONS)
 # ------------------------------------------------------------------------------
-
-
 function(add_custom_library target_type target_name sources includes_scope includes_string libraries_string GENERATE_COVERAGE GENERATE_WARNINGS)
     # Limits: can only define one scope for the "target_include_directories", as this CMake function requires the scope as a parameter
     # Create a library with a name, a type (shared, static or interface))

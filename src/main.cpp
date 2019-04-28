@@ -1,112 +1,73 @@
-#include <iostream>
-
-#include <stdio.h>  /* defines FILENAME_MAX */
-//#define WINDOWS  /* uncomment this line to use it for windows.*/
-#ifdef MSVC_PLATFORM
-#include <direct.h>
-#define GetCurrentDir _getcwd
-#else
-#include <unistd.h>
-#define GetCurrentDir getcwd
-#endif
+//
+// Created by Spark on 27/04/2019.
+//
 
 #include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include <GLFW/glfw3.h> // Include glfw3.h after our OpenGL definitions
+#include <cstdio>
 
-// Include all GLM core / GLSL features
-//#include <glm/glm.hpp> // vec2, vec3, mat4, radians
-#include <glm/glm.hpp>
-// Include all GLM extensions
-//#include <glm/ext/matrix_projection.hpp>
-#include <glm/gtc/matrix_transform.hpp> // perspective, translate, rotate
-
-glm::mat4 transform(glm::vec2 const &Orientation, glm::vec3 const &Translate, glm::vec3 const &Up) {
-    glm::mat4 Proj = glm::perspective(glm::radians(45.f), 1.33f, 0.1f, 10.f);
-    glm::mat4 ViewTranslate = glm::translate(glm::mat4(1.f), Translate);
-    glm::mat4 ViewRotateX = glm::rotate(ViewTranslate, Orientation.y, Up);
-    glm::mat4 View = glm::rotate(ViewRotateX, Orientation.x, Up);
-    glm::mat4 Model = glm::mat4(1.0f);
-    return Proj * View * Model;
+static void glfw_error_callback(int error, const char* description)
+{
+    fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
 
-#define STB_IMAGE_IMPLEMENTATION
-
-#include <stb/stb_image.h>
-
-//#include <assimp/Importer.hpp>      // C++ importer interface
-//#include <assimp/scene.h>           // Output data structure
-//#include <assimp/postprocess.h>     // Post processing flags
-
-/// Main program function
-int main(int argc, char **argv) {
-    glm::mat4 test_glm(1.f);
-    test_glm = transform(glm::vec2(1.f, 1.f), glm::vec3(1.f, 1.f, 1.f), glm::vec3(1.f, 1.f, 1.f));
-
-    // Create an instance of the Importer class
-//    Assimp::Importer importer;
-//    // And have it read the given file with some example postprocessing
-//    // Usually - if speed is not the most important aspect for you - you'll
-//    // propably to request more postprocessing than we do in this example.
-//    const aiScene *scene = importer.ReadFile("eeE",
-//                                             aiProcess_CalcTangentSpace |
-//                                             aiProcess_Triangulate |
-//                                             aiProcess_JoinIdenticalVertices |
-//                                             aiProcess_SortByPType);
-        
-    char buff[FILENAME_MAX];
-    GetCurrentDir( buff, FILENAME_MAX );
-    printf("Current working dir: %s\n", buff);
-
-    //std::cout << "scene address: " << &scene << std::endl;
-
-    int w;
-    int h;
-    int comp;
-    std::string filename_abs = "";
-#ifndef NDEBUG// in debug
-    filename_abs = strcat(strcat(buff, "\\.."), "\\assets\\images\\jenkins-logo.png");
-#endif
-#ifdef NDEBUG // in release
-    filename_abs = strcat(strcat(buff, "\\.."), "\\assets\\images\\jenkins-logo.png");
-#endif
-
-    unsigned char *image = stbi_load(filename_abs.c_str(), &w, &h, &comp, STBI_rgb);
-    if (image == nullptr)
-        throw (std::string("Failed to load texture"));
-    else
-        std::cout << "Image " << filename_abs.c_str() << " was loaded successfully !" << std::endl;
-
-    int width, height;
-    GLFWwindow *window;
-
-    /* Init GLFW */
+int main(int argc, char** argv)
+{
+    // Setup window
+    glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit())
-        exit(EXIT_FAILURE);
+        return 1;
 
-    window = glfwCreateWindow(400, 400, "GLFW demo window", NULL, NULL);
-    if (!window) {
-        glfwTerminate();
-        exit(EXIT_FAILURE);
-    }
+    // Decide GL+GLSL versions
+#if __APPLE__
+    // GL 3.2 + GLSL 150
+    const char* glsl_version = "#version 150";
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // Required on Mac
+#else
+    // GL 3.0 + GLSL 130
+    const char* glsl_version = "#version 130";
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+    //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
+    //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
+#endif
 
-    glfwSetWindowAspectRatio(window, 1, 1);
-
+    // Create window with graphics context
+    GLFWwindow* window = glfwCreateWindow(1280, 720, "Dear ImGui GLFW+OpenGL3 example", NULL, NULL);
+    if (window == NULL)
+        return 1;
     glfwMakeContextCurrent(window);
-    gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
-    glfwSwapInterval(1);
+    glfwSwapInterval(1); // Enable vsync
 
-    glfwGetFramebufferSize(window, &width, &height);
-
-    if (!gladLoadGL()) {
-        printf("Something went wrong!\n");
-        exit(-1);
+    bool err = gladLoadGL() == 0;
+    if (err)
+    {
+        fprintf(stderr, "Failed to initialize OpenGL loader!\n");
+        return 1;
     }
-    printf("OpenGL %d.%d\n", GLVersion.major, GLVersion.minor);
 
-    std::cout << "Setup status: SUCCESS !" << std::endl;
+    // Main loop
+    while (!glfwWindowShouldClose(window))
+    {
+        // Poll and handle events (inputs, window resize, etc.)
+        glfwPollEvents();
 
-    std::cout << "Setup status: :D" << std::endl;
-//    std::cin.get();
+        int display_w, display_h;
+        glfwMakeContextCurrent(window);
+        glfwGetFramebufferSize(window, &display_w, &display_h);
+        glViewport(0, 0, display_w, display_h);
+        glClearColor(0, 0, 0, 1);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        glfwMakeContextCurrent(window);
+        glfwSwapBuffers(window);
+    }
+
+    glfwDestroyWindow(window);
+    glfwTerminate();
 
     return 0;
 }
