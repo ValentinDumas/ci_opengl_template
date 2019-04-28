@@ -54,7 +54,9 @@ function(add_custom_library target_type target_name sources includes_scope inclu
     add_library(${target_name} ${target_type} ${sources})
 
     # Bind one or more directory to the target
-    target_include_directories(${target_name} ${includes_scope} ${includes_string}) # Note: see if it includes .hpp && .cpp OR only .cpp files
+    if (NOT (includes_string STREQUAL ""))
+        target_include_directories(${target_name} ${includes_scope} ${includes_string}) # Note: see if it includes .hpp && .cpp OR only .cpp files
+    endif()
 
     if(${${GENERATE_COVERAGE}}) # coverage enabled
         list(APPEND libraries_string coverage_config)
