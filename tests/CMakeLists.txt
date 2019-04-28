@@ -22,20 +22,6 @@ macro(CreateTest TYPE NAME PATH_TO_TEST ADDITIONAL_TESTS_DEPENDENCIES)
     add_test(NAME ${TEST_NAME} COMMAND $<TARGET_FILE:${TEST_NAME}>)
 endmacro()
 
-function(GetRecursiveItemsFromPath items_returned root_path pattern)
-	# Look for items matching a given pattern
-	file(GLOB_RECURSE items_found ${pattern})
-
-	# Extract relative paths from root (absolute) paths
-	foreach (item_path ${items_found})
-		string(REPLACE "${root_path}/" "" item_relative_path ${item_path})
-		list(APPEND items ${item_relative_path})
-	endforeach ()
-
-	# Return variable, containing all items found
-	set(${items_returned} ${items} PARENT_SCOPE)
-endfunction()
-
 # ------------------------------------------------------------------------------
 # Main Tests
 # ------------------------------------------------------------------------------

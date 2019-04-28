@@ -20,15 +20,8 @@ function(CopyAssets source_path destination_path)
     endforeach ()
 endfunction()
 
-function(MoveFolderToTarget assets_source_path target_name assets_path_relative_to_target)
-    add_custom_command(TARGET ${target_name}
-            PRE_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_directory ${assets_source_path}
-            $<TARGET_FILE_DIR:${target_name}>\\${assets_path_relative_to_target})
-endfunction()
-
 function(MoveAssetsToTarget assets_source_path target_name)
-    MoveFolderToTarget(${assets_source_path} ${target_name} assets)
+    MoveFolderToTarget(${target_name} ${assets_source_path} assets)
 endfunction()
 
 if((NOT ONLINE_MODE) AND BUILD_EXECUTABLE_IN_PROJECT_TREE) # standalone AND build executable

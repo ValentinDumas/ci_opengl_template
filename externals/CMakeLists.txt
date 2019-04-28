@@ -1,21 +1,6 @@
-# TODO: register libraries when addind subdirectories !
-# TODO: when registering a lib, GetLibraryType and add respectively to SHARED/STATIC_LIBRARIES variables, depending on the result
-# TODO: Maybe, create a function ADD_SUBDIRECTORY_DEPENDENT
 create_property(P_SHARED_LIBRARIES "")
 create_property(P_STATIC_LIBRARIES "")
 create_property(P_INTERFACE_LIBRARIES "")
-
-function(AddLibraryToProject library_name)
-    GetLibraryType(${library_name})
-    #message("(AddLibraryToTarget) Library ${library_name} is a ${library_type}")
-    if(library_type STREQUAL SHARED_LIBRARY)
-        add_data_to_property(P_SHARED_LIBRARIES ${library_name})
-    elseif(library_type STREQUAL STATIC_LIBRARY)
-        add_data_to_property(P_STATIC_LIBRARIES ${library_name})
-    else()
-        add_data_to_property(P_INTERFACE_LIBRARIES ${library_name})
-    endif()
-endfunction()
 
 # ------------------------------------------------------------------------------
 # COVERAGE
