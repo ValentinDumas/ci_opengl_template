@@ -131,7 +131,7 @@ endif ()
 
 ## SOURCES
 # Generate luaconf.h
-configure_file ( src/luaconf.h.in src/luaconf.h )
+configure_file ( src/luaconf.h.in ${CMAKE_CURRENT_SOURCE_DIR}/src/luaconf.h )
 
 set ( LJLIB_C
   src/lib_base.c
@@ -321,7 +321,7 @@ endif ()
 ## INSTALL
 install_executable( luajit )
 install_library( liblua )
-install_header( src/lua.h src/luajit.h src/lua.hpp ${CMAKE_CURRENT_BINARY_DIR}/luaconf.h src/lualib.h src/lauxlib.h )
+install_header( src/lua.h src/luajit.h src/lua.hpp ${CMAKE_CURRENT_SOURCE_DIR}/src/luaconf.h src/lualib.h src/lauxlib.h )
 
 install_doc ( doc/ )
 install_foo ( etc/ )
