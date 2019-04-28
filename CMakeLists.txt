@@ -152,11 +152,17 @@ function(MoveNeededResourcesToTarget target_name) # TODO: add "required_librarie
         if(MSVC)
             message("MSVC building...")
             MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${target_name})
-            MoveMultipleLibsForTarget("${SHARED_LIBRARIES}" ${target_name})
         else()
             MoveAssetsToTarget("${CMAKE_SOURCE_DIR}\\assets" ${target_name})
-            MoveMultipleLibsForTarget("${SHARED_LIBRARIES}" ${target_name})
         endif()
+
+        MoveMultipleLibsForTarget("${SHARED_LIBRARIES}" ${target_name})
+    elseif(BUILD_EXECUTABLE_IN_PROJECT_TREE) # STANDALONE && EXE BUILDING in project tree
+        message("Manually copy GOOGLE TEST/MOCK shared libraries (.dll) to project binary directory to build executable directly into the project folder instead of Cmake default binary folder")
+        MoveLibToTarget(gtest ${target_name})
+        MoveLibToTarget(gmock ${target_name})
+        MoveLibToTarget(gtest_main ${target_name})
+        MoveLibToTarget(gmock_main ${target_name})
     endif()
 endfunction()
 
@@ -177,14 +183,6 @@ else()
         set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # sure ?
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin\\static") # TODO: change to lib/static
-
-        # TODO: create CopyFile function (source_path, destination_path) !
-        # TODO: create CopyFileToTarget function ?
-#        message("Manually copy GOOGLE TEST/MOCK shared libraries (.dll) to project binary directory to build executable directly into the project folder instead of Cmake default binary folder")
-#        configure_file(${CMAKE_BINARY_DIR}/bin/libgtestd.dll ${CMAKE_SOURCE_DIR}/bin/libgtestd.dll COPYONLY)
-#        configure_file(${CMAKE_BINARY_DIR}/bin/libgtest_maind.dll ${CMAKE_SOURCE_DIR}/bin/libgtest_maind.dll COPYONLY)
-#        configure_file(${CMAKE_BINARY_DIR}/bin/libgmockd.dll ${CMAKE_SOURCE_DIR}/bin/libgmockd.dll COPYONLY)
-#        configure_file(${CMAKE_BINARY_DIR}/bin/libgmock_maind.dll ${CMAKE_SOURCE_DIR}/bin/libgmock_maind.dll COPYONLY)
     else()
         set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # sure ?
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # TODO: change to lib
