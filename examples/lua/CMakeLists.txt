@@ -5,7 +5,7 @@ project(lua_example)
 # ------------------------------------------------------------------------------
 set(${PROJECT_NAME}_SOURCE_FILES lua_example.cpp)
 set(${PROJECT_NAME}_INCLUDE_DIRS "") # by including this, we have access to all other submodules folders even from "examples" and "tests" folders
-set(${PROJECT_NAME}_LIBRARIES lualib)
+set(${PROJECT_NAME}_LIBRARIES liblua)
 set(${PROJECT_NAME}_COVERAGE OFF)
 set(${PROJECT_NAME}_WARNINGS OFF)
 
