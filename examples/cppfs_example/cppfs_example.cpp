@@ -2,12 +2,13 @@
 // Created by Spark on 27/04/2019.
 //
 
-#include "cppfs/fs.h"
-#include "cppfs/FilePath.h"
-#include "cppfs/FileHandle.h"
-#include "cppfs/Tree.h"
+#include <cppfs/fs.h>
+#include <cppfs/FilePath.h>
+#include <cppfs/FileHandle.h>
+#include <cppfs/Tree.h>
 
 #include <iostream>
+#include <string>
 
 #include <stdio.h>  /* defines FILENAME_MAX */
 #ifdef MSVC_PLATFORM
@@ -46,7 +47,7 @@ int main(int argc, char**argv)
     printf("Current working (binary) dir: %s\n", binary_path);
 
     // Get project root path
-    cppfs::FilePath project_root_path = strcat(binary_path, "\\..");
+    cppfs::FilePath project_root_path = (std::string(binary_path) + "\\").c_str();
     project_root_path = project_root_path.resolved();
     printf("Current working (project) dir: %s\n", project_root_path.fullPath().c_str());
 

@@ -2,8 +2,6 @@ add_subdirectory(cppfs_example)
 
 #add_subdirectory(luaJIT_example)
 
-#add_subdirectory(stb_image_example)
-
 add_subdirectory(opengl3_glfw)
 
 add_subdirectory(opengl3_imgui)
