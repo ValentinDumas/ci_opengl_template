@@ -8,6 +8,12 @@ extern "C" {
 #include "lualib.h"
 }
 
+class LuaScript
+{
+public:
+
+};
+
 int main(int argc, char **argv)
 {
 

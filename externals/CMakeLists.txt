@@ -147,6 +147,7 @@ AddLibraryToProject(cppfs)
 # ------------------------------------------------------------------------------
 add_subdirectory(luajit_2.0.3)
 AddLibraryToProject(liblua)
+target_include_directories(liblua PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/luajit_2.0.3/src)
 
 # ------------------------------------------------------------------------------
 #

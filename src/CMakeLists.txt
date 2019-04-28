@@ -1,7 +1,5 @@
 project(ci_opengl_template)
 
-include_directories(${CMAKE_SOURCE_DIR}/externals/luajit_2.0.3/src)
-
 # ------------------------------------------------------------------------------
 # MAIN TARGET DETAILS
 # ------------------------------------------------------------------------------
