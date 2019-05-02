@@ -6,6 +6,12 @@
 #include <GLFW/glfw3.h> // Include glfw3.h after our OpenGL definitions
 #include <cstdio>
 
+#include <iostream>
+#include "utils/FileSystem.h"
+#include "utils/types.h"
+
+#include "lua/LuaScript.h"
+
 static void glfw_error_callback(int error, const char* description)
 {
     fprintf(stderr, "Glfw Error %d: %s\n", error, description);
