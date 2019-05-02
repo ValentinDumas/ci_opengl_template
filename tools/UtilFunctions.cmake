@@ -99,9 +99,9 @@ function(add_custom_executable target_name sources includes_scope includes_strin
 
     target_link_libraries(${target_name} PRIVATE ${libraries_string})
 
-    if (MSVC)
-        target_compile_definitions(${target_name} PRIVATE MSVC_PLATFORM)
-    endif()
+#    if (MSVC)
+#        target_compile_definitions(${target_name} PRIVATE MSVC_PLATFORM)
+#    endif()
 
     MoveNeededResourcesToTarget(${target_name})
 endfunction()
