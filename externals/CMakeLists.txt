@@ -7,9 +7,6 @@ create_property(P_SHARED_LIBRARIES "")
 create_property(P_STATIC_LIBRARIES "")
 create_property(P_INTERFACE_LIBRARIES "")
 
-set(BUILD_ASSIMP_LIBRARY OFF) # Note: set to ON to build the Assimp 3D Model Loader library
-# set(BUILD_BULLET_LIBRARY OFF) # Note: set to ON to build the Bullet physics library
-
 # ------------------------------------------------------------------------------
 # Coverage target (interface library)
 # ------------------------------------------------------------------------------

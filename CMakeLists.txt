@@ -69,7 +69,8 @@ add_subdirectory(assets)
 # ------------------------------------------------------------------------------
 # External dependencies
 # ------------------------------------------------------------------------------
-#TODO: change to external && remove externals
+set(BUILD_ASSIMP_LIBRARY ON) # Note: set to ON to build the Assimp 3D Model Loader library
+# set(BUILD_BULLET_LIBRARY OFF) # Note: set to ON to build the Bullet physics library
 add_subdirectory(externals)
 
 # ------------------------------------------------------------------------------
