@@ -7,8 +7,8 @@
 #include <cstdio>
 
 #include <iostream>
-#include "utils/FileSystem.h"
-#include "utils/types.h"
+#include "utils/FileSystem.hpp"
+#include "utils/typ.h"
 
 #include "lua/LuaScript.h"
 
