@@ -7,6 +7,8 @@
 #include <cstdio>
 
 #include <iostream>
+#include <SFML/Audio/Sound.hpp>
+#include <SFML/Audio/SoundBuffer.hpp>
 #include "utils/FileSystem.hpp"
 #include "utils/typ.h"
 
@@ -19,6 +21,21 @@ static void glfw_error_callback(int error, const char* description)
 
 int main(int argc, char** argv)
 {
+    sf::Sound sound;
+
+    sf::SoundBuffer soundBuffer;
+
+    if(!soundBuffer.loadFromFile("assets\\audio\\getout.ogg"))
+    {
+        return 3;
+    }
+    else
+    {
+        sound.setLoop(true);
+        sound.setBuffer(soundBuffer);
+        sound.play();
+    }
+
     // Setup window
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit())
