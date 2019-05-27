@@ -10,7 +10,7 @@ project(unit_tests)
 # ------------------------------------------------------------------------------
 GetRecursiveItemsFromPath(${PROJECT_NAME}_SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR} "*.cpp")
 set(${PROJECT_NAME}_INCLUDE_DIRS "")
-set(${PROJECT_NAME}_LIBRARIES ${TESTS_LIBRARIES} glm ${PROJECT_SOURCE_MODULES})
+set(${PROJECT_NAME}_LIBRARIES ${TESTS_LIBRARIES} ${PROJECT_SOURCE_MODULES})
 set(${PROJECT_NAME}_COVERAGE ON)
 set(${PROJECT_NAME}_WARNINGS OFF)
 

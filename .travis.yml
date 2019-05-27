@@ -405,7 +405,7 @@ matrix:
     osx_image: xcode7.3
     script:
       - cmake -DONLINE_TESTING=ON ..
-      - make -j4
+      - make -j4 # --debug
       - make test
 
   #
@@ -417,7 +417,7 @@ matrix:
     osx_image: xcode8
     script:
       - cmake -DONLINE_TESTING=ON ..
-      - make -j4
+      - make -j4 # --debug
       - make test
 
   #
@@ -429,7 +429,7 @@ matrix:
     osx_image: xcode8.1
     script:
       - cmake -DONLINE_TESTING=ON ..
-      - make -j4
+      - make -j4 # --debug
       - make test
 
   #
@@ -441,7 +441,7 @@ matrix:
     osx_image: xcode8.2
     script:
       - cmake -DONLINE_TESTING=ON ..
-      - make -j4
+      - make -j4 # --debug
       - make test
 
   #
@@ -453,5 +453,5 @@ matrix:
     osx_image: xcode8.3
     script:
       - cmake -DONLINE_TESTING=ON ..
-      - make -j4
+      - make -j4 # --debug
       - make test
