@@ -132,6 +132,21 @@ add_subdirectory(luajit_2.0.3)
 AddLibraryToProject(liblua)
 target_include_directories(liblua PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/luajit_2.0.3/src)
 
+#TODO: create a custom target for SFML with includes some modules of it and the "include" directory
+# ------------------------------------------------------------------------------
+# SFML 2.5.1
+# ------------------------------------------------------------------------------
+# Note: With SMFL 2.5, there is no need to add the "SFML_STATIC" definition
+if(NOT APPLE)
+    message(SFML: building as "NOT APPLE")
+    add_subdirectory(sfml_2.5.1)
+    AddLibraryToProject(sfml-system)
+    AddLibraryToProject(sfml-network)
+    AddLibraryToProject(sfml-graphics)
+    AddLibraryToProject(sfml-audio)
+    AddLibraryToProject(sfml-window)
+endif()
+
 # ------------------------------------------------------------------------------
 #
 # PUT STATIC LIBRARIES HERE
@@ -139,42 +154,42 @@ target_include_directories(liblua PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/luajit_2.0.
 # ------------------------------------------------------------------------------
 set(BUILD_SHARED_LIBS OFF)
 
-# ------------------------------------------------------------------------------
-# GLad
-# ------------------------------------------------------------------------------
-add_subdirectory(glad)
-AddLibraryToProject(glad)
-GetLibraryType(glad)
-if (library_type STREQUAL SHARED_LIBRARY) # glad as a shared library
-    # If so, define the macro GLAD_API_EXPORT on the command line.
-    target_compile_definitions(glad PRIVATE GLAD_GLAPI_EXPORT)
-endif()
-
-# ------------------------------------------------------------------------------
-# GLad Additional Libraries
-# ------------------------------------------------------------------------------
-#if(MSVC)
-#    message("CMake Platform: MSVC")
-#else()
-#    if(NOT WIN32)
-#        message("CMake Platform: Clang or GCC (Not Windows32) => setting additional glab library link")
-#        set(GLAD_LIBRARIES dl) # Link glad libs for Linux & Apple
-#    endif()
+## ------------------------------------------------------------------------------
+## GLad
+## ------------------------------------------------------------------------------
+#add_subdirectory(glad)
+#AddLibraryToProject(glad)
+#GetLibraryType(glad)
+#if (library_type STREQUAL SHARED_LIBRARY) # glad as a shared library
+#    # If so, define the macro GLAD_API_EXPORT on the command line.
+#    target_compile_definitions(glad PRIVATE GLAD_GLAPI_EXPORT)
 #endif()
-#AddLibraryToProject(${GLAD_LIBRARIES})
-
-# ------------------------------------------------------------------------------
-# GLFW 3.2.1
-# ------------------------------------------------------------------------------
-option(GLFW_INSTALL OFF)
-option(GLFW_BUILD_DOCS OFF)
-option(GLFW_BUILD_EXAMPLES OFF)
-option(GLFW_BUILD_TESTS OFF)
-option(ENABLE_BOOST_WORKAROUND OFF)
-add_subdirectory(glfw_3.2.1)
-AddLibraryToProject(glfw)
-target_include_directories(glfw PUBLIC ${GLFW_SOURCE_DIR}/include)
-#AddLibraryToProject(${GLFW_LIBRARIES})
+#
+## ------------------------------------------------------------------------------
+## GLad Additional Libraries
+## ------------------------------------------------------------------------------
+##if(MSVC)
+##    message("CMake Platform: MSVC")
+##else()
+##    if(NOT WIN32)
+##        message("CMake Platform: Clang or GCC (Not Windows32) => setting additional glab library link")
+##        set(GLAD_LIBRARIES dl) # Link glad libs for Linux & Apple
+##    endif()
+##endif()
+##AddLibraryToProject(${GLAD_LIBRARIES})
+#
+## ------------------------------------------------------------------------------
+## GLFW 3.2.1
+## ------------------------------------------------------------------------------
+#option(GLFW_INSTALL OFF)
+#option(GLFW_BUILD_DOCS OFF)
+#option(GLFW_BUILD_EXAMPLES OFF)
+#option(GLFW_BUILD_TESTS OFF)
+#option(ENABLE_BOOST_WORKAROUND OFF)
+#add_subdirectory(glfw_3.2.1)
+#AddLibraryToProject(glfw)
+#target_include_directories(glfw PUBLIC ${GLFW_SOURCE_DIR}/include)
+##AddLibraryToProject(${GLFW_LIBRARIES})
 
 # ------------------------------------------------------------------------------
 # GLM library (0.9.9.3)
@@ -195,18 +210,6 @@ AddLibraryToProject(Box2D)
 # ------------------------------------------------------------------------------
 add_subdirectory(imgui_1.68)
 AddLibraryToProject(imgui)
-
-#TODO: create a custom target for SFML with includes some modules of it and the "include" directory
-# ------------------------------------------------------------------------------
-# SFML 2.5.1
-# ------------------------------------------------------------------------------
-# Note: With SMFL 2.5, there is no need to add the "SFML_STATIC" definition
-add_subdirectory(sfml_2.5.1)
-AddLibraryToProject(sfml-system)
-AddLibraryToProject(sfml-window)
-AddLibraryToProject(sfml-network)
-AddLibraryToProject(sfml-graphics)
-AddLibraryToProject(sfml-audio)
 
 # ------------------------------------------------------------------------------
 # STB library

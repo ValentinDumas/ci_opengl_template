@@ -3,21 +3,17 @@
 //
 
 #include <SFML/OpenGL.hpp>
-#include <GLFW/glfw3.h> // Include glfw3.h after our OpenGL definitions
 #include <cstdio>
 
 #include <iostream>
 #include <SFML/Audio/Sound.hpp>
 #include <SFML/Audio/SoundBuffer.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Window/Event.hpp>
 #include "utils/FileSystem.hpp"
 #include "utils/typ.h"
 
 #include "lua/LuaScript.h"
-
-static void glfw_error_callback(int error, const char* description)
-{
-    fprintf(stderr, "Glfw Error %d: %s\n", error, description);
-}
 
 int main(int argc, char** argv)
 {
@@ -36,54 +32,40 @@ int main(int argc, char** argv)
         sound.play();
     }
 
-    // Setup window
-    glfwSetErrorCallback(glfw_error_callback);
-    if (!glfwInit())
-        return 1;
+    // Create the main window
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+    // Load a sprite to display
 
-    // Decide GL+GLSL versions
-#if __APPLE__
-    // GL 3.2 + GLSL 150
-    //const char* glsl_version = "#version 150"; Needed by ImGui
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // Required on Mac
-#else
-    // GL 3.0 + GLSL 130
-    //const char* glsl_version = "#version 130"; // Needed by ImGui
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
-    //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
-#endif
+//    sf::Texture texture;
+//    if (!texture.loadFromFile("cute_image.jpg"))
+//        return EXIT_FAILURE;
+//    sf::Sprite sprite(texture);
+//    // Create a graphical text to display
+//
+//    sf::Font font;
+//    if (!font.loadFromFile("arial.ttf"))
+//        return EXIT_FAILURE;
+//    sf::Text text("Hello SFML", font, 50);
 
-    // Create window with graphics context
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "Dear ImGui GLFW+OpenGL3 example", NULL, NULL);
-    if (window == NULL)
-        return 1;
-    glfwMakeContextCurrent(window);
-    glfwSwapInterval(1); // Enable vsync
-
-    // Main loop
-    while (!glfwWindowShouldClose(window))
+    // Start the game loop
+    while (window.isOpen())
     {
-        // Poll and handle events (inputs, window resize, etc.)
-        glfwPollEvents();
-
-        int display_w, display_h;
-        glfwMakeContextCurrent(window);
-        glfwGetFramebufferSize(window, &display_w, &display_h);
-        glViewport(0, 0, display_w, display_h);
-        glClearColor(0, 0, 0, 1);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        glfwMakeContextCurrent(window);
-        glfwSwapBuffers(window);
+        // Process events
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            // Close window: exit
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+        // Clear screen
+        window.clear();
+        // Draw the sprite
+        // window.draw(sprite);
+        // Draw the string
+        // window.draw(text);
+        // Update the window
+        window.display();
     }
-
-    glfwDestroyWindow(window);
-    glfwTerminate();
-
-    return 0;
+    return EXIT_SUCCESS;
 }
