@@ -25,6 +25,12 @@ project(ci_opengl_template C CXX)
 # set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD 14)
 
+if(APPLE)
+    message("SFML: Apple building !")
+    include_directories(externals/sfml_2.5.1/include)
+    link_directories(${PROJECT_SOURCE_DIR}/externals/sfml_2.5.1/lib)
+endif()
+
 # Turn off shared libs to manage static/shared libraries
 set(BUILD_SHARED_LIBS OFF)
 if(MSVC)
@@ -37,6 +43,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 
 # Note: Can be OFF when testing (CI). Turn ON only to build an executable directly in project instead of CMake binary folder
 set(BUILD_EXECUTABLE_IN_PROJECT_TREE OFF)
+
+set(CMAKE_MACOSX_RPATH 0) # TEST
 
 # ------------------------------------------------------------------------------
 # Testing options
@@ -53,12 +61,28 @@ else()
         # TODO: only apply to concerned target, as main target (ci_opengl_template) for instance
         set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # sure ?
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib
-        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin\\static") # TODO: change to lib/static
+        set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib/static
     else()
         set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # sure ?
         set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # TODO: change to lib
-        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin\\static") # TODO: change to lib/static
+        set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # TODO: change to lib/static
     endif()
+endif()
+
+# TODO: this code should be added to a specific target (function)
+if(MINGW)
+    #get_filename_component(c_compiler_dir ${CMAKE_C_COMPILER} PATH)
+    get_filename_component(cxx_compiler_dir ${CMAKE_CXX_COMPILER} PATH)
+
+    #message("${c_compiler_dir}")
+    message("${cxx_compiler_dir}")
+
+    if(NOT(EXISTS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}))
+        file(MAKE_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+    endif()
+    configure_file("${cxx_compiler_dir}/libgcc_s_seh-1.dll" ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} COPYONLY)
+    configure_file("${cxx_compiler_dir}/libstdc++-6.dll" ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} COPYONLY)
+    configure_file("${cxx_compiler_dir}/libwinpthread-1.dll" ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} COPYONLY)
 endif()
 
 # ------------------------------------------------------------------------------

@@ -25,7 +25,7 @@ int main(int argc, char** argv)
 
     sf::SoundBuffer soundBuffer;
 
-    if(!soundBuffer.loadFromFile("assets\\audio\\getout.ogg"))
+    if(!soundBuffer.loadFromFile(utils::filesystem::get_current_path() + "\\assets\\audio\\getout.ogg"))
     {
         return 3;
     }
@@ -53,7 +53,7 @@ int main(int argc, char** argv)
     // GL 3.0 + GLSL 130
     //const char* glsl_version = "#version 130"; // Needed by ImGui
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
     //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
 #endif
