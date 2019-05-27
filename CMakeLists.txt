@@ -11,13 +11,19 @@ add_subdirectory(tools)
 # ------------------------------------------------------------------------------
 # Project information
 # ------------------------------------------------------------------------------
-project(ci_opengl_template C CXX)
+project(DreamInEngine C CXX)
 
 # ------------------------------------------------------------------------------
-# CMake build configuration: Debug or Release
+# CMake build configuration: Debug or Releas
 # ------------------------------------------------------------------------------
 # set(CMAKE_BUILD_TYPE Debug)
 # message(CMAKE Build Type => ${CMAKE_BUILD_TYPE})
+
+if(APPLE)
+    message("SFML: Apple building !")
+    include_directories(externals/sfml_2.5.1/include)
+    link_directories(${PROJECT_SOURCE_DIR}/externals/sfml_2.5.1/lib)
+endif()
 
 # ------------------------------------------------------------------------------
 # Other CMake options
@@ -25,11 +31,7 @@ project(ci_opengl_template C CXX)
 # set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD 14)
 
-if(APPLE)
-    message("SFML: Apple building !")
-    include_directories(externals/sfml_2.5.1/include)
-    link_directories(${PROJECT_SOURCE_DIR}/externals/sfml_2.5.1/lib)
-endif()
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 
 # Turn off shared libs to manage static/shared libraries
 set(BUILD_SHARED_LIBS OFF)
@@ -56,16 +58,24 @@ if(ONLINE_MODE)
     message("Tests are configured in ONLINE mode")
 else()
     message("Tests are configured in STANDALONE mode")
-    set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static") # include gcc libs
+    if (NOT APPLE)
+        #set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "${CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS} -static-libgcc -static-libstdc++ -s" CACHE STRING "Flags used by the linker during the creation of dll's." FORCE)
+#        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static") # include gcc libs
+        #set(CMAKE_CXX_STANDARD_LIBRARIES "-static-libgcc -static-libstdc++ ${CMAKE_CXX_STANDARD_LIBRARIES}")
+    endif()
     if(BUILD_EXECUTABLE_IN_PROJECT_TREE)
-        # TODO: only apply to concerned target, as main target (ci_opengl_template) for instance
-        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # sure ?
-        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib
-        set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib/static
+#        if (NOT MSVC) # and APPLE ?
+            # TODO: only apply to concerned target, as main target for instance
+            set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # sure ?
+            set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib
+            set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib/static
+#        endif()
     else()
-        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # sure ?
-        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # TODO: change to lib
-        set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # TODO: change to lib/static
+#        if(NOT MSVC) # and APPLE ?
+            set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # sure ?
+            set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # TODO: change to lib
+            set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # TODO: change to lib/static
+#        endif()
     endif()
 endif()
 
@@ -77,9 +87,9 @@ if(MINGW)
     #message("${c_compiler_dir}")
     message("${cxx_compiler_dir}")
 
-#    if(NOT(EXISTS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}))
-#        file(MAKE_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-#    endif()
+    if(NOT(EXISTS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}))
+        file(MAKE_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+    endif()
     configure_file("${cxx_compiler_dir}/libgcc_s_seh-1.dll" ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} COPYONLY)
     configure_file("${cxx_compiler_dir}/libstdc++-6.dll" ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} COPYONLY)
     configure_file("${cxx_compiler_dir}/libwinpthread-1.dll" ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} COPYONLY)
@@ -93,8 +103,7 @@ add_subdirectory(assets)
 # ------------------------------------------------------------------------------
 # External dependencies
 # ------------------------------------------------------------------------------
-set(BUILD_ASSIMP_LIBRARY OFF) # Note: set to ON to build the Assimp 3D Model Loader library
-# set(BUILD_BULLET_LIBRARY OFF) # Note: set to ON to build the Bullet physics library
+#TODO: change to external && remove externals
 add_subdirectory(externals)
 
 # ------------------------------------------------------------------------------
