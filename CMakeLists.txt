@@ -50,7 +50,7 @@ set(CMAKE_MACOSX_RPATH 0) # TEST
 # Testing options
 # ------------------------------------------------------------------------------
 #Note: If ONLINE OR STANDALONE_WITH_NOEXECUTABLE Then
-#set(ONLINE_TESTING ON)
+set(ONLINE_TESTING ON)
 set(ONLINE_MODE ${ONLINE_TESTING})
 if(ONLINE_MODE)
     message("Tests are configured in ONLINE mode")
@@ -77,9 +77,9 @@ if(MINGW)
     #message("${c_compiler_dir}")
     message("${cxx_compiler_dir}")
 
-    if(NOT(EXISTS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}))
-        file(MAKE_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-    endif()
+#    if(NOT(EXISTS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}))
+#        file(MAKE_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+#    endif()
     configure_file("${cxx_compiler_dir}/libgcc_s_seh-1.dll" ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} COPYONLY)
     configure_file("${cxx_compiler_dir}/libstdc++-6.dll" ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} COPYONLY)
     configure_file("${cxx_compiler_dir}/libwinpthread-1.dll" ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} COPYONLY)
