@@ -50,7 +50,7 @@ set(CMAKE_MACOSX_RPATH 0) # TEST
 # Testing options
 # ------------------------------------------------------------------------------
 #Note: If ONLINE OR STANDALONE_WITH_NOEXECUTABLE Then
-set(ONLINE_TESTING ON)
+#set(ONLINE_TESTING ON)
 set(ONLINE_MODE ${ONLINE_TESTING})
 if(ONLINE_MODE)
     message("Tests are configured in ONLINE mode")
