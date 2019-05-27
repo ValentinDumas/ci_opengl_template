@@ -11,7 +11,7 @@ add_subdirectory(tools)
 # ------------------------------------------------------------------------------
 # Project information
 # ------------------------------------------------------------------------------
-project(DreamInEngine C CXX)
+project(ci_opengl_template C CXX)
 
 # ------------------------------------------------------------------------------
 # CMake build configuration: Debug or Releas
