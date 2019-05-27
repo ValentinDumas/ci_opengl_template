@@ -2,7 +2,7 @@
 // Created by Spark on 27/04/2019.
 //
 
-#include <glad/glad.h>
+#include <SFML/OpenGL.hpp>
 #include <GLFW/glfw3.h> // Include glfw3.h after our OpenGL definitions
 #include <cstdio>
 
@@ -64,13 +64,6 @@ int main(int argc, char** argv)
         return 1;
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1); // Enable vsync
-
-    bool err = gladLoadGL() == 0;
-    if (err)
-    {
-        fprintf(stderr, "Failed to initialize OpenGL loader!\n");
-        return 1;
-    }
 
     // Main loop
     while (!glfwWindowShouldClose(window))
