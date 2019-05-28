@@ -19,6 +19,8 @@ project(ci_opengl_template C CXX)
 # set(CMAKE_BUILD_TYPE Debug)
 # message(CMAKE Build Type => ${CMAKE_BUILD_TYPE})
 
+file(MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+
 if(APPLE)
     message("SFML: Apple building !")
     include_directories(externals/sfml_2.5.1/include)
