@@ -24,7 +24,7 @@
 //========================================================================
 //! [code]
 
-#include <glad/glad.h>
+#include <SFML/OpenGL.hpp>
 #include <GLFW/glfw3.h>
 
 #include "linmath.h"

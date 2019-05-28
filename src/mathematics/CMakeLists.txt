@@ -1,20 +1,21 @@
-project(mathematics C CXX)
+# ------------------------------------------------------------------------------
+# File: CMakeLists.txt
+# Created by Spark on 28/04/2019.
+# ------------------------------------------------------------------------------
+
+project(mathematics)
 
 # ------------------------------------------------------------------------------
-# Mathematics Target Details
+# Target details
 # ------------------------------------------------------------------------------
+#TODO: Check if we can handle multiple source files while building with CI Tools (online)
 set(${PROJECT_NAME}_SOURCE_FILES complex.cpp)
+set(${PROJECT_NAME}_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(${PROJECT_NAME}_LIBRARIES "")
+set(${PROJECT_NAME}_COVERAGE ON)
+set(${PROJECT_NAME}_WARNINGS ON)
 
 # ------------------------------------------------------------------------------
-# Mathematics Target Library
+# Target library
 # ------------------------------------------------------------------------------
-add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SOURCE_FILES})
-
-target_include_directories(${PROJECT_NAME}
-        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/..
-        PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}) # Note: see if it includes .hpp && .cpp OR only .cpp files
-
-target_link_libraries(${PROJECT_NAME} PRIVATE coverage_config) # Include code-coverage & warnings settings
-
-add_data_to_property(P_PROJECT_SOURCE_MODULES ${PROJECT_NAME})
-AddLibraryToProject(${PROJECT_NAME})
+add_custom_library(STATIC ${PROJECT_NAME} "${${PROJECT_NAME}_SOURCE_FILES}" PUBLIC "${${PROJECT_NAME}_INCLUDE_DIRS}" "${${PROJECT_NAME}_LIBRARIES}" ${PROJECT_NAME}_COVERAGE ${PROJECT_NAME}_WARNINGS)

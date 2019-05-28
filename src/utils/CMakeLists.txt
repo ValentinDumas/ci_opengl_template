@@ -10,11 +10,11 @@ project(utils)
 # ------------------------------------------------------------------------------
 # Mathematics Target Library
 # ------------------------------------------------------------------------------
-add_library(${PROJECT_NAME} STATIC FileSystem.cpp fps.cpp typ.cpp)
+add_library(${PROJECT_NAME} STATIC FileSystem.cpp typ.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./.. PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}) # Note: see if it includes .hpp && .cpp OR only .cpp files
 
-target_link_libraries(${PROJECT_NAME} PRIVATE glfw cppfs coverage_config) # Include code-coverage & warnings settings
+target_link_libraries(${PROJECT_NAME} PRIVATE cppfs coverage_config) # Include code-coverage & warnings settings
 
 #set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX) # Note: The line below is mandatory to find compiler language (between C / C++)
 

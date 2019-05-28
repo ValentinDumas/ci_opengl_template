@@ -11,27 +11,25 @@ add_subdirectory(tools)
 # ------------------------------------------------------------------------------
 # Project information
 # ------------------------------------------------------------------------------
-project(DreamInEngine C CXX)
+project(ci_opengl_template C CXX)
 
 # ------------------------------------------------------------------------------
-# CMake build configuration: Debug or Releas
+# CMake build configuration: Debug or Release
 # ------------------------------------------------------------------------------
 # set(CMAKE_BUILD_TYPE Debug)
 # message(CMAKE Build Type => ${CMAKE_BUILD_TYPE})
+
+# -----------------------------------------------------------------------------
+# Other CMake options
+# ------------------------------------------------------------------------------
+# set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 if(APPLE)
     message("SFML: Apple building !")
     include_directories(externals/sfml_2.5.1/include)
     link_directories(${PROJECT_SOURCE_DIR}/externals/sfml_2.5.1/lib)
 endif()
-
-# ------------------------------------------------------------------------------
-# Other CMake options
-# ------------------------------------------------------------------------------
-# set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD 14)
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 
 # Turn off shared libs to manage static/shared libraries
 set(BUILD_SHARED_LIBS OFF)
@@ -44,7 +42,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 # set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # enable it before using "clang tidy"
 
 # Note: Can be OFF when testing (CI). Turn ON only to build an executable directly in project instead of CMake binary folder
-set(BUILD_EXECUTABLE_IN_PROJECT_TREE ON)
+set(BUILD_EXECUTABLE_IN_PROJECT_TREE OFF)
+
+# set(CMAKE_MACOSX_RPATH 0) # TEST
 
 # ------------------------------------------------------------------------------
 # Testing options
@@ -56,34 +56,34 @@ if(ONLINE_MODE)
     message("Tests are configured in ONLINE mode")
 else()
     message("Tests are configured in STANDALONE mode")
-    if (NOT APPLE)
-        #set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "${CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS} -static-libgcc -static-libstdc++ -s" CACHE STRING "Flags used by the linker during the creation of dll's." FORCE)
-#        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static") # include gcc libs
-        #set(CMAKE_CXX_STANDARD_LIBRARIES "-static-libgcc -static-libstdc++ ${CMAKE_CXX_STANDARD_LIBRARIES}")
-    endif()
-    if(BUILD_EXECUTABLE_IN_PROJECT_TREE)
-        # TODO: only apply to concerned target, as main target for instance
-        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # sure ?
-        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib
-        set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin\\static") # TODO: change to lib/static
+if(NOT APPLE)    
+	set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-static") # include gcc libs
+endif()    
+if(BUILD_EXECUTABLE_IN_PROJECT_TREE)
+	file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+        # TODO: only apply to concerned target, as main target (ci_opengl_template) for instance
+        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin) # sure ?
+        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin) # TODO: change to lib
+        set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin) # TODO: change to lib/static
     else()
-        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # sure ?
-        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # TODO: change to lib
-        set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin\\static") # TODO: change to lib/static
+	file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin) # sure ?
+        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin) # TODO: change to lib
+        set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin) # TODO: change to lib/static
     endif()
 endif()
 
 # TODO: this code should be added to a specific target (function)
 if(MINGW)
-    get_filename_component(c_compiler_dir ${CMAKE_C_COMPILER} PATH)
+    #get_filename_component(c_compiler_dir ${CMAKE_C_COMPILER} PATH)
     get_filename_component(cxx_compiler_dir ${CMAKE_CXX_COMPILER} PATH)
 
-    message("${c_compiler_dir}")
+    #message("${c_compiler_dir}")
     message("${cxx_compiler_dir}")
 
-    if(NOT(EXISTS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}))
-        file(MAKE_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-    endif()
+#    if(NOT(EXISTS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}))
+#        file(MAKE_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+#    endif()
     configure_file("${cxx_compiler_dir}/libgcc_s_seh-1.dll" ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} COPYONLY)
     configure_file("${cxx_compiler_dir}/libstdc++-6.dll" ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} COPYONLY)
     configure_file("${cxx_compiler_dir}/libwinpthread-1.dll" ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} COPYONLY)
@@ -92,12 +92,13 @@ endif()
 # ------------------------------------------------------------------------------
 # Assets
 # ------------------------------------------------------------------------------
-add_subdirectory(assets)
+#add_subdirectory(assets)
 
 # ------------------------------------------------------------------------------
 # External dependencies
 # ------------------------------------------------------------------------------
-#TODO: change to external && remove externals
+set(BUILD_ASSIMP_LIBRARY OFF) # Note: set to ON to build the Assimp 3D Model Loader library
+# set(BUILD_BULLET_LIBRARY OFF) # Note: set to ON to build the Bullet physics library
 add_subdirectory(externals)
 
 # ------------------------------------------------------------------------------
@@ -113,13 +114,14 @@ option (BUILD_TESTING "Build the testing tree." ON)
 # Allows this to be used by super projects with `add_subdirectory`
 if (BUILD_TESTING AND (PROJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR))
     include(CTest)
+    enable_testing()
     add_subdirectory(tests)
 endif()
 
 # ------------------------------------------------------------------------------
 # Examples
 # ------------------------------------------------------------------------------
-set(BUILD_EXAMPLES ON)
+set(BUILD_EXAMPLES OFF)
 if(BUILD_EXAMPLES)
     add_subdirectory(examples)
 endif()

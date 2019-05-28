@@ -6,6 +6,8 @@
 
 #include <mathematics/complex.hpp>
 
+#include <cmath>
+
 TEST(UnitTestComplex, AssignmentOperatorAssignsTheReferencedObjectAndParameters)
 {
     Complex a(3,5);

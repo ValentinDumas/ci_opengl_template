@@ -1,197 +1,208 @@
-//
-// Created by Spark on 27/04/2019.
-//
-// dear imgui: standalone example application for GLFW + OpenGL 3, using programmable pipeline
-// If you are new to dear imgui, see examples/README.txt and documentation at the top of imgui.cpp.
-// (GLFW is a cross-platform general purpose library for handling windows, inputs, OpenGL/Vulkan graphics context creation, etc.)
+#include <imgui/imgui.h>
+#include "imgui_sfml/imgui-SFML.h" // TODO: put it as one file in externals folder
 
-#include "imgui/imgui.h"
-#include "imgui/imgui_impl_glfw.h"
-#include "imgui/imgui_impl_opengl3.h"
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/CircleShape.hpp>
+#include <SFML/System/Clock.hpp>
+#include <SFML/Window/Event.hpp>
+#include <iostream>
 
-// Helper libraries are often used for this purpose! Here we are supporting a few common ones: gl3w, glew, glad.
-// You may use another loader/header of your choice (glext, glLoadGen, etc.), or chose to manually implement your own.
-#if defined(IMGUI_IMPL_OPENGL_LOADER_GL3W)
-#include <GL/gl3w.h>    // Initialize with gl3wInit()
-#elif defined(IMGUI_IMPL_OPENGL_LOADER_GLEW)
-#include <GL/glew.h>    // Initialize with glewInit()
-#elif defined(IMGUI_IMPL_OPENGL_LOADER_GLAD)
-#include <glad/glad.h>  // Initialize with gladLoadGL()
-#else
-#include IMGUI_IMPL_OPENGL_LOADER_CUSTOM
-#endif
+enum LoadFontType {
+    LOAD_CUSTOM_FONTS = 0, LOAD_DEFAULT_FONTS = 1
+};
 
-// Include glfw3.h after our OpenGL definitions
-#include <GLFW/glfw3.h>
-#include <cstdio>
-
-// [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to maximize ease of testing and compatibility with old VS compilers.
-// To link with VS2010-era libraries, VS2015+ requires linking with legacy_stdio_definitions.lib, which we do using this pragma.
-// Your own project should not be affected, as you are likely to link with a newer binary of GLFW that is adequate for your version of Visual Studio.
-#if defined(_MSC_VER) && (_MSC_VER >= 1900) && !defined(IMGUI_DISABLE_WIN32_FUNCTIONS)
-#pragma comment(lib, "legacy_stdio_definitions")
-#endif
-
-static void glfw_error_callback(int error, const char* description)
+struct Point
 {
-    fprintf(stderr, "Glfw Error %d: %s\n", error, description);
+    float x;
+    float y;
+};
+
+struct Rect
+{
+    float x;
+    float y;
+    float w;
+    float h;
+};
+
+/// Reference: https://eliasdaler.github.io/using-imgui-with-sfml-pt1
+/// Reference: https://eliasdaler.github.io/using-imgui-with-sfml-pt2
+namespace ImGui {
+    namespace custom
+    {
+        bool InputRect(const char *label, Rect *rectPtr, int decimal_precision = -1, ImGuiInputTextFlags extra_flags = 0) {
+            ImGui::PushID(label);
+            ImGui::BeginGroup();
+
+            bool valueChanged = false;
+
+            std::array<float *, 4> arr = {&rectPtr->x, &rectPtr->y,
+                                          &rectPtr->w, &rectPtr->h};
+
+            for (auto &elem : arr) {
+                ImGui::PushID(elem);
+                ImGui::PushItemWidth(64.f);
+                valueChanged |= ImGui::InputFloat("##arr", elem, 0, 0,
+                                                  decimal_precision, extra_flags);
+                ImGui::PopID();
+                ImGui::SameLine();
+            }
+
+            ImGui::SameLine();
+            ImGui::TextUnformatted(label);
+            ImGui::EndGroup();
+
+            ImGui::PopID(); // pop label id;
+
+            return valueChanged;
+        }
+
+        static auto vector_getter = [](void* vec, int idx, const char** out_text)
+        {
+            auto& vector = *static_cast<std::vector<std::string>*>(vec);
+            if (idx < 0 || idx >= static_cast<int>(vector.size())) { return false; }
+            *out_text = vector.at(idx).c_str();
+            return true;
+        };
+
+        bool Combo(const char* label, int* currIndex, std::vector<std::string>& values)
+        {
+            if (values.empty()) { return false; }
+            return ImGui::Combo(label, currIndex, vector_getter, static_cast<void*>(&values), values.size());
+        }
+
+        bool ListBox(const char* label, int* currIndex, std::vector<std::string>& values)
+        {
+            if (values.empty()) { return false; }
+            return ImGui::ListBox(label, currIndex, vector_getter, static_cast<void*>(&values), values.size());
+        }
+
+        // TODO: see if there is a way to return some InputText's result for further processing.
+//        void InputText(const char* label)
+//        {
+//            std::array<char, 256> arrayOfChars = { "" };
+//            ImGui::InputText(label, arrayOfChars.data(), arrayOfChars.size());
+//        }
+    }
 }
 
-int main(int argc, char** argv)
-{
-    // Setup window
-    glfwSetErrorCallback(glfw_error_callback);
-    if (!glfwInit())
-        return 1;
+int main() {
 
-    // Decide GL+GLSL versions
-#if __APPLE__
-    // GL 3.2 + GLSL 150
-    const char* glsl_version = "#version 150";
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // Required on Mac
-#else
-    // GL 3.0 + GLSL 130
-    const char* glsl_version = "#version 130";
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-    //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
-    //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
-#endif
+    sf::RenderWindow window(sf::VideoMode(640, 480), "");
+    window.setVerticalSyncEnabled(true);
+    window.setFramerateLimit(60);
+    ImGui::SFML::Init(window, LoadFontType::LOAD_DEFAULT_FONTS);
 
-    // Create window with graphics context
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "Dear ImGui GLFW+OpenGL3 example", NULL, NULL);
-    if (window == NULL)
-        return 1;
-    glfwMakeContextCurrent(window);
-    glfwSwapInterval(1); // Enable vsync
+    sf::Color bgColor;
+    float color[3] = {0.f, 0.f, 0.f}; // Define a color (0.0f <= x <= 1.0f)
+    char windowTitle[255] = "C++ SFML (with OpenGL) + ImGui";
 
-    // Initialize OpenGL loader
-#if defined(IMGUI_IMPL_OPENGL_LOADER_GL3W)
-    bool err = gl3wInit() != 0;
-#elif defined(IMGUI_IMPL_OPENGL_LOADER_GLEW)
-    bool err = glewInit() != GLEW_OK;
-#elif defined(IMGUI_IMPL_OPENGL_LOADER_GLAD)
-    bool err = gladLoadGL() == 0;
-#else
-    bool err = false; // If you use IMGUI_IMPL_OPENGL_LOADER_CUSTOM, your loader is likely to requires some form of initialization.
-#endif
-    if (err)
+    window.setTitle(windowTitle);
+    //window.resetGLStates(); // Call it you ONLY draw ImGui
+
+    std::array<int, 10> arr = {0};
+    Point point{0.f, 0.f};
+    Rect rect{0.f, 0.f, 0.f, 0.f};
+
+    if (sf::Joystick::isConnected(0))
     {
-        fprintf(stderr, "Failed to initialize OpenGL loader!\n");
-        return 1;
+        // le joystick numéro 0 est connecté
+        std::cout << "Le joystick 0 est connecté !" << std::endl;
+
+        // combien de boutons le joystick numéro 0 a-t-il ?
+        unsigned int buttonCount = sf::Joystick::getButtonCount(0);
+        std::cout << "Le joystick 0 a " << buttonCount << " boutons" << std::endl;
+
+        // est-ce que le joystick numéro 0 possède un axe Z ?
+        bool hasZ = sf::Joystick::hasAxis(0, sf::Joystick::Z);
     }
 
-    // Setup Dear ImGui context
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
-    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard Controls
-    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;   // Enable Gamepad Controls
+    sf::Clock deltaClock;
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            ImGui::SFML::ProcessEvent(event);
 
-    // Setup Dear ImGui style
-    ImGui::StyleColorsDark();
-    //ImGui::StyleColorsClassic();
+            if (event.type == sf::Event::Closed) {
+                window.close();
+            }
+        }
 
-    // Setup Platform/Renderer bindings
-    ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init(glsl_version);
-
-    // Load Fonts
-    // - If no fonts are loaded, dear imgui will use the default font. You can also load multiple fonts and use ImGui::PushFont()/PopFont() to select them.
-    // - AddFontFromFileTTF() will return the ImFont* so you can store it if you need to select the font among multiple.
-    // - If the file cannot be loaded, the function will return NULL. Please handle those errors in your application (e.g. use an assertion, or display an error and quit).
-    // - The fonts will be rasterized at a given size (w/ oversampling) and stored into a texture when calling ImFontAtlas::Build()/GetTexDataAsXXXX(), which ImGui_ImplXXXX_NewFrame below will call.
-    // - Read 'misc/fonts/README.txt' for more instructions and details.
-    // - Remember that in C/C++ if you want to include a backslash \ in a string literal you need to write a double backslash \\ !
-    //io.Fonts->AddFontDefault();
-    //io.Fonts->AddFontFromFileTTF("../../misc/fonts/Roboto-Medium.ttf", 16.0f);
-    //io.Fonts->AddFontFromFileTTF("../../misc/fonts/Cousine-Regular.ttf", 15.0f);
-    //io.Fonts->AddFontFromFileTTF("../../misc/fonts/DroidSans.ttf", 16.0f);
-    //io.Fonts->AddFontFromFileTTF("../../misc/fonts/ProggyTiny.ttf", 10.0f);
-    //ImFont* font = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f, NULL, io.Fonts->GetGlyphRangesJapanese());
-    //IM_ASSERT(font != NULL);
-
-    bool show_demo_window = true;
-    bool show_another_window = false;
-    ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-
-    // Main loop
-    while (!glfwWindowShouldClose(window))
-    {
-        // Poll and handle events (inputs, window resize, etc.)
-        // You can read the io.WantCaptureMouse, io.WantCaptureKeyboard flags to tell if dear imgui wants to use your inputs.
-        // - When io.WantCaptureMouse is true, do not dispatch mouse input data to your main application.
-        // - When io.WantCaptureKeyboard is true, do not dispatch keyboard input data to your main application.
-        // Generally you may always pass all inputs to dear imgui, and hide them from your application based on those two flags.
-        glfwPollEvents();
-
-        // Start the Dear ImGui frame
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
-
-        // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
-        if (show_demo_window)
-            ImGui::ShowDemoWindow(&show_demo_window);
-
-        // 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
+        if (sf::Joystick::isButtonPressed(0, 1))
         {
-            static float f = 0.0f;
-            static int counter = 0;
+            // oui : on shoot !!
+            std::cout << "Button 1 pressed !" << std::endl;
+        }
 
-            ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+        ////// Note: You must create all widgets between ImGui::SFML::Update() and ImGui::Render()    !!
+        ImGui::SFML::Update(window, deltaClock.restart());
 
-            ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
-            ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
-            ImGui::Checkbox("Another Window", &show_another_window);
+        ImGui::Begin("Sample window"); // Begin ImGui window
+        {
+            float x = sf::Joystick::getAxisPosition(0, sf::Joystick::X);
+            float y = sf::Joystick::getAxisPosition(0, sf::Joystick::Y);
+            ImGui::SetWindowPos(ImVec2(x,y));
 
-            ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-            ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
+            if(ImGui::ColorEdit3("Background color", color))
+            {
+                bgColor.r = static_cast<sf::Uint8>(color[0] * 255.f);
+                bgColor.g = static_cast<sf::Uint8>(color[1] * 255.f);
+                bgColor.b = static_cast<sf::Uint8>(color[2] * 255.f);
+            }
 
-            if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
-                counter++;
+            ImGui::InputText("Window Title", windowTitle, 255);
+
+            if(ImGui::Button("Update window title"))
+            {
+                // This code is executed only if the user clicked on the button;
+                window.setTitle(windowTitle);
+            }
+
             ImGui::SameLine();
-            ImGui::Text("counter = %d", counter);
 
-            ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-            ImGui::End();
+            if(ImGui::Button("Update window title##Second"))
+            {
+                // This code is executed only if the user clicked on the button;
+                window.setTitle(windowTitle);
+            }
+
+            // Input text with a callback
+            std::array<char, 256> textArr = {""};
+            ImGui::InputText("Text", textArr.data(), textArr.size(),
+                             ImGuiInputTextFlags_CallbackCharFilter,
+                             [](ImGuiTextEditCallbackData* data)
+                             {
+                                 data->EventChar = 'A';
+                                 return 0;
+                             }
+            );
         }
+        ImGui::End();
 
-        // 3. Show another simple window.
-        if (show_another_window)
+        ImGui::Begin("Sample window");
         {
-            ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
-            ImGui::Text("Hello from another window!");
-            if (ImGui::Button("Close Me"))
-                show_another_window = false;
-            ImGui::End();
+            for (int i = 0; i < arr.size(); ++i) {
+                ImGui::PushID(i);
+                ImGui::InputInt("##", &arr[i]);
+                ImGui::PopID();
+            }
+
+            ImGui::InputFloat2("Point", &point.x);
+            ImGui::InputFloat4("RectUnsafe", &rect.x);
+
+            ImGui::custom::InputRect("RectSafe", &rect);
         }
+        ImGui::End();
 
-        // Rendering
-        ImGui::Render();
-        int display_w, display_h;
-        glfwMakeContextCurrent(window);
-        glfwGetFramebufferSize(window, &display_w, &display_h);
-        glViewport(0, 0, display_w, display_h);
-        glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
-        glClear(GL_COLOR_BUFFER_BIT);
+        ImGui::ShowDemoWindow(); // Demo window (ImGui)
 
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-        glfwMakeContextCurrent(window);
-        glfwSwapBuffers(window);
+        window.clear(bgColor);
+        //windows.draw(smthg);
+        ImGui::SFML::Render(window);
+        window.display();
     }
 
-    // Cleanup
-    ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplGlfw_Shutdown();
-    ImGui::DestroyContext();
-
-    glfwDestroyWindow(window);
-    glfwTerminate();
+    ImGui::SFML::Shutdown();
 
     return 0;
 }
