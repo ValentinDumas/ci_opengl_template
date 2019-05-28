@@ -2,7 +2,7 @@
 // Created by Spark on 27/04/2019.
 //
 
-#include <SFML/OpenGL.hpp>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h> // Include glfw3.h after our OpenGL definitions
 #include <cstdio>
 

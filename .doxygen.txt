@@ -8,13 +8,13 @@
 # title of most generated pages and in a few other places.
 # The default value is: My Project.
 
-PROJECT_NAME           = "CI OpenGL Template"
+PROJECT_NAME           = "[C++] CI Template"
 
 # Using the PROJECT_BRIEF tag one can provide an optional one line description
 # for a project that appears at the top of each page and should give viewer a
 # quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = "An example of how to setup a complete CI environment for C, C++, OpenGL with CMake."
+PROJECT_BRIEF          = "An example of how to setup a complete CI environment for C and C++ with CMake."
 
 # The INPUT tag is used to specify the files and/or directories that contain
 # documented source files. You may enter file names like myfile.cpp or
@@ -742,9 +742,7 @@ INPUT_ENCODING         = UTF-8
 # *.md, *.mm, *.dox, *.py, *.f90, *.f, *.for, *.tcl, *.vhd, *.vhdl, *.ucf,
 # *.qsf, *.as and *.js.
 
-# Note: Uncomment the following line to look for all the above patterns.
-#FILE_PATTERNS          = *.h *.hpp *.c *.cpp
-FILE_PATTERNS           =
+FILE_PATTERNS          =
 
 # The RECURSIVE tag can be used to specify whether or not subdirectories should
 # be searched for input files as well.

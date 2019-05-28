@@ -11,15 +11,13 @@ add_subdirectory(tools)
 # ------------------------------------------------------------------------------
 # Project information
 # ------------------------------------------------------------------------------
-project(ci_opengl_template C CXX)
+project(DreamInEngine C CXX)
 
 # ------------------------------------------------------------------------------
 # CMake build configuration: Debug or Releas
 # ------------------------------------------------------------------------------
 # set(CMAKE_BUILD_TYPE Debug)
 # message(CMAKE Build Type => ${CMAKE_BUILD_TYPE})
-
-file(MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
 if(APPLE)
     message("SFML: Apple building !")
@@ -46,9 +44,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 # set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # enable it before using "clang tidy"
 
 # Note: Can be OFF when testing (CI). Turn ON only to build an executable directly in project instead of CMake binary folder
-set(BUILD_EXECUTABLE_IN_PROJECT_TREE OFF)
-
-set(CMAKE_MACOSX_RPATH 0) # TEST
+set(BUILD_EXECUTABLE_IN_PROJECT_TREE ON)
 
 # ------------------------------------------------------------------------------
 # Testing options
@@ -66,27 +62,23 @@ else()
         #set(CMAKE_CXX_STANDARD_LIBRARIES "-static-libgcc -static-libstdc++ ${CMAKE_CXX_STANDARD_LIBRARIES}")
     endif()
     if(BUILD_EXECUTABLE_IN_PROJECT_TREE)
-#        if (NOT MSVC) # and APPLE ?
-            # TODO: only apply to concerned target, as main target for instance
-            set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # sure ?
-            set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib
-            set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib/static
-#        endif()
+        # TODO: only apply to concerned target, as main target for instance
+        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # sure ?
+        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin") # TODO: change to lib
+        set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}\\bin\\static") # TODO: change to lib/static
     else()
-#        if(NOT MSVC) # and APPLE ?
-            set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # sure ?
-            set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # TODO: change to lib
-            set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # TODO: change to lib/static
-#        endif()
+        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # sure ?
+        set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin") # TODO: change to lib
+        set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}\\bin\\static") # TODO: change to lib/static
     endif()
 endif()
 
 # TODO: this code should be added to a specific target (function)
 if(MINGW)
-    #get_filename_component(c_compiler_dir ${CMAKE_C_COMPILER} PATH)
+    get_filename_component(c_compiler_dir ${CMAKE_C_COMPILER} PATH)
     get_filename_component(cxx_compiler_dir ${CMAKE_CXX_COMPILER} PATH)
 
-    #message("${c_compiler_dir}")
+    message("${c_compiler_dir}")
     message("${cxx_compiler_dir}")
 
     if(NOT(EXISTS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}))
@@ -127,7 +119,7 @@ endif()
 # ------------------------------------------------------------------------------
 # Examples
 # ------------------------------------------------------------------------------
-set(BUILD_EXAMPLES OFF)
+set(BUILD_EXAMPLES ON)
 if(BUILD_EXAMPLES)
     add_subdirectory(examples)
 endif()

@@ -1,12 +1,10 @@
-include_directories(../sfml_2.5.1/include)
-
 project(imgui)
 
 file(GLOB IMGUI_SOURCES *.cpp)
 
 add_library(${PROJECT_NAME} STATIC ${IMGUI_SOURCES})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE sfml-system sfml-window sfml-network sfml-graphics sfml-audio)
+target_link_libraries(${PROJECT_NAME} PRIVATE glfw glad)
 
 target_include_directories(${PROJECT_NAME}
         PUBLIC

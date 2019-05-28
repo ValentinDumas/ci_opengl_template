@@ -13,10 +13,10 @@
 # Copy assets
 # ------------------------------------------------------------------------------
 # Note: The destination is determined by the configuration of the current build process.
-if(BUILD_EXECUTABLE_IN_PROJECT_TREE) # standalone AND build executable
+if((NOT ONLINE_MODE) AND BUILD_EXECUTABLE_IN_PROJECT_TREE) # standalone AND build executable
     CopyAssets("${CMAKE_SOURCE_DIR}\\assets" "${CMAKE_SOURCE_DIR}\\bin\\assets")
 endif()
 
-if(NOT BUILD_EXECUTABLE_IN_PROJECT_TREE) # standalone AND no executable
+if((NOT ONLINE_MODE) AND (NOT BUILD_EXECUTABLE_IN_PROJECT_TREE)) # standalone AND no executable
     CopyAssets("${CMAKE_SOURCE_DIR}\\assets" "${CMAKE_BINARY_DIR}\\bin\\assets")
 endif()
