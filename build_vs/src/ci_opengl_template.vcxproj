@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BAE05203-9FF6-337B-B4DC-A4FDBDDF51D6}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ci_opengl_template</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ci_opengl_template.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ci_opengl_template</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ci_opengl_template.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ci_opengl_template</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">ci_opengl_template.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">ci_opengl_template</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">ci_opengl_template.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">ci_opengl_template</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\imgui_1.68\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\imgui_sfml\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\glm_0.9.9.3;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\stb\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\Box2D;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\utils\.\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\mathematics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;MSVC_PLATFORM;SFML_STATIC;STB_IMAGE_IMPLEMENTATION;SYSTEM_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;__STDC_CONSTANT_MACROS;MSVC_PLATFORM;SFML_STATIC;STB_IMAGE_IMPLEMENTATION;SYSTEM_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\imgui_1.68\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\imgui_sfml\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\glm_0.9.9.3;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\stb\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\Box2D;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\utils\.\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\mathematics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\imgui_1.68\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\imgui_sfml\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\glm_0.9.9.3;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\stb\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\Box2D;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\utils\.\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\mathematics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>	</Message>
+      <Command>setlocal
+P:\CMake\bin\cmake.exe -E copy_directory C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/assets C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/Debug/assets
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+P:\CMake\bin\cmake.exe -E copy_directory C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/assets C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/Debug/assets
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Message>	</Message>
+      <Command>setlocal
+P:\CMake\bin\cmake.exe -E copy_if_different C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/externals/cppfs/source/cppfs/Debug/cppfsd.dll C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+P:\CMake\bin\cmake.exe -E copy_if_different C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/externals/luajit_2.0.3/Debug/lua.dll C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\externals\sfml_2.5.1\lib\Debug\sfml-system-s-d.lib;..\externals\sfml_2.5.1\lib\Debug\sfml-window-s-d.lib;..\externals\sfml_2.5.1\lib\Debug\sfml-network-s-d.lib;..\externals\sfml_2.5.1\lib\Debug\sfml-graphics-s-d.lib;..\externals\sfml_2.5.1\lib\Debug\sfml-audio-s-d.lib;..\externals\imgui_1.68\Debug\imgui.lib;imgui_sfml\Debug\imgui_sfml.lib;..\externals\Box2D\Debug\Box2D.lib;utils\Debug\utils.lib;..\externals\luajit_2.0.3\Debug\lua.lib;mathematics\Debug\mathematics.lib;..\externals\imgui_1.68\Debug\imgui.lib;..\externals\sfml_2.5.1\lib\Debug\sfml-network-s-d.lib;ws2_32.lib;..\externals\sfml_2.5.1\lib\Debug\sfml-graphics-s-d.lib;..\externals\sfml_2.5.1\lib\Debug\sfml-window-s-d.lib;gdi32.lib;opengl32.lib;glu32.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\freetype.lib;..\externals\sfml_2.5.1\lib\Debug\sfml-audio-s-d.lib;..\externals\sfml_2.5.1\lib\Debug\sfml-system-s-d.lib;winmm.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\openal32.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\vorbisenc.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\vorbisfile.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\vorbis.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\ogg.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\flac.lib;..\externals\cppfs\source\cppfs\Debug\cppfsd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/Debug/ci_opengl_template.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/Debug/ci_opengl_template.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\imgui_1.68\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\imgui_sfml\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\glm_0.9.9.3;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\stb\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\Box2D;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\utils\.\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\mathematics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;NDEBUG;MSVC_PLATFORM;SFML_STATIC;STB_IMAGE_IMPLEMENTATION;SYSTEM_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;NDEBUG;MSVC_PLATFORM;SFML_STATIC;STB_IMAGE_IMPLEMENTATION;SYSTEM_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\imgui_1.68\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\imgui_sfml\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\glm_0.9.9.3;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\stb\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\Box2D;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\utils\.\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\mathematics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\imgui_1.68\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\imgui_sfml\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\glm_0.9.9.3;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\stb\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\Box2D;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\utils\.\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\mathematics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>	</Message>
+      <Command>setlocal
+P:\CMake\bin\cmake.exe -E copy_directory C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/assets C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/Release/assets
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+P:\CMake\bin\cmake.exe -E copy_directory C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/assets C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/Release/assets
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Message>	</Message>
+      <Command>setlocal
+P:\CMake\bin\cmake.exe -E copy_if_different C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/externals/cppfs/source/cppfs/Release/cppfs.dll C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/Release
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+P:\CMake\bin\cmake.exe -E copy_if_different C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/externals/luajit_2.0.3/Release/lua.dll C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/Release
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\externals\sfml_2.5.1\lib\Release\sfml-system-s.lib;..\externals\sfml_2.5.1\lib\Release\sfml-window-s.lib;..\externals\sfml_2.5.1\lib\Release\sfml-network-s.lib;..\externals\sfml_2.5.1\lib\Release\sfml-graphics-s.lib;..\externals\sfml_2.5.1\lib\Release\sfml-audio-s.lib;..\externals\imgui_1.68\Release\imgui.lib;imgui_sfml\Release\imgui_sfml.lib;..\externals\Box2D\Release\Box2D.lib;utils\Release\utils.lib;..\externals\luajit_2.0.3\Release\lua.lib;mathematics\Release\mathematics.lib;..\externals\imgui_1.68\Release\imgui.lib;..\externals\sfml_2.5.1\lib\Release\sfml-network-s.lib;ws2_32.lib;..\externals\sfml_2.5.1\lib\Release\sfml-graphics-s.lib;..\externals\sfml_2.5.1\lib\Release\sfml-window-s.lib;gdi32.lib;opengl32.lib;glu32.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\freetype.lib;..\externals\sfml_2.5.1\lib\Release\sfml-audio-s.lib;..\externals\sfml_2.5.1\lib\Release\sfml-system-s.lib;winmm.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\openal32.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\vorbisenc.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\vorbisfile.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\vorbis.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\ogg.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\flac.lib;..\externals\cppfs\source\cppfs\Release\cppfs.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/Release/ci_opengl_template.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/Release/ci_opengl_template.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\imgui_1.68\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\imgui_sfml\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\glm_0.9.9.3;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\stb\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\Box2D;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\utils\.\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\mathematics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;NDEBUG;MSVC_PLATFORM;SFML_STATIC;STB_IMAGE_IMPLEMENTATION;SYSTEM_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;NDEBUG;MSVC_PLATFORM;SFML_STATIC;STB_IMAGE_IMPLEMENTATION;SYSTEM_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\imgui_1.68\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\imgui_sfml\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\glm_0.9.9.3;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\stb\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\Box2D;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\utils\.\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\mathematics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\imgui_1.68\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\imgui_sfml\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\glm_0.9.9.3;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\stb\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\Box2D;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\utils\.\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\mathematics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>	</Message>
+      <Command>setlocal
+P:\CMake\bin\cmake.exe -E copy_directory C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/assets C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/MinSizeRel/assets
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+P:\CMake\bin\cmake.exe -E copy_directory C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/assets C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/MinSizeRel/assets
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Message>	</Message>
+      <Command>setlocal
+P:\CMake\bin\cmake.exe -E copy_if_different C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/externals/cppfs/source/cppfs/MinSizeRel/cppfs.dll C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+P:\CMake\bin\cmake.exe -E copy_if_different C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/externals/luajit_2.0.3/MinSizeRel/lua.dll C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\externals\sfml_2.5.1\lib\MinSizeRel\sfml-system-s.lib;..\externals\sfml_2.5.1\lib\MinSizeRel\sfml-window-s.lib;..\externals\sfml_2.5.1\lib\MinSizeRel\sfml-network-s.lib;..\externals\sfml_2.5.1\lib\MinSizeRel\sfml-graphics-s.lib;..\externals\sfml_2.5.1\lib\MinSizeRel\sfml-audio-s.lib;..\externals\imgui_1.68\MinSizeRel\imgui.lib;imgui_sfml\MinSizeRel\imgui_sfml.lib;..\externals\Box2D\MinSizeRel\Box2D.lib;utils\MinSizeRel\utils.lib;..\externals\luajit_2.0.3\MinSizeRel\lua.lib;mathematics\MinSizeRel\mathematics.lib;..\externals\imgui_1.68\MinSizeRel\imgui.lib;..\externals\sfml_2.5.1\lib\MinSizeRel\sfml-network-s.lib;ws2_32.lib;..\externals\sfml_2.5.1\lib\MinSizeRel\sfml-graphics-s.lib;..\externals\sfml_2.5.1\lib\MinSizeRel\sfml-window-s.lib;gdi32.lib;opengl32.lib;glu32.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\freetype.lib;..\externals\sfml_2.5.1\lib\MinSizeRel\sfml-audio-s.lib;..\externals\sfml_2.5.1\lib\MinSizeRel\sfml-system-s.lib;winmm.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\openal32.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\vorbisenc.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\vorbisfile.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\vorbis.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\ogg.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\flac.lib;..\externals\cppfs\source\cppfs\MinSizeRel\cppfs.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/MinSizeRel/ci_opengl_template.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/MinSizeRel/ci_opengl_template.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\imgui_1.68\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\imgui_sfml\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\glm_0.9.9.3;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\stb\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\Box2D;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\utils\.\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\mathematics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;NDEBUG;MSVC_PLATFORM;SFML_STATIC;STB_IMAGE_IMPLEMENTATION;SYSTEM_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;NDEBUG;MSVC_PLATFORM;SFML_STATIC;STB_IMAGE_IMPLEMENTATION;SYSTEM_WINDOWS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\imgui_1.68\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\imgui_sfml\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\glm_0.9.9.3;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\stb\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\Box2D;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\utils\.\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\mathematics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\imgui_1.68\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\imgui_sfml\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\glm_0.9.9.3;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\stb\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\Box2D;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\cppfs\source\cppfs\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\utils\.\..;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\mathematics\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>	</Message>
+      <Command>setlocal
+P:\CMake\bin\cmake.exe -E copy_directory C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/assets C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/RelWithDebInfo/assets
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+P:\CMake\bin\cmake.exe -E copy_directory C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/assets C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/RelWithDebInfo/assets
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Message>	</Message>
+      <Command>setlocal
+P:\CMake\bin\cmake.exe -E copy_if_different C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/externals/cppfs/source/cppfs/RelWithDebInfo/cppfs.dll C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+P:\CMake\bin\cmake.exe -E copy_if_different C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/externals/luajit_2.0.3/RelWithDebInfo/lua.dll C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\externals\sfml_2.5.1\lib\RelWithDebInfo\sfml-system-s.lib;..\externals\sfml_2.5.1\lib\RelWithDebInfo\sfml-window-s.lib;..\externals\sfml_2.5.1\lib\RelWithDebInfo\sfml-network-s.lib;..\externals\sfml_2.5.1\lib\RelWithDebInfo\sfml-graphics-s.lib;..\externals\sfml_2.5.1\lib\RelWithDebInfo\sfml-audio-s.lib;..\externals\imgui_1.68\RelWithDebInfo\imgui.lib;imgui_sfml\RelWithDebInfo\imgui_sfml.lib;..\externals\Box2D\RelWithDebInfo\Box2D.lib;utils\RelWithDebInfo\utils.lib;..\externals\luajit_2.0.3\RelWithDebInfo\lua.lib;mathematics\RelWithDebInfo\mathematics.lib;..\externals\imgui_1.68\RelWithDebInfo\imgui.lib;..\externals\sfml_2.5.1\lib\RelWithDebInfo\sfml-network-s.lib;ws2_32.lib;..\externals\sfml_2.5.1\lib\RelWithDebInfo\sfml-graphics-s.lib;..\externals\sfml_2.5.1\lib\RelWithDebInfo\sfml-window-s.lib;gdi32.lib;opengl32.lib;glu32.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\freetype.lib;..\externals\sfml_2.5.1\lib\RelWithDebInfo\sfml-audio-s.lib;..\externals\sfml_2.5.1\lib\RelWithDebInfo\sfml-system-s.lib;winmm.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\openal32.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\vorbisenc.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\vorbisfile.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\vorbis.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\ogg.lib;..\..\externals\sfml_2.5.1\extlibs\libs-msvc-universal\x64\flac.lib;..\externals\cppfs\source\cppfs\RelWithDebInfo\cppfs.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/RelWithDebInfo/ci_opengl_template.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/RelWithDebInfo/ci_opengl_template.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+P:\CMake\bin\cmake.exe -HC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template -BC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs --check-stamp-file C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/src/CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+P:\CMake\bin\cmake.exe -HC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template -BC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs --check-stamp-file C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/src/CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+P:\CMake\bin\cmake.exe -HC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template -BC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs --check-stamp-file C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/src/CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+P:\CMake\bin\cmake.exe -HC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template -BC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs --check-stamp-file C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/src/CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\ZERO_CHECK.vcxproj">
+      <Project>{C7149EA4-7C89-37F2-B0BA-373AD98CE71E}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\Box2D\Box2D.vcxproj">
+      <Project>{82953F45-0825-398E-A89A-7E58116A27AE}</Project>
+      <Name>Box2D</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\cppfs\source\cppfs\cppfs.vcxproj">
+      <Project>{37A17E57-A4A3-3865-9313-A867C1AFBEF6}</Project>
+      <Name>cppfs</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\imgui_1.68\imgui.vcxproj">
+      <Project>{E9520057-FD8B-398F-8C48-0671F6D6C771}</Project>
+      <Name>imgui</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\imgui_sfml\imgui_sfml.vcxproj">
+      <Project>{B95DB61B-EC49-3D6A-8B23-972B311A8CDE}</Project>
+      <Name>imgui_sfml</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\luajit_2.0.3\liblua.vcxproj">
+      <Project>{E9E3D972-1EC7-3156-8B89-9101CCE9EB29}</Project>
+      <Name>liblua</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\mathematics\mathematics.vcxproj">
+      <Project>{FDB68BDB-F5EC-3390-BBFF-98F099D9B583}</Project>
+      <Name>mathematics</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\Audio\sfml-audio.vcxproj">
+      <Project>{BA814E06-68BC-3151-9A5F-8961CE4D56D0}</Project>
+      <Name>sfml-audio</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\Graphics\sfml-graphics.vcxproj">
+      <Project>{EC57AB70-1D7C-39AF-AEC9-6F56FA7BDCB6}</Project>
+      <Name>sfml-graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\Network\sfml-network.vcxproj">
+      <Project>{5FF24633-7F05-3183-BCBE-7964AA6F0404}</Project>
+      <Name>sfml-network</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\System\sfml-system.vcxproj">
+      <Project>{ADBB6CF2-EF12-3D7B-B989-A48B8D754D09}</Project>
+      <Name>sfml-system</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\Window\sfml-window.vcxproj">
+      <Project>{F2E03839-F8BB-3842-B567-B782D28224FB}</Project>
+      <Name>sfml-window</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\utils\utils.vcxproj">
+      <Project>{33EE3D3B-B238-39C0-8C8E-C6AAB468D234}</Project>
+      <Name>utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

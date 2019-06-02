@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_gc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_err.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_char.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_bc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_obj.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_str.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_tab.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_func.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_udata.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_meta.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_debug.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_state.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_dispatch.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_vmevent.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_vmmath.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_strscan.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_api.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_lex.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_parse.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_bcread.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_bcwrite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_load.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_ir.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_opt_mem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_opt_fold.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_opt_narrow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_opt_dce.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_opt_loop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_opt_split.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_opt_sink.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_mcode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_snap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_record.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_crecord.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_ffrecord.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_asm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_trace.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_gdbjit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_ctype.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_cdata.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_cconv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_ccall.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_ccallback.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_carith.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_clib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_cparse.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_lib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lj_alloc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lib_aux.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lib_init.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lib_base.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lib_math.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lib_bit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lib_string.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lib_table.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lib_io.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lib_os.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lib_debug.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lib_jit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lib_ffi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\src\lib_package_rel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\luajit_2.0.3\lj_ffdef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\luajit_2.0.3\lj_bcdef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\luajit_2.0.3\lj_libdef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\luajit_2.0.3\lj_recdef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\luajit_2.0.3\lj_folddef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\4445342cee12b883450d0679bf2e37c8\lj_vm.obj.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\4445342cee12b883450d0679bf2e37c8\lj_ffdef.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\4445342cee12b883450d0679bf2e37c8\lj_bcdef.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\4445342cee12b883450d0679bf2e37c8\lj_libdef.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\4445342cee12b883450d0679bf2e37c8\lj_recdef.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\4445342cee12b883450d0679bf2e37c8\lj_folddef.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\luajit_2.0.3\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\luajit_2.0.3\lj_vm.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{6CA2E201-C1F6-3E1A-89B6-32C1F1335045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{40989939-E8FC-3C32-BDA2-6C95D6F1B732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Files">
+      <UniqueIdentifier>{5ECEB0C4-B240-3403-B47B-0C21C62AB78D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0A1A4C6F-427E-3C2B-B89C-CA5C278171DE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

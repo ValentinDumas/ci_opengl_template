@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\system.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\fs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\FileHandle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\FileIterator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\FileVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\FunctionalFileVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\FileWatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\FileEventHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\FunctionalFileEventHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\AbstractFileSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\AbstractFileHandleBackend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\AbstractFileIteratorBackend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\AbstractFileWatcherBackend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\InputStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\OutputStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\LoginCredentials.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\FilePath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\Url.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\Tree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\Diff.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\Change.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\windows\LocalFileSystem.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\windows\LocalFileHandle.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\windows\LocalFileIterator.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\source\windows\LocalFileWatcher.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\cppfs.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\system.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\fs.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\FileHandle.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\FileIterator.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\FileVisitor.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\FunctionalFileVisitor.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\FileWatcher.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\FileEventHandler.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\FunctionalFileEventHandler.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\AbstractFileSystem.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\AbstractFileHandleBackend.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\AbstractFileIteratorBackend.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\AbstractFileWatcherBackend.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\InputStream.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\OutputStream.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\LoginCredentials.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\FilePath.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\Url.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\Tree.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\Diff.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\Change.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\units.h">
+      <Filter>Header Files (API)</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\windows\LocalFileSystem.h">
+      <Filter>Header Files (API)\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\windows\LocalFileHandle.h">
+      <Filter>Header Files (API)\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\windows\LocalFileIterator.h">
+      <Filter>Header Files (API)\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\include\cppfs\windows\LocalFileWatcher.h">
+      <Filter>Header Files (API)\windows</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\cppfs\source\cppfs\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files (API)">
+      <UniqueIdentifier>{D8B49E4C-F991-3E65-AB66-7BDC28401330}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files (API)\windows">
+      <UniqueIdentifier>{2C5022A2-6A35-365B-B1E3-F2FFE814F930}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0A1A4C6F-427E-3C2B-B89C-CA5C278171DE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\windows">
+      <UniqueIdentifier>{F74CFC2E-E263-38E0-AC4C-0B428A343744}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

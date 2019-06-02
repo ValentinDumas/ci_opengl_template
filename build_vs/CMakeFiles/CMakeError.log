@@ -1,0 +1,82 @@
+Performing C++ SOURCE FILE Test COMPILER_HAS_DEPRECATED_ATTR failed with the following output:
+Change Dir: C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/CMakeFiles/CMakeTmp
+
+Run Build Command:"P:/Visual Studio Enterprise 2017/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_0e43c.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine version 15.7.179.6572 pour .NET Framework
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+La génération a démarré 02/06/2019 17:37:54.
+Projet "C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\cmTC_0e43c.vcxproj" sur le noud 1 (cibles par défaut).
+PrepareForBuild:
+  Création du répertoire "cmTC_0e43c.dir\Debug\".
+  Création du répertoire "C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\Debug\".
+  Création du répertoire "cmTC_0e43c.dir\Debug\cmTC_0e43c.tlog\".
+InitializeBuildStatus:
+  Création de "cmTC_0e43c.dir\Debug\cmTC_0e43c.tlog\unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+ClCompile:
+  P:\Visual Studio Enterprise 2017\VC\Tools\MSVC\14.14.26428\bin\HostX86\x64\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /D WIN32 /D _WINDOWS /D __STDC_CONSTANT_MACROS /D COMPILER_HAS_DEPRECATED_ATTR /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_0e43c.dir\Debug\\" /Fd"cmTC_0e43c.dir\Debug\vc141.pdb" /Gd /TP /FC /errorReport:queue C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\src.cxx
+  Compilateur d'optimisation Microsoft (R) C/C++ version 19.14.26431 pour x64
+  Copyright (C) Microsoft Corporation. Tous droits réservés.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /D WIN32 /D _WINDOWS /D __STDC_CONSTANT_MACROS /D COMPILER_HAS_DEPRECATED_ATTR /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_0e43c.dir\Debug\\" /Fd"cmTC_0e43c.dir\Debug\vc141.pdb" /Gd /TP /FC /errorReport:queue C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\src.cxx
+  src.cxx
+  
+c:\users\spark\desktop\apps\cppprojects\boilerplates\ci_opengl_template\build_vs\cmakefiles\cmaketmp\src.cxx(1): error C2065: '__deprecated__' : identificateur non déclaré [C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\cmTC_0e43c.vcxproj]
+c:\users\spark\desktop\apps\cppprojects\boilerplates\ci_opengl_template\build_vs\cmakefiles\cmaketmp\src.cxx(1): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut [C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\cmTC_0e43c.vcxproj]
+c:\users\spark\desktop\apps\cppprojects\boilerplates\ci_opengl_template\build_vs\cmakefiles\cmaketmp\src.cxx(1): error C2448: '__attribute__' : l'initialiseur de style fonction semble être une définition de fonction [C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\cmTC_0e43c.vcxproj]
+Génération du projet "C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\cmTC_0e43c.vcxproj" terminée (cibles par défaut) -- ÉCHEC.
+
+ÉCHEC de la build.
+
+"C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\cmTC_0e43c.vcxproj" (cible par défaut) (1) ->
+(ClCompile cible) -> 
+  c:\users\spark\desktop\apps\cppprojects\boilerplates\ci_opengl_template\build_vs\cmakefiles\cmaketmp\src.cxx(1): error C2065: '__deprecated__' : identificateur non déclaré [C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\cmTC_0e43c.vcxproj]
+  c:\users\spark\desktop\apps\cppprojects\boilerplates\ci_opengl_template\build_vs\cmakefiles\cmaketmp\src.cxx(1): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut [C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\cmTC_0e43c.vcxproj]
+  c:\users\spark\desktop\apps\cppprojects\boilerplates\ci_opengl_template\build_vs\cmakefiles\cmaketmp\src.cxx(1): error C2448: '__attribute__' : l'initialiseur de style fonction semble être une définition de fonction [C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\cmTC_0e43c.vcxproj]
+
+    0 Avertissement(s)
+    3 Erreur(s)
+
+Temps écoulé 00:00:00.55
+
+Source file was:
+__attribute__((__deprecated__)) int somefunc() { return 0; }
+    int main() { return somefunc();}
+Determining if the include file pthread.h exists failed with the following output:
+Change Dir: C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/CMakeFiles/CMakeTmp
+
+Run Build Command:"P:/Visual Studio Enterprise 2017/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_60ea9.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine version 15.7.179.6572 pour .NET Framework
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+La génération a démarré 02/06/2019 17:38:02.
+Projet "C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\cmTC_60ea9.vcxproj" sur le noud 1 (cibles par défaut).
+PrepareForBuild:
+  Création du répertoire "cmTC_60ea9.dir\Debug\".
+  Création du répertoire "C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\Debug\".
+  Création du répertoire "cmTC_60ea9.dir\Debug\cmTC_60ea9.tlog\".
+InitializeBuildStatus:
+  Création de "cmTC_60ea9.dir\Debug\cmTC_60ea9.tlog\unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
+ClCompile:
+  P:\Visual Studio Enterprise 2017\VC\Tools\MSVC\14.14.26428\bin\HostX86\x64\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_60ea9.dir\Debug\\" /Fd"cmTC_60ea9.dir\Debug\vc141.pdb" /Gd /TC /FC /errorReport:queue C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  Compilateur d'optimisation Microsoft (R) C/C++ version 19.14.26431 pour x64
+  Copyright (C) Microsoft Corporation. Tous droits réservés.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_60ea9.dir\Debug\\" /Fd"cmTC_60ea9.dir\Debug\vc141.pdb" /Gd /TC /FC /errorReport:queue C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  CheckIncludeFile.c
+  
+c:\users\spark\desktop\apps\cppprojects\boilerplates\ci_opengl_template\build_vs\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Impossible d'ouvrir le fichier include : 'pthread.h' : No such file or directory [C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\cmTC_60ea9.vcxproj]
+Génération du projet "C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\cmTC_60ea9.vcxproj" terminée (cibles par défaut) -- ÉCHEC.
+
+ÉCHEC de la build.
+
+"C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\cmTC_60ea9.vcxproj" (cible par défaut) (1) ->
+(ClCompile cible) -> 
+  c:\users\spark\desktop\apps\cppprojects\boilerplates\ci_opengl_template\build_vs\cmakefiles\cmaketmp\checkincludefile.c(1): fatal error C1083: Impossible d'ouvrir le fichier include : 'pthread.h' : No such file or directory [C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\CMakeTmp\cmTC_60ea9.vcxproj]
+
+    0 Avertissement(s)
+    1 Erreur(s)
+
+Temps écoulé 00:00:00.57
+
+

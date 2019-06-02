@@ -1,0 +1,10 @@
+# CMake generation dependency list for this directory.
+C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/glm_0.9.9.3/./cmake/glm.pc.in
+C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/glm_0.9.9.3/CMakeLists.txt
+C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/glm_0.9.9.3/cmake/glmBuildConfig.cmake.in
+C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/glm_0.9.9.3/cmake/glmConfig.cmake.in
+C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/glm_0.9.9.3/cmake_uninstall.cmake.in
+P:/CMake/share/cmake-3.12/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in
+P:/CMake/share/cmake-3.12/Modules/CMakePackageConfigHelpers.cmake
+P:/CMake/share/cmake-3.12/Modules/GNUInstallDirs.cmake
+P:/CMake/share/cmake-3.12/Modules/WriteBasicConfigVersionFile.cmake

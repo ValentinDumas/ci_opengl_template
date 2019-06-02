@@ -1,0 +1,4 @@
+# CMake generation dependency list for this directory.
+C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/googletest/CMakeLists.txt
+P:/CMake/share/cmake-3.12/Modules/CMakeDependentOption.cmake
+P:/CMake/share/cmake-3.12/Modules/GNUInstallDirs.cmake

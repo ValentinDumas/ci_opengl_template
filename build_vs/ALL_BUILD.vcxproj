@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8D31F365-C4C0-3EAC-B3B7-A36FEEBC38FC}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+P:\CMake\bin\cmake.exe -HC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template -BC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs --check-stamp-file C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeCCompiler.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeCXXCompiler.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeRCCompiler.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeSystem.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\feature_tests.c;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\feature_tests.cxx;P:\CMake\share\cmake-3.12\Modules\CMakeCCompiler.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeCCompilerABI.c;P:\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeCXXCompiler.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp;P:\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeCompilerIdDetection.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCXXCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompileFeatures.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerABI.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerId.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineRCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineSystem.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeFindBinUtils.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeParseImplicitLinkInfo.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeRCCompiler.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeSystem.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestCXXCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestCompilerCommon.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestRCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CTest.cmake;P:\CMake\share\cmake-3.12\Modules\CTestTargets.cmake;P:\CMake\share\cmake-3.12\Modules\CTestUseLaunchers.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\ADSP-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\ARMCC-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\AppleClang-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Borland-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Cray-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\GHS-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\GNU-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\HP-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\IAR-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Intel-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C-FeatureTests.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\PGI-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\PathScale-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SCO-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\TI-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Watcom-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\XL-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\zOS-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CompilerId\VS-10.vcxproj.in;P:\CMake\share\cmake-3.12\Modules\DartConfiguration.tcl.in;P:\CMake\share\cmake-3.12\Modules\Internal\FeatureTesting.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-Determine-CXX.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+P:\CMake\bin\cmake.exe -HC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template -BC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs --check-stamp-file C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeCCompiler.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeCXXCompiler.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeRCCompiler.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeSystem.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\feature_tests.c;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\feature_tests.cxx;P:\CMake\share\cmake-3.12\Modules\CMakeCCompiler.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeCCompilerABI.c;P:\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeCXXCompiler.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp;P:\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeCompilerIdDetection.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCXXCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompileFeatures.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerABI.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerId.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineRCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineSystem.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeFindBinUtils.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeParseImplicitLinkInfo.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeRCCompiler.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeSystem.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestCXXCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestCompilerCommon.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestRCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CTest.cmake;P:\CMake\share\cmake-3.12\Modules\CTestTargets.cmake;P:\CMake\share\cmake-3.12\Modules\CTestUseLaunchers.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\ADSP-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\ARMCC-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\AppleClang-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Borland-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Cray-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\GHS-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\GNU-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\HP-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\IAR-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Intel-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C-FeatureTests.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\PGI-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\PathScale-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SCO-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\TI-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Watcom-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\XL-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\zOS-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CompilerId\VS-10.vcxproj.in;P:\CMake\share\cmake-3.12\Modules\DartConfiguration.tcl.in;P:\CMake\share\cmake-3.12\Modules\Internal\FeatureTesting.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-Determine-CXX.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+P:\CMake\bin\cmake.exe -HC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template -BC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs --check-stamp-file C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeCCompiler.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeCXXCompiler.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeRCCompiler.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeSystem.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\feature_tests.c;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\feature_tests.cxx;P:\CMake\share\cmake-3.12\Modules\CMakeCCompiler.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeCCompilerABI.c;P:\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeCXXCompiler.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp;P:\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeCompilerIdDetection.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCXXCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompileFeatures.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerABI.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerId.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineRCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineSystem.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeFindBinUtils.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeParseImplicitLinkInfo.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeRCCompiler.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeSystem.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestCXXCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestCompilerCommon.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestRCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CTest.cmake;P:\CMake\share\cmake-3.12\Modules\CTestTargets.cmake;P:\CMake\share\cmake-3.12\Modules\CTestUseLaunchers.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\ADSP-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\ARMCC-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\AppleClang-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Borland-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Cray-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\GHS-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\GNU-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\HP-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\IAR-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Intel-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C-FeatureTests.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\PGI-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\PathScale-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SCO-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\TI-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Watcom-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\XL-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\zOS-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CompilerId\VS-10.vcxproj.in;P:\CMake\share\cmake-3.12\Modules\DartConfiguration.tcl.in;P:\CMake\share\cmake-3.12\Modules\Internal\FeatureTesting.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-Determine-CXX.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+P:\CMake\bin\cmake.exe -HC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template -BC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs --check-stamp-file C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeCCompiler.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeCXXCompiler.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeRCCompiler.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\3.12.3\CMakeSystem.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\feature_tests.c;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\feature_tests.cxx;P:\CMake\share\cmake-3.12\Modules\CMakeCCompiler.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeCCompilerABI.c;P:\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeCXXCompiler.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp;P:\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeCompilerIdDetection.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCXXCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompileFeatures.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerABI.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerId.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineRCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeDetermineSystem.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeFindBinUtils.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeParseImplicitLinkInfo.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeRCCompiler.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeSystem.cmake.in;P:\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestCXXCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestCompilerCommon.cmake;P:\CMake\share\cmake-3.12\Modules\CMakeTestRCCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CTest.cmake;P:\CMake\share\cmake-3.12\Modules\CTestTargets.cmake;P:\CMake\share\cmake-3.12\Modules\CTestUseLaunchers.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\ADSP-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\ARMCC-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\AppleClang-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Borland-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Cray-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\GHS-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\GNU-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\HP-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\IAR-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Intel-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C-FeatureTests.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\MSVC-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\PGI-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\PathScale-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SCO-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\TI-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\Watcom-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\XL-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\zOS-C-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;P:\CMake\share\cmake-3.12\Modules\CompilerId\VS-10.vcxproj.in;P:\CMake\share\cmake-3.12\Modules\DartConfiguration.tcl.in;P:\CMake\share\cmake-3.12\Modules\Internal\FeatureTesting.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-Determine-CXX.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;P:\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\ZERO_CHECK.vcxproj">
+      <Project>{C7149EA4-7C89-37F2-B0BA-373AD98CE71E}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\Box2D\Box2D.vcxproj">
+      <Project>{82953F45-0825-398E-A89A-7E58116A27AE}</Project>
+      <Name>Box2D</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\luajit_2.0.3\buildvm.vcxproj">
+      <Project>{2F549945-2E65-3EF0-8B62-2C63E2EEF59E}</Project>
+      <Name>buildvm</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\ci_opengl_template.vcxproj">
+      <Project>{BAE05203-9FF6-337B-B4DC-A4FDBDDF51D6}</Project>
+      <Name>ci_opengl_template</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\cppfs\source\cppfs\cppfs.vcxproj">
+      <Project>{37A17E57-A4A3-3865-9313-A867C1AFBEF6}</Project>
+      <Name>cppfs</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\glad\glad.vcxproj">
+      <Project>{E2921A91-53E0-3E28-9AEB-536B51F937F9}</Project>
+      <Name>glad</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\glfw_3.2.1\src\glfw.vcxproj">
+      <Project>{9EBA1DDE-A088-342B-861E-155180A71CE3}</Project>
+      <Name>glfw</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\glm_0.9.9.3\glm\glm_shared.vcxproj">
+      <Project>{877DB095-6F18-37F0-B8DE-B00DCC76F88C}</Project>
+      <Name>glm_shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\glm_0.9.9.3\glm\glm_static.vcxproj">
+      <Project>{10A32DE4-1275-3464-9E9D-C99CBC87DFE9}</Project>
+      <Name>glm_static</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\googletest\googlemock\gmock.vcxproj">
+      <Project>{90F42E82-8756-3593-9FA1-8524EA4FDF3B}</Project>
+      <Name>gmock</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\googletest\googlemock\gmock_main.vcxproj">
+      <Project>{C578248C-441F-3BFE-AC23-B159AD11786F}</Project>
+      <Name>gmock_main</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\googletest\googlemock\gtest\gtest.vcxproj">
+      <Project>{1069282C-030A-3781-9CE8-C6E25BE288EC}</Project>
+      <Name>gtest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\googletest\googlemock\gtest\gtest_main.vcxproj">
+      <Project>{CC556883-CE7E-3D55-B870-41ED91516FD0}</Project>
+      <Name>gtest_main</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\imgui_1.68\imgui.vcxproj">
+      <Project>{E9520057-FD8B-398F-8C48-0671F6D6C771}</Project>
+      <Name>imgui</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\imgui_sfml\imgui_sfml.vcxproj">
+      <Project>{B95DB61B-EC49-3D6A-8B23-972B311A8CDE}</Project>
+      <Name>imgui_sfml</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\tests\integration\integration_test_robot.vcxproj">
+      <Project>{538106C3-8393-3506-995C-FE2EA14C5FCF}</Project>
+      <Name>integration_test_robot</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\tests\integration\integration_tests.vcxproj">
+      <Project>{8D550E6B-97A3-33CB-B82A-C5339E82FBFA}</Project>
+      <Name>integration_tests</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\luajit_2.0.3\liblua.vcxproj">
+      <Project>{E9E3D972-1EC7-3156-8B89-9101CCE9EB29}</Project>
+      <Name>liblua</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\lua\lua.vcxproj">
+      <Project>{BA84ED47-77FE-3080-9ADC-35314709CDDE}</Project>
+      <Name>lua</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\luajit_2.0.3\luajit.vcxproj">
+      <Project>{6FCE50FE-65F6-3766-B0B2-D741BE16E475}</Project>
+      <Name>luajit</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\mathematics\mathematics.vcxproj">
+      <Project>{FDB68BDB-F5EC-3390-BBFF-98F099D9B583}</Project>
+      <Name>mathematics</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\luajit_2.0.3\minilua.vcxproj">
+      <Project>{71F661F8-6129-3B33-87D6-74C5D09C83E7}</Project>
+      <Name>minilua</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\Audio\sfml-audio.vcxproj">
+      <Project>{BA814E06-68BC-3151-9A5F-8961CE4D56D0}</Project>
+      <Name>sfml-audio</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\Graphics\sfml-graphics.vcxproj">
+      <Project>{EC57AB70-1D7C-39AF-AEC9-6F56FA7BDCB6}</Project>
+      <Name>sfml-graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\Main\sfml-main.vcxproj">
+      <Project>{E7BC5E60-F305-3116-92B1-BAD10F68C54B}</Project>
+      <Name>sfml-main</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\Network\sfml-network.vcxproj">
+      <Project>{5FF24633-7F05-3183-BCBE-7964AA6F0404}</Project>
+      <Name>sfml-network</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\System\sfml-system.vcxproj">
+      <Project>{ADBB6CF2-EF12-3D7B-B989-A48B8D754D09}</Project>
+      <Name>sfml-system</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\Window\sfml-window.vcxproj">
+      <Project>{F2E03839-F8BB-3842-B567-B782D28224FB}</Project>
+      <Name>sfml-window</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\tests\unit\mathematics\unit_test_complex.vcxproj">
+      <Project>{15072AD0-0139-31DD-8898-8B97B78B7CBE}</Project>
+      <Name>unit_test_complex</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\tests\unit\unit_test_robot.vcxproj">
+      <Project>{C473B11B-E14C-34F6-929F-FB845205D3CF}</Project>
+      <Name>unit_test_robot</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\tests\unit\unit_tests.vcxproj">
+      <Project>{4EEA3BC3-FE40-3F99-9B44-A15DA9CF9E31}</Project>
+      <Name>unit_tests</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\src\utils\utils.vcxproj">
+      <Project>{33EE3D3B-B238-39C0-8C8E-C6AAB468D234}</Project>
+      <Name>utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\luajit_2.0.3\wluajit.vcxproj">
+      <Project>{4546CD03-3D90-330B-91F7-7CE84A1C9A30}</Project>
+      <Name>wluajit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

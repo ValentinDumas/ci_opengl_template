@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{EC57AB70-1D7C-39AF-AEC9-6F56FA7BDCB6}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>sfml-graphics</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\lib\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">sfml-graphics.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">sfml-graphics-s-d</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\lib\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">sfml-graphics.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">sfml-graphics-s</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\lib\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">sfml-graphics.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">sfml-graphics-s</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\lib\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">sfml-graphics.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">sfml-graphics-s</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\stb_image;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;SFML_STATIC;STBI_FAILURE_USERMSG;MSVC_PLATFORM;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\lib\Debug\sfml-graphics-s.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;__STDC_CONSTANT_MACROS;SFML_STATIC;STBI_FAILURE_USERMSG;MSVC_PLATFORM;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\stb_image;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\stb_image;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\stb_image;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;NDEBUG;SFML_STATIC;STBI_FAILURE_USERMSG;MSVC_PLATFORM;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ProgramDataBaseFileName>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\lib\Release\sfml-graphics-s.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;NDEBUG;SFML_STATIC;STBI_FAILURE_USERMSG;MSVC_PLATFORM;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\stb_image;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\stb_image;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\stb_image;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;NDEBUG;SFML_STATIC;STBI_FAILURE_USERMSG;MSVC_PLATFORM;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ProgramDataBaseFileName>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\lib\MinSizeRel\sfml-graphics-s.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;NDEBUG;SFML_STATIC;STBI_FAILURE_USERMSG;MSVC_PLATFORM;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\stb_image;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\stb_image;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\stb_image;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;NDEBUG;SFML_STATIC;STBI_FAILURE_USERMSG;MSVC_PLATFORM;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\lib\RelWithDebInfo\sfml-graphics-s.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;NDEBUG;SFML_STATIC;STBI_FAILURE_USERMSG;MSVC_PLATFORM;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\stb_image;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\stb_image;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\extlibs\headers\freetype2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/sfml_2.5.1/src/SFML/Graphics/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+P:\CMake\bin\cmake.exe -HC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template -BC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs --check-stamp-file C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/externals/sfml_2.5.1/src/SFML/Graphics/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/sfml_2.5.1/src/SFML/Graphics/CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\cmake\Modules\FindFreetype.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\Graphics\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/sfml_2.5.1/src/SFML/Graphics/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+P:\CMake\bin\cmake.exe -HC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template -BC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs --check-stamp-file C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/externals/sfml_2.5.1/src/SFML/Graphics/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/sfml_2.5.1/src/SFML/Graphics/CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\cmake\Modules\FindFreetype.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\Graphics\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/sfml_2.5.1/src/SFML/Graphics/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+P:\CMake\bin\cmake.exe -HC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template -BC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs --check-stamp-file C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/externals/sfml_2.5.1/src/SFML/Graphics/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/sfml_2.5.1/src/SFML/Graphics/CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\cmake\Modules\FindFreetype.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\Graphics\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/sfml_2.5.1/src/SFML/Graphics/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+P:\CMake\bin\cmake.exe -HC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template -BC:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs --check-stamp-file C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/build_vs/externals/sfml_2.5.1/src/SFML/Graphics/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/sfml_2.5.1/src/SFML/Graphics/CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\cmake\Modules\FindFreetype.cmake;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\CMakeLists.txt;C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\Graphics\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\BlendMode.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\BlendMode.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\Color.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Color.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Export.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\Font.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Font.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\Glsl.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Glsl.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Glsl.inl" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Glyph.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\GLCheck.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\GLCheck.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\GLExtensions.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\GLExtensions.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\Image.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Image.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\ImageLoader.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\ImageLoader.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\PrimitiveType.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Rect.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Rect.inl" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\RenderStates.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\RenderStates.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\RenderTexture.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\RenderTexture.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\RenderTarget.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\RenderTarget.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\RenderWindow.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\RenderWindow.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\Shader.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Shader.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\Texture.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Texture.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\TextureSaver.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\TextureSaver.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\Transform.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Transform.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\Transformable.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Transformable.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\View.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\View.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\Vertex.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Vertex.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\GLLoader.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\GLLoader.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Drawable.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\Shape.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Shape.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\CircleShape.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\CircleShape.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\RectangleShape.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\RectangleShape.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\ConvexShape.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\ConvexShape.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\Sprite.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Sprite.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\Text.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\Text.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\VertexArray.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\VertexArray.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\VertexBuffer.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Graphics\VertexBuffer.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\RenderTextureImpl.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\RenderTextureImpl.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\RenderTextureImplFBO.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\RenderTextureImplFBO.hpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\RenderTextureImplDefault.cpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Graphics\RenderTextureImplDefault.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\ZERO_CHECK.vcxproj">
+      <Project>{C7149EA4-7C89-37F2-B0BA-373AD98CE71E}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\System\sfml-system.vcxproj">
+      <Project>{ADBB6CF2-EF12-3D7B-B989-A48B8D754D09}</Project>
+      <Name>sfml-system</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\build_vs\externals\sfml_2.5.1\src\SFML\Window\sfml-window.vcxproj">
+      <Project>{F2E03839-F8BB-3842-B567-B782D28224FB}</Project>
+      <Name>sfml-window</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

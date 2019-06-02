@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/sfml_2.5.1/src/SFML/Window/CMakeLists.txt
+P:/CMake/share/cmake-3.12/Modules/FindOpenGL.cmake
+P:/CMake/share/cmake-3.12/Modules/FindPackageHandleStandardArgs.cmake
+P:/CMake/share/cmake-3.12/Modules/FindPackageMessage.cmake

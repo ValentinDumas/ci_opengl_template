@@ -1,0 +1,10 @@
+# CMake generation dependency list for this directory.
+C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/cppfs/cmake/FindLibCrypto.cmake
+C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/cppfs/cmake/FindLibSSH2.cmake
+C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/cppfs/source/cppfs/CMakeLists.txt
+P:/CMake/share/cmake-3.12/Modules/FindOpenSSL.cmake
+P:/CMake/share/cmake-3.12/Modules/FindPackageHandleStandardArgs.cmake
+P:/CMake/share/cmake-3.12/Modules/FindPackageMessage.cmake
+P:/CMake/share/cmake-3.12/Modules/FindZLIB.cmake
+P:/CMake/share/cmake-3.12/Modules/SelectLibraryConfigurations.cmake
+P:/CMake/share/cmake-3.12/Modules/exportheader.cmake.in

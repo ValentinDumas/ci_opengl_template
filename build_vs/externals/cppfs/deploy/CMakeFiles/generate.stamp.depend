@@ -1,0 +1,7 @@
+# CMake generation dependency list for this directory.
+C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/cppfs/cmake/RuntimeDependencies.cmake
+C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/cppfs/deploy/CMakeLists.txt
+C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/cppfs/deploy/packages/pack-cppfs.cmake
+P:/CMake/share/cmake-3.12/Modules/CPack.cmake
+P:/CMake/share/cmake-3.12/Modules/CPackComponent.cmake
+P:/CMake/share/cmake-3.12/Templates/CPackConfig.cmake.in

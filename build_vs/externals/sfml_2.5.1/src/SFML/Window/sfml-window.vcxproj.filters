@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Clipboard.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Context.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Cursor.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\GlContext.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\GlResource.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Joystick.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\JoystickManager.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Keyboard.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Mouse.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Touch.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Sensor.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\SensorManager.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\VideoMode.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Window.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\WindowImpl.cpp" />
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\CursorImpl.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\ClipboardImpl.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\WglContext.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\WglExtensions.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\InputImpl.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\JoystickImpl.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\SensorImpl.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\VideoModeImpl.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\WindowImplWin32.cpp">
+      <Filter>windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\Clipboard.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\ClipboardImpl.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\Context.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\Cursor.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\CursorImpl.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\Export.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\GlContext.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\GlResource.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\ContextSettings.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\Event.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\InputImpl.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\Joystick.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\JoystickImpl.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\JoystickManager.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\Keyboard.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\Mouse.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\Touch.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\Sensor.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\SensorImpl.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\SensorManager.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\VideoMode.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\VideoModeImpl.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\Window.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\WindowHandle.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\WindowImpl.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\include\SFML\Window\WindowStyle.hpp" />
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\CursorImpl.hpp">
+      <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\ClipboardImpl.hpp">
+      <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\WglContext.hpp">
+      <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\WglExtensions.hpp">
+      <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\InputImpl.hpp">
+      <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\JoystickImpl.hpp">
+      <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\SensorImpl.hpp">
+      <Filter>windows</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\Win32\WindowImplWin32.hpp">
+      <Filter>windows</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Spark\Desktop\apps\cppprojects\BOILERPLATES\ci_opengl_template\externals\sfml_2.5.1\src\SFML\Window\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="windows">
+      <UniqueIdentifier>{D160AF25-F4E3-39A0-9BD4-1BD2E3A58B2B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
