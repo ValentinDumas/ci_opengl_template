@@ -1,6 +1,0 @@
-# CMake generation dependency list for this directory.
-C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/googletest/googletest/CMakeLists.txt
-C:/Users/Spark/Desktop/apps/cppprojects/BOILERPLATES/ci_opengl_template/externals/googletest/googletest/cmake/internal_utils.cmake
-P:/CMake/share/cmake-3.12/Modules/FindPackageHandleStandardArgs.cmake
-P:/CMake/share/cmake-3.12/Modules/FindPackageMessage.cmake
-P:/CMake/share/cmake-3.12/Modules/FindPythonInterp.cmake

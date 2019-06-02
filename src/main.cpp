@@ -10,7 +10,6 @@
 #include <SFML/Audio/SoundBuffer.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
-#include "utils/FileSystem.hpp"
 #include "utils/typ.h"
 
 #include "lua/LuaScript.h"

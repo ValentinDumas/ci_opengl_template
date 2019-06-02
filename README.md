@@ -6,7 +6,7 @@ This project includes the most needed OpenGL libraries to start a project.
 [![GitHub version](https://badge.fury.io/gh/valentindumas%2Fci_opengl_template.svg)](https://badge.fury.io/gh/valentindumas%2Fci_opengl_template)
 [![Build Status](https://travis-ci.org/ValentinDumas/ci_opengl_template.svg?branch=master)](https://travis-ci.org/ValentinDumas/ci_opengl_template)
 [![Build status](https://ci.appveyor.com/api/projects/status/g4vc2xg31g7vqu81?svg=true)](https://ci.appveyor.com/project/ValentinDumas/ci-opengl-template)
-[![codecov](https://codecov.io/gh/ValentinDumas/ci_opengl_template/branch/master/graph/badge.svg)](https://codecov.io/gh/ValentinDumas/ci_opengl_template)
+[![Codecov](https://codecov.io/gh/ValentinDumas/ci_opengl_template/branch/master/graph/badge.svg)](https://codecov.io/gh/ValentinDumas/ci_opengl_template)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/78ab13069ab94f8e82d6096a5db2d59f)](https://www.codacy.com/app/ValentinDumas/ci_opengl_template?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ValentinDumas/ci_opengl_template&amp;utm_campaign=Badge_Grade)
 [![Documentation](https://codedocs.xyz/ValentinDumas/ci_opengl_template.svg)](https://codedocs.xyz/ValentinDumas/ci_opengl_template/)
 

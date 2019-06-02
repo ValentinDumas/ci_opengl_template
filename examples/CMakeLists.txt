@@ -3,8 +3,6 @@
 # Created by Spark on 28/04/2019.
 # ------------------------------------------------------------------------------
 
-add_subdirectory(cppfs)
-
 add_subdirectory(lua)
 
 add_subdirectory(opengl3_glfw)
