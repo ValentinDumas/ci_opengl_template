@@ -29,6 +29,7 @@ if(APPLE)
     message("SFML: Apple building !")
     include_directories(externals/sfml_2.5.1/include)
     link_directories(${PROJECT_SOURCE_DIR}/externals/sfml_2.5.1/lib)
+    add_definitions(-DCMAKE_MACOSX_RPATH=ON)
 endif()
 
 # Turn off shared libs to manage static/shared libraries
@@ -43,8 +44,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__STDC_CONSTANT_MACROS")
 
 # Note: Can be OFF when testing (CI). Turn ON only to build an executable directly in project instead of CMake binary folder
 set(BUILD_EXECUTABLE_IN_PROJECT_TREE OFF)
-
-# set(CMAKE_MACOSX_RPATH 0) # TEST
 
 # ------------------------------------------------------------------------------
 # Testing options

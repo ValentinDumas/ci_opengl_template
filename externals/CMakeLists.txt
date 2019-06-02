@@ -49,9 +49,10 @@ endif()
 # PUT DYNAMIC LIBRARIES HERE
 #
 # ------------------------------------------------------------------------------
-if(NOT MSVC)
-    set(BUILD_SHARED_LIBS ON)
-endif()
+#if(NOT MSVC)
+set(BUILD_SHARED_LIBS ON)
+#endif()
+
 set(BUILD_SHARED_LIBS_STATUS ${BUILD_SHARED_LIBS}) # Save BUILD_SHARED_LIBS value to prevent altering it in this file
 
 # ------------------------------------------------------------------------------
