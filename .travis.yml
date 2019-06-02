@@ -406,7 +406,7 @@ matrix:
     script:
       - cmake -DONLINE_TESTING=ON ..
       - make -j4 # --debug
-      - make --debug test
+      # - make --debug test
 
   #
   # XCode 8
