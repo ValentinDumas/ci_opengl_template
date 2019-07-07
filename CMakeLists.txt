@@ -25,6 +25,9 @@ project(ci_opengl_template C CXX)
 # set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD 14)
 
+include_directories(externals/glad/include)
+include_directories(externals/glfw_3.2.1/include)
+
 if(APPLE)
     message("SFML: Apple building !")
     include_directories(externals/sfml_2.5.1/include)

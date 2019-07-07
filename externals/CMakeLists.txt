@@ -156,13 +156,13 @@ set(BUILD_SHARED_LIBS OFF)
 # ------------------------------------------------------------------------------
 # GLad
 # ------------------------------------------------------------------------------
-#add_subdirectory(glad)
-#AddLibraryToProject(glad)
-#GetLibraryType(glad)
-#if (library_type STREQUAL SHARED_LIBRARY) # glad as a shared library
-#    # If so, define the macro GLAD_API_EXPORT on the command line.
-#    target_compile_definitions(glad PRIVATE GLAD_GLAPI_EXPORT)
-#endif()
+add_subdirectory(glad)
+AddLibraryToProject(glad)
+GetLibraryType(glad)
+if (library_type STREQUAL SHARED_LIBRARY) # glad as a shared library
+    # If so, define the macro GLAD_API_EXPORT on the command line.
+    target_compile_definitions(glad PRIVATE GLAD_GLAPI_EXPORT)
+endif()
 
 ## ------------------------------------------------------------------------------
 ## GLad Additional Libraries
@@ -180,15 +180,15 @@ set(BUILD_SHARED_LIBS OFF)
 # ------------------------------------------------------------------------------
 # GLFW 3.2.1
 # ------------------------------------------------------------------------------
-#option(GLFW_INSTALL OFF)
-#option(GLFW_BUILD_DOCS OFF)
-#option(GLFW_BUILD_EXAMPLES OFF)
-#option(GLFW_BUILD_TESTS OFF)
-#option(ENABLE_BOOST_WORKAROUND OFF)
-#add_subdirectory(glfw_3.2.1)
-#AddLibraryToProject(glfw)
-#target_include_directories(glfw PUBLIC ${GLFW_SOURCE_DIR}/include)
-##AddLibraryToProject(${GLFW_LIBRARIES})
+option(GLFW_INSTALL OFF)
+option(GLFW_BUILD_DOCS OFF)
+option(GLFW_BUILD_EXAMPLES OFF)
+option(GLFW_BUILD_TESTS OFF)
+option(ENABLE_BOOST_WORKAROUND OFF)
+add_subdirectory(glfw_3.2.1)
+AddLibraryToProject(glfw)
+target_include_directories(glfw PUBLIC ${GLFW_SOURCE_DIR}/include)
+#AddLibraryToProject(${GLFW_LIBRARIES})
 
 # ------------------------------------------------------------------------------
 # GLM library (0.9.9.3)
